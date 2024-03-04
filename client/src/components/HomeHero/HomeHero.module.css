@@ -1,0 +1,84 @@
+.homeHero {
+    width: 100%;
+    height: 100dvh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(./../../assets/images/img.jpg) ;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.homeHero .homeHeroWrapper {
+    width: 100%;
+    height: calc(100dvh - 70px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.homeHero .homeHeroWrapper .heroTxt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homeHero .homeHeroWrapper .heroTxt h2 {
+    color: #fff;
+    font-size: 2.5rem;
+    letter-spacing: 1.3px;
+    font-weight: bold;
+    width: 70%;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.homeHero .homeHeroWrapper .items {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    background-color: rgba(0, 0, 255, 0.445);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.homeHero .homeHeroWrapper .items .item {
+    width: 33.33%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all .5s ease-in-out;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.homeHero .homeHeroWrapper .items .item .itemIcon {
+    font-size: 3.5rem;
+    color: #fff;
+}
+
+.homeHero .homeHeroWrapper .items .item > h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    width: 70%;
+    text-align: center;
+    margin: 0;
+    margin-top: 16px;
+}
+
+.homeHero .homeHeroWrapper .items .item:hover {
+    background-color: rgb(255, 255, 255);
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+}
+
+.homeHero .homeHeroWrapper .items .item:hover .itemIcon {
+    color: blue;
+}
+
+.homeHero .homeHeroWrapper .items .item:hover > h3 {
+    color: blue;
+}

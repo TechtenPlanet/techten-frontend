@@ -1,0 +1,74 @@
+.aboutSection {
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    margin-top: 64px;
+    padding: 20px 80px;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.aboutSection .intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: blue;
+    width: fit-content;
+    margin: 0;
+    margin-bottom: 8px;
+}
+
+.aboutSection .intro > span {
+    padding: 3px;
+    border: 3px solid blue;
+    background-color: blue;
+    border-radius: 50px;
+    margin: 0px 8px;
+}
+
+.aboutSection .aboutSectionWrapper {
+    width: 100%;
+    height: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutSection .aboutSectionWrapper .aboutSectionImg, .aboutSection .aboutSectionWrapper .aboutSectionTxt {
+    width: 50%;
+    height: 95%;
+}
+
+.aboutSection .aboutSectionWrapper .aboutSectionTxt {
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+
+.aboutSection .aboutSectionWrapper .aboutSectionImg > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.aboutSection .aboutSectionWrapp er .aboutSectionTxt > h3 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    line-height: 1.2;
+    margin: 0;
+    color: blue;
+}
+
+.aboutSection .aboutSectionWrapper .aboutSectionTxt > p {
+    line-height: 1.3;
+    letter-spacing: 1.3;
+    color: rgba(0, 1, 44, 0.733);
+    font-size: 16px;
+}
+
+.aboutSection .aboutSectionWrapper .aboutSectionTxt > button {
+    
+}
