@@ -72,3 +72,56 @@
 .aboutSection .aboutSectionWrapper .aboutSectionTxt > button {
     
 }
+
+/* Mobile Styling */
+
+@media screen and (max-width: 700px) {
+    .aboutSection {
+        height: fit-content;
+        margin-top: 32px;
+        padding: 20px;
+    }
+    
+    .aboutSection .intro {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        color: blue;
+        width: fit-content;
+        margin: 0;
+        margin-bottom: 8px;
+    }
+    
+    .aboutSection .intro > span {
+        padding: 3px;
+        border: 3px solid blue;
+        background-color: blue;
+        border-radius: 50px;
+        margin: 0px 8px;
+    }
+    
+    .aboutSection .aboutSectionWrapper {
+        height: fit-content;
+        flex-direction: column;
+    }
+    
+    .aboutSection .aboutSectionWrapper .aboutSectionImg, .aboutSection .aboutSectionWrapper .aboutSectionTxt {
+        width: 90%;
+        height: 95%;
+    }
+    
+    .aboutSection .aboutSectionWrapper .aboutSectionTxt {
+        padding-left: 0px;
+        box-sizing: border-box;
+    }
+    
+    .aboutSection .aboutSectionWrapper .aboutSectionTxt > h3 {
+        font-size: 2rem;
+        font-weight: bold;
+        letter-spacing: 1.3px;
+        line-height: 1.2;
+        margin: 0;
+        color: blue;
+    }
+}

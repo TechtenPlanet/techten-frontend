@@ -63,3 +63,48 @@
 .servicesSection .servicesSectionWrapper .servicesCards .serviceCard .serviceLink:hover {
     text-decoration: underline;
 }
+
+/* Mobile Styling */
+
+@media screen and (max-width: 700px) {
+    .servicesSection {
+        height: fit-content;
+        margin-top: 32px;
+        padding: 20px;
+    }
+    
+    .servicesSection .intro {
+        font-size: 1rem;
+    }
+    
+    .servicesSection .servicesSectionWrapper, .servicesSection .servicesSectionWrapper .servicesCards {
+        height: fit-content;
+        justify-content: space-evenly;
+    }
+    
+    .servicesSection .servicesSectionWrapper .servicesCards {
+        height: 100%;
+        flex-wrap: wrap;
+    }
+    
+    .servicesSection .servicesSectionWrapper .servicesCards .serviceCard {
+        width: 45%;
+        height: 80%;
+        padding: 10px;
+        margin-bottom: 16px;
+    }
+    
+    .servicesSection .servicesSectionWrapper .servicesCards .serviceCard .serviceName {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+    
+    .servicesSection .servicesSectionWrapper .servicesCards .serviceCard .serviceLink {
+        color: blue;
+        text-decoration: none;
+    }
+    
+    .servicesSection .servicesSectionWrapper .servicesCards .serviceCard .serviceLink:hover {
+        text-decoration: underline;
+    }
+}
