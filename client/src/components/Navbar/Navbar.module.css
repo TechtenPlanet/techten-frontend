@@ -61,6 +61,7 @@
     border-radius: 4px;
     padding: 5px 8px;
     color: blue;
+    display: none;
 }
 
 .navbar .show, .navbar .noShow {
@@ -107,6 +108,10 @@
 /* Mobile Styling */
 
 @media screen and (max-width: 700px) {
+    .navbar .navbarWrapper .resIcon {
+        display: flex;
+    }
+    
     .navbar {
         padding: 10px 20px;
         position: relative;
