@@ -47,8 +47,22 @@
     justify-content: space-between;
 }
 
+.eventsSection .eventsSectionWrapper .eventCards .mySwiper {
+    height: 100%;
+}
+
+.eventsSection .eventsSectionWrapper .eventCards .mySwiper .swiper {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
 .eventsSection .eventsSectionWrapper .eventCards .eventCard {
-    width: 22%;
+    width: 100%;
     height: 80%;
     border-radius: 8px;
     padding: 10px;
@@ -63,8 +77,49 @@
     width: 100%;
     height: 50%;
     border-radius: 4px;
+    position: relative;
 }
 
 .eventsSection .eventsSectionWrapper .eventCards .eventCard .eventImg {
     background-color: red;
+}
+
+.eventsSection .eventsSectionWrapper .eventCards .eventCard .eventTxt .aboutEvent {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+
+.eventsSection .eventsSectionWrapper .eventCards .eventCard .eventTxt .aboutEvent > p {
+    display: flex;
+    align-items: flex-end;
+}
+
+.eventsSection .eventsSectionWrapper .eventCards .eventCard .eventTxt .aboutEvent .eventIcon {
+    font-size: 1.5rem;
+    color: blue;
+    margin-right: 4px;
+}
+
+.eventsSection .eventsSectionWrapper .eventCards .eventCard .eventTxt .eventHeading {
+    font-size: 2rem;
+    letter-spacing: 1.3px;
+    padding: 0;
+    margin: 0;
+    color: blue;
+}
+
+.eventsSection .eventsSectionWrapper .eventCards .eventCard .eventTxt .eventBrief {
+    margin: 0;
+    letter-spacing: 1.3px;
+    line-height: 1.3;
+}
+
+.eventsSection .eventsSectionWrapper .eventCards .eventCard .eventTxt .eventLink {
+    color: blue;
+    text-decoration: none;
+    position: absolute;
+    bottom: 0px;
 }
