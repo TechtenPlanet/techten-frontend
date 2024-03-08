@@ -1,0 +1,106 @@
+.teamSection {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    margin-top: 32px;
+    padding: 20px 80px;
+    box-sizing: border-box;
+}
+
+.teamSection .intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: blue;
+    width: fit-content;
+    margin: 0;
+    margin-bottom: 8px;
+    width: fit-content;
+}
+
+.teamSection .intro > span {
+    padding: 3px;
+    border: 3px solid blue;
+    background-color: blue;
+    border-radius: 50px;
+    margin: 0px 8px;
+}
+
+.teamSection .teamSectionWrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.teamSection .teamSectionWrapper .teamCards {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.teamSection .teamSectionWrapper .teamCards .mySwiper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.teamSection .teamSectionWrapper .teamCards .mySwiper .swiper {
+    width: 200px !important;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.teamSection .teamSectionWrapper .teamCards .mySwiper .swiper .teamCard {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid blue;
+    position: relative;
+    cursor: pointer;
+    /* box-shadow: 0px 0px 16px #6868687e; */
+}
+
+.teamSection .teamSectionWrapper .teamCards .mySwiper .swiper .teamCard > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    z-index: -1;
+    filter: brightness(50%);
+}
+
+.teamSection .teamSectionWrapper .teamCards .mySwiper .swiper .teamCard > h4 {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    text-align: center;
+}

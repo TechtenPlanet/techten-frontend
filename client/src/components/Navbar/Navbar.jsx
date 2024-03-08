@@ -21,22 +21,22 @@ const Navbar = () => {
            <div className={style.links}>
             <ul>
               <li>
-                <Link>Home</Link>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <Link>About Us</Link>
+                <Link to="/about-us" >About Us</Link>
               </li>
               <li>
-                <Link>Services</Link>
+                <Link to="/services">Services</Link>
               </li>
               <li>
-                <Link>Events</Link>
+                <Link to="/events">Events</Link>
               </li>
               <li>
-                <Link>Blogs</Link>
+                <Link to="/blogs">Blogs</Link>
               </li>
               <li>
-                <Link>Gallery</Link>
+                <Link to="/gallery" >Gallery</Link>
               </li>
             </ul>
            

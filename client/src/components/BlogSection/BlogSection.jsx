@@ -1,6 +1,6 @@
 import React from 'react'
-import style from './EventsSection.module.css'
-import { FaMapMarkerAlt, FaRegClock } from 'react-icons/fa'
+import style from './BlogSection.module.css'
+import { FaCalendarAlt, FaRegCalendar, FaRegClock, FaRegUser, FaUser, FaUserAlt } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -10,7 +10,7 @@ import 'swiper/css';
 
 import { Autoplay } from 'swiper/modules';
 
-const EventsSection = () => {
+const BlogsSection = () => {
 
     // Function to trim text to the specified maxLength
     const trimText = (text, maxLength) => {
@@ -23,10 +23,10 @@ const EventsSection = () => {
 
     const txt = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque sit beatae, eum voluptatem ut obcaecati minima vel sapiente iste quam aliquam omnis eveniet fugiat fuga ullam quas perferendis doloribus aspernatur."
     return (
-        <div className={style.eventsSection}>
-            <h3 className={style.intro}> <span></span> Upcoming Events <span></span> </h3>
-            <div className={style.eventsSectionWrapper}>
-                <div className={style.eventCards}>
+        <div className={style.blogsSection}>
+            <h3 className={style.intro}> <span></span> Lates Blogs <span></span> </h3>
+            <div className={style.blogsSectionWrapper}>
+                <div className={style.blogCards}>
                     <Swiper
                     slidesPerView={4}
                         spaceBetween={30}
@@ -44,136 +44,136 @@ const EventsSection = () => {
                         className={style.mySwiper}
                     >
                         <SwiperSlide className={style.swiper}>
-                            <div className={style.eventCard}>
-                                <div className={style.eventImg}></div>
-                                <div className={style.eventTxt}>
-                                    <div className={style.aboutEvent}>
-                                        <p className={style.eventLocation}>
-                                            <FaMapMarkerAlt className={style.eventIcon} />
+                            <div className={style.blogCard}>
+                                <div className={style.blogImg}></div>
+                                <div className={style.blogTxt}>
+                                    <div className={style.aboutBlog}>
+                                        <p className={style.blogLocation}>
+                                            <FaRegUser className={style.blogIcon} />
                                             Achimota
                                         </p>
-                                        <p className={style.eventTime}>
-                                            <FaRegClock className={style.eventIcon} />
+                                        <p className={style.blogTime}>
+                                            <FaRegCalendar className={style.blogIcon} />
                                             12: 50 Am
                                         </p>
                                     </div>
-                                    <h4 className={style.eventHeading}>
+                                    <h4 className={style.blogHeading}>
                                         AI summit
                                     </h4>
 
-                                    <p className={style.eventBrief}>
+                                    <p className={style.blogBrief}>
                                         {trimText(txt, 80)}
                                     </p>
 
-                                    <Link className={style.eventLink} to=""> Read More </Link>
+                                    <Link className={style.blogLink} to=""> Read More </Link>
 
                                 </div>
                             </div>
                         </SwiperSlide>
                         <SwiperSlide className={style.swiper}>
-                            <div className={style.eventCard}>
-                                <div className={style.eventImg}></div>
-                                <div className={style.eventTxt}>
-                                    <div className={style.aboutEvent}>
-                                        <p className={style.eventLocation}>
-                                            <FaMapMarkerAlt className={style.eventIcon} />
+                            <div className={style.blogCard}>
+                                <div className={style.blogImg}></div>
+                                <div className={style.blogTxt}>
+                                    <div className={style.aboutBlog}>
+                                        <p className={style.blogLocation}>
+                                            <FaRegUser className={style.blogIcon} />
                                             Achimota
                                         </p>
-                                        <p className={style.eventTime}>
-                                            <FaRegClock className={style.eventIcon} />
+                                        <p className={style.blogTime}>
+                                            <FaRegCalendar className={style.blogIcon} />
                                             12: 50 Am
                                         </p>
                                     </div>
-                                    <h4 className={style.eventHeading}>
+                                    <h4 className={style.blogHeading}>
                                         AI summit
                                     </h4>
 
-                                    <p className={style.eventBrief}>
+                                    <p className={style.blogBrief}>
                                         {trimText(txt, 80)}
                                     </p>
 
-                                    <Link className={style.eventLink} to=""> Read More </Link>
+                                    <Link className={style.blogLink} to=""> Read More </Link>
 
                                 </div>
                             </div>
                         </SwiperSlide>
                         <SwiperSlide className={style.swiper}>
-                            <div className={style.eventCard}>
-                                <div className={style.eventImg}></div>
-                                <div className={style.eventTxt}>
-                                    <div className={style.aboutEvent}>
-                                        <p className={style.eventLocation}>
-                                            <FaMapMarkerAlt className={style.eventIcon} />
+                            <div className={style.blogCard}>
+                                <div className={style.blogImg}></div>
+                                <div className={style.blogTxt}>
+                                    <div className={style.aboutBlog}>
+                                        <p className={style.blogLocation}>
+                                            <FaRegUser className={style.blogIcon} />
                                             Achimota
                                         </p>
                                         <p className={style.eventTime}>
-                                            <FaRegClock className={style.eventIcon} />
+                                            <FaRegCalendar className={style.blogIcon} />
                                             12: 50 Am
                                         </p>
                                     </div>
-                                    <h4 className={style.eventHeading}>
+                                    <h4 className={style.blogHeading}>
                                         AI summit
                                     </h4>
 
-                                    <p className={style.eventBrief}>
+                                    <p className={style.blogBrief}>
                                         {trimText(txt, 80)}
                                     </p>
 
-                                    <Link className={style.eventLink} to=""> Read More </Link>
+                                    <Link className={style.blogLink} to=""> Read More </Link>
 
                                 </div>
                             </div>
                         </SwiperSlide>
                         <SwiperSlide className={style.swiper}>
-                            <div className={style.eventCard}>
-                                <div className={style.eventImg}></div>
-                                <div className={style.eventTxt}>
-                                    <div className={style.aboutEvent}>
-                                        <p className={style.eventLocation}>
-                                            <FaMapMarkerAlt className={style.eventIcon} />
+                            <div className={style.blogCard}>
+                                <div className={style.blogImg}></div>
+                                <div className={style.blogTxt}>
+                                    <div className={style.aboutBlog}>
+                                        <p className={style.blogLocation}>
+                                            <FaRegUser className={style.blogIcon} />
                                             Achimota
                                         </p>
-                                        <p className={style.eventTime}>
-                                            <FaRegClock className={style.eventIcon} />
+                                        <p className={style.blogTime}>
+                                            <FaRegCalendar className={style.blogIcon} />
                                             12: 50 Am
                                         </p>
                                     </div>
-                                    <h4 className={style.eventHeading}>
+                                    <h4 className={style.blogHeading}>
                                         AI summit
                                     </h4>
 
-                                    <p className={style.eventBrief}>
+                                    <p className={style.blogBrief}>
                                         {trimText(txt, 80)}
                                     </p>
 
-                                    <Link className={style.eventLink} to=""> Read More </Link>
+                                    <Link className={style.blogLink} to=""> Read More </Link>
 
                                 </div>
                             </div>
                         </SwiperSlide>
                         <SwiperSlide className={style.swiper}>
-                            <div className={style.eventCard}>
-                                <div className={style.eventImg}></div>
-                                <div className={style.eventTxt}>
-                                    <div className={style.aboutEvent}>
-                                        <p className={style.eventLocation}>
-                                            <FaMapMarkerAlt className={style.eventIcon} />
+                            <div className={style.blogCard}>
+                                <div className={style.blogImg}></div>
+                                <div className={style.blogTxt}>
+                                    <div className={style.aboutBlog}>
+                                        <p className={style.blogLocation}>
+                                            <FaRegUser className={style.blogIcon} />
                                             Achimota
                                         </p>
-                                        <p className={style.eventTime}>
-                                            <FaRegClock className={style.eventIcon} />
+                                        <p className={style.blogTime}>
+                                            <FaRegCalendar className={style.blogIcon} />
                                             12: 50 Am
                                         </p>
                                     </div>
-                                    <h4 className={style.eventHeading}>
+                                    <h4 className={style.blogHeading}>
                                         AI summit
                                     </h4>
 
-                                    <p className={style.eventBrief}>
+                                    <p className={style.blogBrief}>
                                         {trimText(txt, 80)}
                                     </p>
 
-                                    <Link className={style.eventLink} to=""> Read More </Link>
+                                    <Link className={style.blogLink} to=""> Read More </Link>
 
                                 </div>
                             </div>
@@ -185,4 +185,4 @@ const EventsSection = () => {
     )
 }
 
-export default EventsSection
+export default BlogsSection
