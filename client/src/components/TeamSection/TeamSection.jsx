@@ -26,8 +26,24 @@ const TeamSection = () => {
             <div className={style.teamSectionWrapper}>
                 <div className={style.teamCards}>
                     <Swiper
-                    slidesPerView={4}
-                        spaceBetween={30}
+                        breakpoints={{
+                            430: {
+                                slidesPerView: 1,
+                                spaceBetween: 10
+                            },
+                            640: {
+                                slidesPerView: 2,
+                                spaceBetween: 20,
+                            },
+                            768: {
+                                slidesPerView: 4,
+                                spaceBetween: 40,
+                            },
+                            1024: {
+                                slidesPerView: 5,
+                                spaceBetween: 30,
+                            },
+                        }}
                         centeredSlides={true}
                         loop={true}
                         autoplay={{

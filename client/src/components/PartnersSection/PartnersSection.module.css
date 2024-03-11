@@ -79,3 +79,49 @@
     height: 100%;
     object-fit: contain;
 }
+
+/* Mobile Styling */
+
+@media screen and (max-width: 430px) {
+    .partnersSection {
+        width: 100%;
+        height: 200px;
+        margin-top: 16px;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    
+    .partnersSection .partnersSectionWrapper {
+        width: 100%;
+        height: 100%;
+    }
+    
+    
+    .partnersSection .partnersSectionWrapper .partnerCards .mySwiper .swiper {
+        width: 10px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .partnersSection .partnersSectionWrapper .partnerCards .partnerCard {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* box-shadow: 0px 0px 16px #6868687e; */
+    }
+    
+    .partnersSection .partnersSectionWrapper .partnerCards .partnerCard > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}

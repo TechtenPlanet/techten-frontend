@@ -9,3 +9,176 @@
     padding: 20px 80px;
     box-sizing: border-box;
 }
+
+.footer .footerWrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer .footerWrapper .footerCard {
+    width: 33.33%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer .footerWrapper .footerCard .footerImg {
+    width: fit-content;
+    height: fit-content;
+}
+
+.footer .footerWrapper .footerCard .footerImg > img {
+    width: 80px;
+    height: 80px;
+}
+
+.footer .footerWrapper .footerCard .footerTxt {
+    width: 90%;
+    height: fit-content;
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 16px;
+}
+
+.footer .footerWrapper .footerCard .footerHeader {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    color: #fff;
+    text-transform: capitalize;
+    margin: 0;
+    margin-bottom: 16px;
+}
+
+.footer .footerWrapper .footerCard > ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.footer .footerWrapper .footerCard > ul li {
+    list-style: none;
+    margin: 4px 0;
+}
+
+.footer .footerWrapper .footerCard > ul li a {
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 1.3px;
+    transition: all .6s ease-in-out;
+}
+
+.footer .footerWrapper .footerCard > ul li a:hover {
+    letter-spacing: 1px;
+    transition: all .6s ease-in-out;
+}
+
+.footer .footerWrapper .footerCard .subscribeWrapper {
+    width: 100%;
+    height: fit-content;
+}
+
+.footer .footerWrapper .footerCard .subscribeWrapper .subscribeInput {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer .footerWrapper .footerCard .subscribeWrapper .subscribeInput > input {
+    width: calc(100% - 32px);
+    padding: 15px 10px;
+    border: none;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.footer .footerWrapper .footerCard .subscribeWrapper .subscribeInput > button {
+    border: none;
+    padding: 15px 32px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color: orange;
+    font-weight: bold;
+    color: #fff;
+}
+
+.footer .footerWrapper .footerCard .subscribeWrapper > p {
+    padding: 0;
+    margin: 0;
+    font-style: italic;
+}
+
+.footer .footerWrapper .footerCard .socialWrapper {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer .footerWrapper .footerCard .socialWrapper > h4 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.footer .footerWrapper .footerCard .socialWrapper .socials {
+    display: flex;
+}
+
+.footer .footerWrapper .footerCard .socialWrapper .socials a .social {
+    color: #fff;
+    margin: 4px;
+    font-size: 1.3rem;
+    transition: all .6s ease-in-out;
+}
+
+.footer .footerWrapper .footerCard .socialWrapper .socials a .social:hover {
+    color: orange;
+    transition: all .6s ease-in-out;
+    transform: scale(1.1, 1.1);
+    cursor: pointer;
+}
+
+/* Mobile Styling */
+
+@media screen and (max-width: 430px) {
+    .footer {
+        height: fit-content;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .footer .footerWrapper {
+        flex-direction: column;
+    }
+    
+    .footer .footerWrapper .footerCard {
+        width: 90%;
+        height: fit-content;
+        margin-bottom: 16px;
+    }
+    
+    .footer .footerWrapper .footerCard .footerTxt {
+        padding: 20px;
+        box-sizing: border-box;
+        margin-top: 8px;
+    }
+    
+    .footer .footerWrapper .footerCard .footerHeader {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+}

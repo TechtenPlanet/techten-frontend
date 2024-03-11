@@ -36,3 +36,25 @@
 .banner1 .banner1Wrapper .banner1Heading> span {
     color: orange;
 }
+
+/* Mobile Styling */
+
+@media screen and (max-width: 430px) {
+    .banner1 {
+        width: 100%;
+        height: fit-content;
+        padding: 20px;
+        margin-top: 32px;
+    }
+    
+    .banner1 .banner1Wrapper .banner1Heading {
+        font-size: 2rem;
+        line-height: 1.1;
+        width: 95%;
+        margin: 16px;
+    }
+    
+    .banner1 .banner1Wrapper .banner1Heading> span {
+        color: orange;
+    }
+}

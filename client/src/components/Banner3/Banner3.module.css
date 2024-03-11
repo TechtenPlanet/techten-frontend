@@ -44,3 +44,25 @@
     margin: 0;
     margin: 16px 0;
 }
+
+/* Mobile Styling */
+
+@media screen and (max-width: 430px) {
+    .banner3 {
+        height: fit-content;
+        padding: 20px;
+        margin-top: 32px;
+    }
+    
+    .banner3 .banner3Wrapper .banner3Heading {
+        width: 95%;
+    }
+    
+    .banner3 .banner3Wrapper .banner3Heading> span {
+        color: orange;
+    }
+    
+    .banner3 .banner3Wrapper .banner3Txt {
+        width: 95%;
+    }
+}

@@ -44,3 +44,22 @@
     margin: 0;
     margin: 16px 0px;
 }
+
+/* Mobile Styling */
+
+@media screen and (max-width: 430px) {
+    .banner2 {
+        height: fit-content;
+        padding: 20px;
+        margin-top: 32px;
+    }
+    
+    .banner2 .banner2Wrapper .banner2Heading {
+        width: 95%;
+    }
+    
+    .banner2 .banner2Wrapper .banner2Txt {
+        color: #fff;
+        width: 95%;
+    }
+}

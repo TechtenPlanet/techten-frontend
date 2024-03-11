@@ -123,3 +123,28 @@
     position: absolute;
     bottom: 0px;
 }
+
+/* Mobile Styling */
+
+@media screen and (max-width: 430px) {
+    .blogsSection {
+        width: 100%;
+        height: 100dvh;
+        margin-top: 32px;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    
+    .blogsSection .blogsSectionWrapper {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .blogsSection .blogsSectionWrapper .blogCards .mySwiper {
+        height: 100%;
+    }
+    
+    .blogsSection .blogsSectionWrapper .blogCards .mySwiper .swiper {
+        width: 70% !important;
+    }
+}

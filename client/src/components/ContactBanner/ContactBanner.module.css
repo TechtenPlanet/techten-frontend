@@ -37,3 +37,20 @@
 .contactBanner .contactBannerWrapper .contactBannerHeading> span {
     color: orange;
 }
+
+/* Mobile Styling */
+
+@media screen and (max-width: 430px) {
+    .contactBanner {
+        width: 100%;
+        height: fit-content;
+        padding: 20px;
+        margin-top: 32px;
+    }
+    
+    .contactBanner .contactBannerWrapper .contactBannerHeading {
+        width: 95%;
+        margin: 0;
+        margin-bottom: 32px;
+    }
+}

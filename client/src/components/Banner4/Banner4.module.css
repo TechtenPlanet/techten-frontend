@@ -37,3 +37,20 @@
 .banner4 .banner4Wrapper .banner4Heading> span {
     color: orange;
 }
+
+/* Mobile Styling */
+
+@media screen and (max-width: 430px) {
+    .banner4 {
+        width: 100%;
+        height: fit-content;
+        padding: 20px;
+        margin-top: 32px;
+    }
+    
+    .banner4 .banner4Wrapper .banner4Heading {
+        width: 95%;
+        margin: 0;
+        margin-bottom: 16px;
+    }
+}

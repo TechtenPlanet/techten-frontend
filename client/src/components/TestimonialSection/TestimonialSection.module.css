@@ -120,3 +120,35 @@
     letter-spacing: 1.3px;
     line-height: 1.3;
 }
+
+/* Mobile Styling */
+
+@media screen and (max-width: 430px) {
+    .testimonialSection {
+        margin-top: 32px;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    
+    .testimonialSection .testimonialSectionWrapper {
+        width: 100%;
+        height: 95%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .testimonialSection .testimonialSectionWrapper .testimonialCards .mySwiper {
+        height: 100%;
+    }
+    
+    .testimonialSection .testimonialSectionWrapper .testimonialCards .mySwiper .swiper {
+        width: 90% !important;
+    }
+    
+    .testimonialSection .testimonialSectionWrapper .testimonialCards .testimonialCard {
+        width: 100%;
+        height: 65%;
+    }
+}
