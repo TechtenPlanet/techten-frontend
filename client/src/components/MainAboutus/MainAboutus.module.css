@@ -1,0 +1,112 @@
+.mainAboutus {
+    width: 100%;
+    height: 120dvh;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    margin-top: 64px;
+    padding: 20px 80px;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.mainAboutus .mainAboutusWrapper {
+    width: 100%;
+    height: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainAboutus .mainAboutusWrapper .mainAboutusImg, .mainAboutus .mainAboutusWrapper .mainAboutusTxt {
+    width: 50%;
+    height: 95%;
+}
+
+.mainAboutus .mainAboutusWrapper .mainAboutusImg {
+    height: 80%;
+}
+
+.mainAboutus .mainAboutusWrapper .mainAboutusTxt {
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+
+.mainAboutus .mainAboutusWrapper .mainAboutusImg > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.mainAboutus .mainAboutusWrapper .mainAboutusTxt > h3 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    line-height: 1.2;
+    margin: 0;
+    color: blue;
+}
+
+.mainAboutus .mainAboutusWrapper .mainAboutusTxt > p {
+    line-height: 1.3;
+    letter-spacing: 1.3;
+    color: rgba(0, 1, 44, 0.733);
+    font-size: 16px;
+}
+
+.mainAboutus .mainAboutusWrapper .mainAboutusTxt > button {
+    
+}
+
+/* Mobile Styling */
+
+@media screen and (max-width: 700px) {
+    .mainAboutus {
+        height: fit-content;
+        margin-top: 32px;
+        padding: 20px;
+    }
+    
+    .mainAboutus .intro {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        color: blue;
+        width: fit-content;
+        margin: 0;
+        margin-bottom: 8px;
+    }
+    
+    .mainAboutus .intro > span {
+        padding: 3px;
+        border: 3px solid blue;
+        background-color: blue;
+        border-radius: 50px;
+        margin: 0px 8px;
+    }
+    
+    .mainAboutus .mainAboutusWrapper {
+        height: fit-content;
+        flex-direction: column;
+    }
+    
+    .mainAboutus .mainAboutusWrapper .mainAboutusImg, .mainAboutus .mainAboutusWrapper .mainAboutusTxt {
+        width: 90%;
+        height: 95%;
+    }
+    
+    .mainAboutus .mainAboutusWrapper .mainAboutusTxt {
+        padding-left: 0px;
+        box-sizing: border-box;
+    }
+    
+    .mainAboutus .mainAboutusWrapper .mainAboutusTxt > h3 {
+        font-size: 2rem;
+        font-weight: bold;
+        letter-spacing: 1.3px;
+        line-height: 1.2;
+        margin: 0;
+        color: blue;
+    }
+}
