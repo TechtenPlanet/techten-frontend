@@ -5,6 +5,7 @@ import SecondaryButton from '../SecondaryButton/SecondaryButton'
 import {Link} from 'react-router-dom'
 import logo from './../../assets/images/logo.png'
 import { FaBars, FaTimes } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
   const [res, setRes] = useState(false)
@@ -12,11 +13,13 @@ const Navbar = () => {
   const handleRes = () => {
     setRes(!res)
   }
+
+  const navigate = useNavigate()
   return (
     <div className={style.navbar}>
         <div className={style.navbarWrapper}>
             <div className={style.logo}>
-               <Link><img src={logo} alt="logo" /> </Link>
+               <Link to="/"><img src={logo} alt="logo" /> </Link>
             </div>
            <div className={style.links}>
             <ul>
@@ -43,7 +46,8 @@ const Navbar = () => {
            </div>
            <div className={style.navbarBtn}>
             <SecondaryButton txt="Donate" />
-            <PrimaryButton txt="Contact Us" />
+            <Link to="/contact-us"><PrimaryButton txt="Contact Us" /></Link>
+            
            </div>
            <div onClick={handleRes} className={style.resIcon}>
               {!res ? <FaBars /> : <FaTimes />}

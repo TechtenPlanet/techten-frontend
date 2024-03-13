@@ -1,0 +1,120 @@
+.contactUsContent {
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 80px;
+    box-sizing: border-box;
+}
+
+.contactUsContent .contactUsContentWrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactUsContent .contactUsContentWrapper .socials {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactUsContent .contactUsContentWrapper .socials .social {
+    width: 100%;
+    padding:10px 10px;
+    box-sizing: border-box;
+    border: 2px solid blue;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    /* justify-content: center; */
+}
+
+.contactUsContent .contactUsContentWrapper .socials .social .socialIcon {
+    font-size: 2rem;
+    color: blue;
+    margin-right: 8px;
+}
+
+.contactUsContent .contactUsContentWrapper .contactForm {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.contactUsContent .contactUsContentWrapper .contactForm .header {
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    margin: 0;
+    margin-bottom: 16px;
+}
+
+.contactUsContent .contactUsContentWrapper .contactForm > form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactUsContent .contactUsContentWrapper .contactForm > form .top {
+    width: 100%;
+    display: flex;
+    height: fit-content;
+    justify-content: space-between;
+}
+
+.contactUsContent .contactUsContentWrapper .contactForm > form .top .inputs label, .contactUsContent .contactUsContentWrapper .contactForm > form .inputs label {
+    margin-bottom: 8px;
+}
+
+.contactUsContent .contactUsContentWrapper .contactForm > form .top .inputs, .contactUsContent .contactUsContentWrapper .contactForm > form .inputs {
+    width: 49%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin: 8px 0;
+}
+
+.contactUsContent .contactUsContentWrapper .contactForm > form .inputs {
+    width: 100%;
+}
+
+.contactUsContent .contactUsContentWrapper .contactForm > form .top .inputs > input, .contactUsContent .contactUsContentWrapper .contactForm > form .inputs > input, .contactUsContent .contactUsContentWrapper .contactForm > form .inputs > textarea  {
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid blue;
+    outline: none;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.contactUsContent .contactUsContentWrapper .contactForm > form .inputs > input, input, .contactUsContent .contactUsContentWrapper .contactForm > form .inputs > textarea {
+    width: 100%;
+}
+
+.contactUsContent .contactUsContentWrapper .contactForm > form .sendMessage {
+    width: 100%;
+    padding: 16px 0px;
+    box-sizing: border-box;
+    border: none;
+    background-color: blue;
+    color: #fff;
+    letter-spacing: 1.3px;
+    border-radius: 4px;
+    margin: 0;
+    margin-top: 16px;
+}

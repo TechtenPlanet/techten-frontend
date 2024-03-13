@@ -7,6 +7,7 @@ import BlogsPage from './pages/BlogsPage'
 import ServicesPage from './pages/ServicesPage'
 import GalleryPage from './pages/GalleryPage'
 import Dashboard from './pages/Dashboard';
+import ContactUsPage from './pages/ContactUsPage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='/blogs' element={ <BlogsPage /> } />
         <Route path='/services' element={ <ServicesPage /> } />
         <Route path='/gallery' element={ <GalleryPage /> } />
+        <Route path='/contact-us' element={ <ContactUsPage /> } />
         <Route path="/techten/dashboard" element={ <Dashboard /> } />
       </Routes>
     </Router>
