@@ -34,6 +34,19 @@
     margin: 0;
 }
 
+/* Styling for 1024px screens */
+
+@media screen and (max-width: 1024px) {
+    .mission {
+        height: 45dvh;
+        margin-top: 32px;
+    }
+    
+    .mission .missionWrapper .card {
+        height: 100%;
+    }
+}
+
 /* Mobile Styling */
 
 @media screen and (max-width: 700px) {
@@ -66,9 +79,30 @@
     }
 }
 
+/* Styling for 600px screens */
+
+@media screen and (max-width: 600px) {
+    .mission {
+        width: 100%;
+        height: fit-content;
+        margin-top: 32px;
+    }
+    
+    .mission .missionWrapper {
+        height: fit-content;
+        flex-wrap: wrap;
+    }
+    
+    .mission .missionWrapper .card {
+        width: 70%;
+        height: fit-content;
+        margin-bottom: 32px;
+    }
+}
+
 /* Mobile Styling */
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 480px) {
     .mission {
         width: 100%;
         height: fit-content;
