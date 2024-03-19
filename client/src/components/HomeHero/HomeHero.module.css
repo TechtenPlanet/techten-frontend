@@ -83,9 +83,45 @@
     color: blue;
 }
 
-/* Mobile Stling */
+/* Styling for 1024px screens */
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1024px) {
+    
+    .homeHero .homeHeroWrapper .heroTxt h2 {
+        width: 90%;
+    }
+}
+
+/* Tablet Styling for 768 Screen*/
+
+@media screen and (max-width: 760px) {
+    
+    .homeHero .homeHeroWrapper .heroTxt h2 {
+        color: #fff;
+        font-size: 2.5rem;
+        letter-spacing: 1.1px;
+        width: 90%;
+        line-height: 1.1;
+    }
+    
+    .homeHero .homeHeroWrapper .items .item {
+        width: 33.33%;
+        height: 130px;
+    }
+    
+    .homeHero .homeHeroWrapper .items .item .itemIcon {
+        font-size: 3rem;
+        color: #fff;
+    }
+    
+    .homeHero .homeHeroWrapper .items .item > h3 {
+        width: 90%;
+    }
+}
+
+/* Tablet Stling 600px screen */
+
+@media screen and (max-width: 600px) {
     .homeHero {
         width: 100%;
         height: 100dvh;
@@ -105,6 +141,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        height: calc(100% - 150px);
     }
     
     .homeHero .homeHeroWrapper .heroTxt h2 {
@@ -128,7 +165,7 @@
 
 /* Mobile Styling */
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 480px) {
     .homeHero {
         width: 100%;
         height: 100dvh;
@@ -166,7 +203,7 @@
     
     .homeHero .homeHeroWrapper .items .item {
         width: 33.33%;
-        height: 150px;
+        height: 120px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -177,30 +214,39 @@
     }
     
     .homeHero .homeHeroWrapper .items .item .itemIcon {
-        font-size: 3.5rem;
+        font-size: 3rem;
         color: #fff;
     }
     
     .homeHero .homeHeroWrapper .items .item > h3 {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
+        width: 90%;
+    }
+}
+
+/* Mobile Styling on 320px */
+
+@media screen and (max-width: 320px) {
+    .homeHero .homeHeroWrapper .heroTxt h2 {
         color: #fff;
-        width: 70%;
+        font-size: 2rem;
+        letter-spacing: 1.1px;
+        font-weight: 500;
+        width: 95%;
         text-align: center;
-        margin: 0;
-        margin-top: 4px;
+        line-height: 1.1;
     }
     
-    .homeHero .homeHeroWrapper .items .item:hover {
-        background-color: rgb(255, 255, 255);
-        transition: all .5s ease-in-out;
-        cursor: pointer;
+    .homeHero .homeHeroWrapper .items .item {
+        height: 120px;
     }
     
-    .homeHero .homeHeroWrapper .items .item:hover .itemIcon {
-        color: blue;
+    .homeHero .homeHeroWrapper .items .item .itemIcon {
+        font-size: 2.5rem;
     }
     
-    .homeHero .homeHeroWrapper .items .item:hover > h3 {
-        color: blue;
+    .homeHero .homeHeroWrapper .items .item > h3 {
+        font-size: 1rem;
+        width: 80%;
     }
 }
