@@ -69,8 +69,40 @@
     font-size: 16px;
 }
 
-.aboutSection .aboutSectionWrapper .aboutSectionTxt > button {
+/* Styling for 1280px screens */
+
+@media screen and (max-width: 1280px) {
+    .aboutSection {
+        height: 100dvh;
+    }
+}
+
+/* Styling for 1024px screens */
+
+@media screen and (max-width: 1024px) {
+    .aboutSection {
+        width: 100%;
+        height: 120dvh;
+        margin-top: 64px;
+        padding: 20px;
+    }
     
+    .aboutSection .aboutSectionWrapper {
+        width: 100%;
+        height: 95%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .aboutSection .aboutSectionWrapper .aboutSectionImg, .aboutSection .aboutSectionWrapper .aboutSectionTxt {
+        width: 50%;
+        height: 95%;
+    }
+
+    .aboutSection .aboutSectionWrapper .aboutSectionImg {
+        height: 70%;
+    }
 }
 
 /* Mobile Styling */
@@ -123,5 +155,40 @@
         line-height: 1.2;
         margin: 0;
         color: blue;
+    }
+}
+
+/* Styling for 320px screens */
+
+@media screen and (max-width: 320px) {
+    .aboutSection {
+        height: fit-content;
+        margin-top: 32px;
+        padding: 20px;
+    }
+    
+    .aboutSection .intro {
+        font-size: 1rem;
+    }
+    
+    .aboutSection .aboutSectionWrapper {
+        height: fit-content;
+        flex-direction: column;
+    }
+    
+    .aboutSection .aboutSectionWrapper .aboutSectionImg, .aboutSection .aboutSectionWrapper .aboutSectionTxt {
+        width: 95%;
+        height: 95%;
+    }
+    
+    .aboutSection .aboutSectionWrapper .aboutSectionTxt {
+        padding-left:0px;
+        margin-top: 16px;
+    }
+    
+    .aboutSection .aboutSectionWrapper .aboutSectionTxt > h3 {
+        font-size: 2rem;
+        letter-spacing: 1.1px;
+        line-height: 1.1;
     }
 }
