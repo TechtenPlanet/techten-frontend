@@ -44,10 +44,16 @@
 .servicesSection .servicesSectionWrapper .servicesCards .serviceCard {
     width: 23%;
     height: 80%;
-    box-shadow: 0px 0px 16px #3131313b;
+    box-shadow: 0px 0px 16px #a7a7a71e;
     padding: 20px;
     box-sizing: border-box;
     border-radius: 4px;
+    transition: all .6s ease-in-out;
+}
+
+.servicesSection .servicesSectionWrapper .servicesCards .serviceCard:hover {
+    box-shadow: 0px 0px 16px #a7a7a754;
+    transition: all .6s ease-in-out;
 }
 
 .servicesSection .servicesSectionWrapper .servicesCards .serviceCard .serviceName {

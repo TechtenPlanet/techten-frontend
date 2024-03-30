@@ -6,7 +6,7 @@
     justify-content: center;
     /* align-items: center; */
     margin-top: 64px;
-    padding: 20px 80px;
+    padding: 20px 0px;
     box-sizing: border-box;
 }
 
@@ -20,6 +20,7 @@
     margin: 0;
     margin-bottom: 8px;
     width: fit-content;
+    margin-left: 40px;
 }
 
 .eventsSection .intro > span {
@@ -70,7 +71,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 0px 16px #6868687e;
+    box-shadow: 0px 0px 16px #a7a7a71e;
+    transition: all .8s ease-in-out;
+}
+
+.eventsSection .eventsSectionWrapper .eventCards .eventCard:hover {
+    box-shadow: 0px 0px 16px #a7a7a754;
+    transition: all .6s ease-in-out;
 }
 
 .eventsSection .eventsSectionWrapper .eventCards .eventCard .eventImg, .eventsSection .eventsSectionWrapper .eventCards .eventCard .eventTxt {

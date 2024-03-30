@@ -35,21 +35,21 @@ const BlogsSection = () => {
                             },
                             640: {
                                 slidesPerView: 2,
-                                spaceBetween: 20,
+                                spaceBetween: 10,
                             },
                             768: {
                                 slidesPerView: 4,
-                                spaceBetween: 40,
+                                spaceBetween: 10,
                             },
                             1024: {
                                 slidesPerView: 4,
-                                spaceBetween: 30,
+                                spaceBetween: 10,
                             },
                         }}
                         centeredSlides={true}
                         loop={true}
                         autoplay={{
-                            delay: 2500,
+                            delay: 3500,
                             disableOnInteraction: false,
                         }}
                         pagination={{

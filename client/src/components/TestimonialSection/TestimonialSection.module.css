@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 64px;
-    padding: 20px 80px;
+    padding: 20px 0px;
     box-sizing: border-box;
 }
 
@@ -62,7 +62,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 0px 16px #6868687e;
+    box-shadow: 0px 0px 16px #a7a7a71e;
     position: relative;
     border: 4px solid blue;
 }
