@@ -8,6 +8,7 @@ import ServicesPage from './pages/ServicesPage'
 import GalleryPage from './pages/GalleryPage'
 import Dashboard from './pages/Dashboard';
 import ContactUsPage from './pages/ContactUsPage';
+import ServiceDetailsPage from './pages/ServiceDetailsPage.jsx';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path='/gallery' element={ <GalleryPage /> } />
         <Route path='/contact-us' element={ <ContactUsPage /> } />
         <Route path="/techten/dashboard" element={ <Dashboard /> } />
+        <Route path="/service/:serviceId" element={<ServiceDetailsPage />} />
       </Routes>
     </Router>
     </>
