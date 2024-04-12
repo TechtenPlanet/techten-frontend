@@ -1,6 +1,11 @@
 import React from 'react'
 import style from './PartnersSection.module.css'
 import partner from "./../../assets/images/logo.png"
+import raspberry from "./../../assets/images/DIGITAL APPROVED RESELLER LOGO_COLOUR.png"
+import yabs from "./../../assets/images/yabs_logo_new_web.png"
+import arduino from "./../../assets/images/Arduino_logo.jpg"
+import suaye from "./../../assets/images/Suaye_Electronics.png"
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -23,7 +28,7 @@ const PartnersSection = () => {
     const txt = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque sit beatae, eum voluptatem ut obcaecati minima vel sapiente iste quam aliquam omnis eveniet fugiat fuga ullam quas perferendis doloribus aspernatur."
     return (
         <div className={style.partnersSection}>
-            <h3 className={style.intro}> <span></span> Partners & Sponsors <span></span> </h3>
+            <h3 className={style.intro}> Meet Our Partners  </h3>
             <div className={style.partnersSectionWrapper}>
                 <div className={style.partnerCards}>
                     <Swiper
@@ -48,7 +53,7 @@ const PartnersSection = () => {
                         centeredSlides={true}
                         loop={true}
                         autoplay={{
-                            delay: 3500,
+                            delay: 2500,
                             disableOnInteraction: false,
                         }}
                         pagination={{
@@ -60,7 +65,22 @@ const PartnersSection = () => {
                     >
                         <SwiperSlide className={style.swiper}>
                             <div className={style.partnerCard}>
-                                <img src={partner} alt="partner" />
+                                <img src={raspberry} alt="Raspberry Pi" />
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide className={style.swiper}>
+                            <div className={style.partnerCard}>
+                                <img src={arduino} alt="Arduino" />
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide className={style.swiper}>
+                            <div className={style.partnerCard}>
+                                <img src={yabs} alt="Yabs Network" />
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide className={style.swiper}>
+                            <div className={style.partnerCard}>
+                                <img src={suaye} alt="Suaye Electronics" />
                             </div>
                         </SwiperSlide>
                         <SwiperSlide className={style.swiper}>
@@ -68,31 +88,7 @@ const PartnersSection = () => {
                                 <img src={partner} alt="partner" />
                             </div>
                         </SwiperSlide>
-                        <SwiperSlide className={style.swiper}>
-                            <div className={style.partnerCard}>
-                                <img src={partner} alt="partner" />
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide className={style.swiper}>
-                            <div className={style.partnerCard}>
-                                <img src={partner} alt="partner" />
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide className={style.swiper}>
-                            <div className={style.partnerCard}>
-                                <img src={partner} alt="partner" />
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide className={style.swiper}>
-                            <div className={style.partnerCard}>
-                                <img src={partner} alt="partner" />
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide className={style.swiper}>
-                            <div className={style.partnerCard}>
-                                <img src={partner} alt="partner" />
-                            </div>
-                        </SwiperSlide>
+                        
                     </Swiper>
                 </div>
             </div>

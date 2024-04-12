@@ -1,35 +1,130 @@
 .servicesSection {
     width: 100%;
-    height: 70dvh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     /* align-items: center; */
-    margin-top: 64px;
+    margin-top: -160px;
     padding: 20px 40px;
-    box-sizing: border-box;
+    
 }
 
-.servicesSection .intro {
+.heading_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.intro {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: bold;
     font-size: 1.5rem;
-    color: blue;
+    color: #0303AB;
     width: fit-content;
     margin: 0;
     margin-bottom: 8px;
 }
 
-.servicesSection .intro > span {
-    padding: 3px;
-    border: 3px solid blue;
-    background-color: blue;
-    border-radius: 50px;
-    margin: 0px 8px;
+.intro > span {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: left;
+    color: #0303AB;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 100px;
 }
 
-.servicesSection .servicesSectionWrapper, .servicesSection .servicesSectionWrapper .servicesCards {
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgba(3, 3, 171, 1);; /* Add overlay color here */
+    border-radius: 40px;
+    padding: 20px;
+}
+
+.serviceTitle {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #FF6620;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+
+
+.heading_container .h2 {
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    margin-top: 32px;
+}
+
+.us_section {
+    background-image: url(./../../assets/images/scratchcoding-at-techtenplanet.jpeg);
+    background-size: cover;
+    background-attachment: fixed;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.5); /* Add overlay color here */
+    border-radius: 40px;
+    padding: 20px;
+  }
+  
+  .us_section .us_container {
+    padding-top: 25px;
+  }
+  
+  .us_section .us_container .box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    margin: 25px 10px 0 10px;
+  }
+  
+  .us_section .us_container .box .img-box {
+    height: 100px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  
+  .us_section .us_container .box .img-box img {
+    max-width: 100%;
+  }
+  
+  .us_section .us_container .box .detail-box h5 {
+    font-weight: bold;
+  }
+  
+
+ .servicesCards {
     width: 100%;
     height: 90%;
     display: flex;
@@ -37,12 +132,28 @@
     justify-content: space-evenly;
 }
 
-.servicesSection .servicesSectionWrapper .servicesCards {
-    height: 100%;
+.serviceBrief {
+    font-size: 1.5rem;
+    margin-top: 32px;
 }
 
-.servicesSection .servicesSectionWrapper .servicesCards .serviceCard {
-    width: 23%;
+.serviceName {
+    font-size: 2rem;
+    font-weight: 900;
+    margin: 0;
+    color: #FF6620;
+    margin-bottom: 50px;
+}
+
+.serviceCard {
+    width: 23.3%;
+    height: 80%;
+
+
+}
+/* 
+.serviceCard {
+    width: 30%;
     height: 80%;
     box-shadow: 0px 0px 16px #a7a7a71e;
     padding: 20px;
@@ -51,22 +162,23 @@
     transition: all .6s ease-in-out;
 }
 
-.servicesSection .servicesSectionWrapper .servicesCards .serviceCard:hover {
+.serviceCard:hover {
     box-shadow: 0px 0px 16px #a7a7a754;
     transition: all .6s ease-in-out;
-}
+} */
 
-.servicesSection .servicesSectionWrapper .servicesCards .serviceCard .serviceName {
+.serviceName {
     font-size: 1.5rem;
     margin: 0;
+    color: #FF6620
 }
 
-.servicesSection .servicesSectionWrapper .servicesCards .serviceCard .serviceLink {
-    color: blue;
+.serviceLink {
+    color: #0303AB;
     text-decoration: none;
 }
 
-.servicesSection .servicesSectionWrapper .servicesCards .serviceCard .serviceLink:hover {
+.serviceLink:hover {
     text-decoration: underline;
 }
 
@@ -106,7 +218,7 @@
     }
     
     .servicesSection .servicesSectionWrapper .servicesCards .serviceCard .serviceLink {
-        color: blue;
+        color: #0303AB;
         text-decoration: none;
     }
     
@@ -150,7 +262,7 @@
     }
     
     .servicesSection .servicesSectionWrapper .servicesCards .serviceCard .serviceLink {
-        color: blue;
+        color: #0303AB;
         text-decoration: none;
     }
     

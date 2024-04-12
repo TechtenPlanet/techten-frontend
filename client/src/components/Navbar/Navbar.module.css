@@ -1,9 +1,9 @@
 .navbar {
     width: 100%;
-    height: 70px;
+    height: 90px;
     padding: 10px 80px;
     box-sizing: border-box;
-    background-color: #ffffff4d;
+    background-color: #ffffff;
     box-shadow: 0px 0px 16px #6b6b6b60;
 }
 
@@ -50,17 +50,17 @@
 
 .navbar .navbarWrapper .links > ul li > a {
     text-decoration: none;
-    color: blue;
+    color: #0303AB;
     font-weight: bold;
     letter-spacing: 1.2px;
     text-transform: capitalize;
 }
 
 .navbar .navbarWrapper .resIcon {
-    border: 1px solid blue;
+    border: 1px solid #0303AB;
     border-radius: 4px;
     padding: 5px 8px;
-    color: blue;
+    color: #0303AB;
     display: none;
 }
 
@@ -99,7 +99,7 @@
 
 .navbar .show > ul li > a, .navbar .noShow > ul li > a {
     text-decoration: none;
-    color: blue;
+    color: #0303AB;
     font-weight: bold;
     letter-spacing: 1.2px;
     text-transform: capitalize;

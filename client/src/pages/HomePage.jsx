@@ -1,8 +1,10 @@
 import React from 'react'
 import HomeHero from '../components/HomeHero/HomeHero'
 import Mission from '../components/Mission/Mission'
+import Benefit from '../components/Benefits/Benefit'
 import AboutSection from '../components/AboutSection/AboutSection'
 import ServicesSection from '../components/ServicesSection/ServicesSection'
+import FocusSection from '../components/FocusSection/FocusSection'
 import EventsSection from '../components/EventsSection/EventsSection'
 import Banner1 from '../components/Banner1/Banner1'
 import Banner2 from '../components/Banner2/Banner2'
@@ -20,17 +22,12 @@ const HomePage = () => {
     <>
     <HomeHero />
     <Mission />
+    <Benefit />
     <Banner1 />
     <AboutSection />
     <ServicesSection />
     <Banner2 />
-    <EventsSection />
-    <Banner3 />
-    <BlogsSection />
-    <Banner4 />
     <PartnersSection />
-    <TeamSection />
-    <TestimonialSection />
     <ContactBanner />
     <Footer />
     </>

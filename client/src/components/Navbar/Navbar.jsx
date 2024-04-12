@@ -27,19 +27,19 @@ const Navbar = () => {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/about-us" >About Us</Link>
+                <Link to="/about-us" >| About Us</Link>
               </li>
               <li>
-                <Link to="/services">Services</Link>
+                <Link to="/services">| Services</Link>
               </li>
               <li>
-                <Link to="/events">Events</Link>
+                <Link to="/events">| Events</Link>
               </li>
               <li>
-                <Link to="/blogs">Blogs</Link>
+                <Link to="/blogs">| Blogs</Link>
               </li>
               <li>
-                <Link to="/gallery" >Gallery</Link>
+                <Link to="/gallery" >| Gallery</Link>
               </li>
             </ul>
            

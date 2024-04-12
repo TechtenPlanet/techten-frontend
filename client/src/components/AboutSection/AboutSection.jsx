@@ -1,26 +1,26 @@
 import React from 'react'
 import style from './AboutSection.module.css'
-import img from './../../assets/images/img.jpg'
+import img from './../../assets/images/techten_girl_robotics.png'
 import PrimaryButton from './../PrimaryButton/PrimaryButton'
 
 const AboutSection = () => {
   return (
     <div className={style.aboutSection}>
-        <h4 className={style.intro}> <span></span> About Us <span></span> </h4>
+        <h4 className={style.intro}> </h4>
         <div className={style.aboutSectionWrapper}>
             <div className={style.aboutSectionImg}>
-                <img src={img} alt="profile" />
+                <img src={img} alt="Techten Planet" />
             </div>
             <div className={style.aboutSectionTxt}>
-                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae recusandae aliquam amet molestiae </h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita explicabo asperiores quam eius, iste fuga quae veritatis officia corrupti, deserunt non alias magni, facilis similique distinctio nulla. Dicta, aut expedita.
-                    lorem
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita explicabo asperiores quam eius, iste fuga quae veritatis officia corrupti, deserunt non alias magni, facilis similique distinctio nulla. Dicta, aut expedita.
-                    lorem
+                <h3 className={style.h3}>We are Filling the Gap in Practical Technology and Engineering Education </h3>
+                <p className={style.aboutSectionTxt}><b>
+                    We believe that every student has the potential to be a tech leader, 
+                    and we're here to help them realize it. 
+                    We're Techten Planet Ghana, and we're building a future where technology 
+                    and engineering education is accessible, inclusive, and empowering for all.
+                    </b>
                 </p>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita explicabo asperiores quam eius, iste fuga quae veritatis officia corrupti, deserunt non alias magni, facilis similique distinctio nulla. Dicta, aut expedita.
-                </p>
-                <PrimaryButton txt="know more" />
+                <PrimaryButton txt="Learn more" />
             </div>
         </div>
     </div>
@@ -28,3 +28,4 @@ const AboutSection = () => {
 }
 
 export default AboutSection
+

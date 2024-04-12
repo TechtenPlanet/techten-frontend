@@ -11,20 +11,23 @@ const HomeHero = () => {
         <Navbar />
         <div className={style.homeHeroWrapper}>
             <div className={style.heroTxt}>
-            <h2> Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio culpa hic saepe fugiat non quos sed repudiandae quidem facilis voluptatum. </h2>
+            <h2> WE'RE GIVING YOUNG PEOPLE IN GHANA AN OPPORTUNITY TO GET TANGIBLE EMPLOYABLE SKILLS IN TECHNOLOGY AND ENGINEERING. </h2>
             </div>
             <div className={style.items}>
+              <div className={style.itemIntro}>
+                <h3>Tell us who you are</h3>
+              </div> 
                 <div className={style.item}>
-                <PiStudentThin className={style.itemIcon} />
-                <h3>I am a student</h3>
+                  <PiStudentThin className={style.itemIcon} />
+                  <h3>Student</h3>
                 </div>
                 <div className={style.item}>
                 <IoSchoolOutline className={style.itemIcon} />
-                <h3>I am a school</h3>
+                <h3>School</h3>
                 </div>
                 <div className={style.item}>
                 <LiaDonateSolid className={style.itemIcon} />
-                <h3>i want to donate</h3>
+                <h3>Donor</h3>
                 </div>
             </div>
         </div>

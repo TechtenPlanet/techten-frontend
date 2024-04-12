@@ -1,50 +1,101 @@
-.mission {
-    width: 100%;
-    height: 40dvh;
-    display: flex;
-    margin-top: 64px;
-}
 
-.mission .missionWrapper {
+.mission {
     width: 100%;
     height: 100%;
     display: flex;
+    flex-wrap: wrap; /* Wrap content items when they overflow */
+    flex-direction: column; /* Display items under each other */
     align-items: center;
     justify-content: space-evenly;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
-.mission .missionWrapper .card {
-    width: 25%;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 0px 16px #a7a7a71e;
-    border-radius: 4px;
-    padding: 20px;
-    box-sizing: border-box;
-    transition: all .6s ease-in-out;
-}
-
-.mission .missionWrapper .card:hover {
-    box-shadow: 0px 0px 16px #a7a7a754;
-    transition: all .6s ease-in-out;
-}
-
-.mission .missionWrapper .card .cardHeading {
+.intro {
+    width: 80%;
+    color: #0303AB;
     font-size: 2rem;
     font-weight: bold;
-    letter-spacing: 1.3px;
-    text-transform: capitalize;
-    margin: 0;
+    text-align: left;
+    text-transform: uppercase;
+    margin-bottom: 10px;
 }
+
+.cardheading {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #0303AB;
+    text-align: left;
+}
+
+.sectionBody {
+    color: #fff;
+    height: 100%;
+    overflow: auto;
+    text-align: left;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.header {
+    text-transform: uppercase;
+    color:  #FF6620;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+    position: relative;
+}
+
+.header::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #FFA486;
+    animation: lineAnimation 1s infinite;
+}
+
+@keyframes lineAnimation {
+    0% {
+        transform: scaleX(0);
+    }
+    50% {
+        transform: scaleX(0.1);
+    }
+}
+
+.info {
+    width: 60%;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+.Who,
+.What,
+.How {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0303AB;
+    text-align: center;
+    margin-bottom: 40px;
+    text-align: left;
+    text-wrap: wrap;
+}
+
 
 /* Styling for 1024px screens */
 
 @media screen and (max-width: 1024px) {
     .mission {
-        height: 45dvh;
+        height: 65vh;
         margin-top: 32px;
     }
     
@@ -56,53 +107,41 @@
 /* Mobile Styling */
 
 @media screen and (max-width: 700px) {
-    .mission {
-        height: fit-content;
-        margin-top: 32px;
-    }
-    
-    .mission .missionWrapper {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-    }
-    
-    .mission .missionWrapper .card {
-        width: 30%;
-        height: 90%;
+    .info {
+        width: 90%;
+        margin: 10px;
         padding: 10px;
-    }
+        text-align: center;
+    }   
     
-    .mission .missionWrapper .card .cardHeading {
-        font-size: 1.5rem;
+    .header {
+        text-transform: uppercase;
+        color:  #FF6620;
+        font-size: 18px;
         font-weight: bold;
-        letter-spacing: 1.3px;
-        text-transform: capitalize;
-        margin: 0;
+        margin-bottom: 10px;
+        text-align: left;
+        position: relative;
     }
 }
-
 /* Styling for 600px screens */
 
 @media screen and (max-width: 600px) {
-    .mission {
-        width: 100%;
-        height: fit-content;
-        margin-top: 32px;
-    }
+    .info {
+        width: 90%;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+    }   
     
-    .mission .missionWrapper {
-        height: fit-content;
-        flex-wrap: wrap;
-    }
-    
-    .mission .missionWrapper .card {
-        width: 70%;
-        height: fit-content;
-        margin-bottom: 32px;
+    .header {
+        text-transform: uppercase;
+        color:  #FF6620;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-align: left;
+        position: relative;
     }
 }
 
@@ -128,14 +167,33 @@
     .mission .missionWrapper .card {
         width: 90%;
         height: fit-content;
+        font-size: small;
         margin-bottom: 16px;
     }
     
     .mission .missionWrapper .card .cardHeading {
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: bold;
         letter-spacing: 1.3px;
         text-transform: capitalize;
         margin: 0;
     }
-}
+
+    .info {
+        width: 90%;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+    }   
+    
+    .header {
+        text-transform: uppercase;
+        color:  #FF6620;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-align: left;
+        position: relative;
+    }
+    
+} 

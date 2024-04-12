@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: blue;
+    background-color: #0303AB;
     padding: 20px 80px;
     box-sizing: border-box;
 }
@@ -108,7 +108,7 @@
     padding: 15px 32px;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
-    background-color: orange;
+    background-color: #FF6620;
     font-weight: bold;
     color: #fff;
 }
@@ -153,6 +153,41 @@
 }
 
 /* Mobile Styling */
+@media screen and (max-width: 430px) {
+    .footer {
+        height: 100%;
+        margin-bottom: auto;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    
+
+    .footer .footerWrapper {
+        flex-direction: column;
+    }
+    
+    .footer .footerWrapper .footerCard {
+        width: 90%;
+        height: fit-content;
+        margin-bottom: 16px;
+    }
+    
+    .footer .footerWrapper .footerCard .footerTxt {
+        padding: 20px;
+        box-sizing: border-box;
+        margin-top: 8px;
+    }
+}
+
+/* Tablet Styling */
+@media screen and (min-width: 431px) and (max-width: 768px) {
+    /* Add your tablet-specific CSS here */
+    
+}
+
+
+/* Mobile Styling 
 
 @media screen and (max-width: 430px) {
     .footer {
@@ -181,4 +216,4 @@
         font-size: 2rem;
         margin-bottom: 8px;
     }
-}
+}*/

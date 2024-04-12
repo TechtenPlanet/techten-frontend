@@ -8,7 +8,8 @@ const Banner1 = () => {
     <div className={style.banner1}>
         <div className={style.banner1Wrapper}>
             <h4 className={style.banner1Heading}>
-            Do you want to <span>PARTNER</span>  with us or <span>SPONSOR</span> us to reach a larger audience?
+            Become a <span>PARTNER</span> or <span>DONATE</span> to support our mission.
+            You can help us make a difference in the lives of the next generation of Ghanaian youth.
             </h4>
             <div className={style.banner1Btn}>
                 <SecondaryButton txt="Partner" /> <PrimaryButton txt="sponsor" />

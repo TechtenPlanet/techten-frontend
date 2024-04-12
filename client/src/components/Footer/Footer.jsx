@@ -13,8 +13,10 @@ const Footer = () => {
               <img src={logo} alt="logo" />
             </div>
             <div className={style.footerTxt}>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed quidem, fugiat earum quo assumenda in voluptate corporis non, fuga sint commodi natus culpa, dolorem adipisci facilis reiciendis veniam suscipit exercitationem?
-              Magni nobis laborum rem reiciendis quae eum, ducimus vel exercitationem inventore commodi facere quibusdam, culpa distinctio perferendis ipsam. Magnam, ut amet alias error assumenda molestias placeat maiores temporibus dolore quo.</p>
+              <p>Give S.T.E.M education to your children, your students for them to build a strong future (rocket)
+                Raise the next generation of tech innovators, industrialist, and  makers to transform Ghana. 
+                They can learn programming, Technology, Maths, Science by exploration and experimental 
+                learning while being creative and having fun. Join us </p>
             </div>
           </div>
           <div className={style.footerCard}>

@@ -6,27 +6,27 @@
     justify-content: center;
     /* align-items: center; */
     margin-top: 32px;
+    margin-left: 200px;
     padding: 20px 0px;
     box-sizing: border-box;
 }
 
 .partnersSection .intro {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: blue;
-    width: fit-content;
-    margin: 0;
-    margin-bottom: 8px;
-    width: fit-content;
-    margin-left: 40px;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: left;
+    color: #0303AB;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 100px;
 }
 
 .partnersSection .intro > span {
     padding: 3px;
-    border: 3px solid blue;
-    background-color: blue;
+    border: 3px solid #0303AB;
+    background-color: #0303AB;
     border-radius: 50px;
     margin: 0px 8px;
 }
@@ -54,7 +54,7 @@
 }
 
 .partnersSection .partnersSectionWrapper .partnerCards .mySwiper .swiper {
-    width: 10px;
+    width: 20px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -88,8 +88,21 @@
         width: 100%;
         height: 200px;
         margin-top: 16px;
+        margin-left: 0px;
         padding: 20px;
         box-sizing: border-box;
+    }
+
+    .partnersSection .intro {
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: left;
+        color: #0303AB;
+        letter-spacing: 1.3px;
+        text-transform: uppercase;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        margin-left: 100px;
     }
     
     .partnersSection .partnersSectionWrapper {

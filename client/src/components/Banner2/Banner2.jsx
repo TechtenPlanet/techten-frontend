@@ -11,8 +11,8 @@ const Banner2 = () => {
             Are you a school that will need our services?
             </h4>
             <p className={style.banner2Txt}>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium neque rerum blanditiis distinctio quae adipisci quidem reiciendis sunt recusandae debitis libero eaque nobis ipsa repellat esse quia ratione, excepturi explicabo?
-            </p>
+            We provide your schools with cutting-edge materials used worldwide to assist your teachers in lesson planning about computational thinking, technical structures and design, energy transfer, social-emotional development, and verbal communication. 
+            You Can Start Today </p>
             <div className={style.banner2Btn}>
                 <PrimaryButton txt="Contact Us" />
             </div>

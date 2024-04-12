@@ -1,25 +1,36 @@
 import React from 'react'
 import style from './Mission.module.css'
+import { Button, Collapse, Alert } from 'reactstrap'
+
+
 
 const Mission = () => {
   return (
     <div className={style.mission}>
-        <div className={style.missionWrapper}>
-            <div className={style.card}>
-                <h4 className={style.cardHeading}>Mission</h4>
-                <p className={style.cardBrief}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea ab eum dolor quisquam eaque at nemo accusamus, reiciendis repudiandae! Deleniti ad expedita et omnis excepturi dolorem autem similique quas sed.</p>
-            </div>
-            <div className={style.card}>
-                <h4 className={style.cardHeading}>Vision</h4>
-                <p className={style.cardBrief}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea ab eum dolor quisquam eaque at nemo accusamus, reiciendis repudiandae! Deleniti ad expedita et omnis excepturi dolorem autem similique quas sed.</p>
-            </div>
-            <div className={style.card}>
-                <h4 className={style.cardHeading}>Objectives</h4>
-                <p className={style.cardBrief}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea ab eum dolor quisquam eaque at nemo accusamus, reiciendis repudiandae! Deleniti ad expedita et omnis excepturi dolorem autem similique quas sed.</p>
-            </div>
-        </div>
+      <h2 className={style.intro}>
+        Get to Know Us
+      </h2>
+
+      <div className={style.info}>
+        <p className={style.Who}>
+          <h3 className={style.header}>Who We Are</h3>
+          We are a team of passionate educators, engineers, and technologists who are dedicated to providing hands-on technology and engineering education to the next generation of Ghanaian youth.
+        </p>
+
+        <p className={style.What}>
+          <h3 className={style.header}>What We Do</h3>
+          We provide technology and engineering in STEM education in Ghana through high-quality educational materials and training. Our center offers hardware and software programs, after-school programs, summer camps, and teacher training workshops. We support students in STEM through mentorship and internships.
+        </p>
+
+        <p className={style.How}>
+          <h3 className={style.header}>How We Do It</h3>
+          TP STEM Education equips students, teachers, and schools with the latest technology and tools to teach project-based courses in STEM. Learn at our center or with your school to enhance your skills and knowledge.
+        </p>
+      </div>
     </div>
   )
 }
+
+
 
 export default Mission
