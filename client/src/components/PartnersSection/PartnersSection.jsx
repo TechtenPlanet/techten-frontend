@@ -27,6 +27,7 @@ const PartnersSection = () => {
 
     const txt = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque sit beatae, eum voluptatem ut obcaecati minima vel sapiente iste quam aliquam omnis eveniet fugiat fuga ullam quas perferendis doloribus aspernatur."
     return (
+        <div id="PartnersSection">
         <div className={style.partnersSection}>
             <h3 className={style.intro}> Meet Our Partners  </h3>
             <div className={style.partnersSectionWrapper}>
@@ -92,6 +93,7 @@ const PartnersSection = () => {
                     </Swiper>
                 </div>
             </div>
+        </div>
         </div>
     )
 }

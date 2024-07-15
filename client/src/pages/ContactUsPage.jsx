@@ -6,7 +6,7 @@ import Footer from './../components/Footer/Footer'
 const ContactUsPage = () => {
   return (
     <>
-    <OtherPagesHero heading="Contact Us" />
+    <OtherPagesHero heading="Contact Us"/>
     <ContactUsContent />
     <Footer />
     </>

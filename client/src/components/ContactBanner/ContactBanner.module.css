@@ -10,7 +10,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    margin-top: 64px;
+    margin-top: 0px;
 }
 
 .contactBanner .contactBannerWrapper {
@@ -78,7 +78,7 @@
         width: 100%;
         height: fit-content;
         padding: 20px;
-        margin-top: 32px;
+        margin-top: 0px;
     }
     
     .contactBanner .contactBannerWrapper .contactBannerHeading {

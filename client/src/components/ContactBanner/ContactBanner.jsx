@@ -4,14 +4,16 @@ import PrimaryButton from "../PrimaryButton/PrimaryButton"
 
 const ContactBanner = () => {
   return (
+    <div id="ContactBanner">
     <div className={style.contactBanner}>
         <div className={style.contactBannerWrapper}>
         <h4 className={style.contactBannerHeading}>
-            Are you a parent or a student that will need our services? </h4>
+             </h4>
             <div className={style.contactBannerBtn}>
-                <PrimaryButton txt="Contact Us" />
+                <scrollLink to="ContactUsContent"> <PrimaryButton txt="Contact Us" /> </scrollLink>
             </div>
         </div>
+    </div>
     </div>
   )
 }

@@ -1,11 +1,25 @@
 .navbar {
+    position: fixed;
     width: 100%;
     height: 90px;
     padding: 10px 80px;
     box-sizing: border-box;
     background-color: #ffffff;
     box-shadow: 0px 0px 16px #6b6b6b60;
+    z-index: 1000;
 }
+
+.scrollLink {
+    cursor: pointer;
+  }
+
+.scrollLink:hover {
+    color: orange; 
+  }
+
+.activeLink {
+    color: red;
+  }
 
 .navbar .navbarWrapper {
     width: 100%;
@@ -40,19 +54,23 @@
 .navbar .navbarWrapper .links > ul {
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin: 0; /* Add this line to remove default margin */
+    padding: 0; /* Add this line to remove default padding */
 }
 
 .navbar .navbarWrapper .links > ul li {
     list-style: none;
-    padding: 8px;
+    padding: 3px;
     box-sizing: border-box;
+
 }
 
 .navbar .navbarWrapper .links > ul li > a {
     text-decoration: none;
     color: #0303AB;
     font-weight: bold;
-    letter-spacing: 1.2px;
+    letter-spacing: 1.0px;
     text-transform: capitalize;
 }
 
@@ -111,7 +129,12 @@
     .navbar .navbarWrapper .resIcon {
         display: flex;
     }
-    
+    .scrollLink {
+        cursor: pointer;
+      }
+    .activeLink {
+        color: red; /* Change to the color you want for active links */
+      }
     .navbar {
         padding: 10px 20px;
         position: relative;
@@ -124,4 +147,7 @@
     .navbar .navbarWrapper .navbarBtn {
         display: none;
     }
+
+    
 }
+

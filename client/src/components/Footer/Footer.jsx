@@ -6,6 +6,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa'
 
 const Footer = () => {
   return (
+    <div id="Footer">
     <div className={style.footer}>
         <div className={style.footerWrapper}>
           <div className={style.footerCard}>
@@ -54,14 +55,15 @@ const Footer = () => {
             <div className={style.socialWrapper}>
               <h4>Follow our Social media handles</h4>
               <div className={style.socials}>
-                <a> <FaFacebook className={style.social} /> </a>
-                <a> <FaTwitter className={style.social} /> </a>
-                <a> <FaInstagram className={style.social} /> </a>
-                <a> <FaLinkedin className={style.social} /> </a>
+                <a href="https://www.facebook.com/techtenplanet"><FaFacebook className={style.social} /></a>
+                <a href="#"><FaTwitter className={style.social} /></a>
+                <a href="https://www.instagram.com/techtenplanet"><FaInstagram className={style.social} /></a>
+                <a href="https://www.linkedin.com/techtenplanetgh"><FaLinkedin className={style.social} /></a>
               </div>
             </div>
           </div>
         </div>
+    </div>
     </div>
   )
 }

@@ -2,9 +2,11 @@ import React from 'react'
 import style from './Banner1.module.css'
 import SecondaryButton from '../SecondaryButton/SecondaryButton'
 import PrimaryButton from "../PrimaryButton/PrimaryButton"
+import { Link as ScrollLink } from 'react-scroll'
 
 const Banner1 = () => {
   return (
+    <div id="Banner1">
     <div className={style.banner1}>
         <div className={style.banner1Wrapper}>
             <h4 className={style.banner1Heading}>
@@ -12,9 +14,10 @@ const Banner1 = () => {
             You can help us make a difference in the lives of the next generation of Ghanaian youth.
             </h4>
             <div className={style.banner1Btn}>
-                <SecondaryButton txt="Partner" /> <PrimaryButton txt="sponsor" />
+                <ScrollLink to="ContactUsContent"> <SecondaryButton txt="Partner With Us" /></ScrollLink>
             </div>
         </div>
+    </div>
     </div>
   )
 }
