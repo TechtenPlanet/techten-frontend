@@ -1,0 +1,143 @@
+.partnersSection {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    margin-top: 32px;
+    margin-left: 200px;
+    padding: 20px 0px;
+    box-sizing: border-box;
+}
+
+.partnersSection .intro {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: left;
+    color: #0303AB;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+}
+
+.partnersSection .intro > span {
+    padding: 3px;
+    border: 3px solid #0303AB;
+    background-color: #0303AB;
+    border-radius: 50px;
+    margin: 0px 8px;
+}
+
+.partnersSection .partnersSectionWrapper {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.partnersSection .partnersSectionWrapper .partnerCards {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.partnersSection .partnersSectionWrapper .partnerCards .mySwiper {
+    height: 100%;
+    width: 100%;
+}
+
+.partnersSection .partnersSectionWrapper .partnerCards .mySwiper .swiper {
+    width: 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.partnersSection .partnersSectionWrapper .partnerCards .partnerCard {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* box-shadow: 0px 0px 16px #6868687e; */
+}
+
+.partnersSection .partnersSectionWrapper .partnerCards .partnerCard > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Mobile Styling */
+
+@media screen and (max-width: 430px) {
+    .partnersSection {
+        width: 100%;
+        height: 200px;
+        margin-top: 16px;
+        margin-left: 0px;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .partnersSection .intro {
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: center;
+        color: #0303AB;
+        letter-spacing: 1.3px;
+        text-transform: capitalize;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        margin-left: 0px;
+        margin-right: 0px;
+        
+    }
+    
+    .partnersSection .partnersSectionWrapper {
+        width: 100%;
+        height: 100%;
+    }
+    
+    
+    .partnersSection .partnersSectionWrapper .partnerCards .mySwiper .swiper {
+        width: 10px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .partnersSection .partnersSectionWrapper .partnerCards .partnerCard {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* box-shadow: 0px 0px 16px #6868687e; */
+    }
+    
+    .partnersSection .partnersSectionWrapper .partnerCards .partnerCard > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}

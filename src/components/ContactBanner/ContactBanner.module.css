@@ -1,0 +1,89 @@
+.contactBanner {
+    width: 100%;
+    height: 50dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 80px;
+    box-sizing: border-box;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url(./../../assets/images/LearnwithRaspberrypi-at-Techtenplanet.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 0px;
+}
+
+.contactBanner .contactBannerWrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactBanner .contactBannerWrapper .contactBannerHeading {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    line-height: 1.3;
+    color: #fff;
+    text-align: center;
+    width: 60%;
+    margin: 0;
+    margin-bottom: 32px;
+}
+
+.contactBanner .contactBannerWrapper .contactBannerHeading> span {
+    color: #FF6620;
+}
+
+.newsletter {
+    padding: 80px 0;
+    background: #19beda;
+    }
+    
+.newsletter .content {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2; }
+
+.newsletter .content .h2 {
+    color: #243c4f;
+    margin-bottom: 40px; }
+
+.newsletter .content .formcontrol {
+    height: 50px;
+    border-color: #ffffff;
+    border-radius:0;
+    }
+.newsletter .content.formcontrol:focus {
+    box-shadow: none;
+    border: 2px solid #243c4f;
+    }
+.newsletter .content .btn {
+    min-height: 50px; 
+    border-radius:0;
+    background: #243c4f;
+    color: #fff;
+    font-weight:600;
+    }
+
+/* Mobile Styling */
+
+@media screen and (max-width: 430px) {
+    .contactBanner {
+        width: 100%;
+        height: fit-content;
+        padding: 20px;
+        margin-top: 0px;
+    }
+    
+    .contactBanner .contactBannerWrapper .contactBannerHeading {
+        width: 95%;
+        margin: 0;
+        margin-bottom: 32px;
+    }
+}
