@@ -7,6 +7,7 @@ import image4 from './../../assets/images/scratchcoding-at-techtenplanet.jpeg'
 
 const Benefit = () => {
   return (
+    <div id="Benefit" className={style.Benefit}>
     <div className={style.miniTile}>
          <h2 className={style.header}>Your Benefits</h2>
         <div className={style.miniWrapper}>
@@ -56,7 +57,7 @@ const Benefit = () => {
         </div>
     </div>
     
-
+</div>
     
   )
 }

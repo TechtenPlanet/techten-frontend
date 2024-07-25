@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 
 const ServicesSection = () => {
   return (
+    <div id="ServicesSection">
     <div className={style.servicesSection}>
         <section class="us_section layout_padding" className={style.us_section}>
             <div class="container" className={style.container}>
@@ -40,7 +41,7 @@ const ServicesSection = () => {
                                     Supporting Local Schools To Set Up ICT/STEM Labs
                                     </h5>
                                     <p>
-                                    We specialize in helping schools establish affordable computer labs using single-board computers, enabling students to delve into coding and computer science. Our end-to-end solution includes lab setup, curriculum support, and training for STEM, Coding, and AI programs
+                                        We specialize in helping schools establish affordable computer labs using single-board computers, enabling students to delve into coding and computer science. Our end-to-end solution includes lab setup, curriculum support, and training for STEM, Coding, and AI programs
                                     </p>
                                 </div>
                             </div>
@@ -68,6 +69,7 @@ const ServicesSection = () => {
                 </div>
             </div>
         </section>
+    </div>
     </div>
  /*{
    <div className={style.servicesSection}>
@@ -112,6 +114,7 @@ const ServicesSection = () => {
             </div>
         </div>
     </div> */
+   
   )
 }
 

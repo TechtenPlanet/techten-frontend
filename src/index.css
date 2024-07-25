@@ -2,10 +2,7 @@ body {
   max-width: 100%;
   font-size: 1.3rem;
   /* other css properties */
-  font-family:  'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-    
+  font-family:  'Roboto', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue','sans-serif'; 
+  
 }
-
 

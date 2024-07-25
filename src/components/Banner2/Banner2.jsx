@@ -5,18 +5,19 @@ import PrimaryButton from "../PrimaryButton/PrimaryButton"
 
 const Banner2 = () => {
   return (
+    <div id="Banner2">
     <div className={style.banner2}>
         <div className={style.banner2Wrapper}>
             <h4 className={style.banner2Heading}>
             Are you a school that will need our services?
+            Are you a parent or a student that will need our services?
             </h4>
             <p className={style.banner2Txt}>
-            We provide your schools with cutting-edge materials used worldwide to assist your teachers in lesson planning about computational thinking, technical structures and design, energy transfer, social-emotional development, and verbal communication. 
-            You Can Start Today </p>
+            Lets talk, you can reach us by email, WhatsApp or Calling us. On workdays from 10:00 am to 6:00 pms</p>
             <div className={style.banner2Btn}>
-                <PrimaryButton txt="Contact Us" />
             </div>
         </div>
+    </div>
     </div>
   )
 }

@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
 import style from './Navbar.module.css'
-import PrimaryButton from '../PrimaryButton/PrimaryButton'
 import SecondaryButton from '../SecondaryButton/SecondaryButton'
 import {Link} from 'react-router-dom'
 import logo from './../../assets/images/logo.png'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
+import {Link as ScrollLink} from 'react-scroll'
 
 const Navbar = () => {
   const [res, setRes] = useState(false)
@@ -24,30 +24,42 @@ const Navbar = () => {
            <div className={style.links}>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <ScrollLink to="/" smooth={true} className={style.scrollLink} spy={true} activeClass="activeLink">Home</ScrollLink>
               </li>
               <li>
-                <Link to="/about-us" >| About Us</Link>
+                <ScrollLink to="Mission" smooth={true} className={style.scrollLink} spy={true} activeClass="activeLink" >| About Us</ScrollLink>
               </li>
               <li>
-                <Link to="/services">| Services</Link>
+                <ScrollLink to="Benefit" smooth={true} className={style.scrollLink} spy={true} activeClass="activeLink">| Vision</ScrollLink>
               </li>
               <li>
-                <Link to="/events">| Events</Link>
+                <ScrollLink to="Banner1" smooth={true} className={style.scrollLink} ></ScrollLink>
               </li>
               <li>
-                <Link to="/blogs">| Blogs</Link>
+                <ScrollLink to="AboutSection" smooth={true} className={style.scrollLink} spy={true} activeClass="activeLink" >| What we do</ScrollLink>
               </li>
               <li>
-                <Link to="/gallery" >| Gallery</Link>
+                <ScrollLink to="ServicesSection" smooth={true} className={style.scrollLink} >| Services</ScrollLink>
+              </li>
+              <li>
+                <ScrollLink to="Banner2" smooth={true} className={style.scrollLink} ></ScrollLink>
+              </li>
+              <li>
+                <ScrollLink to="PartnersSection" smooth={true} className={style.scrollLink} ></ScrollLink>
+              </li>
+              <li>
+                <ScrollLink to="ContactUsContent" smooth={true} className={style.scrollLink} >| Contact Us</ScrollLink>
+              </li>
+              <li>
+                <ScrollLink to="Footer" smooth={true} className={style.scrollLink} ></ScrollLink>
               </li>
             </ul>
            
            </div>
+
+           
            <div className={style.navbarBtn}>
-            <SecondaryButton txt="Donate" />
-            <Link to="/contact-us"><PrimaryButton txt="Contact Us" /></Link>
-            
+            <ScrollLink to="ContactUsContent" smooth={true}><SecondaryButton txt="Donate" /></ScrollLink>
            </div>
            <div onClick={handleRes} className={style.resIcon}>
               {!res ? <FaBars /> : <FaTimes />}
@@ -56,27 +68,28 @@ const Navbar = () => {
         <div className={ res ? style.show : style.noShow }>
         <ul>
               <li>
-                <Link>Home</Link>
+              <ScrollLink to="/" smooth={true} className={style.scrollLink} spy={true} activeClass="activeLink">Home</ScrollLink>
               </li>
               <li>
-                <Link>About Us</Link>
+              <ScrollLink to="Mission" smooth={true} className={style.scrollLink} spy={true} activeClass="activeLink" >About Us</ScrollLink>
               </li>
               <li>
-                <Link>Services</Link>
+              <ScrollLink to="Benefit" smooth={true} className={style.scrollLink} spy={true} activeClass="activeLink">Vision</ScrollLink>
+              </li>
+  
+              <li>
+              <ScrollLink to="AboutSection" smooth={true} className={style.scrollLink} spy={true} activeClass="activeLink">What we do</ScrollLink>
               </li>
               <li>
-                <Link>Events</Link>
+              <ScrollLink to="ServicesSection" smooth={true} className={style.scrollLink}>Services</ScrollLink>
               </li>
               <li>
-                <Link>Blogs</Link>
-              </li>
-              <li>
-                <Link>Gallery</Link>
+              <ScrollLink to="ContactBanner" smooth={true} className={style.scrollLink}>Contact Us</ScrollLink>
               </li>
             </ul>
         </div>
     </div>
-  )
+)
 }
 
 export default Navbar

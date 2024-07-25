@@ -96,13 +96,15 @@
     .partnersSection .intro {
         font-size: 1.2rem;
         font-weight: bold;
-        text-align: left;
+        text-align: center;
         color: #0303AB;
         letter-spacing: 1.3px;
-        text-transform: uppercase;
+        text-transform: capitalize;
         margin-top: 10px;
         margin-bottom: 20px;
-        margin-left: 100px;
+        margin-left: 0px;
+        margin-right: 0px;
+        
     }
     
     .partnersSection .partnersSectionWrapper {

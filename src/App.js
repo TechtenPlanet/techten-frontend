@@ -1,30 +1,38 @@
 import React from 'react'
 import './App.css';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import { Routes, Route} from 'react-router-dom'
 import HomePage from './pages/HomePage';
-import AboutUs from './pages/AboutUs'
-import EventsPage from './pages/EventsPage'
-import BlogsPage from './pages/BlogsPage'
-import ServicesPage from './pages/ServicesPage'
-import GalleryPage from './pages/GalleryPage'
-import Dashboard from './pages/Dashboard';
-import ContactUsPage from './pages/ContactUsPage';
+import Mission from './components/Mission/Mission';
+import Benefit from './components/Benefits/Benefit';
+import AboutSection from './components/AboutSection/AboutSection';
+import ServicesSection from './components/ServicesSection/ServicesSection';
+import Quote from './components/QuotesSection/Quote';
+import Banner1 from './components/Banner1/Banner1';
+import Banner2 from './components/Banner2/Banner2';
+import PartnersSection from './components/PartnersSection/PartnersSection';
+import ContactBanner from './components/ContactBanner/ContactBanner';
+import Footer from './components/Footer/Footer';
+import ContactUsContent from './components/ContactUsContent/ContactUsContent';
+
+
 
 function App() {
   return (
     <>
-    <Router>
-      <Routes>
+    <Routes>
         <Route path='/' element={ <HomePage /> } />
-        <Route path='/about-us' element={ <AboutUs /> } />
-        <Route path='/events' element={ <EventsPage /> } />
-        <Route path='/blogs' element={ <BlogsPage /> } />
-        <Route path='/services' element={ <ServicesPage /> } />
-        <Route path='/gallery' element={ <GalleryPage /> } />
-        <Route path='/contact-us' element={ <ContactUsPage /> } />
-        <Route path="/techten/dashboard" element={ <Dashboard /> } />
-      </Routes>
-    </Router>
+        <Route path='/Mission' element={ <Mission /> } />
+        <Route path='/Benefit' element={ <Benefit /> } />
+        <Route path='/Banner1' element={ <Banner1 /> } />
+        <Route path='/AboutSection' element={ <AboutSection /> } />
+        <Route path='/ServicesSection' element={ <ServicesSection /> } />
+        <Route path='/Quote' element={ <Quote /> } />
+        <Route path='/FocusSection' element={ <Banner2/> } />
+        <Route path='/PartnersSection' element={ <PartnersSection /> } />
+        <Route path='/ContactBanner' element={ <ContactBanner /> } />
+        <Route path='/Footer' element={ <Footer /> } />
+        <Route path='/Contact' element={ <ContactUsContent /> } />
+    </Routes>
     </>
   );
 }

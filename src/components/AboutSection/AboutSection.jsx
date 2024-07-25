@@ -12,15 +12,16 @@ const AboutSection = () => {
                 <img src={img} alt="Techten Planet" />
             </div>
             <div className={style.aboutSectionTxt}>
-                <h3 className={style.h3}>We are Filling the Gap in Practical Technology and Engineering Education </h3>
-                <p className={style.aboutSectionTxt}><b>
-                    We believe that every student has the potential to be a tech leader, 
-                    and we're here to help them realize it. 
-                    We're Techten Planet Ghana, and we're building a future where technology 
-                    and engineering education is accessible, inclusive, and empowering for all.
-                    </b>
-                </p>
-                <PrimaryButton txt="Learn more" />
+                <h3 className={style.h3}>Narrow The Gap</h3>
+                <blockquote className={style.blockquote}>
+                    <blockquote className={style.outblockquote}>
+                        We believe that every student has the potential to be a tech leader, 
+                        and we're here to help them realize it. 
+                        We're Techten Planet Ghana, and we're building a future where technology 
+                        and engineering education is accessible, inclusive, and empowering for all.
+                        <span>O. Yaw Asamoah, <br></br><em>- Founder -</em></span>
+                    </blockquote>
+                </blockquote>
             </div>
         </div>
     </div>
