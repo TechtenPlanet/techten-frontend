@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import style from './Navbar.module.css'
-import PrimaryButton from '../PrimaryButton/PrimaryButton'
 import SecondaryButton from '../SecondaryButton/SecondaryButton'
 import {Link} from 'react-router-dom'
 import logo from './../../assets/images/logo.png'
