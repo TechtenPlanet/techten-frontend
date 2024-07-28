@@ -10,7 +10,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    margin-top: 0px;
+    margin-top: 0;
 }
 
 .contactBanner .contactBannerWrapper {
@@ -34,56 +34,121 @@
     margin-bottom: 32px;
 }
 
-.contactBanner .contactBannerWrapper .contactBannerHeading> span {
+.contactBanner .contactBannerWrapper .contactBannerHeading > span {
     color: #FF6620;
 }
 
 .newsletter {
     padding: 80px 0;
     background: #19beda;
-    }
-    
+}
+
 .newsletter .content {
     max-width: 650px;
     margin: 0 auto;
     text-align: center;
     position: relative;
-    z-index: 2; }
+    z-index: 2;
+}
 
 .newsletter .content .h2 {
     color: #243c4f;
-    margin-bottom: 40px; }
+    margin-bottom: 40px;
+}
 
 .newsletter .content .formcontrol {
     height: 50px;
     border-color: #ffffff;
-    border-radius:0;
-    }
-.newsletter .content.formcontrol:focus {
+    border-radius: 0;
+}
+
+.newsletter .content .formcontrol:focus {
     box-shadow: none;
     border: 2px solid #243c4f;
-    }
+}
+
 .newsletter .content .btn {
-    min-height: 50px; 
-    border-radius:0;
+    min-height: 50px;
+    border-radius: 0;
     background: #243c4f;
     color: #fff;
-    font-weight:600;
+    font-weight: 600;
+}
+
+/* Desktop Styling for 1200px screens and up */
+@media screen and (min-width: 1200px) {
+    .contactBanner {
+        padding: 20px 80px;
     }
 
-/* Mobile Styling */
+    .contactBanner .contactBannerWrapper .contactBannerHeading {
+        width: 60%;
+    }
+}
 
-@media screen and (max-width: 430px) {
+/* Styling for 1024px screens */
+@media screen and (max-width: 1024px) {
+    .contactBanner {
+        padding: 20px 40px;
+    }
+
+    .contactBanner .contactBannerWrapper .contactBannerHeading {
+        width: 80%;
+    }
+}
+
+/* Tablet Styling for 768px Screen */
+@media screen and (max-width: 768px) {
+    .contactBanner {
+        padding: 20px 30px;
+    }
+
+    .contactBanner .contactBannerWrapper .contactBannerHeading {
+        width: 90%;
+        font-size: 1.8rem;
+    }
+}
+
+/* Tablet Styling for 600px screen */
+@media screen and (max-width: 600px) {
+    .contactBanner {
+        padding: 20px 20px;
+    }
+
+    .contactBanner .contactBannerWrapper .contactBannerHeading {
+        width: 95%;
+        font-size: 1.5rem;
+    }
+}
+
+/* Mobile Styling on 480px */
+@media screen and (max-width: 480px) {
     .contactBanner {
         width: 100%;
         height: fit-content;
         padding: 20px;
-        margin-top: 0px;
+        margin-top: 0;
     }
-    
+
     .contactBanner .contactBannerWrapper .contactBannerHeading {
         width: 95%;
-        margin: 0;
+        font-size: 1.2rem;
+        margin-bottom: 32px;
+    }
+}
+
+/* Mobile Styling on 320px */
+@media screen and (max-width: 320px) {
+    .contactBanner {
+        width: 100%;
+        height: fit-content;
+        padding: 20px;
+        margin-top: 0;
+    }
+
+    .contactBanner .contactBannerWrapper .contactBannerHeading {
+        width: 95%;
+        font-size: 1rem;
         margin-bottom: 32px;
     }
 }

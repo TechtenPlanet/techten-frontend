@@ -1,8 +1,7 @@
 .homeHero {
     width: 100%;
     height: 100dvh;
-    /*background: linear-gradient(/*rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(./../../assets/images/techten_hero_image.png) ;*/
-    background: url(./../../assets/images/techten_hero_image_color.png) ;
+    background: url(./../../assets/images/techten_hero_image_color.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -38,7 +37,6 @@
 }
 
 .homeHero .homeHeroWrapper .items {
-    
     width: 35%;
     height: fit-content;
     padding: 20px;
@@ -46,7 +44,6 @@
     position: relative;
     left: 200px;
     bottom: 0;
-    
 }
 
 .homeHero .homeHeroWrapper .items .item {
@@ -59,9 +56,8 @@
     transition: all .5s ease-in-out;
     border-radius: 4px;
     cursor: pointer;
-    background: lightgray;
+    background: #0303AB;
     margin-top: 10px;
-    
 }
 
 .homeHero .homeHeroWrapper .items .item .itemIcon {
@@ -70,7 +66,6 @@
     align-items: center;
     justify-content: center;
     margin-top: -10px;
-    
 }
 
 .homeHero .homeHeroWrapper .items .item > h3 {
@@ -82,7 +77,6 @@
     margin-top: 10px;
     margin-left: 10px;
     margin-bottom: 20px;
-    
 }
 
 .homeHero .homeHeroWrapper .items .item:hover {
@@ -92,11 +86,11 @@
 }
 
 .homeHero .homeHeroWrapper .items .item:hover .itemIcon {
-    color: #0303AB;
+    color: #fff;
 }
 
 .homeHero .homeHeroWrapper .items .item:hover > h3 {
-    color: #0303AB;
+    color: #FF6620;
 }
 
 .homeHero .homeHeroWrapper .items .itemIntro {
@@ -109,191 +103,90 @@
     padding-top: 40px;
     margin-bottom: 10px;
 }
-/* Styling for 1024px screens */
 
-@media screen and (max-width: 1024px) {
-    
+/* Desktop Styling for 1200px screens and up */
+@media screen and (min-width: 1200px) {
     .homeHero .homeHeroWrapper .heroTxt h2 {
-        width: 90%;
+        font-size: 3rem;
+        width: 60%;
+    }
+
+    .homeHero .homeHeroWrapper .items {
+        width: 40%;
+    }
+
+    .homeHero .homeHeroWrapper .items .item {
+        height: 70px;
+    }
+
+    .homeHero .homeHeroWrapper .items .item .itemIcon {
+        font-size: 1.75rem;
+    }
+
+    .homeHero .homeHeroWrapper .items .item > h3 {
+        font-size: 1rem;
     }
 }
 
+/* Styling for 1024px screens */
+@media screen and (max-width: 1024px) {
+    .homeHero .homeHeroWrapper .heroTxt h2 {
+        width: 90%;
+    }
 
-/* Tablet Styling for 768 Screen*/
+    .homeHero .homeHeroWrapper .items {
+        left: 100px;
+    }
 
-@media screen and (max-width: 760px) {
+    .homeHero .homeHeroWrapper .items .item {
+        width: 40%;
+    }
+}
+
+/* Tablet Styling for 768px Screen */
+@media screen and (max-width: 768px) {
     .homeHero {
-        width: 100%;
         height: 100dvh;
     }
 
-    .homeHero .homeHeroWrapper .heroTxt {
+    .homeHero .homeHeroWrapper {
+        padding-top: 10px;
         display: flex;
-        font-size: 1rem;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
-        align-items: normal;
-        height: 200px;
-        margin-bottom: 200px;
     }
-     
+
+    .homeHero .homeHeroWrapper .heroTxt {
+        padding-top: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .homeHero .homeHeroWrapper .heroTxt h2 {
-        color: #fff;
         font-size: 1.5rem;
-        letter-spacing: 1.0px;
-        font-weight: bold;
-        width: 80%;
-        line-height: 1;
-        padding-top: 0px;
-    }
-    
-    .homeHero .homeHeroWrapper .items .itemIntro {
-        color: #0303AB;
-        background-color: #fff;
-        border-radius: 10px;
-        font-size: 0.5em;
-        width: 10%;
-        text-align: center;
-        margin-left: 5px;
-        padding-top: 20px;
-        margin-bottom: -10px;
-    } 
-    .homeHero .homeHeroWrapper .items {
-        width: 100%;
-        height: fit-content;
-        display: flex;
-        /*background-color: rgba(0, 0, 255, 0.445);*/
-        position: absolute;
-        left: 0;
-        bottom: 0;
-    
-    }
-    
-    .homeHero .homeHeroWrapper .items .item {
-        width: 20.33%;
-        height: 60px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: all .5s ease-in-out;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    
-    .homeHero .homeHeroWrapper .items .item .itemIcon {
-        font-size: 3rem;
-        color: #fff;
-    }
-    
-    .homeHero .homeHeroWrapper .items .item > h3 {
-        font-size: 0.5rem;
-        width: 90%;
-    }
-    
-}
-
-/* Tablet Stling 600px screen */
-
-@media screen and (max-width: 600px) {
-    .homeHero {
-        width: 100%;
-        height: 100%;
-    }
-    
-    .homeHero .homeHeroWrapper {
-        width: 100%;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        position: relative;
-    }
-    
-    .homeHero .homeHeroWrapper .heroTxt {
-        display: flex;
-        justify-content: center;
-        align-items: normal;
-        height: 200px;
-    }
-    
-    .homeHero .homeHeroWrapper .heroTxt h2 {
-        font-size: 2rem;
-        width: 90%;
-    }
-    
-    .homeHero .homeHeroWrapper .items .item {
-        width: 33.33%;
-        height: 100px;
-    }
-    
-    .homeHero .homeHeroWrapper .items .item .itemIcon {
-        font-size: 3rem;
-    }
-    
-    .homeHero .homeHeroWrapper .items .item > h3 {
-        font-size: 1rem;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    
-    .homeHero {
-        width: 100%;
-        height: fit-content;
-        background-size: cover !important;
-        /*background: linear-gradient(/*rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(./../../assets/images/techten_hero_image.png) ;*/
-        background: url(./../../assets/images/techten_mobile_375x667.png) ;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
-    .homeHero .homeHeroWrapper {
-       padding-top: 0px;
-        
-    }
-    
-    .homeHero .homeHeroWrapper .heroTxt {
-        display: flex;
-        align-items: center;
-        padding-top: 0px;
-        padding-bottom: 0px;
-        justify-content: center;
-        align-items: center;
-        padding-top: 20px; /* Adjust the padding as needed */
-        padding-bottom: 20px; /* Adjust the padding as needed */
-        flex-direction: column; /* Display the text content underneath the navbar */
-    }
-    
-    .homeHero .homeHeroWrapper .heroTxt h2 {
-        padding-top: 30%;
-        color: #fff;
-        font-size: 1.2rem;
         letter-spacing: 1.3px;
-        font-weight: bold;
         width: 70%;
-        margin-top: 0px;
+        margin-top: 40px;
         text-align: center;
         line-height: 1.3;
     }
 
-    
     .homeHero .homeHeroWrapper .items {
-        width: 100%;
+        width: 60%;
         height: fit-content;
+        padding: 20px;
+        margin-top: 10px;
         display: flex;
-        flex-direction: row;
-        position: absolute;
-        bottom: 80px;
-        padding: 0;
-        left: 0;
         justify-content: center;
-
+        align-items: center;
+        left: 0;
     }
-    
+
     .homeHero .homeHeroWrapper .items .item {
-        width: 25.33%;
-        height: 40px;
+        width: 33.33%;
+        height: 60px;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -301,63 +194,147 @@
         transition: all .5s ease-in-out;
         border-radius: 4px;
         cursor: pointer;
-        background: lightgray;
+        background: #0303AB;
         margin-top: 10px;
-        margin-left: 10px;
-       
-        cursor: pointer; 
+        margin-left: 20px;
     }
-    
+
     .homeHero .homeHeroWrapper .items .item .itemIcon {
-        font-size: 1.0rem;
-        color: #0303AB;
+        font-size: 1.5rem;
+        color: #FF6620;
         align-items: center;
         justify-content: center;
         margin-top: -10px;
-        
     }
-    
+
     .homeHero .homeHeroWrapper .items .item > h3 {
-        font-size: 0.7rem;
-        color:#0303AB;
-        width: 60%;
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: #FF6620;
+        width: 50%;
+        text-align: left;
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-bottom: 20px;
     }
 
     .homeHero .homeHeroWrapper .items .itemIntro {
         color: #0303AB;
         background-color: #fff;
-        font-size: 0.5rem;
+        font-size: 1.5rem;
         width: 20%;
         text-align: center;
         margin-left: 10px;
-        padding-top: 20px;
+        padding-top: 40px;
         margin-bottom: 10px;
     }
 }
 
-/* Mobile Styling on 320px */
+/* Tablet Styling for 600px screen */
+@media screen and (max-width: 600px) {
+    .homeHero {
+        height: 100%;
+    }
 
-@media screen and (max-width: 320px) {
+    .homeHero .homeHeroWrapper {
+        height: auto;
+        justify-content: space-between;
+    }
+
+    .homeHero .homeHeroWrapper .heroTxt {
+        height: 200px;
+    }
+
     .homeHero .homeHeroWrapper .heroTxt h2 {
-        color: #fff;
         font-size: 2rem;
-        letter-spacing: 1.1px;
-        font-weight: 500;
-        width: 95%;
-        text-align: center;
-        line-height: 1.1;
+        width: 90%;
     }
-    
+
+    .homeHero .homeHeroWrapper .items {
+        flex-direction: column;
+        left: 0;
+        align-items: center;
+    }
+
     .homeHero .homeHeroWrapper .items .item {
-        height: 120px;
+        width: 70%;
+        height: 100px;
     }
-    
+
     .homeHero .homeHeroWrapper .items .item .itemIcon {
         font-size: 2.5rem;
     }
-    
+
     .homeHero .homeHeroWrapper .items .item > h3 {
         font-size: 1rem;
+    }
+}
+
+/* Mobile Styling on 480px */
+@media screen and (max-width: 480px) {
+    .homeHero {
+        height: 100%;
+    }
+
+    .homeHero .homeHeroWrapper {
+        height: auto;
+        justify-content: space-between;
+    }
+
+    .homeHero .homeHeroWrapper .heroTxt {
+        height: 200px;
+    }
+
+    .homeHero .homeHeroWrapper .heroTxt h2 {
+        font-size: 1.4rem;
+        width: 90%;
+    }
+
+    .homeHero .homeHeroWrapper .items {
+        flex-direction: column;
+        left: 0;
+        align-items: center;
+    }
+
+    .homeHero .homeHeroWrapper .items .item {
+        width: 70%;
+        height: 50px;
+    }
+
+    .homeHero .homeHeroWrapper .items .item .itemIcon {
+        font-size: 1.5rem;
+    }
+
+    .homeHero .homeHeroWrapper .items .item > h3 {
+        font-size: 0.7rem;
+    }
+}
+
+
+/* Mobile Styling on 320px */
+@media screen and (max-width: 320px) {
+    .homeHero {
+        height: fit-content;
+    }
+
+    .homeHero .homeHeroWrapper .heroTxt h2 {
+        font-size: 1.0rem;
+        letter-spacing: 1.1px;
+        font-weight: 500;
+        width: 85%;
+        line-height: 1.1;
+    }
+
+    .homeHero .homeHeroWrapper .items .item {
+        height: 60px;
+    }
+
+    .homeHero .homeHeroWrapper .items .item .itemIcon {
+        font-size: 1.5rem;
+    }
+
+    .homeHero .homeHeroWrapper .items .item > h3 {
+        font-size: 0.7rem;
         width: 80%;
     }
 }

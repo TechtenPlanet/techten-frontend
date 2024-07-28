@@ -8,12 +8,16 @@ const Banner2 = () => {
     <div id="Banner2">
     <div className={style.banner2}>
         <div className={style.banner2Wrapper}>
-            <h4 className={style.banner2Heading}>
-            Are you a school that will need our services?
-            Are you a parent or a student that will need our services?
-            </h4>
+            <h6 className={style.banner2Heading}>
+            Lets talk, you can reach us by email, WhatsApp or Calling us. On workdays from 10:00 am to 6:00 pm
+            </h6>
             <p className={style.banner2Txt}>
-            Lets talk, you can reach us by email, WhatsApp or Calling us. On workdays from 10:00 am to 6:00 pms</p>
+            - We support schools with well-thought through STEM Labs<br></br>
+            - We offer industry-relevant STEM training for professionals and educators to stay ahead in their careers.<br></br>
+            - Our STEM programs are designed to help students develop 21st-century skills and prepare them for the future.<br></br>
+            - Our team have many years of industry experience and are passionate about STEM education.
+            </p>
+
             <div className={style.banner2Btn}>
             </div>
         </div>

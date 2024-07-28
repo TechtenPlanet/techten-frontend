@@ -13,7 +13,7 @@ const Quote = () => {
                                 The teachers are very helpful and the classes are fun and interactive. 
                                 I have <span className={style.span}>learned useful skills </span> and I am excited to learn more."
                             </h1>
-                            <h4 className={style.quoteAuthor}><em>- Techten Student</em></h4>
+                            <h4 className={style.quoteAuthor}><em>- Techten Student - </em></h4>
                         </div>
                     </div>
             </div>
