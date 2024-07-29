@@ -12,16 +12,11 @@ import Banner2 from './components/Banner2/Banner2';
 import PartnersSection from './components/PartnersSection/PartnersSection';
 import ContactBanner from './components/ContactBanner/ContactBanner';
 import Footer from './components/Footer/Footer';
-import ContactForm from './components/Forms/ContactForms';
-import ContactButton from './components/ContactButton/ContactBtn';
-import useToggleForm from './components/ContactButton/useContactBtn';
-import ContactUsPage from './pages/ContactUsPage';
 import ContactUsContent from './components/ContactUsContent/ContactUsContent';
 
 
 
 function App() {
-  const [showForm, handleToggle] = useToggleForm(); // Custom hook to toggle form
   return (
     <>
     <Routes>

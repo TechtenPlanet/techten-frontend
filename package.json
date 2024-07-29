@@ -1,6 +1,6 @@
 {
-  "name": "client",
-  "version": "0.1.0",
+  "name": "@techten/website",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -15,6 +15,7 @@
     "react-scripts": "5.0.1",
     "react-scroll": "^1.9.0",
     "reactstrap": "^9.2.2",
+    "serve": "^14.2.3",
     "swiper": "^11.0.7",
     "web-vitals": "^2.1.4"
   },
@@ -22,7 +23,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "serve": "serve -s build"
   },
   "eslintConfig": {
     "extends": [
