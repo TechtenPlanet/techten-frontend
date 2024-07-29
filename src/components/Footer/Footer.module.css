@@ -14,6 +14,7 @@
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 }
@@ -23,6 +24,7 @@
     height: 90%;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .footer .footerWrapper .footerCard .footerImg {
@@ -59,7 +61,6 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: center;
 }
 
@@ -124,6 +125,7 @@
     height: fit-content;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .footer .footerWrapper .footerCard .socialWrapper > h4 {
@@ -146,74 +148,133 @@
 }
 
 .footer .footerWrapper .footerCard .socialWrapper .socials a .social:hover {
-    color: orange;
+    color: #FF6620;
     transition: all .6s ease-in-out;
     transform: scale(1.1, 1.1);
     cursor: pointer;
 }
 
-/* Mobile Styling */
-@media screen and (max-width: 430px) {
+/* Desktop Styling for 1200px screens and up */
+@media screen and (min-width: 1200px) {
+    .footer {
+        padding: 20px 80px;
+    }
+
+    .footer .footerWrapper {
+        flex-direction: row;
+    }
+
+    .footer .footerWrapper .footerCard {
+        width: 33.33%;
+    }
+}
+
+/* Styling for 1024px screens */
+@media screen and (max-width: 1024px) {
+    .footer {
+        padding: 20px 40px;
+    }
+
+    .footer .footerWrapper {
+        flex-direction: row;
+    }
+
+    .footer .footerWrapper .footerCard {
+        width: 45%;
+        margin-bottom: 16px;
+    }
+
+    .footer .footerWrapper .footerCard .footerTxt {
+        padding: 20px;
+    }
+}
+
+/* Tablet Styling for 768px Screen */
+@media screen and (max-width: 768px) {
+    .footer {
+        padding: 20px 30px;
+    }
+
+    .footer .footerWrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer .footerWrapper .footerCard {
+        width: 90%;
+        margin-bottom: 16px;
+    }
+
+    .footer .footerWrapper .footerCard .footerTxt {
+        padding: 20px;
+    }
+}
+
+/* Tablet Styling for 600px screen */
+@media screen and (max-width: 600px) {
+    .footer {
+        padding: 20px 20px;
+    }
+
+    .footer .footerWrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer .footerWrapper .footerCard {
+        width: 90%;
+        margin-bottom: 16px;
+    }
+
+    .footer .footerWrapper .footerCard .footerTxt {
+        padding: 20px;
+    }
+}
+
+/* Mobile Styling on 480px */
+@media screen and (max-width: 480px) {
     .footer {
         height: 100%;
-        margin-bottom: auto;
         padding: 20px;
-        box-sizing: border-box;
     }
-
-    
 
     .footer .footerWrapper {
         flex-direction: column;
+        align-items: center;
     }
-    
+
     .footer .footerWrapper .footerCard {
         width: 90%;
         height: fit-content;
         margin-bottom: 16px;
     }
-    
+
     .footer .footerWrapper .footerCard .footerTxt {
         padding: 20px;
-        box-sizing: border-box;
         margin-top: 8px;
     }
 }
 
-/* Tablet Styling */
-@media screen and (min-width: 431px) and (max-width: 768px) {
-    /* Add your tablet-specific CSS here */
-    
-}
-
-
-/* Mobile Styling 
-
-@media screen and (max-width: 430px) {
+/* Mobile Styling on 320px */
+@media screen and (max-width: 320px) {
     .footer {
-        height: fit-content;
+        height: 100%;
         padding: 20px;
-        box-sizing: border-box;
     }
 
     .footer .footerWrapper {
         flex-direction: column;
+        align-items: center;
     }
-    
+
     .footer .footerWrapper .footerCard {
         width: 90%;
         height: fit-content;
         margin-bottom: 16px;
     }
-    
+
     .footer .footerWrapper .footerCard .footerTxt {
         padding: 20px;
-        box-sizing: border-box;
         margin-top: 8px;
     }
-    
-    .footer .footerWrapper .footerCard .footerHeader {
-        font-size: 2rem;
-        margin-bottom: 8px;
-    }
-}*/
+}
