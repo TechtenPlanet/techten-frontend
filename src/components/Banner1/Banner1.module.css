@@ -33,48 +33,59 @@
     padding-bottom: 40px;
 }
 
-.banner1 .banner1Wrapper .banner1Heading> span {
-    color: #FF6620;;
+.banner1 .banner1Wrapper .banner1Heading > span {
+    color: #FF6620;
 }
 
-/* Styling for 600px screens */
+/* Desktop Styling for 1200px screens and up */
+@media screen and (min-width: 1200px) {
+    .banner1 {
+        height: 50dvh;
+        padding: 20px 80px;
+    }
 
-@media screen and (max-width: 1280px) {
     .banner1 .banner1Wrapper .banner1Heading {
-        width: 100%;
-        margin-bottom: 16px;
+        width: 60%;
     }
 }
 
 /* Styling for 1024px screens */
-
 @media screen and (max-width: 1024px) {
+    .banner1 {
+        padding: 20px 40px;
+    }
+
     .banner1 .banner1Wrapper .banner1Heading {
-        width: 100%;
+        width: 80%;
         margin-bottom: 16px;
     }
 }
 
-/* Styling for 700px screens */
+/* Tablet Styling for 768px Screen */
+@media screen and (max-width: 768px) {
+    .banner1 {
+        padding: 20px 30px;
+    }
 
-@media screen and (max-width: 700px) {
     .banner1 .banner1Wrapper .banner1Heading {
-        width: 100%;
+        width: 90%;
         margin-bottom: 16px;
     }
 }
 
-/* Styling for 600px screens */
-
+/* Tablet Styling for 600px screen */
 @media screen and (max-width: 600px) {
+    .banner1 {
+        padding: 20px 20px;
+    }
+
     .banner1 .banner1Wrapper .banner1Heading {
-        width: 100%;
+        width: 95%;
         margin-bottom: 16px;
     }
 }
 
-/* Mobile Styling */
-
+/* Mobile Styling on 480px */
 @media screen and (max-width: 480px) {
     .banner1 {
         width: 100%;
@@ -82,7 +93,16 @@
         padding: 20px;
         margin-top: 16px;
     }
-    
+
+    .banner1 .banner1Wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
     .banner1 .banner1Wrapper .banner1Heading {
         font-size: 1rem;
         line-height: 1.5;
@@ -92,15 +112,14 @@
         width: 98%;
         margin-top: 32px;
     }
-    
-    .banner1 .banner1Wrapper .banner1Heading> span {
+
+    .banner1 .banner1Wrapper .banner1Heading > span {
         color: #FF6620;
         font-weight: 900;
     }
 }
 
-/* Styling for 320px screens */
-
+/* Mobile Styling on 320px */
 @media screen and (max-width: 320px) {
     .banner1 {
         width: 100%;
@@ -108,7 +127,7 @@
         padding: 20px;
         margin-top: 32px;
     }
-    
+
     .banner1 .banner1Wrapper {
         width: 100%;
         height: 100%;
@@ -117,7 +136,7 @@
         align-items: center;
         justify-content: center;
     }
-    
+
     .banner1 .banner1Wrapper .banner1Heading {
         font-size: 1.2rem;
         font-weight: bold;

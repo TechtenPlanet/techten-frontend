@@ -4,10 +4,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
     margin-top: 32px;
-    margin-left: 200px;
-    padding: 20px 0px;
+    padding: 20px 0;
     box-sizing: border-box;
 }
 
@@ -28,7 +26,7 @@
     border: 3px solid #0303AB;
     background-color: #0303AB;
     border-radius: 50px;
-    margin: 0px 8px;
+    margin: 0 8px;
 }
 
 .partnersSection .partnersSectionWrapper {
@@ -72,7 +70,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* box-shadow: 0px 0px 16px #6868687e; */
 }
 
 .partnersSection .partnersSectionWrapper .partnerCards .partnerCard > img {
@@ -81,14 +78,74 @@
     object-fit: contain;
 }
 
-/* Mobile Styling */
+/* Desktop Styling for 1200px screens and up */
+@media screen and (min-width: 1200px) {
+    .partnersSection {
+        height: 200px;
+        padding: 20px 0;
+    }
 
-@media screen and (max-width: 430px) {
+    .partnersSection .intro {
+        font-size: 2rem;
+        margin-left: 100px;
+    }
+
+    .partnersSection .partnersSectionWrapper {
+        width: 100%;
+        height: 90%;
+    }
+
+    .partnersSection .partnersSectionWrapper .partnerCards .mySwiper .swiper {
+        width: 20px;
+        height: 100%;
+    }
+}
+
+/* Styling for 1024px screens */
+@media screen and (max-width: 1024px) {
+    .partnersSection {
+        margin-left: 100px;
+        padding: 20px 0;
+    }
+
+    .partnersSection .intro {
+        font-size: 1.8rem;
+        margin-left: 50px;
+    }
+}
+
+/* Tablet Styling for 768px Screen */
+@media screen and (max-width: 768px) {
+    .partnersSection {
+        margin-left: 50px;
+        padding: 20px 0;
+    }
+
+    .partnersSection .intro {
+        font-size: 1.6rem;
+        margin-left: 25px;
+    }
+}
+
+/* Tablet Styling for 600px screen */
+@media screen and (max-width: 600px) {
+    .partnersSection {
+        margin-left: 0;
+        padding: 20px 10px;
+    }
+
+    .partnersSection .intro {
+        font-size: 1.4rem;
+        margin-left: 10px;
+    }
+}
+
+/* Mobile Styling on 480px */
+@media screen and (max-width: 480px) {
     .partnersSection {
         width: 100%;
         height: 200px;
         margin-top: 16px;
-        margin-left: 0px;
         padding: 20px;
         box-sizing: border-box;
     }
@@ -102,17 +159,15 @@
         text-transform: capitalize;
         margin-top: 10px;
         margin-bottom: 20px;
-        margin-left: 0px;
-        margin-right: 0px;
-        
+        margin-left: 0;
+        margin-right: 0;
     }
-    
+
     .partnersSection .partnersSectionWrapper {
         width: 100%;
         height: 100%;
     }
-    
-    
+
     .partnersSection .partnersSectionWrapper .partnerCards .mySwiper .swiper {
         width: 10px;
         height: 100%;
@@ -122,7 +177,7 @@
         padding: 0;
         margin: 0;
     }
-    
+
     .partnersSection .partnersSectionWrapper .partnerCards .partnerCard {
         width: 100%;
         height: 100%;
@@ -132,9 +187,64 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        /* box-shadow: 0px 0px 16px #6868687e; */
     }
-    
+
+    .partnersSection .partnersSectionWrapper .partnerCards .partnerCard > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+/* Mobile Styling on 320px */
+@media screen and (max-width: 320px) {
+    .partnersSection {
+        width: 100%;
+        height: 200px;
+        margin-top: 16px;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .partnersSection .intro {
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: center;
+        color: #0303AB;
+        letter-spacing: 1.1px;
+        text-transform: capitalize;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .partnersSection .partnersSectionWrapper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .partnersSection .partnersSectionWrapper .partnerCards .mySwiper .swiper {
+        width: 10px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .partnersSection .partnersSectionWrapper .partnerCards .partnerCard {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
     .partnersSection .partnersSectionWrapper .partnerCards .partnerCard > img {
         width: 100%;
         height: 100%;

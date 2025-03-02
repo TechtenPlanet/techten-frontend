@@ -50,10 +50,10 @@ const ContactUsContent = () => {
 
                 <div className={style.socials}>
                     <div className={style.social}> <FaEnvelope className={style.socialIcon} /> <p>techtenplanet@gmail.com</p> </div>
-                    <div className={style.social}> <FaFacebook className={style.socialIcon} /> <p>TechTen Planet</p> </div>
-                    <div className={style.social}> <FaTwitter className={style.socialIcon} /> <p>TechTen Planet</p> </div>
-                    <div className={style.social}> <FaInstagram className={style.socialIcon} /> <p>TechTen Planet</p> </div>
-                    <div className={style.social}> <FaLinkedin className={style.socialIcon} /> <p>TechTen Planet</p> </div>
+                    <div className={style.social}> <FaFacebook className={style.socialIcon} /> <p>Techten Planet</p> </div>
+                    <div className={style.social}> <FaTwitter className={style.socialIcon} /> <p>Techten Planet</p> </div>
+                    <div className={style.social}> <FaInstagram className={style.socialIcon} /> <p>Techten Planet</p> </div>
+                    <div className={style.social}> <FaLinkedin className={style.socialIcon} /> <p>Techten Planet</p> </div>
                 </div>
                 <div className={style.contactForm}>
                     

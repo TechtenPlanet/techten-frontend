@@ -5,12 +5,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px 0px;
+    padding: 20px 0;
     box-sizing: border-box;
     margin-top: 5%;
     margin-bottom: 10%;
 }
-
 
 .contactUsContent .contactUsContentWrapper {
     position: relative;
@@ -21,11 +20,10 @@
     align-items: center;
 }
 
-
-.headerSection{
-    position: absolute; /* Added */
-    top: 0; /* Added */
-    left: 0; /* Added */
+.headerSection {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 30%;
     display: flex;
@@ -37,10 +35,7 @@
     background-position: center;
     padding: 20px 80px;
     box-sizing: border-box;
-
 }
-
-
 
 .contactUsContent .contactUsContentWrapper .socials {
     margin-top: 15%;
@@ -55,19 +50,18 @@
 
 .contactUsContent .contactUsContentWrapper .socials .social {
     width: 100%;
-    padding:10px 10px;
+    padding: 10px;
     box-sizing: border-box;
-    border: 2px solid blue;
+    border: 2px solid #0303AB;
     border-radius: 8px;
     display: flex;
     align-items: center;
     margin: 8px 0;
-    /* justify-content: center; */
 }
 
 .contactUsContent .contactUsContentWrapper .socials .social .socialIcon {
     font-size: 2rem;
-    color: blue;
+    color: #0303AB;
     margin-right: 8px;
 }
 
@@ -81,6 +75,7 @@
     box-sizing: border-box;
     margin-top: 30%;
 }
+
 .header {
     font-size: 2.5rem;
     font-weight: bold;
@@ -92,16 +87,14 @@
 }
 
 .text {
-    font-size: 1.0rem;
-    font-weight: 100px;
+    font-size: 1rem;
+    font-weight: 100;
     color: #ffffff;
-    letter-spacing: 1.0px;
+    letter-spacing: 1px;
     margin: 0;
     margin-bottom: 1px;
     text-align: center;
 }
-
-
 
 .contactUsContent .contactUsContentWrapper .contactForm > form {
     display: flex;
@@ -119,11 +112,13 @@
     justify-content: space-between;
 }
 
-.contactUsContent .contactUsContentWrapper .contactForm > form .top .inputs label, .contactUsContent .contactUsContentWrapper .contactForm > form .inputs label {
+.contactUsContent .contactUsContentWrapper .contactForm > form .top .inputs label,
+.contactUsContent .contactUsContentWrapper .contactForm > form .inputs label {
     margin-bottom: 8px;
 }
 
-.contactUsContent .contactUsContentWrapper .contactForm > form .top .inputs, .contactUsContent .contactUsContentWrapper .contactForm > form .inputs {
+.contactUsContent .contactUsContentWrapper .contactForm > form .top .inputs,
+.contactUsContent .contactUsContentWrapper .contactForm > form .inputs {
     width: 49%;
     height: fit-content;
     display: flex;
@@ -135,25 +130,29 @@
     width: 100%;
 }
 
-.contactUsContent .contactUsContentWrapper .contactForm > form .top .inputs > input, .contactUsContent .contactUsContentWrapper .contactForm > form .inputs > input, .contactUsContent .contactUsContentWrapper .contactForm > form .inputs > textarea  {
+.contactUsContent .contactUsContentWrapper .contactForm > form .top .inputs > input,
+.contactUsContent .contactUsContentWrapper .contactForm > form .inputs > input,
+.contactUsContent .contactUsContentWrapper .contactForm > form .inputs > textarea {
     padding: 10px;
     box-sizing: border-box;
-    border: 2px solid blue;
+    border: 2px solid #0303AB;
     outline: none;
     width: 100%;
     border-radius: 4px;
 }
 
-.contactUsContent .contactUsContentWrapper .contactForm > form .inputs > input, input, .contactUsContent .contactUsContentWrapper .contactForm > form .inputs > textarea {
+.contactUsContent .contactUsContentWrapper .contactForm > form .inputs > input,
+input,
+.contactUsContent .contactUsContentWrapper .contactForm > form .inputs > textarea {
     width: 100%;
 }
 
 .contactUsContent .contactUsContentWrapper .contactForm > form .sendMessage {
     width: 100%;
-    padding: 16px 0px;
+    padding: 16px 0;
     box-sizing: border-box;
     border: none;
-    background-color: blue;
+    background-color:#0303AB;
     color: #fff;
     letter-spacing: 1.3px;
     border-radius: 4px;
@@ -161,16 +160,84 @@
     margin-top: 16px;
 }
 
-/* Responsive styles for screens 480px and below */
+/* Desktop Styling for 1200px screens and up */
+@media screen and (min-width: 1200px) {
+    .contactUsContent {
+        height: 100dvh;
+        padding: 20px 0;
+    }
+
+    .contactUsContent .contactUsContentWrapper .socials {
+        margin-top: 10%;
+        width: 30%;
+    }
+
+    .contactUsContent .contactUsContentWrapper .contactForm {
+        width: 70%;
+        margin-top: 30%;
+    }
+}
+
+/* Styling for 1024px screens */
+@media screen and (max-width: 1024px) {
+    .contactUsContent {
+        height: 90dvh;
+        padding: 20px 0;
+    }
+
+    .contactUsContent .contactUsContentWrapper .socials {
+        margin-top: 12%;
+        width: 35%;
+    }
+
+    .contactUsContent .contactUsContentWrapper .contactForm {
+        width: 65%;
+        margin-top: 25%;
+    }
+}
+
+/* Tablet Styling for 768px Screen */
+@media screen and (max-width: 768px) {
+    .contactUsContent {
+        height: 80dvh;
+        padding: 20px 0;
+    }
+
+    .contactUsContent .contactUsContentWrapper .socials {
+        margin-top: 15%;
+        width: 40%;
+    }
+
+    .contactUsContent .contactUsContentWrapper .contactForm {
+        width: 60%;
+        margin-top: 30%;
+    }
+}
+
+/* Tablet Styling for 600px screen */
+@media screen and (max-width: 600px) {
+    .contactUsContent {
+        height: 70dvh;
+        padding: 20px 0;
+    }
+
+    .contactUsContent .contactUsContentWrapper .socials {
+        margin-top: 20%;
+        width: 45%;
+    }
+
+    .contactUsContent .contactUsContentWrapper .contactForm {
+        width: 55%;
+        margin-top: 35%;
+    }
+}
+
+/* Mobile Styling on 480px */
 @media screen and (max-width: 480px) {
     .contactUsContent {
         width: 100%;
-        height: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 2px 0px;
+        height: fit-content;
+        padding: 2px 0;
         margin-top: 5%;
         margin-bottom: 10%;
     }
@@ -185,10 +252,10 @@
         align-items: center;
     }
 
-    .headerSection{
-        position: absolute; /* Added */
-        top: 0; /* Added */
-        left: 0; /* Added */
+    .headerSection {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 20%;
         display: flex;
@@ -205,9 +272,6 @@
         margin-top: 300px;
         width: 90%;
         height: 100%;
-      
-       
-       
     }
 
     .header {
@@ -219,12 +283,12 @@
         margin-bottom: 1px;
         text-align: center;
     }
-    
+
     .text {
-        font-size: 1.0rem;
-        font-weight: 100px;
+        font-size: 1rem;
+        font-weight: 100;
         color: #ffffff;
-        letter-spacing: 1.0px;
+        letter-spacing: 1px;
         margin: 10px;
         margin-bottom: 1px;
         text-align: center;
@@ -232,7 +296,81 @@
 
     .contactUsContent .contactUsContentWrapper .contactForm {
         width: 100%;
-        margin-top: 0px;
+        margin-top: 0;
+        padding: 10px;
+    }
+
+    .contactUsContent .contactUsContentWrapper .contactForm > form .top .inputs,
+    .contactUsContent .contactUsContentWrapper .contactForm > form .inputs {
+        width: 100%;
+    }
+}
+
+/* Mobile Styling on 320px */
+@media screen and (max-width: 320px) {
+    .contactUsContent {
+        width: 100%;
+        height: fit-content;
+        padding: 2px 0;
+        margin-top: 5%;
+        margin-bottom: 10%;
+    }
+
+    .contactUsContent .contactUsContentWrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .headerSection {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: linear-gradient(rgba(0,0,0,0.1), rgba(3, 3, 171, 1)), url(./../../assets/images/TechtenPlanet-contactus.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        padding: 20px 10px;
+    }
+
+    .contactUsContent .contactUsContentWrapper .socials {
+        margin-top: 300px;
+        width: 90%;
+        height: 100%;
+    }
+
+    .header {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #ffffff;
+        letter-spacing: 1.1px;
+        margin: 0;
+        margin-bottom: 1px;
+        text-align: center;
+    }
+
+    .text {
+        font-size: 0.9rem;
+        font-weight: 100;
+        color: #ffffff;
+        letter-spacing: 1px;
+        margin: 10px;
+        margin-bottom: 1px;
+        text-align: center;
+    }
+
+    .contactUsContent .contactUsContentWrapper .contactForm {
+        width: 100%;
+        margin-top: 0;
         padding: 10px;
     }
 
