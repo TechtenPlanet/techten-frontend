@@ -1,0 +1,39 @@
+.photo-collage-wrapper {
+    width: 80%;
+    margin: 50px auto;
+}
+
+.slide {
+    position: relative;
+    padding: 0 15px;
+}
+
+.carousel-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: 5px solid #fff;
+}
+
+.slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 15px;
+    right: 15px;
+    bottom: 0;
+    background-color: rgba(255, 102, 32, 0.2);
+    border-radius: 10px;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 35px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+}

@@ -1,0 +1,90 @@
+.impactReports {
+  padding: 60px 20px;
+  background-color: white;
+  text-align: center;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdfIcon {
+  font-size: 1.4rem;
+  color: #FF6620;
+  margin-right: 10px;
+}
+
+.reportButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.reportButton {
+  display: flex;
+  align-items: center;
+  padding: 15px 25px;
+  background-color: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.reportButton:hover {
+  background-color: #e9ecef;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.buttonIcon {
+  font-size: 1.5rem;
+  color: #FF6620;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .impactReports {
+    padding: 40px 20px;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .description {
+    font-size: 1.1rem;
+  }
+  
+  .reportButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .reportButton {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+}

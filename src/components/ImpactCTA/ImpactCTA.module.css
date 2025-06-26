@@ -1,0 +1,97 @@
+.impactCTA {
+  background-color: #f8f9fa;
+  padding: 60px 20px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.iconContainer {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #FF6620;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+}
+
+.icon {
+  font-size: 2rem;
+  color: white;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: #0033a0;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: #002280;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.arrowIcon {
+  margin-left: 8px;
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 768px) {
+  .impactCTA {
+    padding: 40px 20px;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .description {
+    font-size: 1.1rem;
+  }
+  
+  .buttonContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .button {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+}

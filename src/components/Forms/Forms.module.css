@@ -1,0 +1,149 @@
+.formContainer {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.formHeader {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.formTitle {
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.formDescription {
+  color: #6c757d;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formLabel {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+  color: #495057;
+}
+
+.requiredStar {
+  color: #FF6620;
+  margin-left: 0.25rem;
+}
+
+.helpText {
+  display: block;
+  margin-top: 0.25rem;
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+.inputError {
+  border-color: #dc3545 !important;
+}
+
+.errorMessage {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.formActions {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.submitButton {
+  background-color: #FF6620;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #e55b1e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 102, 32, 0.3);
+}
+
+.formSuccess {
+  text-align: center;
+  padding: 2rem;
+}
+
+.successIcon {
+  color: #28a745;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.formError {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.errorIcon {
+  color: #721c24;
+  font-size: 1.25rem;
+  margin-right: 0.75rem;
+}
+
+/* Form tabs styling */
+.formTabs {
+  display: flex;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.formTab {
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #6c757d;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.formTab:hover {
+  color: #495057;
+}
+
+.formTabActive {
+  color: #FF6620;
+  border-bottom-color: #FF6620;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .formContainer {
+    padding: 1.5rem;
+  }
+  
+  .formTabs {
+    flex-wrap: wrap;
+  }
+  
+  .formTab {
+    flex: 1 0 50%;
+    text-align: center;
+    padding: 0.5rem;
+  }
+}

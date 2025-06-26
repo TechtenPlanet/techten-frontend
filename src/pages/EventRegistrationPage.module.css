@@ -1,0 +1,79 @@
+.registrationPage {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  color: #555;
+  text-decoration: none;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.backLink:hover {
+  color: #FF6620;
+}
+
+.backLink svg {
+  margin-right: 0.5rem;
+}
+
+.eventInfo {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-left: 4px solid #FF6620;
+}
+
+.eventTitle {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.eventDetails {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.eventDetails p {
+  margin: 0;
+}
+
+.registrationFormContainer {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.notFound {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.notFound h2 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.notFound p {
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .registrationPage {
+    padding: 1rem;
+  }
+  
+  .eventDetails {
+    grid-template-columns: 1fr;
+  }
+}

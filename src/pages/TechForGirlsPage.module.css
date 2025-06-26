@@ -1,0 +1,513 @@
+.sectionTitle {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.sectionTitleBordered {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.sectionTitleBordered span {
+  border-bottom: 2px solid #FF6620;
+  padding-bottom: 0.5rem;
+}
+
+.sectionDescription {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+}
+
+.introText {
+  font-size: 1.25rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.statsContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.statBadge {
+  background-color: #FF6620;
+  color: white;
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0.25rem;
+}
+
+.statIcon {
+  margin-right: 0.5rem;
+}
+
+/* Mission Section */
+.missionImageContainer {
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.missionImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.missionContent {
+  padding: 1.5rem;
+}
+
+.missionTitle {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #333;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.missionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: #FF6620;
+}
+
+.missionDescription {
+  margin-bottom: 1.5rem;
+  color: #6c757d;
+}
+
+.missionPoints {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.missionPoint {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.pointIcon {
+  color: #FF6620;
+  margin-right: 0.75rem;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+/* Programs Section */
+.programCard {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  border-top: 3px solid #FF6620;
+}
+
+.programCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.programIcon {
+  color: #FF6620;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.programTitle {
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  text-align: center;
+  color: #333;
+}
+
+.programDescription {
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #6c757d;
+}
+
+.programDetails {
+  margin-top: auto;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #dee2e6;
+}
+
+.programDetail {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.detailLabel {
+  font-weight: 600;
+  color: #495057;
+}
+
+.detailValue {
+  color: #6c757d;
+}
+
+.programLink {
+  display: inline-flex;
+  align-items: center;
+  color: #FF6620;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.programLink:hover {
+  color: #e55b1e;
+}
+
+.linkIcon {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.programLink:hover .linkIcon {
+  transform: translateX(3px);
+}
+
+/* Impact Section */
+.impactSection {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.impactTitle {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.impactCard {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  height: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.impactCard:hover {
+  transform: translateY(-5px);
+}
+
+.impactNumber {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #FF6620;
+  margin-bottom: 0.5rem;
+}
+
+.impactLabel {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.impactDescription {
+  color: #6c757d;
+  margin-bottom: 0;
+}
+
+.impactQuote {
+  max-width: 800px;
+  margin: 3rem auto 0 auto;
+  font-style: italic;
+}
+
+.quoteText {
+  font-size: 1.25rem;
+  color: #495057;
+  margin-bottom: 1rem;
+}
+
+.quoteAuthor {
+  font-weight: 600;
+  color: #6c757d;
+}
+
+/* Mentors Section */
+.mentorCard {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.mentorImageContainer {
+  height: 200px;
+  overflow: hidden;
+}
+
+.mentorImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.mentorCard:hover .mentorImage {
+  transform: scale(1.05);
+}
+
+.mentorContent {
+  padding: 1.25rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.mentorName {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: #333;
+  font-size: 1.125rem;
+}
+
+.mentorTitle {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #FF6620;
+  font-size: 0.875rem;
+}
+
+.mentorCompany {
+  margin-bottom: 0.75rem;
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+.mentorSpecialty {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+.specialtyIcon {
+  color: #FFD700;
+  margin-right: 0.5rem;
+}
+
+.mentorsCta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.outlineButton {
+  border: 2px solid #FF6620;
+  color: #FF6620;
+  background-color: transparent;
+  border-radius: 6px;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.outlineButton:hover {
+  background-color: #FF6620;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 102, 32, 0.2);
+}
+
+/* Events Section */
+.eventCard {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid #e9ecef;
+}
+
+.eventHeader {
+  padding: 1.25rem;
+  background-color: #FF6620;
+  color: white;
+}
+
+.eventTitle {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.eventType {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+.eventDetails {
+  padding: 1.25rem;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.eventDetail {
+  display: flex;
+  align-items: center;
+  color: #6c757d;
+  font-size: 0.875rem;
+  margin-right: 1rem;
+}
+
+.detailIcon {
+  color: #FF6620;
+  margin-right: 0.5rem;
+}
+
+.eventDescription {
+  padding: 1.25rem;
+  flex-grow: 1;
+  color: #6c757d;
+}
+
+.eventFooter {
+  padding: 1.25rem;
+  border-top: 1px solid #e9ecef;
+  text-align: center;
+}
+
+.primaryButton {
+  background-color: #FF6620;
+  color: white;
+  border-radius: 6px;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.primaryButton:hover {
+  background-color: #e55b1e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 102, 32, 0.3);
+  color: white;
+}
+
+/* Registration Section */
+.registrationSection {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 2.5rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.registrationTitle {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.registrationDescription {
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+}
+
+.registrationCta {
+  margin-top: 1rem;
+}
+
+/* Navigation Section */
+.programNavigation {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #dee2e6;
+  text-align: center;
+}
+
+.navigationTitle {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.navigationLinks {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.navigationLink {
+  display: inline-flex;
+  align-items: center;
+  color: #FF6620;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.navigationLink:hover {
+  color: #e55b1e;
+  transform: translateX(5px);
+}
+
+.navigationIcon {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.navigationLink:hover .navigationIcon {
+  transform: translateX(3px);
+}
+
+@media (max-width: 768px) {
+  .statsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .statBadge {
+    margin-bottom: 0.5rem;
+  }
+  
+  .navigationLinks {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .missionImageContainer {
+    margin-bottom: 1.5rem;
+  }
+}
