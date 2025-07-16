@@ -1,3 +1,8 @@
+import dotenv from 'dotenv';
+import { Client } from '@notionhq/client';
+
+dotenv.config({ path: '.env' });
+
 const eventsData = [
   {
     id: 1,
@@ -60,5 +65,27 @@ const eventsData = [
     tags: ["Entrepreneurship", "Startups", "Business Development"]
   }
 ];
+const notion = new Client({ auth: process.env.REACT_APP_NOTION_API_TOKEN });
+const databaseId = process.env.REACT_APP_NOTION_EVENTS_DB_ID;
 
-export default eventsData;
+async function migrateEvents() {
+  for (const event of eventsData) {
+    try {
+      await notion.pages.create({
+        parent: { database_id: databaseId },
+        properties: {
+          Name: { title: [{ text: { content: event.title } }] },
+          Date: { date: { start: new Date(event.date).toISOString().split('T')[0] } },
+          Location: { rich_text: [{ text: { content: event.location } }] },
+          Status: { status: { name: 'Done' } },
+          Tags: { multi_select: event.tags.map(tag => ({ name: tag })) },
+        },
+      });
+      console.log(`Successfully migrated event: ${event.title}`);
+    } catch (error) {
+      console.error(`Error migrating event: ${event.title}`, error);
+    }
+  }
+}
+
+migrateEvents();

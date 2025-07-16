@@ -1,12 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import style from './MainBlogs.module.css';
 import { FaRegCalendar, FaRegUser, FaTags } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import blogsData from '../../data/blogsData';
+import { getBlogs } from '../../notion/blogService';
 
 const MainBlogs = () => {
+  const [blogsData, setBlogsData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [visibleBlogs, setVisibleBlogs] = useState(6);
   const [activeTag, setActiveTag] = useState('All');
+
+  // Fetch blogs from Notion
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const blogs = await getBlogs();
+        setBlogsData(blogs);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
 
   // Function to trim text to the specified maxLength
   const trimText = (text, maxLength) => {

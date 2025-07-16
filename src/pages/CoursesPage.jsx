@@ -1,17 +1,34 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { FaSearch, FaGraduationCap } from 'react-icons/fa';
 import CourseCard from '../components/CourseCard/CourseCard';
-import courses from '../data/coursedata';
+import { getCourses } from '../notion/courseService';
 import OtherPagesHero from '../components/OtherPagesHero/OtherPagesHero';
 import style from './CoursesPage.module.css';
 
 const CoursesPage = () => {
-  const allCourses = useMemo(() => courses, []);
-
+  const [allCourses, setAllCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [visibleCourses, setVisibleCourses] = useState(4);
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
-  const [filteredCourses, setFilteredCourses] = useState(allCourses);
+  const [filteredCourses, setFilteredCourses] = useState([]);
+
+  // Fetch courses from Notion
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const coursesData = await getCourses();
+        setAllCourses(coursesData);
+        setFilteredCourses(coursesData);
+      } catch (error) {
+        console.error("Error fetching courses:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCourses();
+  }, []);
 
   // Get all unique categories from courses
   const allCategories = useMemo(() => 

@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import style from './MainEvents.module.css';
 import { FaMapMarkerAlt, FaRegClock, FaCalendarAlt, FaTags } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import eventsData from '../../data/eventsData';
-
-const MainEvents = () => {
+const MainEvents = ({ events, loading }) => {
   const [visibleEvents, setVisibleEvents] = useState(6);
   const [activeTag, setActiveTag] = useState('All');
 
@@ -18,16 +16,20 @@ const MainEvents = () => {
   };
 
   // Get all unique tags from events
-  const allTags = ['All', ...new Set(eventsData.flatMap(event => event.tags))];
+  const allTags = ['All', ...new Set(events.flatMap(event => event.tags))];
 
   // Filter events by tag
   const filteredEvents = activeTag === 'All' 
-    ? eventsData 
-    : eventsData.filter(event => event.tags.includes(activeTag));
+    ? events 
+    : events.filter(event => event.tags.includes(activeTag));
 
   const loadMoreEvents = () => {
     setVisibleEvents(prev => prev + 3);
   };
+
+  if (loading) {
+    return <div className={style.loading}>Loading events...</div>;
+  }
 
   return (
     <div className={style.eventsSection}>

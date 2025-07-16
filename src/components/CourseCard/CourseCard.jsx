@@ -25,6 +25,17 @@ const CourseCard = ({ course, featured = false, horizontal = false }) => {
           
           <p className={style.description}>{course.description}</p>
           
+          {/* Pricing Display */}
+          {course.pricing && (
+            <div className={style.pricingDisplay}>
+              <span className={style.pricingLabel}>Starting from</span>
+              <span className={style.pricingAmount}>
+                {course.pricing.currency === 'GHC' ? '₵' : '$'}{course.pricing.student}
+              </span>
+              <span className={style.pricingCurrency}>{course.pricing.currency}</span>
+            </div>
+          )}
+          
           <div className={style.divider}></div>
           
           <ul className={style.links}>

@@ -1,12 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import style from './TestimonialSection.module.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Autoplay, Pagination } from 'swiper/modules';
 import testimonialsData from '../../data/testimonialsData';
-import PrimaryButton from '../PrimaryButton/PrimaryButton';
 
 const TestimonialSection = () => {
   return (

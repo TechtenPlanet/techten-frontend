@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { FaMapMarkerAlt, FaRegClock, FaCalendarAlt, FaTags, FaArrowLeft } from 'react-icons/fa';
 import style from './EventDetail.module.css';
-import eventsData from '../../data/eventsData';
+import { getEvents } from '../../notion/eventService';
 
 const EventDetail = () => {
   const { id } = useParams();
-  const event = eventsData.find(event => event.id === parseInt(id));
+  const [event, setEvent] = useState(null);
+  const [relatedEvents, setRelatedEvents] = useState([]);
+
+  useEffect(() => {
+    const fetchEvent = async () => {
+      const events = await getEvents();
+      const event = events.find(event => event.id === id || event.id === parseInt(id));
+      setEvent(event);
+
+      if (event) {
+        const related = events
+          .filter(relatedEvent =>
+            relatedEvent.id !== event.id &&
+            relatedEvent.tags.some(tag => event.tags.includes(tag))
+          )
+          .slice(0, 3);
+        setRelatedEvents(related);
+      }
+    };
+    fetchEvent();
+  }, [id]);
 
   if (!event) {
     return (
@@ -83,31 +103,25 @@ const EventDetail = () => {
         <div className={style.relatedEvents}>
           <h3>Other Events You Might Like</h3>
           <div className={style.relatedEventsGrid}>
-            {eventsData
-              .filter(relatedEvent => 
-                relatedEvent.id !== event.id && 
-                relatedEvent.tags.some(tag => event.tags.includes(tag))
-              )
-              .slice(0, 3)
-              .map(relatedEvent => (
-                <Link 
-                  key={relatedEvent.id} 
-                  to={`/events/${relatedEvent.id}`} 
-                  className={style.relatedEvent}
-                >
-                  <div 
-                    className={style.relatedEventImage} 
-                    style={{ backgroundImage: `url(${relatedEvent.image})` }}
-                  ></div>
-                  <div className={style.relatedEventInfo}>
-                    <h4 className={style.relatedEventTitle}>{relatedEvent.title}</h4>
-                    <p className={style.relatedEventDate}>
-                      <FaCalendarAlt className={style.relatedEventIcon} />
-                      {relatedEvent.date}
-                    </p>
-                  </div>
-                </Link>
-              ))}
+            {relatedEvents.map(relatedEvent => (
+              <Link
+                key={relatedEvent.id}
+                to={`/events/${relatedEvent.id}`}
+                className={style.relatedEvent}
+              >
+                <div
+                  className={style.relatedEventImage}
+                  style={{ backgroundImage: `url(${relatedEvent.image})` }}
+                ></div>
+                <div className={style.relatedEventInfo}>
+                  <h4 className={style.relatedEventTitle}>{relatedEvent.title}</h4>
+                  <p className={style.relatedEventDate}>
+                    <FaCalendarAlt className={style.relatedEventIcon} />
+                    {relatedEvent.date}
+                  </p>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </div>

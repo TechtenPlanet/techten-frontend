@@ -18,10 +18,10 @@ const ImpactCTA = () => {
           <Link to="/donate" className={style.button}>
             Donate Now <FaArrowRight className={style.arrowIcon} />
           </Link>
-          <Link to="/mentor" className={style.button}>
+          <Link to="/get-involved?form=mentor" className={style.button}>
             Become a Mentor <FaArrowRight className={style.arrowIcon} />
           </Link>
-          <Link to="/sponsor" className={style.button}>
+          <Link to="/get-involved?form=sponsorship" className={style.button}>
             Corporate Sponsor Info <FaArrowRight className={style.arrowIcon} />
           </Link>
         </div>

@@ -1,0 +1,53 @@
+.allBlogs {
+  padding: 60px 0;
+}
+
+.blogGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.blogCard {
+  text-decoration: none;
+  color: inherit;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blogCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.blogImage {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.blogContent {
+  padding: 20px;
+}
+
+.blogTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.blogExcerpt {
+  color: #6c757d;
+  margin-bottom: 15px;
+}
+
+.readMore {
+  font-weight: bold;
+  color: #0033a0;
+}

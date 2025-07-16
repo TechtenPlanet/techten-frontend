@@ -88,8 +88,9 @@
 
 .courseGrid {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  align-items: start;
 }
 
 .featuredCourse {
@@ -169,14 +170,36 @@
   color: white;
 }
 
-@media (min-width: 640px) {
+/* Responsive breakpoints */
+@media (max-width: 480px) {
+  .coursesSection {
+    padding: 2rem 1rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.875rem;
+  }
+  
   .courseGrid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 481px) and (max-width: 768px) {
   .courseGrid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .courseGrid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+
+@media (min-width: 1025px) {
+  .courseGrid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
 }

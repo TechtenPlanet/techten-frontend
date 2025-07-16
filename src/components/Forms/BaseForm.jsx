@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import style from './Forms.module.css';
 import { FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
-import formService from '../../firebase/formService';
+// import formService from '../../firebase/formService';
 
 const BaseForm = ({ 
   title, 
@@ -86,28 +86,35 @@ const BaseForm = ({
                   ? 'event-registration'
                   : 'general';
         
-        // Submit the form data to Firebase
+        // Submit to Notion backend based on form type
         let result;
-        
-        switch (formType) {
-          case 'volunteer':
-            result = await formService.submitVolunteerApplication(formData);
-            break;
-          case 'partnership':
-            result = await formService.submitPartnershipRequest(formData);
-            break;
-          case 'contact':
-            result = await formService.submitContactForm(formData);
-            break;
-          case 'enrollment':
-            result = await formService.submitEnrollment(formData);
-            break;
-          case 'event-registration':
-            result = await formService.submitEventRegistration(formData);
-            break;
-          default:
-            result = await formService.submitForm(formType, formData);
-            break;
+        if (formType === 'enrollment') {
+          const response = await fetch('http://localhost:5000/api/enrollments', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              studentName: formData.studentName || formData.name,
+              email: formData.email,
+              phone: formData.phone,
+              courseName: formData.courseTitle,
+              courseId: formData.courseId,
+              age: parseInt(formData.studentAge),
+              experienceLevel: formData.experience === 'none' ? 'Beginner' : 
+                             formData.experience === 'beginner' ? 'Beginner' :
+                             formData.experience === 'intermediate' ? 'Intermediate' : 'Advanced',
+              specialRequirements: formData.additionalInfo,
+              emergencyContact: formData.phone // Using phone as emergency contact for now
+            }),
+          });
+          result = await response.json();
+          if (!response.ok) {
+            throw new Error(result.error || 'Failed to submit enrollment');
+          }
+        } else {
+          // For other form types, just return success for now
+          result = { success: true };
         }
         
         console.log(`${formType} form submitted:`, result);

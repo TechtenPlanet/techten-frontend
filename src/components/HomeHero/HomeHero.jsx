@@ -10,8 +10,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 
-import HeroImage1 from '../../assets/images/Hero_image.HEIC';
-import HeroImage2 from '../../assets/images/img.jpg';
+import HeroImage1 from '../../assets/images/Classes_images/PXL_20250523_124110430.MP.jpg';
+import HeroImage2 from '../../assets/images/class_Original.jpg';
 import HeroImage3 from '../../assets/images/techten_hero_image_color.png';
 import HeroImage4 from '../../assets/images/techten_hero_image.png';
 

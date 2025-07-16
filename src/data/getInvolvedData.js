@@ -5,8 +5,7 @@ import {
   FaHandshake, 
   FaUsers,
   FaLaptopCode,
-  FaMapMarkerAlt,
-  FaCheckCircle
+  FaMapMarkerAlt
 } from 'react-icons/fa';
 
 const getInvolvedData = {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaCreditCard, FaLock, FaPaypal, FaApplePay, FaGooglePay } from 'react-icons/fa';
 import style from './DonationForm.module.css';
-import mollieService from '../../firebase/mollieService';
+// import mollieService from '../../firebase/mollieService';
 
 /**
  * Donation Form Component with Mollie Integration
@@ -122,11 +122,9 @@ const DonationForm = () => {
         method: paymentMethod
       };
       
-      // Create payment using Firebase Function
-      const result = await mollieService.createPayment(paymentData);
-      
-      // Redirect to Mollie checkout page
-      window.location.href = result.checkoutUrl;
+      // TODO: Implement payment processing
+      setMessage("Payment processing is temporarily disabled. Please contact us directly.");
+      setMessageType('error');
       
     } catch (error) {
       console.error("Payment Error:", error);

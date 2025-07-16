@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { FaRegCalendar, FaRegUser, FaTags, FaArrowLeft } from 'react-icons/fa';
 import style from './BlogDetail.module.css';
-import blogsData from '../../data/blogsData';
+import { getBlogs } from '../../notion/blogService';
 
 const BlogDetail = () => {
   const { id } = useParams();
-  const blog = blogsData.find(blog => blog.id === parseInt(id));
+  const [blog, setBlog] = useState(null);
+  const [relatedBlogs, setRelatedBlogs] = useState([]);
+
+  useEffect(() => {
+    const fetchBlog = async () => {
+      const blogs = await getBlogs();
+      const blog = blogs.find(blog => blog.id === id);
+      setBlog(blog);
+
+      if (blog) {
+        const related = blogs
+          .filter(relatedBlog => 
+            relatedBlog.id !== blog.id && 
+            relatedBlog.tags.some(tag => blog.tags.includes(tag))
+          )
+          .slice(0, 3);
+        setRelatedBlogs(related);
+      }
+    };
+    fetchBlog();
+  }, [id]);
 
   if (!blog) {
     return (
@@ -79,25 +99,19 @@ const BlogDetail = () => {
         <div className={style.relatedPosts}>
           <h3>Related Articles</h3>
           <div className={style.relatedPostsGrid}>
-            {blogsData
-              .filter(relatedBlog => 
-                relatedBlog.id !== blog.id && 
-                relatedBlog.tags.some(tag => blog.tags.includes(tag))
-              )
-              .slice(0, 3)
-              .map(relatedBlog => (
-                <Link 
-                  key={relatedBlog.id} 
-                  to={`/blogs/${relatedBlog.id}`} 
-                  className={style.relatedPost}
-                >
-                  <div 
-                    className={style.relatedPostImage} 
-                    style={{ backgroundImage: `url(${relatedBlog.image})` }}
-                  ></div>
-                  <h4 className={style.relatedPostTitle}>{relatedBlog.title}</h4>
-                </Link>
-              ))}
+            {relatedBlogs.map(relatedBlog => (
+              <Link 
+                key={relatedBlog.id} 
+                to={`/blogs/${relatedBlog.id}`} 
+                className={style.relatedPost}
+              >
+                <div 
+                  className={style.relatedPostImage} 
+                  style={{ backgroundImage: `url(${relatedBlog.image})` }}
+                ></div>
+                <h4 className={style.relatedPostTitle}>{relatedBlog.title}</h4>
+              </Link>
+            ))}
           </div>
         </div>
       </div>

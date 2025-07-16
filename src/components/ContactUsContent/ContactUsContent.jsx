@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import style from './ContactUsContent.module.css';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { FaEnvelope, FaFacebook, FaInstagram, FaLinkedin, FaTwitter, FaMapMarkerAlt, FaPhone, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
-import formService from '../../firebase/formService';
+// import formService from '../../firebase/formService';
 
 /**
  * Contact Us Form Component with Firebase Integration
@@ -72,7 +72,7 @@ const ContactUsContent = ({ defaultSubject = '' }) => {
             errors.message = "Message must be at least 10 characters";
         }
         
-        if (!recaptchaValue) {
+        if (process.env.REACT_APP_RECAPTCHA_SITE_KEY && !recaptchaValue) {
             errors.recaptcha = "Please verify you are not a robot";
         }
         
@@ -112,21 +112,35 @@ const ContactUsContent = ({ defaultSubject = '' }) => {
         setIsSubmitting(true);
         
         try {
-            // Submit to Firebase
-            const result = await formService.submitContactForm(values);
-            
-            if (result.success) {
-                setStateMessage("Your message has been sent successfully! We'll get back to you soon.");
-                setMessageType('success');
-                // Clear the form and reset reCAPTCHA after submission
-                e.target.reset();
-                setFormErrors({});
-                setRecaptchaValue(null);
-                if (recaptchaRef.current) {
-                    recaptchaRef.current.reset();
-                }
-            } else {
-                throw new Error("Form submission failed");
+            // Submit to Notion backend
+            const response = await fetch('http://localhost:5000/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: values.name,
+                    email: values.email,
+                    phone: values.phone,
+                    subject: values.subject,
+                    message: values.message,
+                    source: 'Website Contact Form'
+                }),
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(result.error || 'Failed to submit form');
+            }
+            setStateMessage("Your message has been sent successfully! We'll get back to you soon.");
+            setMessageType('success');
+            // Clear the form and reset reCAPTCHA after submission
+            e.target.reset();
+            setFormErrors({});
+            setRecaptchaValue(null);
+            if (recaptchaRef.current) {
+                recaptchaRef.current.reset();
             }
         } catch (error) {
             console.error("Contact Form Error:", error);
@@ -274,14 +288,16 @@ const ContactUsContent = ({ defaultSubject = '' }) => {
                                 {formErrors.message && <p className={style.errorText}>{formErrors.message}</p>}
                             </div>
                             
-                            <div className={style.recaptchaContainer}>
-                                <ReCAPTCHA
-                                    ref={recaptchaRef}
-                                    sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
-                                    onChange={handleRecaptchaChange}
-                                />
-                                {formErrors.recaptcha && <p className={style.errorText}>{formErrors.recaptcha}</p>}
-                            </div>
+                            {process.env.REACT_APP_RECAPTCHA_SITE_KEY && (
+                                <div className={style.recaptchaContainer}>
+                                    <ReCAPTCHA
+                                        ref={recaptchaRef}
+                                        sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
+                                        onChange={handleRecaptchaChange}
+                                    />
+                                    {formErrors.recaptcha && <p className={style.errorText}>{formErrors.recaptcha}</p>}
+                                </div>
+                            )}
                             
                             <button 
                                 type="submit" 

@@ -1,3 +1,8 @@
+import dotenv from 'dotenv';
+import { Client } from '@notionhq/client';
+
+dotenv.config({ path: '.env' });
+
 const blogsData = [
   {
     id: 1,
@@ -56,4 +61,29 @@ const blogsData = [
   }
 ];
 
-export default blogsData;
+const notion = new Client({ auth: process.env.REACT_APP_NOTION_API_TOKEN });
+const databaseId = process.env.REACT_APP_NOTION_BLOGS_DB_ID;
+
+async function migrateBlogs() {
+  for (const blog of blogsData) {
+    try {
+      await notion.pages.create({
+        parent: { database_id: databaseId },
+        properties: {
+          Title: { title: [{ text: { content: blog.title } }] },
+          Content: { rich_text: [{ text: { content: blog.content } }] },
+          Image: { url: `https://techtenplanet.com${blog.image}` },
+          'Published Date': { date: { start: new Date(blog.date).toISOString().split('T')[0] } },
+          Author: { rich_text: [{ text: { content: blog.author } }] },
+          Tags: { multi_select: blog.tags.map(tag => ({ name: tag })) },
+          Active: { checkbox: true },
+        },
+      });
+      console.log(`Successfully migrated blog: ${blog.title}`);
+    } catch (error) {
+      console.error(`Error migrating blog: ${blog.title}`, error);
+    }
+  }
+}
+
+migrateBlogs();

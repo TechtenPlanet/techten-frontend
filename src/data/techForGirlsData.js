@@ -127,7 +127,7 @@ const techForGirlsData = {
         image: "/src/assets/images/techten_hero_image.png" // Placeholder - replace with actual image
       }
     ],
-    becomeLink: "/get-involved"
+    becomeLink: "/get-involved?form=mentor"
   },
   
   events: {
