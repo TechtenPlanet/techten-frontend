@@ -38,16 +38,17 @@ const init = async () => {
 
   await server.register(Inert);
 
-  // Register routes
+  // Prefix all API routes with /api
+  const prefixRoutes = (routes) => routes.map(r => ({ ...r, path: `/api${r.path}` }));
   server.route([
-    ...eventsRoutes,
-    ...blogsRoutes,
-    ...coursesRoutes,
-    ...formsRoutes,
-    ...contentRoutes
+    ...prefixRoutes(eventsRoutes),
+    ...prefixRoutes(blogsRoutes),
+    ...prefixRoutes(coursesRoutes),
+    ...prefixRoutes(formsRoutes),
+    ...prefixRoutes(contentRoutes)
   ]);
 
-  // Serve React static files
+  // Serve static frontend files
   server.route({
     method: 'GET',
     path: '/{param*}',
@@ -60,10 +61,15 @@ const init = async () => {
     }
   });
 
-  // React Router catch-all
+  // React Router catch-all for deep links
   server.ext('onPreResponse', (request, h) => {
     const response = request.response;
-    if (response.isBoom && response.output.statusCode === 404 && !request.path.startsWith('/api')) {
+    if (
+      response.isBoom &&
+      response.output.statusCode === 404 &&
+      !request.path.startsWith('/api') &&
+      !request.path.startsWith('/health')
+    ) {
       return h.file(Path.join(__dirname, 'public', 'index.html'));
     }
     return h.continue;
