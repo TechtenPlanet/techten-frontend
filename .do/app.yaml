@@ -1,0 +1,62 @@
+name: techten-planet
+services:
+  - name: backend
+    github:
+      repo: TechtenPlanet/techten-frontend
+      branch: monorepo-setup # Ensure this matches the branch you are deploying
+      deploy_on_push: true
+    source_dir: backend/ # Specify the subdirectory for the backend
+    build_command: yarn install:backend
+    run_command: node server.js
+    http_port: 8080
+    routes:
+      - path: /api
+    environment_variables:
+      - key: NOTION_API_TOKEN
+        scope: RUN_TIME
+        value: ${NOTION_API_TOKEN}
+      - key: NOTION_BLOG_DATABASE_ID
+        scope: RUN_TIME
+        value: ${NOTION_BLOG_DATABASE_ID}
+      - key: NOTION_COURSE_DATABASE_ID
+        scope: RUN_TIME
+        value: ${NOTION_COURSE_DATABASE_ID}
+      - key: NOTION_EVENT_DATABASE_ID
+        scope: RUN_TIME
+        value: ${NOTION_EVENT_DATABASE_ID}
+      - key: NOTION_CONTACT_DATABASE_ID
+        scope: RUN_TIME
+        value: ${NOTION_CONTACT_DATABASE_ID}
+      - key: NOTION_ENROLLMENT_DATABASE_ID
+        scope: RUN_TIME
+        value: ${NOTION_ENROLLMENT_DATABASE_ID}
+      - key: NOTION_EVENT_REGISTRATION_DATABASE_ID
+        scope: RUN_TIME
+        value: ${NOTION_EVENT_REGISTRATION_DATABASE_ID}
+      - key: NOTION_MENTOR_DATABASE_ID
+        scope: RUN_TIME
+        value: ${NOTION_MENTOR_DATABASE_ID}
+      - key: NOTION_PARTNERSHIP_DATABASE_ID
+        scope: RUN_TIME
+        value: ${NOTION_PARTNERSHIP_DATABASE_ID}
+      - key: NOTION_SPONSORSHIP_DATABASE_ID
+        scope: RUN_TIME
+        value: ${NOTION_SPONSORSHIP_DATABASE_ID}
+      - key: NOTION_VOLUNTEER_DATABASE_ID
+        scope: RUN_TIME
+        value: ${NOTION_VOLUNTEER_DATABASE_ID}
+static_sites:
+  - name: frontend
+    github:
+      repo: TechtenPlanet/techten-frontend
+      branch: monorepo-setup # Ensure this matches the branch you are deploying
+      deploy_on_push: true
+    source_dir: frontend/ # Specify the subdirectory for the frontend
+    build_command: yarn build:frontend
+    output_dir: build
+    routes:
+      - path: /
+    environment_variables:
+      - key: REACT_APP_API_URL
+        scope: RUN_TIME
+        value: ${backend.url}/api
