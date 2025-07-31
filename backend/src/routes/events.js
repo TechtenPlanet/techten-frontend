@@ -4,7 +4,7 @@ export const eventsRoutes = [
   // Events Routes
   {
     method: 'GET',
-    path: '/api/events',
+    path: '/events',
     handler: async (request, h) => {
       try {
         const response = await notion.databases.query({ 

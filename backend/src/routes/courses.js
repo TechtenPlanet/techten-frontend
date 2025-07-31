@@ -5,7 +5,7 @@ export const coursesRoutes = [
   // Courses Routes
   {
     method: 'GET',
-    path: '/api/courses',
+    path: '/courses',
     handler: async (request, h) => {
       try {
         const response = await notion.databases.query({ 

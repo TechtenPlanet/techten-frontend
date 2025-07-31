@@ -13,7 +13,7 @@ export const formsRoutes = [
   // Contact Form Submission Route
   {
     method: 'POST',
-    path: '/api/contact',
+    path: '/contact',
     handler: async (request, h) => {
       try {
         const { name, email, phone, subject, message, source = 'Website Contact Form' } = request.payload;
@@ -68,7 +68,7 @@ export const formsRoutes = [
   // Course Enrollment Route
   {
     method: 'POST',
-    path: '/api/enrollments',
+    path: '/enrollments',
     handler: async (request, h) => {
       try {
         const { 
@@ -142,7 +142,7 @@ export const formsRoutes = [
   // Event Registration Route
   {
     method: 'POST',
-    path: '/api/event-registrations',
+    path: '/event-registrations',
     handler: async (request, h) => {
       try {
         const { 
@@ -224,7 +224,7 @@ export const formsRoutes = [
   // Volunteer Form Submission Route
   {
     method: 'POST',
-    path: '/api/volunteers',
+    path: '/volunteers',
     handler: async (request, h) => {
       try {
         const { name, email, phone, skills, availability, message, source = 'Website Volunteer Form' } = request.payload;
@@ -281,7 +281,7 @@ export const formsRoutes = [
   // Partnership Form Submission Route
   {
     method: 'POST',
-    path: '/api/partnerships',
+    path: '/partnerships',
     handler: async (request, h) => {
       try {
         const { organizationName, contactPerson, email, phone, partnershipType, message, source = 'Website Partnership Form' } = request.payload;
@@ -338,7 +338,7 @@ export const formsRoutes = [
   // Sponsorship Form Submission Route
   {
     method: 'POST',
-    path: '/api/sponsorships',
+    path: '/sponsorships',
     handler: async (request, h) => {
       try {
         const { organizationName, contactPerson, email, phone, sponsorshipType, amount, message, source = 'Website Sponsorship Form' } = request.payload;
@@ -398,7 +398,7 @@ export const formsRoutes = [
   // Mentorship Form Submission Route
   {
     method: 'POST',
-    path: '/api/mentorships',
+    path: '/mentorships',
     handler: async (request, h) => {
       try {
         const { name, email, phone, expertise, availability, message, source = 'Website Mentorship Form' } = request.payload;

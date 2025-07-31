@@ -64,7 +64,7 @@ export default [
   // Home Hero Content
   {
     method: 'GET',
-    path: '/api/content/home-hero',
+    path: '/content/home-hero',
     handler: async (request, h) => {
       try {
         const content = await fetchNotionContent(HOME_HERO_DB_ID, parseHomeHero);
@@ -78,7 +78,7 @@ export default [
   // Impact Data
   {
     method: 'GET',
-    path: '/api/content/impact',
+    path: '/content/impact',
     handler: async (request, h) => {
       try {
         const content = await fetchNotionContent(IMPACT_DATA_DB_ID, parseImpactData);
@@ -102,7 +102,7 @@ export default [
   // Testimonials
   {
     method: 'GET',
-    path: '/api/content/testimonials',
+    path: '/content/testimonials',
     handler: async (request, h) => {
       try {
         const content = await fetchNotionContent(TESTIMONIALS_DB_ID, parseTestimonial);
@@ -116,7 +116,7 @@ export default [
   // Featured Testimonials
   {
     method: 'GET',
-    path: '/api/content/testimonials/featured',
+    path: '/content/testimonials/featured',
     handler: async (request, h) => {
       try {
         const response = await notion.databases.query({
@@ -156,7 +156,7 @@ export default [
   // Services
   {
     method: 'GET',
-    path: '/api/content/services',
+    path: '/content/services',
     handler: async (request, h) => {
       try {
         const content = await fetchNotionContent(SERVICES_DB_ID, parseService);
@@ -170,7 +170,7 @@ export default [
   // Partners
   {
     method: 'GET',
-    path: '/api/content/partners',
+    path: '/content/partners',
     handler: async (request, h) => {
       try {
         const content = await fetchNotionContent(PARTNERS_DB_ID, parsePartner);
@@ -184,7 +184,7 @@ export default [
   // Featured Partners
   {
     method: 'GET',
-    path: '/api/content/partners/featured',
+    path: '/content/partners/featured',
     handler: async (request, h) => {
       try {
         const response = await notion.databases.query({
@@ -224,7 +224,7 @@ export default [
   // Team Members
   {
     method: 'GET',
-    path: '/api/content/team',
+    path: '/content/team',
     handler: async (request, h) => {
       try {
         const content = await fetchNotionContent(TEAM_DB_ID, parseTeamMember);
@@ -238,7 +238,7 @@ export default [
   // Team by Department
   {
     method: 'GET',
-    path: '/api/content/team/{department}',
+    path: '/content/team/{department}',
     handler: async (request, h) => {
       try {
         const { department } = request.params;
@@ -280,7 +280,7 @@ export default [
   // Programs
   {
     method: 'GET',
-    path: '/api/content/programs',
+    path: '/content/programs',
     handler: async (request, h) => {
       try {
         const content = await fetchNotionContent(PROGRAMS_DB_ID, parseProgram);
@@ -294,7 +294,7 @@ export default [
   // Featured Programs
   {
     method: 'GET',
-    path: '/api/content/programs/featured',
+    path: '/content/programs/featured',
     handler: async (request, h) => {
       try {
         const response = await notion.databases.query({
@@ -334,7 +334,7 @@ export default [
   // Generic content endpoints for simple content types
   {
     method: 'GET',
-    path: '/api/content/mission',
+    path: '/content/mission',
     handler: async (request, h) => {
       try {
         const content = await fetchNotionContent(MISSION_DB_ID, parseContent);
@@ -347,7 +347,7 @@ export default [
 
   {
     method: 'GET',
-    path: '/api/content/about-section',
+    path: '/content/about-section',
     handler: async (request, h) => {
       try {
         const content = await fetchNotionContent(ABOUT_SECTION_DB_ID, parseContent);
@@ -360,7 +360,7 @@ export default [
 
   {
     method: 'GET',
-    path: '/api/content/benefits',
+    path: '/content/benefits',
     handler: async (request, h) => {
       try {
         const content = await fetchNotionContent(BENEFITS_DB_ID, parseContent);
@@ -373,7 +373,7 @@ export default [
 
   {
     method: 'GET',
-    path: '/api/content/project-highlights',
+    path: '/content/project-highlights',
     handler: async (request, h) => {
       try {
         const content = await fetchNotionContent(PROJECT_HIGHLIGHTS_DB_ID, parseContent);
@@ -386,7 +386,7 @@ export default [
 
   {
     method: 'GET',
-    path: '/api/content/tech-for-girls',
+    path: '/content/tech-for-girls',
     handler: async (request, h) => {
       try {
         const content = await fetchNotionContent(TECH_FOR_GIRLS_DB_ID, parseContent);
@@ -399,7 +399,7 @@ export default [
 
   {
     method: 'GET',
-    path: '/api/content/tech-labs',
+    path: '/content/tech-labs',
     handler: async (request, h) => {
       try {
         const content = await fetchNotionContent(TECH_LABS_DB_ID, parseContent);
@@ -412,7 +412,7 @@ export default [
 
   {
     method: 'GET',
-    path: '/api/content/hackathons',
+    path: '/content/hackathons',
     handler: async (request, h) => {
       try {
         const content = await fetchNotionContent(HACKATHONS_DB_ID, parseContent);
@@ -425,7 +425,7 @@ export default [
 
   {
     method: 'GET',
-    path: '/api/content/consultants',
+    path: '/content/consultants',
     handler: async (request, h) => {
       try {
         const content = await fetchNotionContent(CONSULTANTS_DB_ID, parseContent);
@@ -438,7 +438,7 @@ export default [
 
   {
     method: 'GET',
-    path: '/api/content/get-involved',
+    path: '/content/get-involved',
     handler: async (request, h) => {
       try {
         const content = await fetchNotionContent(GET_INVOLVED_DB_ID, parseContent);
