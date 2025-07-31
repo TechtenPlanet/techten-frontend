@@ -1,44 +1,44 @@
 import Hapi from '@hapi/hapi';
+import Inert from '@hapi/inert';
+import Path from 'path';
+import { fileURLToPath } from 'url';
+
 import { 
-  EVENTS_DB_ID, 
-  BLOGS_DB_ID, 
-  COURSES_DB_ID, 
-  CONTACT_DB_ID, 
-  ENROLLMENTS_DB_ID, 
-  EVENT_REGISTRATIONS_DB_ID,
-  VOLUNTEER_DB_ID,
-  PARTNERSHIP_DB_ID,
-  SPONSORSHIP_DB_ID,
-  MENTORSHIP_DB_ID
+  EVENTS_DB_ID, BLOGS_DB_ID, COURSES_DB_ID, CONTACT_DB_ID,
+  ENROLLMENTS_DB_ID, EVENT_REGISTRATIONS_DB_ID, VOLUNTEER_DB_ID,
+  PARTNERSHIP_DB_ID, SPONSORSHIP_DB_ID, MENTORSHIP_DB_ID
 } from './src/config/notion.js';
+
 import { eventsRoutes } from './src/routes/events.js';
 import { blogsRoutes } from './src/routes/blogs.js';
 import { coursesRoutes } from './src/routes/courses.js';
 import { formsRoutes } from './src/routes/forms.js';
 import contentRoutes from './src/routes/content.js';
-import Inert from '@hapi/inert';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = Path.dirname(__filename);
 
 const init = async () => {
   const server = Hapi.server({
-    port: 5000,
-    host: 'localhost',
+    port: process.env.PORT || 8080,
+    host: '0.0.0.0',
     routes: {
       cors: {
         origin: [
-          'http://localhost:3000', // Development
-          'https://www.techtenplanet.org', // Production
-          'https://techtenplanet.org' // Production (without www)
+          'http://localhost:3000',
+          'https://www.techtenplanet.org',
+          'https://techtenplanet.org'
         ],
         headers: ['Accept', 'Authorization', 'Content-Type', 'If-None-Match'],
         credentials: true
       },
-    },
+      files: { relativeTo: Path.join(__dirname, 'public') }
+    }
   });
 
-  // Register inert for static file serving
   await server.register(Inert);
 
-  // Register all routes
+  // Register routes
   server.route([
     ...eventsRoutes,
     ...blogsRoutes,
@@ -47,25 +47,33 @@ const init = async () => {
     ...contentRoutes
   ]);
 
-  // Serve static files from the 'public' directory (for the React frontend)
+  // Serve React static files
   server.route({
     method: 'GET',
     path: '/{param*}',
     handler: {
       directory: {
-        path: 'public',
+        path: '.',
         index: ['index.html'],
-      },
-    },
+        redirectToSlash: true
+      }
+    }
   });
 
-  // Health check route
+  // React Router catch-all
+  server.ext('onPreResponse', (request, h) => {
+    const response = request.response;
+    if (response.isBoom && response.output.statusCode === 404 && !request.path.startsWith('/api')) {
+      return h.file(Path.join(__dirname, 'public', 'index.html'));
+    }
+    return h.continue;
+  });
+
+  // Health check
   server.route({
     method: 'GET',
     path: '/health',
-    handler: (request, h) => {
-      return { status: 'OK', timestamp: new Date().toISOString() };
-    },
+    handler: () => ({ status: 'OK', timestamp: new Date().toISOString() })
   });
 
   await server.start();
@@ -81,12 +89,11 @@ const init = async () => {
   console.log(`🤝 Partnership Forms DB: ${PARTNERSHIP_DB_ID ? '✅ Connected' : '❌ Missing'}`);
   console.log(`💰 Sponsorship Forms DB: ${SPONSORSHIP_DB_ID ? '✅ Connected' : '❌ Missing'}`);
   console.log(`🧠 Mentorship Forms DB: ${MENTORSHIP_DB_ID ? '✅ Connected' : '❌ Missing'}`);
-  console.log(`🔑 Notion Token: ${process.env.REACT_APP_NOTION_API_TOKEN ? '✅ Loaded' : '❌ Missing'}`);
+  console.log(`🔑 Notion Token: ${process.env.NOTION_API_TOKEN ? '✅ Loaded' : '❌ Missing'}`);
 };
 
-// Handle unhandled promise rejections
 process.on('unhandledRejection', (err) => {
-  console.log(err);
+  console.error(err);
   process.exit(1);
 });
 
