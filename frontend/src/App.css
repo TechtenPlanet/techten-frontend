@@ -1,0 +1,8 @@
+/* App.css */
+.App {
+    max-width: 1440px;
+    margin: auto;
+    padding: 40px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}

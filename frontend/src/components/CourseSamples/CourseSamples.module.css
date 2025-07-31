@@ -1,0 +1,18 @@
+.courseSamples {
+    padding: 50px 20px;
+    text-align: left;
+    background-color: #f9f9f9;
+}
+
+.courseSamples h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.samplesContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-content: center;
+}

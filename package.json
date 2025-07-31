@@ -1,0 +1,17 @@
+{
+  "name": "techten-monorepo",
+  "version": "1.0.0",
+  "description": "Monorepo for Techten Planet frontend and Hapi Notion Proxy backend",
+  "main": "index.js",
+  "scripts": {
+    "start:frontend": "cd frontend && yarn start",
+    "build:frontend": "cd frontend && yarn build",
+    "start:backend": "cd backend && node server.js",
+    "install:frontend": "cd frontend && yarn install",
+    "install:backend": "cd backend && yarn install",
+    "install:all": "yarn install:frontend && yarn install:backend"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

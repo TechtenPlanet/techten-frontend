@@ -1,0 +1,260 @@
+.sectionTitle {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.sectionTitleBordered {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.sectionTitleBordered span {
+  border-bottom: 2px solid #FF6620;
+  padding-bottom: 0.5rem;
+}
+
+.sectionDescription {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+}
+
+.introText {
+  font-size: 1.25rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.statsContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.statBadge {
+  background-color: #FF6620;
+  color: white;
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0.25rem;
+}
+
+.statIcon {
+  margin-right: 0.5rem;
+}
+
+/* Benefits Section */
+.benefitCard {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 3px solid #FF6620;
+}
+
+.benefitCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.benefitIcon {
+  color: #FF6620;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.benefitTitle {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.benefitDescription {
+  color: #6c757d;
+}
+
+/* Projects Section */
+.projectCard {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.projectImageContainer {
+  height: 200px;
+  overflow: hidden;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.projectCard:hover .projectImage {
+  transform: scale(1.05);
+}
+
+.projectContent {
+  padding: 1.5rem;
+  background-color: white;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.projectTitle {
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+.projectDescription {
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.projectMeta {
+  display: flex;
+  justify-content: space-between;
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+.metaIcon {
+  margin-right: 0.25rem;
+  color: #FF6620;
+}
+
+/* Application Section */
+.applicationSection {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 2.5rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.applicationTitle {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.applicationDescription {
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+}
+
+.applicationRequirements {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  text-align: left;
+}
+
+.requirementItem {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.requirementIcon {
+  color: #FF6620;
+  margin-right: 0.75rem;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+.applicationCta {
+  margin-top: 2rem;
+}
+
+.primaryButton {
+  background-color: #FF6620;
+  color: white;
+  border-radius: 6px;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.primaryButton:hover {
+  background-color: #e55b1e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 102, 32, 0.3);
+  color: white;
+}
+
+/* Navigation Section */
+.programNavigation {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #dee2e6;
+  text-align: center;
+}
+
+.navigationTitle {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.navigationLinks {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.navigationLink {
+  display: inline-flex;
+  align-items: center;
+  color: #FF6620;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.navigationLink:hover {
+  color: #e55b1e;
+  transform: translateX(5px);
+}
+
+.navigationIcon {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.navigationLink:hover .navigationIcon {
+  transform: translateX(3px);
+}
+
+@media (max-width: 768px) {
+  .statsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .statBadge {
+    margin-bottom: 0.5rem;
+  }
+  
+  .navigationLinks {
+    flex-direction: column;
+    align-items: center;
+  }
+}

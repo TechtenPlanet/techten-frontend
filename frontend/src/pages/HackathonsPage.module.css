@@ -1,0 +1,482 @@
+.sectionTitle {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.sectionTitleBordered {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.sectionTitleBordered span {
+  border-bottom: 2px solid #FF6620;
+  padding-bottom: 0.5rem;
+}
+
+.introText {
+  font-size: 1.25rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.statsContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.statBadge {
+  background-color: #FF6620;
+  color: white;
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0.25rem;
+}
+
+.statIcon {
+  margin-right: 0.5rem;
+}
+
+/* Benefits Section */
+.benefitCard {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  border-top: 3px solid #FF6620;
+}
+
+.benefitCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.benefitIcon {
+  color: #FF6620;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.benefitTitle {
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #333;
+  font-size: 1.25rem;
+}
+
+.benefitDescription {
+  color: #6c757d;
+}
+
+/* Upcoming Events Section */
+.eventCard {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid #e9ecef;
+}
+
+.eventHeader {
+  padding: 1.25rem;
+  background-color: #FF6620;
+  color: white;
+}
+
+.eventTitle {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.eventTheme {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+.eventDetails {
+  padding: 1.25rem;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.eventDetail {
+  display: flex;
+  align-items: center;
+  color: #6c757d;
+  font-size: 0.875rem;
+  margin-right: 1rem;
+}
+
+.detailIcon {
+  color: #FF6620;
+  margin-right: 0.5rem;
+}
+
+.eventHighlights {
+  padding: 1.25rem;
+  flex-grow: 1;
+}
+
+.highlightsTitle {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.highlightsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.highlightItem {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.highlightIcon {
+  color: #FF6620;
+  margin-right: 0.75rem;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+.eventFooter {
+  padding: 1.25rem;
+  border-top: 1px solid #e9ecef;
+  text-align: center;
+}
+
+.primaryButton {
+  background-color: #FF6620;
+  color: white;
+  border-radius: 6px;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.primaryButton:hover {
+  background-color: #e55b1e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 102, 32, 0.3);
+  color: white;
+}
+
+/* Past Events Section */
+.pastEventCard {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.pastEventImageContainer {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pastEventImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.pastEventCard:hover .pastEventImage {
+  transform: scale(1.05);
+}
+
+.pastEventOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.75rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+}
+
+.pastEventDate {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.pastEventContent {
+  padding: 1.25rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pastEventTitle {
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #333;
+  font-size: 1.25rem;
+}
+
+.pastEventDescription {
+  margin-bottom: 1rem;
+  color: #6c757d;
+  flex-grow: 1;
+}
+
+.winnerSection {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.winnerTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #333;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.trophyIcon {
+  color: #FFD700;
+  margin-right: 0.5rem;
+}
+
+.winnerName {
+  margin-bottom: 0;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.viewMoreContainer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.viewMoreLink {
+  display: inline-flex;
+  align-items: center;
+  color: #FF6620;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.viewMoreLink:hover {
+  color: #e55b1e;
+}
+
+.viewMoreIcon {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.viewMoreLink:hover .viewMoreIcon {
+  transform: translateX(3px);
+}
+
+/* Sponsors Section */
+.sponsorsSection {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.sponsorsTitle {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.sponsorsDescription {
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+}
+
+.sponsorsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.sponsorItem {
+  text-align: center;
+}
+
+.sponsorLogo {
+  max-width: 100%;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.sponsorItem:hover .sponsorLogo {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.sponsorName {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin-bottom: 0;
+}
+
+.sponsorsCta {
+  margin-top: 2rem;
+}
+
+.outlineButton {
+  border: 2px solid #FF6620;
+  color: #FF6620;
+  background-color: transparent;
+  border-radius: 6px;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.outlineButton:hover {
+  background-color: #FF6620;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 102, 32, 0.2);
+}
+
+/* FAQ Section */
+.faqSection {
+  margin-top: 3rem;
+}
+
+.faqTitle {
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.faqList {
+  margin-bottom: 2rem;
+}
+
+.faqItem {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.faqItem:last-child {
+  border-bottom: none;
+}
+
+.faqQuestion {
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #333;
+  font-size: 1.125rem;
+}
+
+.faqAnswer {
+  color: #6c757d;
+}
+
+.faqCta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.faqCtaText {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* Navigation Section */
+.programNavigation {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #dee2e6;
+  text-align: center;
+}
+
+.navigationTitle {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.navigationLinks {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.navigationLink {
+  display: inline-flex;
+  align-items: center;
+  color: #FF6620;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.navigationLink:hover {
+  color: #e55b1e;
+  transform: translateX(5px);
+}
+
+.navigationIcon {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.navigationLink:hover .navigationIcon {
+  transform: translateX(3px);
+}
+
+@media (max-width: 768px) {
+  .statsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .statBadge {
+    margin-bottom: 0.5rem;
+  }
+  
+  .navigationLinks {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .sponsorsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1.5rem;
+  }
+}

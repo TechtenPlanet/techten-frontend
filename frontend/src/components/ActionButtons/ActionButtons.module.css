@@ -1,0 +1,9 @@
+.actionButtons {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.actionButtons a {
+    margin: 0 10px;
+}

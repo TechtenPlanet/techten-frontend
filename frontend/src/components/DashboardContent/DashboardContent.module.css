@@ -1,0 +1,19 @@
+.dashboardContent {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.dashboardContent .dashboardContentWrapper {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    box-sizing: border-box;
+}
