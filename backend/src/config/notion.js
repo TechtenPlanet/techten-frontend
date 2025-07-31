@@ -3,7 +3,7 @@ import { Client } from '@notionhq/client';
 dotenv.config();
 
 // Initialize Notion client
-export const notion = new Client({ auth: process.env.REACT_APP_NOTION_API_TOKEN });
+export const notion = new Client({ auth: process.env.NOTION_API_TOKEN });
 
 // Database IDs
 export const EVENTS_DB_ID = process.env.NOTION_EVENTS_DB_ID;
