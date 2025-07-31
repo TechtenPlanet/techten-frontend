@@ -1,4 +1,5 @@
 name: techten-planet
+build_command: yarn install && yarn build
 services:
   - name: backend
     github:
