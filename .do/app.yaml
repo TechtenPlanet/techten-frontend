@@ -1,5 +1,5 @@
 name: techten-planet
-build_command: npm install -g yarn && yarn install && yarn build
+build_command: npm install && npm run build
 services:
   - name: backend
     github:
@@ -7,7 +7,7 @@ services:
       branch: monorepo-setup # Ensure this matches the branch you are deploying
       deploy_on_push: true
     source_dir: backend/ # Specify the subdirectory for the backend
-    run_command: node server.js
+    run_command: npm start
     http_port: 8080
     routes:
       - path: /api
