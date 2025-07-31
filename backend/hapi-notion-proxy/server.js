@@ -43,6 +43,18 @@ const init = async () => {
     ...contentRoutes
   ]);
 
+  // Serve static files from the 'public' directory (for the React frontend)
+  server.route({
+    method: 'GET',
+    path: '/{param*}',
+    handler: {
+      directory: {
+        path: 'public',
+        index: ['index.html'],
+      },
+    },
+  });
+
   // Health check route
   server.route({
     method: 'GET',

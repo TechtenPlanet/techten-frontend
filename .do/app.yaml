@@ -1,5 +1,5 @@
 name: techten-planet
-build_command: npm install && npm run build
+build_command: npm run build
 services:
   - name: backend
     github:
@@ -10,6 +10,7 @@ services:
     run_command: npm start
     http_port: 8080
     routes:
+      - path: /
       - path: /api
     environment_variables:
       - key: NOTION_API_TOKEN
@@ -45,17 +46,3 @@ services:
       - key: NOTION_VOLUNTEER_DATABASE_ID
         scope: RUN_TIME
         value: ${NOTION_VOLUNTEER_DATABASE_ID}
-static_sites:
-  - name: frontend
-    github:
-      repo: TechtenPlanet/techten-frontend
-      branch: monorepo-setup # Ensure this matches the branch you are deploying
-      deploy_on_push: true
-    source_dir: frontend/ # Specify the subdirectory for the frontend
-    output_dir: build
-    routes:
-      - path: /
-    environment_variables:
-      - key: REACT_APP_API_URL
-        scope: RUN_TIME
-        value: ${backend.url}/api

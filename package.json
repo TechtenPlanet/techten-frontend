@@ -4,13 +4,8 @@
   "description": "Monorepo for Techten Planet frontend and Hapi Notion Proxy backend",
   "main": "index.js",
   "scripts": {
-    "start:frontend": "cd frontend && npm start",
-    "build:frontend": "cd frontend && npm run build",
-    "start:backend": "cd backend && node server.js",
-    "install:frontend": "cd frontend && npm install",
-    "install:backend": "cd backend && npm install",
-    "install:all": "npm run install:frontend && npm run install:backend",
-    "build": "npm run install:all && npm run build:frontend"
+    "build": "npm --prefix frontend install && npm --prefix frontend run build && rm -rf backend/public && mkdir -p backend/public && cp -R frontend/build/* backend/public/",
+    "start": "npm --prefix backend start"
   },
   "keywords": [],
   "author": "",
