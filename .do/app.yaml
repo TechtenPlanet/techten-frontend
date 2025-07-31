@@ -6,8 +6,7 @@ services:
       branch: monorepo-setup # Ensure this matches the branch you are deploying
       deploy_on_push: true
     source_dir: backend/ # Specify the subdirectory for the backend
-    build_command: cd backend && yarn install
-    run_command: cd backend && node server.js
+    run_command: node server.js
     http_port: 8080
     routes:
       - path: /api
@@ -52,7 +51,6 @@ static_sites:
       branch: monorepo-setup # Ensure this matches the branch you are deploying
       deploy_on_push: true
     source_dir: frontend/ # Specify the subdirectory for the frontend
-    build_command: cd frontend && yarn install && yarn build
     output_dir: build
     routes:
       - path: /
