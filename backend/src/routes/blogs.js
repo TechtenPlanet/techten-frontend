@@ -4,7 +4,7 @@ export const blogsRoutes = [
   // Blogs Routes
   {
     method: 'GET',
-    path: '/api/blogs',
+    path: '/blogs',
     handler: async (request, h) => {
       try {
         const response = await notion.databases.query({ 
@@ -51,7 +51,7 @@ export const blogsRoutes = [
   // Single Blog Route
   {
     method: 'GET',
-    path: '/api/blogs/{id}',
+    path: '/blogs/{id}',
     handler: async (request, h) => {
       try {
         const { id } = request.params;
