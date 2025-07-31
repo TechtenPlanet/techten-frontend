@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^21.3.2",
+    "@hapi/inert": "^7.1.0",
+    "@notionhq/client": "^4.0.0",
+    "dotenv": "^17.0.1"
+  },
+  "keywords": [
+    "hapi",
+    "notion",
+    "proxy",
+    "api"
+  ],
+  "author": "Techten Planet",
+  "license": "MIT"
+}

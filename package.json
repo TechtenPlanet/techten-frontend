@@ -4,7 +4,7 @@
   "description": "Monorepo for Techten Planet frontend and Hapi Notion Proxy backend",
   "main": "index.js",
   "scripts": {
-    "build": "npm --prefix frontend install && npm --prefix frontend run build && rm -rf backend/public && mkdir -p backend/public && cp -R frontend/build/* backend/public/",
+    "build": "echo \"Build handled by DigitalOcean App Platform service build_command\"",
     "start": "npm --prefix backend start"
   },
   "keywords": [],

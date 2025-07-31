@@ -16,6 +16,7 @@ import { blogsRoutes } from './src/routes/blogs.js';
 import { coursesRoutes } from './src/routes/courses.js';
 import { formsRoutes } from './src/routes/forms.js';
 import contentRoutes from './src/routes/content.js';
+import Inert from '@hapi/inert';
 
 const init = async () => {
   const server = Hapi.server({
@@ -33,6 +34,9 @@ const init = async () => {
       },
     },
   });
+
+  // Register inert for static file serving
+  await server.register(Inert);
 
   // Register all routes
   server.route([
