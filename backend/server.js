@@ -97,7 +97,8 @@ const init = async () => {
   console.log(`🤝 Partnership Forms DB: ${PARTNERSHIP_DB_ID ? '✅ Connected' : '❌ Missing'}`);
   console.log(`💰 Sponsorship Forms DB: ${SPONSORSHIP_DB_ID ? '✅ Connected' : '❌ Missing'}`);
   console.log(`🧠 Mentorship Forms DB: ${MENTORSHIP_DB_ID ? '✅ Connected' : '❌ Missing'}`);
-  console.log(`🔑 Notion Token: ${process.env.NOTION_API_TOKEN ? '✅ Loaded' : '❌ Missing'}`);
+  console.log(`� STEM Squad Landing Page DB: ${STEM_SQUAD_LANDING_PAGE_DB_ID ? '✅ Connected' : '❌ Missing'}`);
+  console.log(`�🔑 Notion Token: ${process.env.NOTION_API_TOKEN ? '✅ Loaded' : '❌ Missing'}`);
 };
 
 process.on('unhandledRejection', (err) => {
