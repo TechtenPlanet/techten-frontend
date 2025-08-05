@@ -67,6 +67,11 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
+              <NavLink to="/stem-squad" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
+                STEM Squad
+              </NavLink>
+            </li>
+            <li>
               <NavLink to="/contact" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
                 Contact Us
               </NavLink>
@@ -122,6 +127,11 @@ const Navbar = () => {
           <li>
             <NavLink to="/courses" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
               Courses
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/stem-squad" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
+              STEM Squad
             </NavLink>
           </li>
           <li>
