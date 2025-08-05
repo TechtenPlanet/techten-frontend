@@ -1,0 +1,262 @@
+/* frontend/src/pages/StemSquadPage.module.css */
+
+.stemSquadPage {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.error {
+  color: #d9534f;
+}
+
+/* Hero Section */
+.heroSection {
+  background-color: #f0f8ff;
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 40px;
+}
+
+.heroSection h1 {
+  font-size: 2.8em;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.heroSection p {
+  font-size: 1.3em;
+  color: #34495e;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+.heroButton {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+}
+
+.heroButton:hover {
+  background-color: #0056b3;
+}
+
+.heroImage {
+  max-width: 100%;
+  height: auto;
+  margin-top: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* How It Works Section */
+.howItWorksSection {
+  padding: 40px 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.howItWorksSection h2 {
+  font-size: 2.2em;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.howItWorksContent {
+  font-size: 1.1em;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.howItWorksContent ol {
+  list-style-type: decimal;
+  padding-left: 25px;
+}
+
+.howItWorksContent li {
+  margin-bottom: 10px;
+}
+
+/* Plan Section (Individual & Group Buy) */
+.planSection {
+  background-color: #e9f7ef; /* Light green for plans */
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.planSection h2 {
+  font-size: 2em;
+  color: #28a745; /* Green for plan titles */
+  margin-bottom: 15px;
+}
+
+.planSection p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.planButton {
+  display: inline-block;
+  background-color: #28a745;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.planButton:hover {
+  background-color: #218838;
+}
+
+/* Why STEM Squad Section */
+.whySection {
+  padding: 40px 20px;
+  background-color: #fdf5e6; /* Light orange/yellow */
+  border-radius: 8px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.whySection h2 {
+  font-size: 2.2em;
+  color: #e67e22; /* Orange */
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.whySection p {
+  font-size: 1.1em;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* FAQ Section */
+.faqSection {
+  padding: 40px 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.faqSection h2 {
+  font-size: 2.2em;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.faqSection p {
+  font-size: 1.1em;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* CTA Section */
+.ctaSection {
+  background-color: #007bff; /* Blue for CTA */
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 40px;
+}
+
+.ctaSection h2 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+
+.ctaSection p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.ctaButton {
+  display: inline-block;
+  background-color: white;
+  color: #007bff;
+  padding: 15px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.ctaButton:hover {
+  background-color: #e2e6ea;
+  color: #0056b3;
+}
+
+/* Footer Section */
+.footerSection {
+  background-color: #343a40; /* Dark grey for footer */
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.footerSection p {
+  font-size: 0.9em;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .heroSection h1 {
+    font-size: 2em;
+  }
+
+  .heroSection p {
+    font-size: 1em;
+  }
+
+  .heroButton, .planButton, .ctaButton {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
+
+  .howItWorksSection h2,
+  .planSection h2,
+  .whySection h2,
+  .faqSection h2,
+  .ctaSection h2 {
+    font-size: 1.8em;
+  }
+
+  .howItWorksContent,
+  .planSection p,
+  .whySection p,
+  .faqSection p,
+  .ctaSection p {
+    font-size: 0.95em;
+  }
+}

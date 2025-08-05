@@ -14,6 +14,7 @@ import { blogsRoutes } from './src/routes/blogs.js';
 import { coursesRoutes } from './src/routes/courses.js';
 import { formsRoutes } from './src/routes/forms.js';
 import contentRoutes from './src/routes/content.js';
+import { stemSquadRoutes } from './src/routes/stemSquad.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = Path.dirname(__filename);
@@ -45,7 +46,8 @@ const init = async () => {
     ...prefixRoutes(blogsRoutes),
     ...prefixRoutes(coursesRoutes),
     ...prefixRoutes(formsRoutes),
-    ...prefixRoutes(contentRoutes)
+    ...prefixRoutes(contentRoutes),
+    ...prefixRoutes(stemSquadRoutes)
   ]);
 
   // Serve static frontend files

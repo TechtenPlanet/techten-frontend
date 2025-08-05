@@ -34,3 +34,4 @@ export const TECH_LABS_DB_ID = process.env.NOTION_TECH_LABS_DB_ID;
 export const HACKATHONS_DB_ID = process.env.NOTION_HACKATHONS_DB_ID;
 export const CONSULTANTS_DB_ID = process.env.NOTION_CONSULTANTS_DB_ID;
 export const GET_INVOLVED_DB_ID = process.env.NOTION_GET_INVOLVED_DB_ID;
+export const STEM_SQUAD_LANDING_PAGE_DB_ID = process.env.NOTION_STEM_SQUAD_LANDING_PAGE_DB_ID;
