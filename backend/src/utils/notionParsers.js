@@ -397,6 +397,13 @@ export const parseFormSubmission = (page) => {
   };
 };
 
+// Helper function to get rich text content as HTML or plain text
+export function getRichText(richText) {
+  if (!richText || richText.length === 0) return '';
+  // For simplicity, returning plain text. For full rich text, you'd convert Notion's rich_text object to HTML.
+  return richText.map(text => text.plain_text).join('');
+}
+
 // Helper function to get plain text from a Notion rich_text property
 export function getPlainText(richText) {
   if (!richText || richText.length === 0) return '';

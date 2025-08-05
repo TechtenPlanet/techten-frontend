@@ -6,7 +6,8 @@ import { fileURLToPath } from 'url';
 import { 
   EVENTS_DB_ID, BLOGS_DB_ID, COURSES_DB_ID, CONTACT_DB_ID,
   ENROLLMENTS_DB_ID, EVENT_REGISTRATIONS_DB_ID, VOLUNTEER_DB_ID,
-  PARTNERSHIP_DB_ID, SPONSORSHIP_DB_ID, MENTORSHIP_DB_ID
+  PARTNERSHIP_DB_ID, SPONSORSHIP_DB_ID, MENTORSHIP_DB_ID,
+  STEM_SQUAD_LANDING_PAGE_DB_ID // Import the new DB ID
 } from './src/config/notion.js';
 
 import { eventsRoutes } from './src/routes/events.js';
