@@ -396,3 +396,28 @@ export const parseFormSubmission = (page) => {
     lastModified: page.last_edited_time
   };
 };
+
+// Helper function to get plain text from a Notion rich_text property
+export function getPlainText(richText) {
+  if (!richText || richText.length === 0) return '';
+  return richText.map(text => text.plain_text).join('');
+}
+
+// Helper function to get select option name from a Notion select property
+export function getSelect(select) {
+  return select?.name || '';
+}
+
+// Helper function to get URL from a Notion URL property
+export function getUrl(url) {
+  return url || '';
+}
+
+// Helper function to get file URLs from a Notion files property
+export function getFiles(files) {
+  if (!files || files.length === 0) return [];
+  return files.map(file => ({
+    name: file.name,
+    url: file.file?.url || file.external?.url || ''
+  }));
+}
