@@ -9,7 +9,7 @@ import {
   PARTNERSHIP_DB_ID, SPONSORSHIP_DB_ID, MENTORSHIP_DB_ID,
   STEM_SQUAD_LANDING_PAGE_DB_ID, // Import the new DB ID
   PARTNERS_DB_ID, // Import Partners DB ID
-  HERO_DB_ID // Import Hero DB ID
+  HERO_SLIDES_DB_ID // Import Hero Slides DB ID
 } from './src/config/notion.js';
 
 import { eventsRoutes } from './src/routes/events.js';
@@ -105,7 +105,7 @@ const init = async () => {
   console.log(`💰 Sponsorship Forms DB: ${SPONSORSHIP_DB_ID ? '✅ Connected' : '❌ Missing'}`);
   console.log(`🧠 Mentorship Forms DB: ${MENTORSHIP_DB_ID ? '✅ Connected' : '❌ Missing'}`);
   console.log(`🤝 Partners DB: ${PARTNERS_DB_ID ? '✅ Connected' : '❌ Missing'}`); // Log Partners DB status
-  console.log(`🖼️ Hero Images DB: ${HERO_DB_ID ? '✅ Connected' : '❌ Missing'}`); // Log Hero Images DB status
+  console.log(`🖼️ Hero Slides DB: ${HERO_SLIDES_DB_ID ? '✅ Connected' : '❌ Missing'}`); // Log Hero Slides DB status
   console.log(`🚀 STEM Squad Landing Page DB: ${STEM_SQUAD_LANDING_PAGE_DB_ID ? '✅ Connected' : '❌ Missing'}`);
   console.log(`🔑 Notion Token: ${process.env.NOTION_API_TOKEN ? '✅ Loaded' : '❌ Missing'}`);
 };

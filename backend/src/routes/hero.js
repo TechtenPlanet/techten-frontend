@@ -1,4 +1,4 @@
-import { HERO_DB_ID } from '../config/notion.js';
+import { HERO_SLIDES_DB_ID } from '../config/notion.js';
 import { notion } from '../config/notion.js';
 
 export const heroRoutes = [
@@ -8,7 +8,7 @@ export const heroRoutes = [
     handler: async (request, h) => {
       try {
         const response = await notion.databases.query({
-          database_id: HERO_DB_ID,
+          database_id: HERO_SLIDES_DB_ID,
           sorts: [
             {
               property: 'Order',
