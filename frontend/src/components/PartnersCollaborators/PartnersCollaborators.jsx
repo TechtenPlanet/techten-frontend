@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import style from './PartnersCollaborators.module.css';
-import partnersData from '../../data/partnersData';
+import { getPartners } from '../../notion/partnerService'; // Import the new service
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,6 +11,34 @@ import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 
 const PartnersCollaborators = () => {
+    const [partners, setPartners] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchPartners = async () => {
+            try {
+                const data = await getPartners();
+                setPartners(data);
+            } catch (err) {
+                setError('Failed to load partners. Please try again later.');
+                console.error('Error fetching partners:', err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchPartners();
+    }, []);
+
+    if (loading) {
+        return <div className={style.loading}>Loading partners...</div>;
+    }
+
+    if (error) {
+        return <div className={style.error}>{error}</div>;
+    }
+
     return (
         <div className={style.partnersCollaborators}>
             <h2 className={style.sectionTitle}>Partners & Collaborators</h2>
@@ -52,10 +80,11 @@ const PartnersCollaborators = () => {
                         modules={[Autoplay]}
                         className={style.logoSwiper}
                     >
-                        {partnersData.partners.map((partner) => (
+                        {partners.map((partner) => (
                             <SwiperSlide key={partner.id} className={style.logoSlide}>
                                 <div className={style.logoCard}>
-                                    <img src={partner.image} alt={partner.name} />
+                                    {/* Use partner.logo.url as per Notion API response */}
+                                    <img src={partner.logo.url} alt={partner.name} />
                                 </div>
                             </SwiperSlide>
                         ))}

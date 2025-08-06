@@ -6,6 +6,7 @@ import ActionButtons from '../components/ActionButtons/ActionButtons';
 import ImpactStats from '../components/ImpactStats/ImpactStats';
 import PhotoCollage from '../components/PhotoCollage/PhotoCollage';
 import CourseSamples from '../components/CourseSamples/CourseSamples';
+import PartnersCollaborators from '../components/PartnersCollaborators/PartnersCollaborators'; // Import the component
 
 const HomePage = () => {
   return (
@@ -16,6 +17,7 @@ const HomePage = () => {
       <CourseSamples />
       <ImpactStats />
       <TestimonialSection />
+      <PartnersCollaborators /> {/* Add the component here */}
       <ActionButtons />
     </>
   );
