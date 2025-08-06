@@ -10,38 +10,36 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 
-import HeroImage1 from '../../assets/images/Classes_images/PXL_20250523_124110430.MP.jpg';
-import HeroImage2 from '../../assets/images/class_Original.jpg';
-import HeroImage3 from '../../assets/images/techten_hero_image_color.png';
-import HeroImage4 from '../../assets/images/techten_hero_image.png';
+import { useState, useEffect } from 'react';
+import { getHeroImages } from '../../notion/heroService';
 
 const HomeHero = () => {
-  const slides = [
-    {
-      image: HeroImage1,
-      alt: 'Students learning to code at Techten Planet',
-      title: 'Empowering Africa’s Future Innovators',
-      description: 'We are organizing and enhance part of Ghana\'s technology and engineering talent pool, making it highly skilled, competitive, and globally accessible.',
-    },
-    {
-      image: HeroImage2,
-      alt: 'A group of students at a Techten Planet event',
-      title: 'Building a Community of Innovators',
-      description: 'Join our vibrant community and collaborate with like-minded individuals to create a better future.',
-    },
-    {
-      image: HeroImage3,
-      alt: 'Techten Planet hero image',
-      title: 'Innovative Solutions for a Brighter Future',
-      description: 'We are committed to providing innovative solutions to the challenges facing our community.',
-    },
-    {
-      image: HeroImage4,
-      alt: 'Techten Planet hero image',
-      title: 'Join Us in Our Mission to Empower Africa',
-      description: 'Your support can help us make a difference in the lives of young innovators across the continent.',
-    },
-  ];
+  const [slides, setSlides] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchHeroImages = async () => {
+      try {
+        const data = await getHeroImages();
+        setSlides(data);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchHeroImages();
+  }, []);
+
+  if (loading) {
+    return <div>Loading hero images...</div>;
+  }
+
+  if (error) {
+    return <div>Error loading hero images: {error.message}</div>;
+  }
 
   return (
     <div id="HomeHero">
@@ -60,8 +58,8 @@ const HomeHero = () => {
           modules={[Autoplay, Pagination, Navigation]}
           className={style.swiperContainer}
         >
-          {slides.map((slide, index) => (
-            <SwiperSlide key={index}>
+          {slides.map((slide) => (
+            <SwiperSlide key={slide.id}>
               <img src={slide.image} alt={slide.alt} className={style.heroImage} />
               <div className={style.homeHeroWrapper}>
                 <div className={style.heroContent}>

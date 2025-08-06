@@ -8,7 +8,8 @@ import {
   ENROLLMENTS_DB_ID, EVENT_REGISTRATIONS_DB_ID, VOLUNTEER_DB_ID,
   PARTNERSHIP_DB_ID, SPONSORSHIP_DB_ID, MENTORSHIP_DB_ID,
   STEM_SQUAD_LANDING_PAGE_DB_ID, // Import the new DB ID
-  PARTNERS_DB_ID // Import Partners DB ID
+  PARTNERS_DB_ID, // Import Partners DB ID
+  HERO_DB_ID // Import Hero DB ID
 } from './src/config/notion.js';
 
 import { eventsRoutes } from './src/routes/events.js';
@@ -18,6 +19,7 @@ import { formsRoutes } from './src/routes/forms.js';
 import contentRoutes from './src/routes/content.js';
 import { stemSquadRoutes } from './src/routes/stemSquad.js';
 import { partnersRoutes } from './src/routes/partners.js'; // Import partners routes
+import { heroRoutes } from './src/routes/hero.js'; // Import hero routes
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = Path.dirname(__filename);
@@ -51,7 +53,8 @@ const init = async () => {
     ...prefixRoutes(formsRoutes),
     ...prefixRoutes(contentRoutes),
     ...prefixRoutes(stemSquadRoutes),
-    ...prefixRoutes(partnersRoutes) // Add partners routes
+    ...prefixRoutes(partnersRoutes), // Add partners routes
+    ...prefixRoutes(heroRoutes) // Add hero routes
   ]);
 
   // Serve static frontend files
@@ -102,6 +105,7 @@ const init = async () => {
   console.log(`💰 Sponsorship Forms DB: ${SPONSORSHIP_DB_ID ? '✅ Connected' : '❌ Missing'}`);
   console.log(`🧠 Mentorship Forms DB: ${MENTORSHIP_DB_ID ? '✅ Connected' : '❌ Missing'}`);
   console.log(`🤝 Partners DB: ${PARTNERS_DB_ID ? '✅ Connected' : '❌ Missing'}`); // Log Partners DB status
+  console.log(`🖼️ Hero Images DB: ${HERO_DB_ID ? '✅ Connected' : '❌ Missing'}`); // Log Hero Images DB status
   console.log(`🚀 STEM Squad Landing Page DB: ${STEM_SQUAD_LANDING_PAGE_DB_ID ? '✅ Connected' : '❌ Missing'}`);
   console.log(`🔑 Notion Token: ${process.env.NOTION_API_TOKEN ? '✅ Loaded' : '❌ Missing'}`);
 };
