@@ -79,8 +79,8 @@
 /* Hero Section */
 .heroSection {
   composes: section; /* Inherit base section styles */
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(./../../assets/images/techten_hero_image_color.png); /* Use a consistent hero image */
-  background-size: cover;
+  /* background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(./../../assets/images/techten_hero_image_color.png); */ /* Removed as hero images are now Notion-managed */
+  /* background-size: cover; */
   background-position: center;
   color: white;
   height: 70vh; /* Adjust height as needed */
