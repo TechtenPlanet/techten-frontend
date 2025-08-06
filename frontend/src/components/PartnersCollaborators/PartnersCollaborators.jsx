@@ -83,8 +83,8 @@ const PartnersCollaborators = () => {
                         {partners.map((partner) => (
                             <SwiperSlide key={partner.id} className={style.logoSlide}>
                                 <div className={style.logoCard}>
-                                    {/* Use partner.logo.url as per Notion API response */}
-                                    <img src={partner.logo.url} alt={partner.name} />
+                                    {/* Use partner.logo directly as it's the URL string */}
+                                    <img src={partner.logo} alt={partner.name} />
                                 </div>
                             </SwiperSlide>
                         ))}
