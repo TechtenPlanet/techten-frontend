@@ -101,21 +101,25 @@ const CoursesPage = () => {
           {filteredCourses.length > 0 ? (
             <>
               <div className={style.courseGrid}>
-                {/* Featured course (first in the list) */}
-                {filteredCourses.length > 0 && (
-                  <div className={style.featuredCourse}>
-                    <CourseCard 
-                      course={filteredCourses[0]} 
-                      featured={true} 
-                      horizontal={true} 
-                    />
-                  </div>
+                {/* Conditionally render featured course or regular cards */}
+                {filteredCourses.length > 2 ? ( /* If more than 2 courses, show featured */
+                  <>
+                    <div className={style.featuredCourse}>
+                      <CourseCard 
+                        course={filteredCourses[0]} 
+                        featured={true} 
+                        horizontal={true} 
+                      />
+                    </div>
+                    {filteredCourses.slice(1, visibleCourses).map((course) => (
+                      <CourseCard key={course.id} course={course} />
+                    ))}
+                  </>
+                ) : ( /* If 2 or fewer courses, display all as regular cards */
+                  filteredCourses.slice(0, visibleCourses).map((course) => (
+                    <CourseCard key={course.id} course={course} />
+                  ))
                 )}
-                
-                {/* Regular course cards */}
-                {filteredCourses.slice(1, visibleCourses).map((course) => (
-                  <CourseCard key={course.id} course={course} />
-                ))}
               </div>
               
               {visibleCourses < filteredCourses.length && (

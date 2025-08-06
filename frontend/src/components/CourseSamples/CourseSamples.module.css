@@ -12,7 +12,9 @@
 
 .samplesContainer {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted for responsiveness */
     gap: 30px;
     justify-content: center;
+    max-width: 80%; /* Limit width to 80% of container */
+    margin: 0 auto; /* Center the container */
 }
