@@ -1,15 +1,14 @@
-/* frontend/src/pages/StemSquadPage.module.css */
-
+/* General Page Styling */
 .stemSquadPage {
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  color: #333;
+  padding: 0; /* Remove default padding, sections will handle their own */
+  font-family: 'Arial', sans-serif; /* Use a common font */
+  color: #333; /* Default text color */
 }
 
 .loading, .error {
   text-align: center;
-  padding: 50px;
-  font-size: 1.2em;
+  padding: 80px 20px;
+  font-size: 1.5em;
   color: #555;
 }
 
@@ -17,46 +16,94 @@
   color: #d9534f;
 }
 
-/* Hero Section */
-.heroSection {
-  background-color: #f0f8ff;
-  padding: 60px 20px;
+/* Reusable Section Styles */
+.section {
+  padding: 80px 40px; /* Consistent padding for all sections */
+  margin-bottom: 0; /* Sections handle their own spacing */
+  border-radius: 0; /* No border-radius for full-width sections */
+  box-shadow: none; /* No box-shadow for full-width sections */
   text-align: center;
-  border-radius: 8px;
-  margin-bottom: 40px;
 }
 
-.heroSection h1 {
-  font-size: 2.8em;
-  color: #2c3e50;
-  margin-bottom: 15px;
-}
-
-.heroSection p {
-  font-size: 1.3em;
-  color: #34495e;
-  max-width: 800px;
-  margin: 0 auto 30px;
-  line-height: 1.6;
-}
-
-.heroButton {
+.section h1, .section h2 {
+  font-size: 2.8rem; /* Larger headings */
+  color: #2c3e50; /* Dark blue/grey for headings */
+  font-weight: 700;
+  margin-bottom: 20px;
+  position: relative;
   display: inline-block;
-  background-color: #007bff;
+  padding-bottom: 15px;
+}
+
+.section h1::after, .section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #ff6b00; /* Brand orange underline */
+}
+
+.section p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto 30px;
+}
+
+/* Buttons */
+.primaryButton {
+  display: inline-block;
+  background-color: #007bff; /* Primary blue */
   color: white;
   padding: 15px 30px;
   border-radius: 5px;
   text-decoration: none;
   font-size: 1.1em;
-  transition: background-color 0.3s ease;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
 }
 
-.heroButton:hover {
+.primaryButton:hover {
   background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Specific Section Styles */
+
+/* Hero Section */
+.heroSection {
+  composes: section; /* Inherit base section styles */
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(./../../assets/images/techten_hero_image_color.png); /* Use a consistent hero image */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  height: 70vh; /* Adjust height as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroSection h1 {
+  color: white;
+}
+
+.heroSection h1::after {
+  background-color: #ff6b00; /* Ensure orange underline on white text */
+}
+
+.heroSection p {
+  color: #f0f0f0;
 }
 
 .heroImage {
-  max-width: 100%;
+  max-width: 80%;
   height: auto;
   margin-top: 30px;
   border-radius: 8px;
@@ -65,149 +112,65 @@
 
 /* How It Works Section */
 .howItWorksSection {
-  padding: 40px 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  margin-bottom: 40px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.howItWorksSection h2 {
-  font-size: 2.2em;
-  color: #2c3e50;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.howItWorksContent {
-  font-size: 1.1em;
-  line-height: 1.8;
-  max-width: 900px;
-  margin: 0 auto;
+  composes: section;
+  background-color: #f8f9fa; /* Light grey background */
 }
 
 .howItWorksContent ol {
   list-style-type: decimal;
   padding-left: 25px;
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .howItWorksContent li {
   margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #555;
 }
 
 /* Plan Section (Individual & Group Buy) */
 .planSection {
+  composes: section;
   background-color: #e9f7ef; /* Light green for plans */
-  padding: 40px 20px;
-  text-align: center;
-  border-radius: 8px;
-  margin-bottom: 40px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .planSection h2 {
-  font-size: 2em;
   color: #28a745; /* Green for plan titles */
-  margin-bottom: 15px;
-}
-
-.planSection p {
-  font-size: 1.1em;
-  line-height: 1.6;
-  margin-bottom: 25px;
-}
-
-.planButton {
-  display: inline-block;
-  background-color: #28a745;
-  color: white;
-  padding: 12px 25px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 1em;
-  transition: background-color 0.3s ease;
-}
-
-.planButton:hover {
-  background-color: #218838;
 }
 
 /* Why STEM Squad Section */
 .whySection {
-  padding: 40px 20px;
+  composes: section;
   background-color: #fdf5e6; /* Light orange/yellow */
-  border-radius: 8px;
-  margin-bottom: 40px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .whySection h2 {
-  font-size: 2.2em;
   color: #e67e22; /* Orange */
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.whySection p {
-  font-size: 1.1em;
-  line-height: 1.8;
-  max-width: 900px;
-  margin: 0 auto;
 }
 
 /* FAQ Section */
 .faqSection {
-  padding: 40px 20px;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  margin-bottom: 40px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.faqSection h2 {
-  font-size: 2.2em;
-  color: #2c3e50;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.faqSection p {
-  font-size: 1.1em;
-  line-height: 1.8;
-  max-width: 900px;
-  margin: 0 auto;
+  composes: section;
+  background-color: #ffffff; /* White background */
 }
 
 /* CTA Section */
 .ctaSection {
-  background-color: #007bff; /* Blue for CTA */
+  composes: section;
+  background-color: #007bff; /* Primary blue for CTA */
   color: white;
-  padding: 50px 20px;
-  text-align: center;
-  border-radius: 8px;
-  margin-bottom: 40px;
 }
 
-.ctaSection h2 {
-  font-size: 2.5em;
-  margin-bottom: 15px;
-}
-
-.ctaSection p {
-  font-size: 1.2em;
-  margin-bottom: 30px;
+.ctaSection h2, .ctaSection p {
+  color: white;
 }
 
 .ctaButton {
-  display: inline-block;
+  composes: primaryButton;
   background-color: white;
   color: #007bff;
-  padding: 15px 30px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 1.1em;
-  font-weight: bold;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .ctaButton:hover {
@@ -217,46 +180,52 @@
 
 /* Footer Section */
 .footerSection {
+  composes: section;
   background-color: #343a40; /* Dark grey for footer */
   color: white;
   padding: 30px 20px;
-  text-align: center;
-  border-radius: 8px;
 }
 
 .footerSection p {
   font-size: 0.9em;
   margin: 0;
+  color: #ccc;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .heroSection h1 {
-    font-size: 2em;
+  .section {
+    padding: 60px 20px;
   }
 
-  .heroSection p {
+  .section h1, .section h2 {
+    font-size: 2.2rem;
+  }
+
+  .section p {
     font-size: 1em;
   }
 
-  .heroButton, .planButton, .ctaButton {
-    padding: 10px 20px;
+  .primaryButton {
+    padding: 12px 25px;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 40px 15px;
+  }
+
+  .section h1, .section h2 {
+    font-size: 1.8rem;
+  }
+
+  .section p {
     font-size: 0.9em;
   }
 
-  .howItWorksSection h2,
-  .planSection h2,
-  .whySection h2,
-  .faqSection h2,
-  .ctaSection h2 {
-    font-size: 1.8em;
-  }
-
-  .howItWorksContent,
-  .planSection p,
-  .whySection p,
-  .faqSection p,
-  .ctaSection p {
-    font-size: 0.95em;
+  .heroSection {
+    height: 60vh;
   }
 }
