@@ -43,7 +43,7 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background-color: #ff6b00; /* Brand orange underline */
+  background-color: #FF6620; /* Brand orange underline */
 }
 
 .section p {
@@ -57,21 +57,37 @@
 /* Buttons */
 .primaryButton {
   display: inline-block;
-  background-color: #007bff; /* Primary blue */
+  background-color: #FF6620; /* Primary orange */
   color: white;
-  padding: 15px 30px;
-  border-radius: 5px;
+  padding: 10px 20px; /* Adjusted padding */
+  border-radius: 6px; /* Adjusted border-radius */
   text-decoration: none;
   font-size: 1.1em;
   font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease; /* Combined transition */
   border: none;
   cursor: pointer;
 }
 
 .primaryButton:hover {
-  background-color: #0056b3;
+  background-color: #e55b1e; /* Darker orange on hover */
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 102, 32, 0.3); /* Added shadow */
+}
+
+.outlineButton {
+  border: 2px solid #FF6620;
+  color: #FF6620;
+  border-radius: 6px;
+  font-weight: bold;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+
+.outlineButton:hover {
+  background-color: #FF6620;
+  color: white;
 }
 
 /* Specific Section Styles */
@@ -79,8 +95,7 @@
 /* Hero Section */
 .heroSection {
   composes: section; /* Inherit base section styles */
-  /* background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(./../../assets/images/techten_hero_image_color.png); */ /* Removed as hero images are now Notion-managed */
-  /* background-size: cover; */
+  background-color: #343a40; /* Dark background for hero */
   background-position: center;
   color: white;
   height: 70vh; /* Adjust height as needed */
@@ -95,7 +110,7 @@
 }
 
 .heroSection h1::after {
-  background-color: #ff6b00; /* Ensure orange underline on white text */
+  background-color: #FF6620; /* Ensure orange underline on white text */
 }
 
 .heroSection p {
@@ -133,33 +148,41 @@
 /* Plan Section (Individual & Group Buy) */
 .planSection {
   composes: section;
-  background-color: #e9f7ef; /* Light green for plans */
+  background-color: #ffffff; /* White background */
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Added shadow */
+  border-radius: 0.375rem; /* Added border-radius */
+  margin: 20px auto; /* Center and add margin */
+  max-width: 900px; /* Limit width */
 }
 
 .planSection h2 {
-  color: #28a745; /* Green for plan titles */
+  color: #2c3e50; /* Dark blue/grey for plan titles */
 }
 
 /* Why STEM Squad Section */
 .whySection {
   composes: section;
-  background-color: #fdf5e6; /* Light orange/yellow */
+  background-color: #f8f9fa; /* Light grey background */
 }
 
 .whySection h2 {
-  color: #e67e22; /* Orange */
+  color: #2c3e50; /* Dark blue/grey */
 }
 
 /* FAQ Section */
 .faqSection {
   composes: section;
   background-color: #ffffff; /* White background */
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Added shadow */
+  border-radius: 0.375rem; /* Added border-radius */
+  margin: 20px auto; /* Center and add margin */
+  max-width: 900px; /* Limit width */
 }
 
 /* CTA Section */
 .ctaSection {
   composes: section;
-  background-color: #007bff; /* Primary blue for CTA */
+  background-color: #FF6620; /* Primary orange for CTA */
   color: white;
 }
 
@@ -170,12 +193,12 @@
 .ctaButton {
   composes: primaryButton;
   background-color: white;
-  color: #007bff;
+  color: #FF6620; /* Orange text on white button */
 }
 
 .ctaButton:hover {
   background-color: #e2e6ea;
-  color: #0056b3;
+  color: #e55b1e; /* Darker orange on hover */
 }
 
 /* Footer Section */

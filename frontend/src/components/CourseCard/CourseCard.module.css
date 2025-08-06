@@ -14,7 +14,7 @@
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 100%;
-  min-height: 500px;
+  /* min-height: 500px; */ /* Removed to allow dynamic height based on content */
 }
 
 .courseCard:hover {
@@ -217,9 +217,11 @@
 
 .actionButtons {
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* Changed to row for horizontal alignment */
   gap: 0.5rem;
   flex-shrink: 0;
+  justify-content: center; /* Center buttons if they don't fill space */
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
 }
 
 .enrollButton {
