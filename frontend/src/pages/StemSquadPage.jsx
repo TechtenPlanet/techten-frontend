@@ -35,16 +35,17 @@ const StemSquadPage = () => {
     switch (section.type) {
       case 'Hero':
         return (
-          <section key={section.id} className={styles.heroSection}>
+          <section 
+            key={section.id} 
+            className={styles.heroSection}
+            style={section.media && section.media.length > 0 ? { backgroundImage: `url(${section.media[0].url})` } : {}}
+          >
             <h1>{section.title}</h1>
             <p>{section.content}</p>
             {section.buttonLabel && section.buttonLink && (
-              <a href={section.buttonLink} className={styles.heroButton}>
+              <a href={section.buttonLink.startsWith('/') ? section.buttonLink : `/get-involved?form=${section.buttonLink}`} className={styles.heroButton}>
                 {section.buttonLabel}
               </a>
-            )}
-            {section.media && section.media.length > 0 && (
-              <img src={section.media[0].url} alt={section.title} className={styles.heroImage} />
             )}
           </section>
         );
@@ -62,7 +63,7 @@ const StemSquadPage = () => {
             <h2>{section.title}</h2>
             <p dangerouslySetInnerHTML={{ __html: section.content }} />
             {section.buttonLabel && section.buttonLink && (
-              <a href={section.buttonLink} className={styles.planButton}>
+              <a href={section.buttonLink.startsWith('/') ? section.buttonLink : `/get-involved?form=${section.buttonLink}`} className={styles.planButton}>
                 {section.buttonLabel}
               </a>
             )}
@@ -88,7 +89,7 @@ const StemSquadPage = () => {
             <h2>{section.title}</h2>
             <p>{section.content}</p>
             {section.buttonLabel && section.buttonLink && (
-              <a href={section.buttonLink} className={styles.ctaButton}>
+              <a href={section.buttonLink.startsWith('/') ? section.buttonLink : `/get-involved?form=${section.buttonLink}`} className={styles.ctaButton}>
                 {section.buttonLabel}
               </a>
             )}

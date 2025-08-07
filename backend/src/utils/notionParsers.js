@@ -397,11 +397,27 @@ export const parseFormSubmission = (page) => {
   };
 };
 
-// Helper function to get rich text content as HTML or plain text
+// Helper function to get rich text content as HTML
 export function getRichText(richText) {
   if (!richText || richText.length === 0) return '';
-  // For simplicity, returning plain text. For full rich text, you'd convert Notion's rich_text object to HTML.
-  return richText.map(text => text.plain_text).join('');
+
+  let html = '';
+  richText.forEach(segment => {
+    let text = segment.plain_text;
+    const annotations = segment.annotations;
+
+    if (annotations.bold) text = `<strong>${text}</strong>`;
+    if (annotations.italic) text = `<em>${text}</em>`;
+    if (annotations.strikethrough) text = `<s>${text}</s>`;
+    if (annotations.underline) text = `<u>${text}</u>`;
+    if (annotations.code) text = `<code>${text}</code>`;
+
+    if (segment.href) text = `<a href="${segment.href}" target="_blank" rel="noopener noreferrer">${text}</a>`;
+
+    html += text;
+  });
+
+  return html;
 }
 
 // Helper function to get plain text from a Notion rich_text property

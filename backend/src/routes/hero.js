@@ -22,6 +22,8 @@ export const heroRoutes = [
           const altText = page.properties.AltText?.rich_text[0]?.plain_text || '';
           const title = page.properties.Title?.title[0]?.plain_text || '';
           const description = page.properties.Description?.rich_text[0]?.plain_text || '';
+          const buttonLabel = page.properties['Button Label']?.rich_text[0]?.plain_text || '';
+          const buttonLink = page.properties['Button Link']?.url || '';
 
           return {
             id: page.id,
@@ -29,6 +31,8 @@ export const heroRoutes = [
             alt: altText,
             title: title,
             description: description,
+            buttonLabel: buttonLabel,
+            buttonLink: buttonLink,
           };
         });
         return heroImages;

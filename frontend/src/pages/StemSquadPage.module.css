@@ -96,17 +96,33 @@
 .heroSection {
   composes: section; /* Inherit base section styles */
   background-color: #343a40; /* Dark background for hero */
+  background-size: cover; /* Ensure background image covers the section */
   background-position: center;
+  background-repeat: no-repeat;
   color: white;
   height: 70vh; /* Adjust height as needed */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative; /* Needed for overlay */
+  z-index: 1; /* Ensure content is above overlay */
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)); /* Dark overlay */
+  z-index: -1; /* Place behind content */
 }
 
 .heroSection h1 {
   color: white;
+  z-index: 2; /* Ensure text is above overlay */
 }
 
 .heroSection h1::after {
@@ -115,14 +131,11 @@
 
 .heroSection p {
   color: #f0f0f0;
+  z-index: 2; /* Ensure text is above overlay */
 }
 
 .heroImage {
-  max-width: 80%;
-  height: auto;
-  margin-top: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: none; /* Hide the img tag, use background-image on heroSection instead */
 }
 
 /* How It Works Section */
@@ -131,18 +144,74 @@
   background-color: #f8f9fa; /* Light grey background */
 }
 
-.howItWorksContent ol {
-  list-style-type: decimal;
-  padding-left: 25px;
-  text-align: left;
-  max-width: 900px;
+.howItWorksContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Spacing between items */
+  max-width: 1000px; /* Limit width for better flow */
   margin: 0 auto;
+  text-align: left; /* Align text within each item */
+}
+
+.howItWorksContent > * { /* Target direct children (e.g., p, ol, ul, h3 from Notion HTML) */
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex: 1 1 calc(33% - 40px); /* Default to 3 columns, adjust as needed */
+  min-width: 280px; /* Minimum width for each item */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.howItWorksContent ol,
+.howItWorksContent ul {
+  list-style: none; /* Remove default list styling */
+  padding: 0;
+  margin: 0;
 }
 
 .howItWorksContent li {
   margin-bottom: 10px;
   font-size: 1.1rem;
   color: #555;
+  position: relative;
+  padding-left: 30px; /* Space for custom bullet/number */
+}
+
+.howItWorksContent li::before {
+  content: counter(list-item); /* Use CSS counter for numbering */
+  counter-increment: list-item;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #FF6620; /* Orange bullet/number */
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* Responsive adjustments for How It Works */
+@media (max-width: 768px) {
+  .howItWorksContent > * {
+    flex: 1 1 calc(50% - 40px); /* 2 columns on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .howItWorksContent {
+    flex-direction: column; /* Stack on small screens */
+    gap: 15px;
+  }
+  .howItWorksContent > * {
+    flex: 1 1 100%; /* Full width on small screens */
+  }
 }
 
 /* Plan Section (Individual & Group Buy) */

@@ -48,7 +48,7 @@ const HomeHero = () => {
           spaceBetween={30}
           centeredSlides={true}
           autoplay={{
-            delay: 2500,
+            delay: 5000, // Increased delay to 5 seconds
             disableOnInteraction: false,
           }}
           pagination={{
@@ -69,12 +69,14 @@ const HomeHero = () => {
                   <p className={style.heroDescription}>
                     {slide.description}
                   </p>
-                  <Link
-                    to="/get-involved"
-                    className={style.ctaButton}
-                  >
-                    Let's Talk <FaArrowRight className={style.arrowIcon} />
-                  </Link>
+                  {slide.buttonLabel && slide.buttonLink && (
+                    <Link
+                      to={slide.buttonLink}
+                      className={style.ctaButton}
+                    >
+                      {slide.buttonLabel} <FaArrowRight className={style.arrowIcon} />
+                    </Link>
+                  )}
                 </div>
               </div>
             </SwiperSlide>
