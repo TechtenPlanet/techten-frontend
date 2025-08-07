@@ -144,29 +144,99 @@
   background-color: #f8f9fa; /* Light grey background */
 }
 
+.sectionDescription {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  font-size: 1.1rem;
+  color: #6c757d;
+}
+
+.stepsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 3rem auto;
+  padding: 0 20px;
+}
+
+.stepCard {
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 4px solid #FF6620;
+}
+
+.stepCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.stepNumber {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #FF6620;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(255, 102, 32, 0.3);
+}
+
+.stepIcon {
+  font-size: 3rem;
+  margin: 1.5rem 0 1rem 0;
+  display: block;
+}
+
+.stepTitle {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 1.25rem;
+}
+
+.stepDescription {
+  color: #6c757d;
+  line-height: 1.6;
+  margin: 0;
+}
+
 .howItWorksContent {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px; /* Spacing between items */
-  max-width: 1000px; /* Limit width for better flow */
+  gap: 20px;
+  max-width: 1000px;
   margin: 0 auto;
-  text-align: left; /* Align text within each item */
+  text-align: left;
 }
 
-.howItWorksContent > * { /* Target direct children (e.g., p, ol, ul, h3 from Notion HTML) */
+.howItWorksContent > * {
   background-color: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  flex: 1 1 calc(33% - 40px); /* Default to 3 columns, adjust as needed */
-  min-width: 280px; /* Minimum width for each item */
-  box-sizing: border-box; /* Include padding in width calculation */
+  flex: 1 1 calc(33% - 40px);
+  min-width: 280px;
+  box-sizing: border-box;
 }
 
 .howItWorksContent ol,
 .howItWorksContent ul {
-  list-style: none; /* Remove default list styling */
+  list-style: none;
   padding: 0;
   margin: 0;
 }
@@ -176,16 +246,16 @@
   font-size: 1.1rem;
   color: #555;
   position: relative;
-  padding-left: 30px; /* Space for custom bullet/number */
+  padding-left: 30px;
 }
 
 .howItWorksContent li::before {
-  content: counter(list-item); /* Use CSS counter for numbering */
+  content: counter(list-item);
   counter-increment: list-item;
   position: absolute;
   left: 0;
   top: 0;
-  background-color: #FF6620; /* Orange bullet/number */
+  background-color: #FF6620;
   color: white;
   border-radius: 50%;
   width: 24px;
@@ -199,18 +269,33 @@
 
 /* Responsive adjustments for How It Works */
 @media (max-width: 768px) {
+  .stepsContainer {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .stepCard {
+    padding: 1.5rem 1rem;
+  }
+  
   .howItWorksContent > * {
-    flex: 1 1 calc(50% - 40px); /* 2 columns on tablets */
+    flex: 1 1 calc(50% - 40px);
   }
 }
 
 @media (max-width: 480px) {
+  .stepsContainer {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
   .howItWorksContent {
-    flex-direction: column; /* Stack on small screens */
+    flex-direction: column;
     gap: 15px;
   }
+  
   .howItWorksContent > * {
-    flex: 1 1 100%; /* Full width on small screens */
+    flex: 1 1 100%;
   }
 }
 
@@ -284,6 +369,53 @@
   color: #ccc;
 }
 
+/* Navigation Section */
+.navigationSection {
+  composes: section;
+  background-color: #ffffff;
+  border-top: 1px solid #dee2e6;
+  padding: 60px 40px;
+}
+
+.navigationTitle {
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+  font-size: 2rem;
+}
+
+.navigationButtons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.navigationButton {
+  background-color: #FF6620;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 0.875rem 1.5rem;
+  transition: all 0.3s ease;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 4px rgba(255, 102, 32, 0.2);
+}
+
+.navigationButton:hover {
+  background-color: #e55b1e;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(255, 102, 32, 0.3);
+  color: white;
+  text-decoration: none;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .section {
@@ -302,6 +434,18 @@
     padding: 12px 25px;
     font-size: 1em;
   }
+  
+  .navigationButtons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .navigationButton {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -319,5 +463,13 @@
 
   .heroSection {
     height: 60vh;
+  }
+  
+  .navigationSection {
+    padding: 40px 20px;
+  }
+  
+  .navigationTitle {
+    font-size: 1.5rem;
   }
 }

@@ -211,26 +211,88 @@ const TechForGirlsPage = () => {
           </div>
         </div>
 
+        {/* How It Works Section */}
+        <div className="row mb-5">
+          <div className="col-12">
+            <div className={style.howItWorksSection}>
+              <h2 className={style.sectionTitle}>How STEM Squad Works</h2>
+              <p className={`text-center mb-5 ${style.sectionDescription}`}>
+                Our structured approach ensures every girl gets the support and skills she needs to succeed in technology
+              </p>
+              <div className="row">
+                <div className="col-md-3 mb-4">
+                  <div className={style.stepCard}>
+                    <div className={style.stepNumber}>1</div>
+                    <div className={style.stepIcon}>
+                      <FaGraduationCap />
+                    </div>
+                    <h4 className={style.stepTitle}>Apply & Assess</h4>
+                    <p className={style.stepDescription}>
+                      Complete our application and take a skills assessment to help us understand your current level and goals.
+                    </p>
+                  </div>
+                </div>
+                <div className="col-md-3 mb-4">
+                  <div className={style.stepCard}>
+                    <div className={style.stepNumber}>2</div>
+                    <div className={style.stepIcon}>
+                      <FaUsers />
+                    </div>
+                    <h4 className={style.stepTitle}>Join Your Cohort</h4>
+                    <p className={style.stepDescription}>
+                      Get matched with a small group of peers and assigned a dedicated mentor who will guide your journey.
+                    </p>
+                  </div>
+                </div>
+                <div className="col-md-3 mb-4">
+                  <div className={style.stepCard}>
+                    <div className={style.stepNumber}>3</div>
+                    <div className={style.stepIcon}>
+                      <FaLaptopCode />
+                    </div>
+                    <h4 className={style.stepTitle}>Learn & Build</h4>
+                    <p className={style.stepDescription}>
+                      Participate in hands-on workshops, coding sessions, and project-based learning with expert instructors.
+                    </p>
+                  </div>
+                </div>
+                <div className="col-md-3 mb-4">
+                  <div className={style.stepCard}>
+                    <div className={style.stepNumber}>4</div>
+                    <div className={style.stepIcon}>
+                      <FaStar />
+                    </div>
+                    <h4 className={style.stepTitle}>Showcase & Grow</h4>
+                    <p className={style.stepDescription}>
+                      Present your projects, receive feedback, and continue growing with ongoing support and opportunities.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Navigation Section */}
         <div className="row">
           <div className="col-12">
             <div className={style.programNavigation}>
               <h3 className={style.navigationTitle}>Explore Other Programs</h3>
-              <div className={style.navigationLinks}>
-                <Link to="/programs/project-that-matters" className={style.navigationLink}>
-                  Projects That Matter <FaArrowRight className={style.navigationIcon} />
+              <div className={style.navigationButtons}>
+                <Link to="/programs/project-that-matters" className={style.navigationButton}>
+                  Projects That Matter <FaArrowRight className="ms-2" />
                 </Link>
-                <Link to="/programs/tech-labs" className={style.navigationLink}>
-                  Tech Labs <FaArrowRight className={style.navigationIcon} />
+                <Link to="/programs/tech-labs" className={style.navigationButton}>
+                  Tech Labs <FaArrowRight className="ms-2" />
                 </Link>
-                <Link to="/programs/hackathons" className={style.navigationLink}>
-                  Hackathons <FaArrowRight className={style.navigationIcon} />
+                <Link to="/programs/hackathons" className={style.navigationButton}>
+                  Hackathons <FaArrowRight className="ms-2" />
                 </Link>
-                <Link to="/programs/consultants" className={style.navigationLink}>
-                  Business Consultant Cohort <FaArrowRight className={style.navigationIcon} />
+                <Link to="/programs/consultants" className={style.navigationButton}>
+                  Business Consultant Cohort <FaArrowRight className="ms-2" />
                 </Link>
-                <Link to="/programs" className={style.navigationLink}>
-                  All Programs <FaArrowRight className={style.navigationIcon} />
+                <Link to="/programs" className={style.navigationButton}>
+                  All Programs <FaArrowRight className="ms-2" />
                 </Link>
               </div>
             </div>

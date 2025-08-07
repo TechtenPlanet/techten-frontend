@@ -53,6 +53,43 @@ const StemSquadPage = () => {
         return (
           <section key={section.id} className={styles.howItWorksSection}>
             <h2>{section.title}</h2>
+            <p className={styles.sectionDescription}>
+              Our structured approach ensures every participant gets the support and skills they need to succeed in STEM
+            </p>
+            <div className={styles.stepsContainer}>
+              <div className={styles.stepCard}>
+                <div className={styles.stepNumber}>1</div>
+                <div className={styles.stepIcon}>🎯</div>
+                <h4 className={styles.stepTitle}>Apply & Assess</h4>
+                <p className={styles.stepDescription}>
+                  Complete our application and take a skills assessment to help us understand your current level and goals.
+                </p>
+              </div>
+              <div className={styles.stepCard}>
+                <div className={styles.stepNumber}>2</div>
+                <div className={styles.stepIcon}>👥</div>
+                <h4 className={styles.stepTitle}>Join Your Squad</h4>
+                <p className={styles.stepDescription}>
+                  Get matched with a small group of peers and assigned a dedicated mentor who will guide your journey.
+                </p>
+              </div>
+              <div className={styles.stepCard}>
+                <div className={styles.stepNumber}>3</div>
+                <div className={styles.stepIcon}>💻</div>
+                <h4 className={styles.stepTitle}>Learn & Build</h4>
+                <p className={styles.stepDescription}>
+                  Participate in hands-on workshops, coding sessions, and project-based learning with expert instructors.
+                </p>
+              </div>
+              <div className={styles.stepCard}>
+                <div className={styles.stepNumber}>4</div>
+                <div className={styles.stepIcon}>⭐</div>
+                <h4 className={styles.stepTitle}>Showcase & Grow</h4>
+                <p className={styles.stepDescription}>
+                  Present your projects, receive feedback, and continue growing with ongoing support and opportunities.
+                </p>
+              </div>
+            </div>
             <div className={styles.howItWorksContent} dangerouslySetInnerHTML={{ __html: section.content }} />
           </section>
         );
@@ -109,6 +146,28 @@ const StemSquadPage = () => {
   return (
     <div className={styles.stemSquadPage}>
       {content.map(section => renderSection(section))}
+      
+      {/* Navigation Section */}
+      <section className={styles.navigationSection}>
+        <h3 className={styles.navigationTitle}>Explore Other Programs</h3>
+        <div className={styles.navigationButtons}>
+          <a href="/programs/project-that-matters" className={styles.navigationButton}>
+            Projects That Matter →
+          </a>
+          <a href="/programs/tech-labs" className={styles.navigationButton}>
+            Tech Labs →
+          </a>
+          <a href="/programs/hackathons" className={styles.navigationButton}>
+            Hackathons →
+          </a>
+          <a href="/programs/consultants" className={styles.navigationButton}>
+            Business Consultant Cohort →
+          </a>
+          <a href="/programs" className={styles.navigationButton}>
+            All Programs →
+          </a>
+        </div>
+      </section>
     </div>
   );
 };

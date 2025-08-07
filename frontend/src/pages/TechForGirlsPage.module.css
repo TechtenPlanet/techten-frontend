@@ -449,6 +449,67 @@
   margin-top: 1rem;
 }
 
+/* How It Works Section */
+.howItWorksSection {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.stepCard {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem 1.5rem;
+  height: 100%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 3px solid #FF6620;
+}
+
+.stepCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stepNumber {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #FF6620;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.stepIcon {
+  color: #FF6620;
+  font-size: 2.5rem;
+  margin: 1rem 0;
+}
+
+.stepTitle {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 1.125rem;
+}
+
+.stepDescription {
+  color: #6c757d;
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
 /* Navigation Section */
 .programNavigation {
   margin-top: 3rem;
@@ -462,34 +523,32 @@
   margin-bottom: 1.5rem;
 }
 
-.navigationLinks {
+.navigationButtons {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
-.navigationLink {
+.navigationButton {
+  background-color: #FF6620;
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  transition: all 0.3s ease;
+  border: none;
   display: inline-flex;
   align-items: center;
-  color: #FF6620;
   text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  font-size: 0.875rem;
 }
 
-.navigationLink:hover {
-  color: #e55b1e;
-  transform: translateX(5px);
-}
-
-.navigationIcon {
-  margin-left: 0.5rem;
-  transition: transform 0.3s ease;
-}
-
-.navigationLink:hover .navigationIcon {
-  transform: translateX(3px);
+.navigationButton:hover {
+  background-color: #e55b1e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 102, 32, 0.3);
+  color: white;
 }
 
 @media (max-width: 768px) {
@@ -502,12 +561,27 @@
     margin-bottom: 0.5rem;
   }
   
-  .navigationLinks {
+  .navigationButtons {
     flex-direction: column;
     align-items: center;
   }
   
+  .navigationButton {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+  
   .missionImageContainer {
     margin-bottom: 1.5rem;
+  }
+  
+  .howItWorksSection {
+    padding: 1.5rem;
+  }
+  
+  .stepCard {
+    padding: 1.5rem 1rem;
+    margin-bottom: 1rem;
   }
 }
