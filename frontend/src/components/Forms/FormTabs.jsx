@@ -4,6 +4,7 @@ import VolunteerForm from './VolunteerForm';
 import MentorForm from './MentorForm';
 import PartnershipForm from './PartnershipForm';
 import SponsorshipForm from './SponsorshipForm';
+import StemSquadEnrollmentForm from './StemSquadEnrollmentForm';
 
 const FormTabs = ({ initialTab = 'volunteer' }) => {
   const [activeTab, setActiveTab] = useState(initialTab);
@@ -23,6 +24,8 @@ const FormTabs = ({ initialTab = 'volunteer' }) => {
         return <PartnershipForm />;
       case 'sponsorship':
         return <SponsorshipForm />;
+      case 'stem-squad':
+        return <StemSquadEnrollmentForm />;
       default:
         return <VolunteerForm />;
     }
@@ -54,6 +57,12 @@ const FormTabs = ({ initialTab = 'volunteer' }) => {
           onClick={() => setActiveTab('sponsorship')}
         >
           Sponsorship Interest
+        </div>
+        <div 
+          className={`${style.formTab} ${activeTab === 'stem-squad' ? style.formTabActive : ''}`}
+          onClick={() => setActiveTab('stem-squad')}
+        >
+          STEM Squad Enrollment
         </div>
       </div>
       

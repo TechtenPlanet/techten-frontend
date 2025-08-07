@@ -89,24 +89,52 @@ const BaseForm = ({
         // Submit to Notion backend based on form type
         let result;
         if (formType === 'enrollment') {
+          // Prepare enrollment data
+          const enrollmentData = {
+            studentName: formData.studentName || formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            courseName: formData.courseTitle,
+            courseId: formData.courseId,
+            age: parseInt(formData.studentAge),
+            experienceLevel: formData.experience === 'none' ? 'Beginner' : 
+                           formData.experience === 'beginner' ? 'Beginner' :
+                           formData.experience === 'intermediate' ? 'Intermediate' : 'Advanced',
+            specialRequirements: formData.specialRequirements || formData.additionalInfo,
+            emergencyContact: formData.phone
+          };
+
+          // Add STEM Squad specific fields if this is a STEM Squad enrollment
+          if (formData.programType === 'STEM Squad') {
+            enrollmentData.programType = 'STEM Squad';
+            enrollmentData.planType = formData.planType;
+            enrollmentData.subscriptionType = formData.subscriptionType;
+            enrollmentData.groupSize = formData.groupSize ? parseInt(formData.groupSize) : null;
+            enrollmentData.groupLeader = formData.groupLeaderName;
+            enrollmentData.otherParentsInfo = formData.otherParentsInfo;
+            enrollmentData.paymentPreference = formData.paymentPreference;
+            enrollmentData.startDatePreference = formData.startDatePreference;
+            enrollmentData.hearAboutUs = formData.hearAboutUs;
+            enrollmentData.marketingConsent = formData.agreeToMarketing || false;
+            
+            // Handle child interests (checkboxGroup)
+            const interests = [];
+            Object.keys(formData).forEach(key => {
+              if (key.startsWith('childInterests-') && formData[key]) {
+                interests.push(key.replace('childInterests-', ''));
+              }
+            });
+            enrollmentData.childInterests = interests;
+          } else {
+            enrollmentData.programType = 'Course';
+          }
+
           const response = await fetch('http://localhost:5000/api/enrollments', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-              studentName: formData.studentName || formData.name,
-              email: formData.email,
-              phone: formData.phone,
-              courseName: formData.courseTitle,
-              courseId: formData.courseId,
-              age: parseInt(formData.studentAge),
-              experienceLevel: formData.experience === 'none' ? 'Beginner' : 
-                             formData.experience === 'beginner' ? 'Beginner' :
-                             formData.experience === 'intermediate' ? 'Intermediate' : 'Advanced',
-              specialRequirements: formData.additionalInfo,
-              emergencyContact: formData.phone // Using phone as emergency contact for now
-            }),
+            body: JSON.stringify(enrollmentData),
           });
           result = await response.json();
           if (!response.ok) {

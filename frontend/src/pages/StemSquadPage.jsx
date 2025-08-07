@@ -54,39 +54,31 @@ const StemSquadPage = () => {
           <section key={section.id} className={styles.howItWorksSection}>
             <h2>{section.title}</h2>
             <p className={styles.sectionDescription}>
-              Our structured approach ensures every participant gets the support and skills they need to succeed in STEM
+              Get your child started with hands-on STEM learning in just three simple steps
             </p>
             <div className={styles.stepsContainer}>
               <div className={styles.stepCard}>
                 <div className={styles.stepNumber}>1</div>
-                <div className={styles.stepIcon}>🎯</div>
-                <h4 className={styles.stepTitle}>Apply & Assess</h4>
+                <div className={styles.stepIcon}>📝</div>
+                <h4 className={styles.stepTitle}>Subscribe</h4>
                 <p className={styles.stepDescription}>
-                  Complete our application and take a skills assessment to help us understand your current level and goals.
+                  Choose a plan that fits your child's age & learning level. Individual or Group Buy options available.
                 </p>
               </div>
               <div className={styles.stepCard}>
                 <div className={styles.stepNumber}>2</div>
-                <div className={styles.stepIcon}>👥</div>
-                <h4 className={styles.stepTitle}>Join Your Squad</h4>
+                <div className={styles.stepIcon}>📦</div>
+                <h4 className={styles.stepTitle}>Receive Your STEM Kit</h4>
                 <p className={styles.stepDescription}>
-                  Get matched with a small group of peers and assigned a dedicated mentor who will guide your journey.
+                  Delivered every semester with all the tools, materials & instructions needed for hands-on learning.
                 </p>
               </div>
               <div className={styles.stepCard}>
                 <div className={styles.stepNumber}>3</div>
-                <div className={styles.stepIcon}>💻</div>
-                <h4 className={styles.stepTitle}>Learn & Build</h4>
+                <div className={styles.stepIcon}>🔬</div>
+                <h4 className={styles.stepTitle}>Explore & Learn</h4>
                 <p className={styles.stepDescription}>
-                  Participate in hands-on workshops, coding sessions, and project-based learning with expert instructors.
-                </p>
-              </div>
-              <div className={styles.stepCard}>
-                <div className={styles.stepNumber}>4</div>
-                <div className={styles.stepIcon}>⭐</div>
-                <h4 className={styles.stepTitle}>Showcase & Grow</h4>
-                <p className={styles.stepDescription}>
-                  Present your projects, receive feedback, and continue growing with ongoing support and opportunities.
+                  Monthly learning activities keep your child engaged and excited about STEM while building real-world skills.
                 </p>
               </div>
             </div>
@@ -95,12 +87,14 @@ const StemSquadPage = () => {
         );
       case 'Plan – Individual':
       case 'Plan – Group Buy':
+      case 'Plan – Intermediate':
+      case 'Plan – Advanced':
         return (
           <section key={section.id} className={styles.planSection}>
             <h2>{section.title}</h2>
-            <p dangerouslySetInnerHTML={{ __html: section.content }} />
+            <div className={styles.planContent} dangerouslySetInnerHTML={{ __html: section.content }} />
             {section.buttonLabel && section.buttonLink && (
-              <a href={section.buttonLink.startsWith('/') ? section.buttonLink : `/get-involved?form=${section.buttonLink}`} className={styles.planButton}>
+              <a href={section.buttonLink.startsWith('/') ? section.buttonLink : `/get-involved?form=stem-squad&plan=${section.type === 'Plan – Individual' ? 'starter' : section.type === 'Plan – Intermediate' ? 'intermediate' : section.type === 'Plan – Advanced' ? 'advanced' : section.type === 'Plan – Group Buy' ? 'group' : 'starter'}`} className={styles.primaryButton}>
                 {section.buttonLabel}
               </a>
             )}

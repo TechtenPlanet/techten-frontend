@@ -65,7 +65,7 @@ export const formsRoutes = [
     },
   },
 
-  // Course Enrollment Route
+  // Course Enrollment Route (includes STEM Squad)
   {
     method: 'POST',
     path: '/enrollments',
@@ -80,7 +80,19 @@ export const formsRoutes = [
           age, 
           experienceLevel = 'Beginner',
           specialRequirements,
-          emergencyContact 
+          emergencyContact,
+          // STEM Squad specific fields
+          programType = 'Course',
+          planType,
+          subscriptionType,
+          groupSize,
+          groupLeader,
+          otherParentsInfo,
+          paymentPreference,
+          startDatePreference,
+          childInterests = [],
+          hearAboutUs,
+          marketingConsent = false
         } = request.payload;
         
         // Validate required fields
@@ -88,48 +100,126 @@ export const formsRoutes = [
           return h.response({ error: 'Missing required fields' }).code(400);
         }
         
+        // Base properties for all enrollments
+        const properties = {
+          'Student Name': {
+            title: [{ text: { content: studentName } }]
+          },
+          'Email': {
+            email: email
+          },
+          'Phone': {
+            phone_number: phone || null
+          },
+          'Course Name': {
+            rich_text: [{ text: { content: courseName } }]
+          },
+          'Course ID': {
+            rich_text: [{ text: { content: courseId || '' } }]
+          },
+          'Age': {
+            number: age || null
+          },
+          'Experience Level': {
+            select: { name: experienceLevel }
+          },
+          'Enrollment Date': {
+            date: { start: new Date().toISOString().split('T')[0] }
+          },
+          'Status': {
+            select: { name: 'Pending' }
+          },
+          'Special Requirements': {
+            rich_text: [{ text: { content: specialRequirements || '' } }]
+          },
+          'Emergency Contact': {
+            rich_text: [{ text: { content: emergencyContact || '' } }]
+          },
+          'Program Type': {
+            select: { name: programType }
+          }
+        };
+
+        // Add STEM Squad specific properties if this is a STEM Squad enrollment
+        if (programType === 'STEM Squad') {
+          if (planType) {
+            properties['Plan Type'] = {
+              select: { name: planType.charAt(0).toUpperCase() + planType.slice(1) }
+            };
+          }
+          
+          if (subscriptionType) {
+            properties['Subscription Type'] = {
+              select: { name: subscriptionType === 'group' ? 'Group Buy' : 'Individual' }
+            };
+          }
+          
+          if (groupSize) {
+            properties['Group Size'] = {
+              number: parseInt(groupSize)
+            };
+          }
+          
+          if (groupLeader) {
+            properties['Group Leader'] = {
+              rich_text: [{ text: { content: groupLeader } }]
+            };
+          }
+          
+          if (otherParentsInfo) {
+            properties['Other Parents Info'] = {
+              rich_text: [{ text: { content: otherParentsInfo } }]
+            };
+          }
+          
+          if (paymentPreference) {
+            properties['Payment Preference'] = {
+              select: { name: paymentPreference.charAt(0).toUpperCase() + paymentPreference.slice(1) }
+            };
+          }
+          
+          if (startDatePreference) {
+            properties['Start Date Preference'] = {
+              date: { start: startDatePreference }
+            };
+          }
+          
+          if (childInterests && childInterests.length > 0) {
+            properties['Child Interests'] = {
+              multi_select: childInterests.map(interest => ({
+                name: interest.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/^./, str => str.toUpperCase())
+              }))
+            };
+          }
+          
+          if (hearAboutUs) {
+            const hearAboutUsMap = {
+              'website': 'Website',
+              'social': 'Social Media',
+              'friend': 'Friend/Family',
+              'school': 'School/Teacher',
+              'event': 'Techten Event',
+              'search': 'Google Search',
+              'other': 'Other'
+            };
+            properties['How Heard About Us'] = {
+              select: { name: hearAboutUsMap[hearAboutUs] || 'Other' }
+            };
+          }
+          
+          properties['Marketing Consent'] = {
+            checkbox: marketingConsent
+          };
+        }
+        
         const response = await notion.pages.create({
           parent: { database_id: ENROLLMENTS_DB_ID },
-          properties: {
-            'Student Name': {
-              title: [{ text: { content: studentName } }]
-            },
-            'Email': {
-              email: email
-            },
-            'Phone': {
-              phone_number: phone || null
-            },
-            'Course Name': {
-              rich_text: [{ text: { content: courseName } }]
-            },
-            'Course ID': {
-              rich_text: [{ text: { content: courseId || '' } }]
-            },
-            'Age': {
-              number: age || null
-            },
-            'Experience Level': {
-              select: { name: experienceLevel }
-            },
-            'Enrollment Date': {
-              date: { start: new Date().toISOString().split('T')[0] }
-            },
-            'Status': {
-              select: { name: 'Pending' }
-            },
-            'Special Requirements': {
-              rich_text: [{ text: { content: specialRequirements || '' } }]
-            },
-            'Emergency Contact': {
-              rich_text: [{ text: { content: emergencyContact || '' } }]
-            }
-          }
+          properties: properties
         });
         
         return { 
           success: true, 
-          message: 'Enrollment submitted successfully',
+          message: programType === 'STEM Squad' ? 'STEM Squad enrollment submitted successfully' : 'Enrollment submitted successfully',
           id: response.id 
         };
       } catch (err) {
