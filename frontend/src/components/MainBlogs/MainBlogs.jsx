@@ -9,15 +9,19 @@ const MainBlogs = () => {
   const [loading, setLoading] = useState(true);
   const [visibleBlogs, setVisibleBlogs] = useState(6);
   const [activeTag, setActiveTag] = useState('All');
+  const [error, setError] = useState(null); // Add error state
 
   // Fetch blogs from Notion
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
+        setLoading(true); // Ensure loading is set to true before fetch
         const blogs = await getBlogs();
         setBlogsData(blogs);
+        setError(null); // Clear any previous errors
       } catch (error) {
         console.error("Error fetching blogs:", error);
+        setError("Failed to load blogs. Please try again later."); // Set error message
       } finally {
         setLoading(false);
       }
@@ -25,6 +29,28 @@ const MainBlogs = () => {
 
     fetchBlogs();
   }, []);
+
+  if (loading) {
+    return (
+      <div className={style.blogsSection}>
+        <div className={style.loading}>
+          <h2 className={style.sectionTitle}>Latest Articles & Insights</h2>
+          <p>Loading articles...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className={style.blogsSection}>
+        <div className={style.error}>
+          <h2 className={style.sectionTitle}>Latest Articles & Insights</h2>
+          <p className={style.errorMessage}>{error}</p>
+        </div>
+      </div>
+    );
+  }
 
   // Function to trim text to the specified maxLength
   const trimText = (text, maxLength) => {

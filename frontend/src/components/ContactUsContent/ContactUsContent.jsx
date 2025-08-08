@@ -46,7 +46,7 @@ const ContactUsContent = ({ defaultSubject = '' }) => {
     const validateForm = (values) => {
         const errors = {};
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const phoneRegex = /^\+?[0-9\s\-\(\)]{7,20}$/;
+        const phoneRegex = /^\+?[0-9\s-()]{7,20}$/;
         
         if (!values.user_name) {
             errors.name = "Name is required";

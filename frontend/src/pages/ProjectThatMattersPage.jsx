@@ -3,7 +3,7 @@ import OtherPagesHero from '../components/OtherPagesHero/OtherPagesHero';
 import { Link } from 'react-router-dom';
 import style from './ProjectThatMattersPage.module.css';
 import projectThatMattersData from '../data/projectThatMattersData';
-import { FaArrowRight, FaCheckCircle, FaUsers, FaLaptopCode, FaCalendarAlt } from 'react-icons/fa';
+import { FaArrowRight, FaCheckCircle, FaUsers, FaCalendarAlt } from 'react-icons/fa';
 
 const ProjectThatMattersPage = () => {
   const { hero, overview, benefits, projects, application } = projectThatMattersData;

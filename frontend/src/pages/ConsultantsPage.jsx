@@ -6,8 +6,6 @@ import consultantsData from '../data/consultantsData';
 import { 
   FaArrowRight, 
   FaCheckCircle, 
-  FaBriefcase, 
-  FaChartLine, 
   FaUsers, 
   FaCalendarAlt,
   FaMapMarkerAlt,

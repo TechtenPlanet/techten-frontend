@@ -13,7 +13,6 @@ import {
   FaTruck,
   FaLaptop,
   FaDollarSign,
-  FaUser,
   FaEnvelope,
   FaLinkedin
 } from 'react-icons/fa';

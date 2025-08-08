@@ -12,16 +12,20 @@ const CoursesPage = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredCourses, setFilteredCourses] = useState([]);
+  const [error, setError] = useState(null); // Add error state
 
   // Fetch courses from Notion
   useEffect(() => {
     const fetchCourses = async () => {
       try {
+        setLoading(true); // Ensure loading is set to true before fetch
         const coursesData = await getCourses();
         setAllCourses(coursesData);
         setFilteredCourses(coursesData);
+        setError(null); // Clear any previous errors
       } catch (error) {
         console.error("Error fetching courses:", error);
+        setError("Failed to load courses. Please try again later."); // Set error message
       } finally {
         setLoading(false);
       }
@@ -57,6 +61,34 @@ const CoursesPage = () => {
     
     setFilteredCourses(result);
   }, [activeCategory, searchTerm, allCourses]);
+
+  if (loading) {
+    return (
+      <>
+        <OtherPagesHero heading="Courses & Programs" />
+        <div className={style.coursesSection}>
+          <div className={style.loading}>
+            <h2 className={style.sectionTitle}>Explore Our Educational Programs</h2>
+            <p>Loading courses...</p>
+          </div>
+        </div>
+      </>
+    );
+  }
+
+  if (error) {
+    return (
+      <>
+        <OtherPagesHero heading="Courses & Programs" />
+        <div className={style.coursesSection}>
+          <div className={style.error}>
+            <h2 className={style.sectionTitle}>Explore Our Educational Programs</h2>
+            <p className={style.errorMessage}>{error}</p>
+          </div>
+        </div>
+      </>
+    );
+  }
 
   const loadMoreCourses = () => {
     setVisibleCourses(prev => prev + 4);

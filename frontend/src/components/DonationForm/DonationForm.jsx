@@ -107,27 +107,13 @@ const DonationForm = () => {
     setMessage(null);
     
     try {
-      // Prepare payment data to send to Firebase Function
-      const paymentData = {
-        amount: {
-          currency: 'EUR',
-          value: parseFloat(amount).toFixed(2)
-        },
-        description: `Donation from ${name}`,
-        redirectUrl: `${window.location.origin}/donate/thank-you`,
-        metadata: {
-          name: name,
-          email: email
-        },
-        method: paymentMethod
-      };
-      
-      // TODO: Implement payment processing
+      // TODO: Implement payment processing with Mollie API via backend
+      // The paymentData object was removed as it was not being used.
       setMessage("Payment processing is temporarily disabled. Please contact us directly.");
       setMessageType('error');
       
     } catch (error) {
-      console.error("Payment Error:", error);
+      console.error("Donation Form Submission Error:", error);
       setMessage("An error occurred while processing your donation. Please try again later.");
       setMessageType('error');
     } finally {

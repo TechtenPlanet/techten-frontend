@@ -79,9 +79,11 @@ export const getTeamSectionConfig = () => {
   };
 };
 
-export default {
+const TeamService = {
   getTeamMembers,
   getTeamMemberById,
   getTeamMembersByRole,
   getTeamSectionConfig
 };
+
+export default TeamService;
