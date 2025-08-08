@@ -1,67 +1,124 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import style from './TeamSection.module.css'
-import oscarImg from './../../assets/images/Team/Techten team/Yaw_Oscar.JPG'
-import lawrenceImg from './../../assets/images/Team/Techten team/Lawrence_Manu.jpg'
-import bernardImg from './../../assets/images/Team/Techten team/Bernard_Boaten.jpg'
-import derrickImg from './../../assets/images/Team/Techten team/Derrick Edem Sosoo2.jpg'
-import billyImg from './../../assets/images/Team/Techten team/Gabriel_Agoh.jpg'
-
-
+import { getTeamMembers, getTeamSectionConfig } from '../../notion/teamService'
 
 const TeamSection = () => {
-    const teamMembers = [
-        {
-            id: 1,
-            name: 'Oscar Yaw Asamoah',
-            role: 'CEO & Founder',
-            quote: '"Creating a future where Ghanaian youth lead through innovation."',
-            image: oscarImg
-        },
-        {
-            id: 2,
-            name: 'Lawrence K. Manu',
-            role: 'Operations Manager & BM',
-            quote: '"Every student deserves the opportunity to build and apply knowledge."',
-            image: lawrenceImg
-        },
-        {
-            id: 3,
-            name: 'Bernard Boateng',
-            role: 'Board Member & CTO',
-            quote: '"Education is the seed of sustainable development."',
-            image: bernardImg
-        },
+    const [teamMembers, setTeamMembers] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [sectionConfig, setSectionConfig] = useState({
+        sectionTitle: "Meet the Team",
+        sectionDescription: "Get to know the passionate individuals driving innovation and education at Techten Planet."
+    });
 
-        {
-            id: 4,
-            name: 'Derrick Edem Sosoo',
-            role: 'General Manager',
-            quote: '"Teaching hands-on skills that transform societies in the long term."',
-            image: derrickImg
-        },
-        {
-            id: 5,
-            name: 'Gabriel Agoh',
-            role: 'CRO & PR',
-            quote: '"No one person can do it all, it calls for partnerships with all stakeholders"',
-            image: billyImg
-        }
-       
-    ];
+    useEffect(() => {
+        const fetchTeamData = async () => {
+            try {
+                setLoading(true);
+                
+                // Fetch team members and section config
+                const [members, config] = await Promise.all([
+                    getTeamMembers(),
+                    Promise.resolve(getTeamSectionConfig())
+                ]);
+                
+                setTeamMembers(members);
+                setSectionConfig(config);
+                setError(null);
+            } catch (err) {
+                console.error('Error fetching team data:', err);
+                setError('Failed to load team members. Please try again later.');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchTeamData();
+    }, []);
+
+    if (loading) {
+        return (
+            <div className={style.teamSection}>
+                <div className={style.loading}>
+                    <h2 className={style.sectionTitle}>Meet the Team</h2>
+                    <p>Loading team members...</p>
+                </div>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className={style.teamSection}>
+                <div className={style.error}>
+                    <h2 className={style.sectionTitle}>Meet the Team</h2>
+                    <p className={style.errorMessage}>{error}</p>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className={style.teamSection}>
-            <h2 className={style.sectionTitle}>Meet the Team</h2>
+            <h2 className={style.sectionTitle}>{sectionConfig.sectionTitle}</h2>
+            {sectionConfig.sectionDescription && (
+                <p className={style.sectionDescription}>{sectionConfig.sectionDescription}</p>
+            )}
             <div className={style.teamGrid}>
                 {teamMembers.map(member => (
                     <div key={member.id} className={style.teamCard}>
                         <div className={style.imageContainer}>
-                            <img src={member.image} alt={member.name} />
+                            <img 
+                                src={member.image || '/src/assets/images/Team/placeholder.jpg'} 
+                                alt={member.name}
+                                onError={(e) => {
+                                    // Fallback to placeholder if image fails to load
+                                    e.target.src = '/src/assets/images/Team/placeholder.jpg';
+                                }}
+                            />
                         </div>
                         <div className={style.cardContent}>
                             <h3 className={style.memberName}>{member.name}</h3>
                             <p className={style.memberRole}>{member.role}</p>
-                            <p className={style.memberQuote}>{member.quote}</p>
+                            {member.quote && (
+                                <p className={style.memberQuote}>"{member.quote}"</p>
+                            )}
+                            {member.bio && (
+                                <p className={style.memberBio}>{member.bio}</p>
+                            )}
+                            {member.specialties && member.specialties.length > 0 && (
+                                <div className={style.specialties}>
+                                    {member.specialties.map((specialty, index) => (
+                                        <span key={index} className={style.specialtyTag}>
+                                            {specialty}
+                                        </span>
+                                    ))}
+                                </div>
+                            )}
+                            {(member.linkedin || member.email) && (
+                                <div className={style.contactLinks}>
+                                    {member.linkedin && (
+                                        <a 
+                                            href={member.linkedin} 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                            className={style.contactLink}
+                                            aria-label={`${member.name}'s LinkedIn profile`}
+                                        >
+                                            LinkedIn
+                                        </a>
+                                    )}
+                                    {member.email && (
+                                        <a 
+                                            href={`mailto:${member.email}`}
+                                            className={style.contactLink}
+                                            aria-label={`Email ${member.name}`}
+                                        >
+                                            Email
+                                        </a>
+                                    )}
+                                </div>
+                            )}
                         </div>
                     </div>
                 ))}

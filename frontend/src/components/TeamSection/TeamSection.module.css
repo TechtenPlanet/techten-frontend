@@ -26,6 +26,15 @@
     background-color: #ff6b00;
 }
 
+.sectionDescription {
+    font-size: 1.1rem;
+    color: #666;
+    text-align: center;
+    margin: -20px auto 40px auto;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
 .teamGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -86,7 +95,90 @@
     color: #555;
     font-style: italic;
     line-height: 1.5;
-    margin: 0;
+    margin: 0 0 15px 0;
+}
+
+.memberBio {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 10px 0 15px 0;
+}
+
+.specialties {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.specialtyTag {
+    background-color: #e8f4fd;
+    color: #0033a0;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 12px;
+    border: 1px solid #d1e7ff;
+    transition: all 0.2s ease;
+}
+
+.specialtyTag:hover {
+    background-color: #0033a0;
+    color: white;
+    transform: translateY(-1px);
+}
+
+.contactLinks {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e9ecef;
+}
+
+.contactLink {
+    color: #0033a0;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border: 1px solid #0033a0;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.contactLink:hover {
+    background-color: #0033a0;
+    color: white;
+    text-decoration: none;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.loading p {
+    color: #666;
+    font-size: 1.1rem;
+    margin-top: 20px;
+}
+
+.error {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.errorMessage {
+    color: #dc3545;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+    display: inline-block;
 }
 
 /* Mobile Styling */
