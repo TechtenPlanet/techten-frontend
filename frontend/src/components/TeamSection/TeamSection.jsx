@@ -69,12 +69,8 @@ const TeamSection = () => {
                     <div key={member.id} className={style.teamCard}>
                         <div className={style.imageContainer}>
                             <img 
-                                src={member.image || '/src/assets/images/Team/placeholder.jpg'} 
+                                src={member.image} 
                                 alt={member.name}
-                                onError={(e) => {
-                                    // Fallback to placeholder if image fails to load
-                                    e.target.src = '/src/assets/images/Team/placeholder.jpg';
-                                }}
                             />
                         </div>
                         <div className={style.cardContent}>

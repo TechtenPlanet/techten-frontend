@@ -8,22 +8,19 @@ export const getTeamMembers = async () => {
   try {
     const response = await fetch(`${API_BASE_URL}/team`);
     if (!response.ok) {
-      console.warn(`Team API returned ${response.status}, using fallback data`);
-      return getFallbackTeamData();
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
     const result = await response.json();
     
-    // If API returns error or no data, use fallback
-    if (!result.success || !result.data || result.data.length === 0) {
-      console.warn('Team API returned no data, using fallback data');
-      return getFallbackTeamData();
+    // If API returns error or no data, throw an error to be caught by the component
+    if (!result.success || !result.data) {
+      throw new Error(result.error || 'API returned no data');
     }
     
     return result.data;
   } catch (error) {
-    console.warn('Error fetching team members from backend, using fallback data:', error);
-    // Return fallback data if API fails
-    return getFallbackTeamData();
+    console.error('Error fetching team members from backend:', error);
+    throw error; // Re-throw to be handled by the component
   }
 };
 
@@ -39,10 +36,13 @@ export const getTeamMemberById = async (memberId) => {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const result = await response.json();
-    return result.data || null;
+    if (!result.success || !result.data) {
+      throw new Error(result.error || 'API returned no data');
+    }
+    return result.data;
   } catch (error) {
     console.error('Error fetching team member by ID:', error);
-    return null;
+    throw error;
   }
 };
 
@@ -58,85 +58,14 @@ export const getTeamMembersByRole = async (role) => {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const result = await response.json();
-    return result.data || [];
+    if (!result.success || !result.data) {
+      throw new Error(result.error || 'API returned no data');
+    }
+    return result.data;
   } catch (error) {
     console.error('Error fetching team members by role:', error);
-    return [];
+    throw error;
   }
-};
-
-/**
- * Fallback team data when Notion is not available
- * This uses the original hardcoded data as a backup
- */
-const getFallbackTeamData = () => {
-  return [
-    {
-      id: 'fallback-1',
-      name: 'Oscar Yaw Asamoah',
-      role: 'CEO & Founder',
-      quote: 'Creating a future where Ghanaian youth lead through innovation.',
-      bio: 'Oscar is the visionary founder of Techten Planet, passionate about empowering Ghanaian youth through technology education.',
-      image: '/src/assets/images/Team/Techten team/Yaw_Oscar.JPG',
-      linkedin: '',
-      email: '',
-      specialties: ['Leadership', 'Innovation', 'STEM Education'],
-      displayOrder: 1,
-      status: 'Active'
-    },
-    {
-      id: 'fallback-2',
-      name: 'Lawrence K. Manu',
-      role: 'Operations Manager & BM',
-      quote: 'Every student deserves the opportunity to build and apply knowledge.',
-      bio: 'Lawrence oversees daily operations and ensures our programs run smoothly while maintaining high educational standards.',
-      image: '/src/assets/images/Team/Techten team/Lawrence_Manu.jpg',
-      linkedin: '',
-      email: '',
-      specialties: ['Operations Management', 'Business Strategy', 'Program Development'],
-      displayOrder: 2,
-      status: 'Active'
-    },
-    {
-      id: 'fallback-3',
-      name: 'Bernard Boateng',
-      role: 'Board Member & CTO',
-      quote: 'Education is the seed of sustainable development.',
-      bio: 'Bernard leads our technical initiatives and ensures our curriculum stays current with industry trends.',
-      image: '/src/assets/images/Team/Techten team/Bernard_Boaten.jpg',
-      linkedin: '',
-      email: '',
-      specialties: ['Technology Leadership', 'Curriculum Development', 'Software Engineering'],
-      displayOrder: 3,
-      status: 'Active'
-    },
-    {
-      id: 'fallback-4',
-      name: 'Derrick Edem Sosoo',
-      role: 'General Manager',
-      quote: 'Teaching hands-on skills that transform societies in the long term.',
-      bio: 'Derrick manages our overall operations and strategic initiatives to expand our impact across Ghana.',
-      image: '/src/assets/images/Team/Techten team/Derrick Edem Sosoo2.jpg',
-      linkedin: '',
-      email: '',
-      specialties: ['General Management', 'Strategic Planning', 'Community Outreach'],
-      displayOrder: 4,
-      status: 'Active'
-    },
-    {
-      id: 'fallback-5',
-      name: 'Gabriel Agoh',
-      role: 'CRO & PR',
-      quote: 'No one person can do it all, it calls for partnerships with all stakeholders',
-      bio: 'Gabriel builds relationships with partners and manages our public relations to expand our reach and impact.',
-      image: '/src/assets/images/Team/Techten team/Gabriel_Agoh.jpg',
-      linkedin: '',
-      email: '',
-      specialties: ['Public Relations', 'Partnership Development', 'Community Relations'],
-      displayOrder: 5,
-      status: 'Active'
-    }
-  ];
 };
 
 /**

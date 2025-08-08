@@ -1,6 +1,9 @@
 import { notion } from '../config/notion.js';
+import { getCache, setCache } from '../utils/cache.js'; // Import caching utilities
 
 const TEAM_DB_ID = process.env.NOTION_TEAM_DB_ID;
+const TEAM_CACHE_KEY = 'allTeamMembers';
+const TEAM_CACHE_TTL = 5 * 60 * 1000; // 5 minutes in milliseconds
 
 export const teamRoutes = [
   // Get all active team members
@@ -9,6 +12,17 @@ export const teamRoutes = [
     path: '/team',
     handler: async (request, h) => {
       try {
+        // Try to get data from cache first
+        const cachedTeamMembers = getCache(TEAM_CACHE_KEY);
+        if (cachedTeamMembers) {
+          return { 
+            success: true, 
+            data: cachedTeamMembers,
+            count: cachedTeamMembers.length,
+            source: 'cache' // Indicate data came from cache
+          };
+        }
+
         if (!TEAM_DB_ID) {
           console.warn('NOTION_TEAM_DB_ID not configured - team database not set up yet');
           return h.response({ 
@@ -43,7 +57,7 @@ export const teamRoutes = [
             role: properties.Role?.rich_text?.[0]?.text?.content || '',
             quote: properties.Quote?.rich_text?.[0]?.text?.content || '',
             bio: properties.Bio?.rich_text?.[0]?.text?.content || '',
-            image: properties['Image URL']?.url || '',
+            image: properties.Image?.files?.[0]?.file?.url || properties.Image?.files?.[0]?.external?.url || '',
             linkedin: properties.LinkedIn?.url || '',
             email: properties.Email?.email || '',
             specialties: properties.Specialties?.multi_select?.map(item => item.name) || [],
@@ -54,10 +68,14 @@ export const teamRoutes = [
           };
         });
 
+        // Cache the fetched data
+        setCache(TEAM_CACHE_KEY, teamMembers, TEAM_CACHE_TTL);
+
         return { 
           success: true, 
           data: teamMembers,
-          count: teamMembers.length
+          count: teamMembers.length,
+          source: 'notion' // Indicate data came from Notion
         };
       } catch (err) {
         console.error('Team API Error:', err);
