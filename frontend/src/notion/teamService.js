@@ -1,84 +1,37 @@
-import { notionClient } from './notionClient';
-
-const TEAM_DB_ID = process.env.REACT_APP_NOTION_TEAM_DB_ID;
+const API_BASE_URL = '/api';
 
 /**
- * Fetch all active team members from Notion database
+ * Fetch all active team members from backend API
  * @returns {Promise<Array>} Array of team member objects
  */
 export const getTeamMembers = async () => {
   try {
-    if (!TEAM_DB_ID) {
-      console.warn('NOTION_TEAM_DB_ID not configured, using fallback data');
-      return getFallbackTeamData();
+    const response = await fetch(`${API_BASE_URL}/team`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-
-    const response = await notionClient.databases.query({
-      database_id: TEAM_DB_ID,
-      filter: {
-        property: 'Status',
-        select: {
-          equals: 'Active'
-        }
-      },
-      sorts: [
-        {
-          property: 'Display Order',
-          direction: 'ascending'
-        }
-      ]
-    });
-
-    return response.results.map(page => parseTeamMember(page));
+    const result = await response.json();
+    return result.data || [];
   } catch (error) {
-    console.error('Error fetching team members from Notion:', error);
-    // Return fallback data if Notion fails
+    console.error('Error fetching team members from backend:', error);
+    // Return fallback data if API fails
     return getFallbackTeamData();
   }
 };
 
 /**
- * Parse a Notion page into a team member object
- * @param {Object} page - Notion page object
- * @returns {Object} Parsed team member object
- */
-const parseTeamMember = (page) => {
-  const properties = page.properties;
-
-  return {
-    id: page.id,
-    name: properties.Name?.title?.[0]?.text?.content || '',
-    role: properties.Role?.rich_text?.[0]?.text?.content || '',
-    quote: properties.Quote?.rich_text?.[0]?.text?.content || '',
-    bio: properties.Bio?.rich_text?.[0]?.text?.content || '',
-    image: properties['Image URL']?.url || '',
-    linkedin: properties.LinkedIn?.url || '',
-    email: properties.Email?.email || '',
-    specialties: properties.Specialties?.multi_select?.map(item => item.name) || [],
-    displayOrder: properties['Display Order']?.number || 0,
-    status: properties.Status?.select?.name || 'Active',
-    joinDate: properties['Join Date']?.date?.start || '',
-    lastUpdated: properties['Last Updated']?.last_edited_time || ''
-  };
-};
-
-/**
  * Get a specific team member by ID
- * @param {string} memberId - Notion page ID of the team member
+ * @param {string} memberId - Team member ID
  * @returns {Promise<Object|null>} Team member object or null if not found
  */
 export const getTeamMemberById = async (memberId) => {
   try {
-    if (!TEAM_DB_ID) {
-      console.warn('NOTION_TEAM_DB_ID not configured');
-      return null;
+    const response = await fetch(`${API_BASE_URL}/team/${memberId}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-
-    const response = await notionClient.pages.retrieve({
-      page_id: memberId
-    });
-
-    return parseTeamMember(response);
+    const result = await response.json();
+    return result.data || null;
   } catch (error) {
     console.error('Error fetching team member by ID:', error);
     return null;
@@ -92,38 +45,12 @@ export const getTeamMemberById = async (memberId) => {
  */
 export const getTeamMembersByRole = async (role) => {
   try {
-    if (!TEAM_DB_ID) {
-      console.warn('NOTION_TEAM_DB_ID not configured');
-      return [];
+    const response = await fetch(`${API_BASE_URL}/team/role/${encodeURIComponent(role)}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-
-    const response = await notionClient.databases.query({
-      database_id: TEAM_DB_ID,
-      filter: {
-        and: [
-          {
-            property: 'Status',
-            select: {
-              equals: 'Active'
-            }
-          },
-          {
-            property: 'Role',
-            rich_text: {
-              contains: role
-            }
-          }
-        ]
-      },
-      sorts: [
-        {
-          property: 'Display Order',
-          direction: 'ascending'
-        }
-      ]
-    });
-
-    return response.results.map(page => parseTeamMember(page));
+    const result = await response.json();
+    return result.data || [];
   } catch (error) {
     console.error('Error fetching team members by role:', error);
     return [];
