@@ -8,12 +8,20 @@ export const getTeamMembers = async () => {
   try {
     const response = await fetch(`${API_BASE_URL}/team`);
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      console.warn(`Team API returned ${response.status}, using fallback data`);
+      return getFallbackTeamData();
     }
     const result = await response.json();
-    return result.data || [];
+    
+    // If API returns error or no data, use fallback
+    if (!result.success || !result.data || result.data.length === 0) {
+      console.warn('Team API returned no data, using fallback data');
+      return getFallbackTeamData();
+    }
+    
+    return result.data;
   } catch (error) {
-    console.error('Error fetching team members from backend:', error);
+    console.warn('Error fetching team members from backend, using fallback data:', error);
     // Return fallback data if API fails
     return getFallbackTeamData();
   }

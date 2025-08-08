@@ -10,7 +10,12 @@ export const teamRoutes = [
     handler: async (request, h) => {
       try {
         if (!TEAM_DB_ID) {
-          return h.response({ error: 'Team database not configured' }).code(500);
+          console.warn('NOTION_TEAM_DB_ID not configured - team database not set up yet');
+          return h.response({ 
+            success: false, 
+            error: 'Team database not configured. Please run setup scripts first.',
+            data: []
+          }).code(500);
         }
 
         const response = await notion.databases.query({
@@ -56,7 +61,29 @@ export const teamRoutes = [
         };
       } catch (err) {
         console.error('Team API Error:', err);
-        return h.response({ error: 'Failed to fetch team members' }).code(500);
+        
+        // Handle specific Notion errors
+        if (err.code === 'object_not_found') {
+          return h.response({ 
+            success: false,
+            error: 'Team database not found. Please run setup scripts first.',
+            data: []
+          }).code(404);
+        }
+        
+        if (err.code === 'unauthorized') {
+          return h.response({ 
+            success: false,
+            error: 'Notion API token invalid or database access denied.',
+            data: []
+          }).code(401);
+        }
+        
+        return h.response({ 
+          success: false,
+          error: 'Failed to fetch team members',
+          data: []
+        }).code(500);
       }
     },
   },
