@@ -1,4 +1,4 @@
-const API_BASE_URL = '/api';
+import { apiGet } from '../utils/apiClient'
 
 /**
  * Fetch all active team members from backend API
@@ -6,21 +6,17 @@ const API_BASE_URL = '/api';
  */
 export const getTeamMembers = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/team`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const result = await response.json();
+    const result = await apiGet('/api/team')
     
     // If API returns error or no data, throw an error to be caught by the component
     if (!result.success || !result.data) {
-      throw new Error(result.error || 'API returned no data');
+      throw new Error(result.error || 'API returned no data')
     }
     
-    return result.data;
+    return result.data
   } catch (error) {
-    console.error('Error fetching team members from backend:', error);
-    throw error; // Re-throw to be handled by the component
+    console.error('Error fetching team members from backend:', error)
+    throw error // Re-throw to be handled by the component
   }
 };
 
@@ -31,18 +27,14 @@ export const getTeamMembers = async () => {
  */
 export const getTeamMemberById = async (memberId) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/team/${memberId}`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const result = await response.json();
+    const result = await apiGet(`/api/team/${memberId}`)
     if (!result.success || !result.data) {
-      throw new Error(result.error || 'API returned no data');
+      throw new Error(result.error || 'API returned no data')
     }
-    return result.data;
+    return result.data
   } catch (error) {
-    console.error('Error fetching team member by ID:', error);
-    throw error;
+    console.error('Error fetching team member by ID:', error)
+    throw error
   }
 };
 
@@ -53,18 +45,14 @@ export const getTeamMemberById = async (memberId) => {
  */
 export const getTeamMembersByRole = async (role) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/team/role/${encodeURIComponent(role)}`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const result = await response.json();
+    const result = await apiGet(`/api/team/role/${encodeURIComponent(role)}`)
     if (!result.success || !result.data) {
-      throw new Error(result.error || 'API returned no data');
+      throw new Error(result.error || 'API returned no data')
     }
-    return result.data;
+    return result.data
   } catch (error) {
-    console.error('Error fetching team members by role:', error);
-    throw error;
+    console.error('Error fetching team members by role:', error)
+    throw error
   }
 };
 

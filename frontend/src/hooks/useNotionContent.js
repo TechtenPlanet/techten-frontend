@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react'
+import { apiGet } from '../utils/apiClient'
 
-// Base API URL - configurable for different environments
-const API_BASE_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://your-proxy-server-domain.com/api/content' // Update this with your actual proxy server domain
-  : 'http://localhost:5000/api/content';
+// simple in-memory cache to dedupe requests per content type
+const cache = new Map()
 
 /**
  * Custom hook for fetching content from Notion CMS
@@ -12,65 +11,82 @@ const API_BASE_URL = process.env.NODE_ENV === 'production'
  * @returns {object} - { data, loading, error, refetch }
  */
 export const useNotionContent = (contentType, options = {}) => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+  const abortRef = useRef(null)
 
   const { 
     fallbackData = null, 
     autoRefresh = false, 
-    refreshInterval = 300000 // 5 minutes
-  } = options;
+    refreshInterval = 300000, // 5 minutes
+    cacheMs = 5 * 60 * 1000, // 5 minutes
+  } = options
 
   const fetchContent = async () => {
-    try {
-      setLoading(true);
-      setError(null);
-
-      const response = await fetch(`${API_BASE_URL}/${contentType}`);
-      
-      if (!response.ok) {
-        throw new Error(`Failed to fetch ${contentType}: ${response.statusText}`);
-      }
-
-      const result = await response.json();
-      setData(result);
-    } catch (err) {
-      console.error(`Error fetching ${contentType}:`, err);
-      setError(err.message);
-      
-      // Use fallback data if available
-      if (fallbackData) {
-        setData(fallbackData);
-      }
-    } finally {
-      setLoading(false);
+    if (abortRef.current) {
+      abortRef.current.abort()
     }
-  };
+    const controller = new AbortController()
+    abortRef.current = controller
+
+    const cacheKey = contentType
+    const cached = cache.get(cacheKey)
+    const now = Date.now()
+    if (cached && cached.expiry > now) {
+      setData(cached.data)
+      setLoading(false)
+      if (!autoRefresh) return cached.data
+    }
+
+    try {
+      setLoading(true)
+      setError(null)
+
+      const result = await apiGet(`/api/content/${contentType}`, { signal: controller.signal })
+      cache.set(cacheKey, { data: result, expiry: now + cacheMs })
+      setData(result)
+      return result
+    } catch (err) {
+      if (err.name === 'AbortError') return null
+      console.error(`Error fetching ${contentType}:`, err)
+      setError(err.message)
+      
+      if (fallbackData) {
+        setData(fallbackData)
+        cache.set(cacheKey, { data: fallbackData, expiry: now + cacheMs })
+      }
+      return null
+    } finally {
+      setLoading(false)
+    }
+  }
 
   useEffect(() => {
-    fetchContent();
+    fetchContent()
 
-    // Set up auto-refresh if enabled
-    let intervalId;
+    let intervalId
     if (autoRefresh) {
-      intervalId = setInterval(fetchContent, refreshInterval);
+      intervalId = setInterval(fetchContent, refreshInterval)
     }
 
     return () => {
       if (intervalId) {
-        clearInterval(intervalId);
+        clearInterval(intervalId)
       }
-    };
-  }, [contentType, autoRefresh, refreshInterval]);
+      if (abortRef.current) {
+        abortRef.current.abort()
+      }
+    }
+  }, [contentType, autoRefresh, refreshInterval, cacheMs])
 
   return {
     data,
     loading,
     error,
     refetch: fetchContent
-  };
-};
+  }
+}
 
 // Specialized hooks for specific content types
 export const useHomeHero = (options = {}) => {

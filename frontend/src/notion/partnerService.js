@@ -1,15 +1,11 @@
-const API_BASE_URL = '/api';
+import { apiGet } from '../utils/apiClient'
 
 export const getPartners = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/partners`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const partners = await response.json();
-    return partners;
+    const partners = await apiGet('/api/partners')
+    return partners
   } catch (error) {
-    console.error('Error fetching partners:', error);
-    return [];
+    console.error('Error fetching partners:', error)
+    return []
   }
 };

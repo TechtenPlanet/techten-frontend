@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import style from './Forms.module.css';
 import { FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
+import { apiPost } from '../../utils/apiClient';
 // import formService from '../../firebase/formService';
 
 const BaseForm = ({ 
@@ -129,17 +130,7 @@ const BaseForm = ({
             enrollmentData.programType = 'Course';
           }
 
-          const response = await fetch('http://localhost:5000/api/enrollments', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(enrollmentData),
-          });
-          result = await response.json();
-          if (!response.ok) {
-            throw new Error(result.error || 'Failed to submit enrollment');
-          }
+          result = await apiPost('/api/enrollments', enrollmentData);
         } else {
           // For other form types, just return success for now
           result = { success: true };

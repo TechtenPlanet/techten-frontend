@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import style from './ContactUsContent.module.css';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { apiPost } from '../../utils/apiClient';
 import { FaEnvelope, FaFacebook, FaInstagram, FaLinkedin, FaTwitter, FaMapMarkerAlt, FaPhone, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
 // import formService from '../../firebase/formService';
 
@@ -113,26 +114,14 @@ const ContactUsContent = ({ defaultSubject = '' }) => {
         
         try {
             // Submit to Notion backend
-            const response = await fetch('http://localhost:5000/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name: values.name,
-                    email: values.email,
-                    phone: values.phone,
-                    subject: values.subject,
-                    message: values.message,
-                    source: 'Website Contact Form'
-                }),
+            const result = await apiPost('/api/contact', {
+                name: values.name,
+                email: values.email,
+                phone: values.phone,
+                subject: values.subject,
+                message: values.message,
+                source: 'Website Contact Form'
             });
-
-            const result = await response.json();
-
-            if (!response.ok) {
-                throw new Error(result.error || 'Failed to submit form');
-            }
             setStateMessage("Your message has been sent successfully! We'll get back to you soon.");
             setMessageType('success');
             // Clear the form and reset reCAPTCHA after submission

@@ -18,6 +18,7 @@ import {
 } from 'react-icons/fa';
 import style from './CourseDetailPage.module.css';
 import OtherPagesHero from '../components/OtherPagesHero/OtherPagesHero';
+import { apiGet } from '../utils/apiClient';
 
 const CourseDetailPage = () => {
   const { id } = useParams();
@@ -37,11 +38,7 @@ const CourseDetailPage = () => {
   useEffect(() => {
     const fetchCourse = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/courses/${id}`);
-        if (!response.ok) {
-          throw new Error('Course not found');
-        }
-        const courseData = await response.json();
+        const courseData = await apiGet(`/api/courses/${id}`);
         setCourse(courseData);
       } catch (err) {
         setError(err.message);
