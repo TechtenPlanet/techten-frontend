@@ -1,43 +1,43 @@
 .impactStats {
-    padding: 50px 20px;
+    padding: clamp(2.5rem, 5vw, 3.5rem) clamp(1rem, 3vw, 1.5rem);
     text-align: center;
 }
 
 .impactStats h2 {
-    font-size: 2.5rem;
-    margin-bottom: 50px;
+    font-size: clamp(1.9rem, 2.5vw, 2.5rem);
+    margin-bottom: clamp(2rem, 3vw, 2.5rem);
     color: #333;
 }
 
 .statsContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: clamp(1rem, 2vw, 1.75rem);
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .stat {
     background-color: #fff;
-    padding: 30px;
+    padding: clamp(1.25rem, 2vw, 1.75rem);
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .value {
-    font-size: 3rem;
+    font-size: clamp(2.2rem, 3vw, 3rem);
     font-weight: bold;
     color: #FF6620;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .metric {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: #555;
 }
 
 .learnMoreContainer {
-    margin-top: 40px;
+    margin-top: clamp(1.5rem, 3vw, 2rem);
     display: flex;
     justify-content: center;
 }

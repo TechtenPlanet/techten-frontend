@@ -1,42 +1,39 @@
 .impactSection {
-    padding: 60px 0;
-    background-color: #f8f9fa; /* Light background for contrast */
-    /* text-align: center; Removed center alignment */
+    padding: clamp(2.5rem, 5vw, 3.5rem) 0;
+    background-color: #f8f9fa;
 }
 
 .sectionTitle {
-    font-size: 2.5rem;
+    font-size: clamp(1.9rem, 2.5vw, 2.5rem);
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     color: #333;
 }
 
 .sectionSubtitle {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
     color: #666;
-    margin-bottom: 40px;
+    margin-bottom: clamp(2rem, 3vw, 2.5rem);
 }
 
 .statsContainer {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    gap: 20px; /* Space between items */
-    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: clamp(1rem, 2vw, 1.75rem);
+    margin-bottom: clamp(2rem, 3vw, 2.5rem);
 }
 
 .statItem {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 150px; /* Ensure items have some minimum width */
+    padding: 0.5rem;
 }
 
 .statNumber {
-    font-size: 3rem;
+    font-size: clamp(2.2rem, 3vw, 3rem);
     font-weight: bold;
-    color: #00008B; /* Use the dark blue */
+    color: #00008B;
     line-height: 1.1;
 }
 
@@ -44,17 +41,17 @@
     font-size: 1rem;
     color: #555;
     margin-top: 5px;
+    text-align: center;
 }
 
-/* Optional Success Story Styling */
 .successStory {
-    margin-top: 50px;
+    margin-top: clamp(2.5rem, 4vw, 3rem);
     padding-top: 30px;
     border-top: 1px solid #eee;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    text-align: center; /* Keep success story centered if desired */
+    text-align: center;
 }
 
 .storyImage {
@@ -65,35 +62,13 @@
 
 .storyQuote {
     font-style: italic;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: #444;
     margin-bottom: 10px;
+    line-height: 1.6;
 }
 
 .storyName {
     font-weight: bold;
     color: #333;
-}
-
-/* Responsive adjustments */
-@media screen and (max-width: 768px) {
-    .sectionTitle {
-        font-size: 2rem;
-    }
-    .statNumber {
-        font-size: 2.5rem;
-    }
-    .statLabel {
-        font-size: 0.9rem;
-    }
-}
-
-@media screen and (max-width: 576px) {
-    .statsContainer {
-        flex-direction: column; /* Stack stats vertically */
-        gap: 30px;
-    }
-    .statNumber {
-        font-size: 2.2rem;
-    }
 }
