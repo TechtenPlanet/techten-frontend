@@ -145,25 +145,28 @@ export async function parseNotionBlocks(blocks, notionClient) {
 export function extractTextFromBlock(block) {
   if (!block) return '';
   
+  const getRichText = (richText = []) =>
+    richText.map(text => text.plain_text || text.text?.content || '').join('');
+  
   switch (block.type) {
     case 'paragraph':
-      return block.paragraph?.rich_text?.map(text => text.plain_text).join('') || '';
+      return getRichText(block.paragraph?.rich_text);
     case 'heading_1':
-      return block.heading_1?.rich_text?.map(text => text.plain_text).join('') || '';
+      return getRichText(block.heading_1?.rich_text);
     case 'heading_2':
-      return block.heading_2?.rich_text?.map(text => text.plain_text).join('') || '';
+      return getRichText(block.heading_2?.rich_text);
     case 'heading_3':
-      return block.heading_3?.rich_text?.map(text => text.plain_text).join('') || '';
+      return getRichText(block.heading_3?.rich_text);
     case 'bulleted_list_item':
-      return block.bulleted_list_item?.rich_text?.map(text => text.plain_text).join('') || '';
+      return getRichText(block.bulleted_list_item?.rich_text);
     case 'numbered_list_item':
-      return block.numbered_list_item?.rich_text?.map(text => text.plain_text).join('') || '';
+      return getRichText(block.numbered_list_item?.rich_text);
     case 'toggle':
-      return block.toggle?.rich_text?.map(text => text.plain_text).join('') || '';
+      return getRichText(block.toggle?.rich_text);
     case 'callout':
-      return block.callout?.rich_text?.map(text => text.plain_text).join('') || '';
+      return getRichText(block.callout?.rich_text);
     case 'quote':
-      return block.quote?.rich_text?.map(text => text.plain_text).join('') || '';
+      return getRichText(block.quote?.rich_text);
     default:
       return '';
   }

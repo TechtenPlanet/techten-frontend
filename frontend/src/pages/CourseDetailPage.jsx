@@ -78,6 +78,9 @@ const CourseDetailPage = () => {
     if (!blocks || blocks.length === 0) return null;
   
     return blocks.map((block, idx) => {
+      const html = block.html || block.text;
+      if (!html) return null;
+
       // Render headings with correct level and rich HTML
       if (block.type === 'heading') {
         const level = block.level || 'heading_2';
@@ -92,7 +95,7 @@ const CourseDetailPage = () => {
           <HeadingTag
             key={idx}
             className={style.overviewHeading}
-            dangerouslySetInnerHTML={{ __html: block.html || block.text }}
+            dangerouslySetInnerHTML={{ __html: html }}
           />
         );
       }
@@ -103,7 +106,7 @@ const CourseDetailPage = () => {
           <ul key={idx} className={style.overviewList}>
             <li
               className={style.overviewListItem}
-              dangerouslySetInnerHTML={{ __html: block.html || block.text }}
+              dangerouslySetInnerHTML={{ __html: html }}
             />
           </ul>
         );
@@ -114,7 +117,7 @@ const CourseDetailPage = () => {
         <p
           key={idx}
           className={style.overviewParagraph}
-          dangerouslySetInnerHTML={{ __html: block.html || block.text }}
+          dangerouslySetInnerHTML={{ __html: html }}
         />
       );
     });
