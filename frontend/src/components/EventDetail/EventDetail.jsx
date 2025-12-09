@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { FaMapMarkerAlt, FaRegClock, FaCalendarAlt, FaTags, FaArrowLeft } from 'react-icons/fa';
 import style from './EventDetail.module.css';
 import { getEvents } from '../../notion/eventService';
@@ -46,8 +47,19 @@ const EventDetail = () => {
     ));
   };
 
+  const metaTitle = `${event.title} | Techten Planet Events`;
+  const metaDescription = event.description || 'Upcoming event at Techten Planet';
+  const metaImage = event.image;
+
   return (
     <div className={style.eventDetail}>
+      <Helmet>
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDescription} />
+        {metaImage && <meta property="og:image" content={metaImage} />}
+      </Helmet>
       <div className={style.eventDetailWrapper}>
         <Link to="/events" className={style.backLink}>
           <FaArrowLeft /> Back to Events

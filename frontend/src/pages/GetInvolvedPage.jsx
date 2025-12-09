@@ -35,9 +35,11 @@ const GetInvolvedPage = () => {
         setTimeout(() => {
           const formsSection = document.getElementById('get-involved-forms');
           if (formsSection) {
-            formsSection.scrollIntoView({ behavior: 'smooth' });
+            formsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            formsSection.setAttribute('tabindex', '-1');
+            formsSection.focus({ preventScroll: true });
           }
-        }, 500);
+        }, 300);
       }
     }
   }, [location]);

@@ -16,6 +16,7 @@ import {
   FaEnvelope,
   FaLinkedin
 } from 'react-icons/fa';
+import { Helmet } from 'react-helmet';
 import style from './CourseDetailPage.module.css';
 import OtherPagesHero from '../components/OtherPagesHero/OtherPagesHero';
 import { apiGet } from '../utils/apiClient';
@@ -68,6 +69,10 @@ const CourseDetailPage = () => {
       </div>
     );
   }
+
+  const metaTitle = course ? `${course.title} | Techten Planet` : 'Course Details | Techten Planet';
+  const metaDescription = course ? (course.description || course.fullOverview || 'Course at Techten Planet') : 'Course details at Techten Planet';
+  const metaImage = course?.image;
 
   const renderOverviewBlocks = (blocks) => {
     if (!blocks || blocks.length === 0) return null;
@@ -365,6 +370,13 @@ const CourseDetailPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDescription} />
+        {metaImage && <meta property="og:image" content={metaImage} />}
+      </Helmet>
       <OtherPagesHero heading={course.title} />
       <div className={style.courseDetail}>
         <div className={style.courseDetailWrapper}>

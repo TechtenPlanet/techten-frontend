@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { FaRegCalendar, FaRegUser, FaTags, FaArrowLeft } from 'react-icons/fa';
 import style from './BlogDetail.module.css';
 import { getBlogs } from '../../notion/blogService';
@@ -46,8 +47,19 @@ const BlogDetail = () => {
     ));
   };
 
+  const metaTitle = blog ? `${blog.title} | Techten Planet Blog` : 'Blog | Techten Planet';
+  const metaDescription = blog ? (blog.excerpt || blog.content?.slice(0, 140) || 'Article from Techten Planet') : 'Articles from Techten Planet';
+  const metaImage = blog?.image;
+
   return (
     <div className={style.blogDetail}>
+      <Helmet>
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDescription} />
+        {metaImage && <meta property="og:image" content={metaImage} />}
+      </Helmet>
       <div className={style.blogDetailWrapper}>
         <Link to="/blogs" className={style.backLink}>
           <FaArrowLeft /> Back to Blogs
@@ -90,9 +102,9 @@ const BlogDetail = () => {
           <h3>Share this article</h3>
           <div className={style.shareButtons}>
             {/* Placeholder for social sharing buttons */}
-            <button className={`${style.shareButton} ${style.facebook}`}>Facebook</button>
-            <button className={`${style.shareButton} ${style.twitter}`}>Twitter</button>
-            <button className={`${style.shareButton} ${style.linkedin}`}>LinkedIn</button>
+            <button aria-label="Share on Facebook" className={`${style.shareButton} ${style.facebook}`}>Facebook</button>
+            <button aria-label="Share on Twitter" className={`${style.shareButton} ${style.twitter}`}>Twitter</button>
+            <button aria-label="Share on LinkedIn" className={`${style.shareButton} ${style.linkedin}`}>LinkedIn</button>
           </div>
         </div>
         
