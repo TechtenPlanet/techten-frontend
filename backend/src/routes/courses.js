@@ -115,7 +115,7 @@ export const coursesRoutes = [
   // Single Course Route
   {
     method: 'GET',
-    path: '/api/courses/{id}',
+    path: '/courses/{id}',
     handler: async (request, h) => {
       try {
         const { id } = request.params;
