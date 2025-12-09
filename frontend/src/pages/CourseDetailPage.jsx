@@ -69,15 +69,27 @@ const CourseDetailPage = () => {
     );
   }
 
+  const renderOverviewText = (text) => {
+    if (!text) return null;
+    return text
+      .split(/\n+/)
+      .filter(Boolean)
+      .map((paragraph, idx) => (
+        <p key={idx} className={style.overviewParagraph}>
+          {paragraph}
+        </p>
+      ));
+  };
+
   const renderTabContent = () => {
     switch (activeTab) {
       case 'overview':
         return (
           <div className={style.tabContent}>
             <h3><FaBookOpen /> Course Overview</h3>
-            <p className={style.overviewText}>
-              {course.fullOverview || course.detailedDescription || course.description}
-            </p>
+            <div className={style.overviewText}>
+              {renderOverviewText(course.fullOverview || course.detailedDescription || course.description)}
+            </div>
             
             {course.prerequisites && course.prerequisites.length > 0 && (
               <div className={style.section}>
