@@ -1,16 +1,16 @@
 .teamSection {
     width: 100%;
-    padding: 60px 80px;
+    padding: clamp(2.5rem, 5vw, 3.5rem) clamp(1rem, 3vw, 1.5rem);
     box-sizing: border-box;
     background-color: #f8f9fa;
 }
 
 .sectionTitle {
-    font-size: 2.5rem;
+    font-size: clamp(1.9rem, 2.5vw, 2.5rem);
     font-weight: 700;
     color: #0033a0;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
     position: relative;
     padding-bottom: 15px;
     display: inline-block;
@@ -27,18 +27,18 @@
 }
 
 .sectionDescription {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
     color: #666;
     text-align: center;
-    margin: -20px auto 40px auto;
-    max-width: 600px;
+    margin: -10px auto 30px auto;
+    max-width: 640px;
     line-height: 1.6;
 }
 
 .teamGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(1rem, 2vw, 1.75rem);
     justify-content: center;
 }
 
@@ -48,6 +48,8 @@
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .teamCard:hover {
@@ -57,14 +59,14 @@
 
 .imageContainer {
     width: 100%;
-    height: 350px;
+    height: clamp(240px, 32vw, 320px);
     overflow: hidden;
 }
 
 .imageContainer img {
     width: 100%;
-    height: auto;
-    object-fit:cover;
+    height: 100%;
+    object-fit: cover;
     transition: transform 0.3s ease;
 }
 
@@ -73,21 +75,24 @@
 }
 
 .cardContent {
-    padding: 20px;
+    padding: clamp(1rem, 2vw, 1.25rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .memberName {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
     font-weight: 600;
     color: #0033a0;
-    margin: 0 0 5px 0;
+    margin: 0;
 }
 
 .memberRole {
     font-size: 1rem;
     color: #ff6b00;
     font-weight: 500;
-    margin: 0 0 15px 0;
+    margin: 0;
 }
 
 .memberQuote {
@@ -95,21 +100,25 @@
     color: #555;
     font-style: italic;
     line-height: 1.5;
-    margin: 0 0 15px 0;
+    margin: 0;
 }
 
 .memberBio {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: #666;
     line-height: 1.5;
-    margin: 10px 0 15px 0;
+    margin: 0.25rem 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .specialties {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .specialtyTag {
@@ -132,9 +141,10 @@
 .contactLinks {
     display: flex;
     gap: 12px;
-    margin-top: 15px;
-    padding-top: 15px;
+    margin-top: 10px;
+    padding-top: 12px;
     border-top: 1px solid #e9ecef;
+    flex-wrap: wrap;
 }
 
 .contactLink {
@@ -179,20 +189,4 @@
     border: 1px solid #f5c6cb;
     border-radius: 8px;
     display: inline-block;
-}
-
-/* Mobile Styling */
-@media screen and (max-width: 768px) {
-    .teamSection {
-        padding: 40px 20px;
-    }
-    
-    .teamGrid {
-        grid-template-columns: 1fr;
-    }
-    
-    .sectionTitle {
-        font-size: 2rem;
-        margin-bottom: 30px;
-    }
 }

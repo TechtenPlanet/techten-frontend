@@ -1,17 +1,17 @@
 .testimonialSection {
-    padding: 50px 0;
+    padding: clamp(2.5rem, 5vw, 3.5rem) 0;
     background-color: #f9f9f9;
 }
 
 .heading {
     text-align: center;
-    margin-bottom: 50px;
-    font-size: 2.5rem;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.75rem, 2.5vw, 2.5rem);
     color: #333;
 }
 
 .mySwiper {
-    width: 80%;
+    width: min(90%, 960px);
     margin: 0 auto;
 }
 
@@ -19,11 +19,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     text-align: center;
+    gap: 1rem;
 }
 
 .testimonialImgContainer {
@@ -31,7 +32,7 @@
     height: 120px;
     border-radius: 50%;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 0.5rem;
     border: 5px solid #FF6620;
 }
 
@@ -42,14 +43,22 @@
 }
 
 .testimonialContent {
-    max-width: 600px;
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .testimony {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-style: italic;
     color: #555;
-    margin-bottom: 20px;
+    margin: 0;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .testimonialAuthor {
@@ -59,7 +68,7 @@
 }
 
 .seeMoreContainer {
-    margin-top: 40px;
+    margin-top: clamp(1.5rem, 3vw, 2rem);
     display: flex;
     justify-content: center;
 }
