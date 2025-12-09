@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { getStemSquadLandingContent } from '../notion/stemSquadService';
 import styles from './StemSquadPage.module.css'; // Assuming you'll create a CSS module for styling
 
@@ -31,6 +32,15 @@ const StemSquadPage = () => {
     return <div className={styles.error}>{error}</div>;
   }
 
+  const buildStemLink = (plan = '') => `/get-involved?form=stem-squad${plan ? `&plan=${plan}` : ''}`;
+  const planKeyFromType = (type) => {
+    if (type === 'Plan – Individual') return 'starter';
+    if (type === 'Plan – Intermediate') return 'intermediate';
+    if (type === 'Plan – Advanced') return 'advanced';
+    if (type === 'Plan – Group Buy') return 'group';
+    return '';
+  };
+
   const renderSection = (section) => {
     switch (section.type) {
       case 'Hero':
@@ -39,13 +49,16 @@ const StemSquadPage = () => {
             key={section.id} 
             className={styles.heroSection}
             style={section.media && section.media.length > 0 ? { backgroundImage: `url(${section.media[0].url})` } : {}}
-          >
+            >
             <h1>{section.title}</h1>
             <p>{section.content}</p>
             {section.buttonLabel && section.buttonLink && (
-              <a href={section.buttonLink.startsWith('/') ? section.buttonLink : `/get-involved?form=${section.buttonLink}`} className={styles.heroButton}>
+              <Link
+                to={section.buttonLink.startsWith('/') ? section.buttonLink : buildStemLink()}
+                className={styles.heroButton}
+              >
                 {section.buttonLabel}
-              </a>
+              </Link>
             )}
           </section>
         );
@@ -94,9 +107,12 @@ const StemSquadPage = () => {
             <h2>{section.title}</h2>
             <div className={styles.planContent} dangerouslySetInnerHTML={{ __html: section.content }} />
             {section.buttonLabel && section.buttonLink && (
-              <a href={section.buttonLink.startsWith('/') ? section.buttonLink : `/get-involved?form=stem-squad&plan=${section.type === 'Plan – Individual' ? 'starter' : section.type === 'Plan – Intermediate' ? 'intermediate' : section.type === 'Plan – Advanced' ? 'advanced' : section.type === 'Plan – Group Buy' ? 'group' : 'starter'}`} className={styles.primaryButton}>
+              <Link
+                to={buildStemLink(planKeyFromType(section.type))}
+                className={styles.primaryButton}
+              >
                 {section.buttonLabel}
-              </a>
+              </Link>
             )}
           </section>
         );
@@ -120,9 +136,12 @@ const StemSquadPage = () => {
             <h2>{section.title}</h2>
             <p>{section.content}</p>
             {section.buttonLabel && section.buttonLink && (
-              <a href={section.buttonLink.startsWith('/') ? section.buttonLink : `/get-involved?form=${section.buttonLink}`} className={styles.ctaButton}>
+              <Link
+                to={section.buttonLink.startsWith('/') ? section.buttonLink : buildStemLink()}
+                className={styles.ctaButton}
+              >
                 {section.buttonLabel}
-              </a>
+              </Link>
             )}
           </section>
         );
