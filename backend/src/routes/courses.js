@@ -148,13 +148,13 @@ export const coursesRoutes = [
         
         // Get detailed course content
         let parsedContent = {
-          courseOverview: 'Course description will be available soon.',
+          courseOverview: '',
           instructors: [{ name: 'TechTen Instructor', contact: '', email: '', linkedin: '' }],
           schedule: [],
           learningOutcomes: [],
           courseContents: [],
-          prerequisites: ['Basic computer literacy'],
-          courseDelivery: 'Course delivery information will be available soon.'
+          prerequisites: [],
+          courseDelivery: ''
         };
         
         try {
@@ -182,17 +182,21 @@ export const coursesRoutes = [
           notes: properties['Price Notes']?.rich_text[0]?.plain_text || ''
         };
         
+        const courseOverview = parsedContent.courseOverview || 'Course description will be available soon.';
+        const courseDelivery = parsedContent.courseDelivery || 'Course delivery information will be available soon.';
+        const prerequisites = parsedContent.prerequisites.length > 0 ? parsedContent.prerequisites : ['Basic computer literacy'];
+
         const course = {
           id: foundPage.id,
           title: properties.Name?.title[0]?.plain_text || 'Untitled Course',
           courseCode: properties.Code?.rich_text[0]?.plain_text || '',
           category: properties.Category?.select?.name || 'General',
-          description: createExcerpt(parsedContent.courseOverview, 50),
-          fullOverview: parsedContent.courseOverview,
-          detailedDescription: parsedContent.courseOverview,
+          description: createExcerpt(courseOverview, 50),
+          fullOverview: courseOverview,
+          detailedDescription: courseOverview,
           learningOutcomes: parsedContent.learningOutcomes,
           courseContents: parsedContent.courseContents,
-          courseDelivery: parsedContent.courseDelivery,
+          courseDelivery: courseDelivery,
           grades: 'All levels',
           format: 'Online',
           image: imageUrl,
@@ -206,7 +210,7 @@ export const coursesRoutes = [
             title: 'Course Instructor'
           })),
           classSchedule: parsedContent.schedule,
-          prerequisites: parsedContent.prerequisites,
+          prerequisites: prerequisites,
           materials: ['A laptop with internet access'],
           studentProjects: [
             imageUrl,

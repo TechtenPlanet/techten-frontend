@@ -26,7 +26,14 @@ export async function parseNotionBlocks(blocks, notionClient) {
       // Start new section
       currentSection = blockText.toLowerCase();
       currentText = '';
-    } else if (block.type === 'paragraph' || block.type === 'bulleted_list_item' || block.type === 'numbered_list_item') {
+    } else if (
+      block.type === 'paragraph' ||
+      block.type === 'bulleted_list_item' ||
+      block.type === 'numbered_list_item' ||
+      block.type === 'toggle' ||
+      block.type === 'callout' ||
+      block.type === 'quote'
+    ) {
       const text = blockText.trim();
       if (!text) continue;
 
@@ -96,6 +103,12 @@ export function extractTextFromBlock(block) {
       return block.bulleted_list_item?.rich_text?.map(text => text.plain_text).join('') || '';
     case 'numbered_list_item':
       return block.numbered_list_item?.rich_text?.map(text => text.plain_text).join('') || '';
+    case 'toggle':
+      return block.toggle?.rich_text?.map(text => text.plain_text).join('') || '';
+    case 'callout':
+      return block.callout?.rich_text?.map(text => text.plain_text).join('') || '';
+    case 'quote':
+      return block.quote?.rich_text?.map(text => text.plain_text).join('') || '';
     default:
       return '';
   }
