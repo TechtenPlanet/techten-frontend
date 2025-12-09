@@ -2,6 +2,7 @@
 export async function parseNotionBlocks(blocks, notionClient) {
   const content = {
     courseOverview: '',
+    overviewBlocks: [],
     instructors: [],
     schedule: [],
     learningOutcomes: [],
@@ -38,6 +39,7 @@ export async function parseNotionBlocks(blocks, notionClient) {
       // If we're in overview and this heading isn't a known section, treat it as content under overview
       if (!isKnown && currentSection.includes('overview')) {
         currentText += (currentText ? '\n' : '') + blockText;
+        content.overviewBlocks.push({ type: 'heading', level: block.type, text: blockText });
         continue;
       }
 
@@ -79,6 +81,7 @@ export async function parseNotionBlocks(blocks, notionClient) {
       }
       if (loweredSection.includes('overview')) {
         content.courseOverview = `${content.courseOverview} ${text}`.trim();
+        content.overviewBlocks.push({ type: block.type.includes('list') ? 'list' : 'paragraph', text });
         continue;
       }
       if (loweredSection.includes('schedule') || loweredSection.includes('class schedule')) {

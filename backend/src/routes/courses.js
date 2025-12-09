@@ -158,6 +158,7 @@ export const coursesRoutes = [
         // Get detailed course content
         let parsedContent = {
           courseOverview: '',
+          overviewBlocks: [],
           instructors: [{ name: 'TechTen Instructor', contact: '', email: '', linkedin: '' }],
           schedule: [],
           learningOutcomes: [],
@@ -205,6 +206,7 @@ export const coursesRoutes = [
           category: properties.Category?.select?.name || 'General',
           description: createExcerpt(courseOverview, 50),
           fullOverview: courseOverview,
+          overviewBlocks: parsedContent.overviewBlocks || [],
           detailedDescription: courseOverview,
           learningOutcomes: parsedContent.learningOutcomes,
           courseContents: parsedContent.courseContents,

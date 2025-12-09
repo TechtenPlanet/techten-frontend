@@ -169,6 +169,25 @@
   margin: 0 0 1rem 0;
 }
 
+.overviewHeading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 1rem 0 0.5rem 0;
+  color: #2d3748;
+}
+
+.overviewListItem {
+  margin-left: 1.25rem;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.overviewBlockWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .section {
   margin-top: 2rem;
 }

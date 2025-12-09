@@ -69,6 +69,31 @@ const CourseDetailPage = () => {
     );
   }
 
+  const renderOverviewBlocks = (blocks) => {
+    if (!blocks || blocks.length === 0) return null;
+    return blocks.map((block, idx) => {
+      if (block.type === 'heading') {
+        return (
+          <p key={idx} className={style.overviewHeading}>
+            {block.text}
+          </p>
+        );
+      }
+      if (block.type === 'list') {
+        return (
+          <li key={idx} className={style.overviewListItem}>
+            {block.text}
+          </li>
+        );
+      }
+      return (
+        <p key={idx} className={style.overviewParagraph}>
+          {block.text}
+        </p>
+      );
+    });
+  };
+
   const renderOverviewText = (text) => {
     if (!text) return null;
     return text
@@ -88,7 +113,13 @@ const CourseDetailPage = () => {
           <div className={style.tabContent}>
             <h3><FaBookOpen /> Course Overview</h3>
             <div className={style.overviewText}>
-              {renderOverviewText(course.fullOverview || course.detailedDescription || course.description)}
+              {course.overviewBlocks && course.overviewBlocks.length > 0
+                ? (
+                  <div className={style.overviewBlockWrapper}>
+                    {renderOverviewBlocks(course.overviewBlocks)}
+                  </div>
+                )
+                : renderOverviewText(course.fullOverview || course.detailedDescription || course.description)}
             </div>
             
             {course.prerequisites && course.prerequisites.length > 0 && (
