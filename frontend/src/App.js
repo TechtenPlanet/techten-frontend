@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import AboutUs from './pages/AboutUs';
 import ServicesPage from './pages/ServicesPage';
@@ -28,6 +28,16 @@ import BlogDetail from './components/BlogDetail/BlogDetail';
 import EventDetail from './components/EventDetail/EventDetail';
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (window.gtag) {
+      window.gtag('config', 'G-SEZTZLH313', {
+        page_path: location.pathname + location.search,
+      });
+    }
+  }, [location]);
+
   return (
     <>
       <Navbar />

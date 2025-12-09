@@ -71,6 +71,7 @@ const TeamSection = () => {
                             <img 
                                 src={member.image} 
                                 alt={member.name}
+                                loading="lazy"
                             />
                         </div>
                         <div className={style.cardContent}>

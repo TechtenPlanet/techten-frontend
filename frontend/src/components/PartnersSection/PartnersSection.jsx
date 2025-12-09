@@ -65,7 +65,7 @@ const PartnersSection = () => {
                         {partnersData.partners.map((partner) => (
                           <SwiperSlide key={partner.id} className={style.swiper}>
                               <div className={style.partnerCard}>
-                                  <img src={partner.image} alt={partner.name} /> {/* Use data */}
+                                  <img src={partner.image} alt={partner.name} loading="lazy" /> {/* Use data */}
                               </div>
                           </SwiperSlide>
                         ))}

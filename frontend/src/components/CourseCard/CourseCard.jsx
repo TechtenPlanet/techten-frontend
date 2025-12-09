@@ -14,7 +14,7 @@ const CourseCard = ({ course, featured = false, horizontal = false }) => {
     <div onClick={handleCardClick} className={style.cardLink}>
       <div className={`${style.courseCard} ${featured ? style.featured : ''} ${horizontal ? style.horizontal : ''}`}>
         <div className={style.imageWrapper}>
-          <img src={course.image} alt={course.title} className={style.courseImage} />
+          <img src={course.image} alt={course.title} className={style.courseImage} loading="lazy" />
         </div>
         <div className={style.content}>
           <div className={style.header}>

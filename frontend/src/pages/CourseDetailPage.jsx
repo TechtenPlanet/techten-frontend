@@ -408,7 +408,7 @@ const CourseDetailPage = () => {
             </div>
             
             <div className={style.courseImageContainer}>
-              <img src={course.image} alt={course.title} className={style.courseImage} />
+              <img src={course.image} alt={course.title} className={style.courseImage} loading="lazy" />
             </div>
           </div>
           
