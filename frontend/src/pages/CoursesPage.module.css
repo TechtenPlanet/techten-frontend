@@ -1,5 +1,5 @@
 .coursesSection {
-  padding: 3rem 1.5rem;
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
   background-color: #f7fafc;
 }
 
@@ -9,11 +9,11 @@
 }
 
 .courseFilters {
-  margin-bottom: 2.5rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .sectionTitle {
-  font-size: 2.25rem;
+  font-size: clamp(1.75rem, 2vw, 2.25rem);
   font-weight: 700;
   color: #2d3748;
   margin-bottom: 1.5rem;
@@ -21,13 +21,14 @@
 }
 
 .sectionSubtitle {
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
   color: #4a5568;
   margin-bottom: 2rem;
   text-align: center;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.6;
 }
 
 .tagFilters {
@@ -88,8 +89,8 @@
 
 .courseGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax for better column fitting */
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(1.25rem, 2vw, 2rem);
   align-items: start;
 }
 
@@ -110,26 +111,27 @@
 }
 
 .ctaSection {
-  margin-top: 4rem;
+  margin-top: clamp(3rem, 5vw, 4rem);
   background-color: #0303AB;
   border-radius: 0.5rem;
-  padding: 3rem 2rem;
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 4vw, 2.5rem);
   text-align: center;
   color: white;
 }
 
 .ctaTitle {
-  font-size: 1.875rem;
+  font-size: clamp(1.5rem, 2vw, 1.875rem);
   font-weight: 700;
   margin-bottom: 1rem;
 }
 
 .ctaText {
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
   margin-bottom: 2rem;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.6;
 }
 
 .ctaButton {
@@ -171,35 +173,25 @@
 }
 
 /* Responsive breakpoints */
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .coursesSection {
-    padding: 2rem 1rem;
-  }
-  
-  .sectionTitle {
-    font-size: 1.875rem;
+    padding: 1.5rem 1rem;
   }
   
   .courseGrid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 }
 
-@media (min-width: 481px) and (max-width: 768px) {
+@media (min-width: 641px) and (max-width: 1023px) {
   .courseGrid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Further adjustment for smaller tablets */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 1024px) {
   .courseGrid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted for larger tablets/small desktops */
-  }
-}
-
-@media (min-width: 1025px) {
-  .courseGrid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted for larger desktops */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
