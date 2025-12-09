@@ -188,16 +188,16 @@ const ContactUsContent = ({ defaultSubject = '' }) => {
                         <div className={style.socialLinks}>
                             <h4>Connect With Us</h4>
                             <div className={style.socialIcons}>
-                                <a href="https://facebook.com/techtenplanet" target="_blank" rel="noopener noreferrer" className={style.socialLink}>
+                                <a href="https://www.facebook.com/techtenplanet" target="_blank" rel="noopener noreferrer" className={style.socialLink} aria-label="Facebook">
                                     <FaFacebook className={style.socialIcon} />
                                 </a>
-                                <a href="https://twitter.com/techtenplanet" target="_blank" rel="noopener noreferrer" className={style.socialLink}>
+                                <a href="https://twitter.com/techtenplanet" target="_blank" rel="noopener noreferrer" className={style.socialLink} aria-label="Twitter">
                                     <FaTwitter className={style.socialIcon} />
                                 </a>
-                                <a href="https://instagram.com/techtenplanet" target="_blank" rel="noopener noreferrer" className={style.socialLink}>
+                                <a href="https://www.instagram.com/techtenplanet" target="_blank" rel="noopener noreferrer" className={style.socialLink} aria-label="Instagram">
                                     <FaInstagram className={style.socialIcon} />
                                 </a>
-                                <a href="https://linkedin.com/company/techtenplanet" target="_blank" rel="noopener noreferrer" className={style.socialLink}>
+                                <a href="https://www.linkedin.com/company/techtenplanetgh" target="_blank" rel="noopener noreferrer" className={style.socialLink} aria-label="LinkedIn">
                                     <FaLinkedin className={style.socialIcon} />
                                 </a>
                             </div>
