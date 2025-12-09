@@ -50,31 +50,33 @@ const CourseCard = ({ course, featured = false, horizontal = false }) => {
           
           <div className={style.sessions}>
             <h3 className={style.sessionTitle}>Upcoming Sessions</h3>
-            {course.sessions.map((session, idx) => (
-              <div key={idx} className={style.session}>
-                <div className={style.sessionInfo}>
-                  <FaCalendarAlt className={style.sessionIcon} />
-                  <div>
-                    <span className={style.sessionDate}>{session.date}</span>
-                    <span className={style.time}>
-                      <FaClock className={style.timeIcon} /> {session.time}
-                    </span>
+            {(course.sessions || [])
+              .filter(session => session?.date && session?.time)
+              .map((session, idx) => (
+                <div key={`${session.date}-${session.time}-${idx}`} className={style.session}>
+                  <div className={style.sessionInfo}>
+                    <FaCalendarAlt className={style.sessionIcon} />
+                    <div>
+                      <span className={style.sessionDate}>{session.date}</span>
+                      <span className={style.time}>
+                        <FaClock className={style.timeIcon} /> {session.time}
+                      </span>
+                    </div>
                   </div>
+                  {session.full ? (
+                    <span className={style.full}>Full</span>
+                  ) : (
+                    <div className={style.actionButtons}>
+                      <Link to={`/course/${course.id}`} className={style.detailsButton}>
+                        View Details
+                      </Link>
+                      <Link to={`/enrollment?id=${course.id}&title=${encodeURIComponent(course.title)}`} className={style.enrollButton}>
+                        Enroll Now
+                      </Link>
+                    </div>
+                  )}
                 </div>
-                {session.full ? (
-                  <span className={style.full}>Full</span>
-                ) : (
-                  <div className={style.actionButtons}>
-                    <Link to={`/course/${course.id}`} className={style.detailsButton}>
-                      View Details
-                    </Link>
-                    <Link to={`/enrollment?id=${course.id}&title=${encodeURIComponent(course.title)}`} className={style.enrollButton}>
-                      Enroll Now
-                    </Link>
-                  </div>
-                )}
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       </div>

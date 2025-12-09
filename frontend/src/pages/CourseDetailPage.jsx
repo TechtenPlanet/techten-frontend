@@ -418,29 +418,31 @@ const CourseDetailPage = () => {
           {/* Sessions Section */}
           <div className={style.sessions}>
             <h3 className={style.sessionTitle}>Upcoming Sessions</h3>
-            {course.sessions.map((session, idx) => (
-              <div key={idx} className={style.session}>
-                <div className={style.sessionInfo}>
-                  <FaCalendarAlt className={style.sessionIcon} />
-                  <div>
-                    <span className={style.sessionDate}>{session.date}</span>
-                    <span className={style.time}>
-                      <FaClock className={style.timeIcon} /> {session.time}
-                    </span>
-                    <span className={style.location}>{session.location}</span>
+            {(course.sessions || [])
+              .filter(session => session?.date && session?.time)
+              .map((session, idx) => (
+                <div key={`${session.date}-${session.time}-${idx}`} className={style.session}>
+                  <div className={style.sessionInfo}>
+                    <FaCalendarAlt className={style.sessionIcon} />
+                    <div>
+                      <span className={style.sessionDate}>{session.date}</span>
+                      <span className={style.time}>
+                        <FaClock className={style.timeIcon} /> {session.time}
+                      </span>
+                      <span className={style.location}>{session.location}</span>
+                    </div>
                   </div>
+                  {session.full ? (
+                    <span className={style.full}>Full</span>
+                  ) : (
+                    <Link to={`/enrollment?id=${course.id}&title=${encodeURIComponent(course.title)}`}>
+                      <button className={style.enrollButton}>
+                        Enroll Now
+                      </button>
+                    </Link>
+                  )}
                 </div>
-                {session.full ? (
-                  <span className={style.full}>Full</span>
-                ) : (
-                  <Link to={`/enrollment?id=${course.id}&title=${encodeURIComponent(course.title)}`}>
-                    <button className={style.enrollButton}>
-                      Enroll Now
-                    </button>
-                  </Link>
-                )}
-              </div>
-            ))}
+              ))}
           </div>
 
           {/* CTA Section */}
