@@ -16,7 +16,7 @@ export async function parseNotionBlocks(blocks, notionClient) {
   for (const block of blocks) {
     const blockText = extractTextFromBlock(block);
     
-    if (block.type === 'heading_2' || block.type === 'heading_3') {
+    if (block.type === 'heading_1' || block.type === 'heading_2' || block.type === 'heading_3') {
       // Save previous section
       if (currentSection && currentText) {
         saveContentToSection(content, currentSection, currentText.trim());
