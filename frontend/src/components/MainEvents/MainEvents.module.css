@@ -1,36 +1,36 @@
 .eventsSection {
-  padding: 60px 0;
+  padding: clamp(2.5rem, 5vw, 3.5rem) 0;
   background-color: #f8f9fa;
 }
 
 .eventsSectionWrapper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 clamp(1rem, 3vw, 1.5rem);
 }
 
 .eventFilters {
-  margin-bottom: 40px;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
   text-align: center;
 }
 
 .sectionTitle {
-  font-size: 2.5rem;
-  font-weight: bold;
+  font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+  font-weight: 700;
   color: #333;
-  margin-bottom: 30px;
+  margin-bottom: clamp(1.25rem, 2vw, 1.75rem);
 }
 
 .tagFilters {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 0.625rem;
+  margin-bottom: 1.25rem;
 }
 
 .tagButton {
-  padding: 8px 16px;
+  padding: 0.5rem 1.1rem;
   background-color: #e9ecef;
   border: none;
   border-radius: 30px;
@@ -52,9 +52,9 @@
 
 .eventCards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 30px;
-  margin-bottom: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(1rem, 2vw, 1.75rem);
+  margin-bottom: clamp(2rem, 3vw, 2.5rem);
 }
 
 .eventCard {
@@ -74,17 +74,18 @@
 }
 
 .eventImg {
-  height: 200px;
+  height: clamp(160px, 24vw, 220px);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .eventTxt {
-  padding: 20px;
+  padding: clamp(1rem, 2vw, 1.25rem);
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  gap: 0.5rem;
 }
 
 .aboutEvent {
@@ -112,18 +113,20 @@
 }
 
 .eventHeading {
-  font-size: 1.4rem;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
   font-weight: bold;
   color: #333;
-  margin-bottom: 15px;
   line-height: 1.3;
 }
 
 .eventBrief {
   font-size: 1rem;
   color: #555;
-  margin-bottom: 15px;
   line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .eventTags {
