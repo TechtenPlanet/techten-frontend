@@ -12,19 +12,42 @@ export async function parseNotionBlocks(blocks, notionClient) {
 
   let currentSection = '';
   let currentText = '';
+
+  const isKnownSection = (sectionName) => {
+    const s = sectionName.toLowerCase();
+    return (
+      s.includes('overview') ||
+      s.includes('learning outcome') ||
+      s.includes('course content') ||
+      s.includes('content') ||
+      s.includes('material') ||
+      s.includes('prereq') ||
+      s.includes('delivery') ||
+      s.includes('schedule')
+    );
+  };
   
   for (const block of blocks) {
     const blockText = extractTextFromBlock(block);
     const loweredSection = currentSection.toLowerCase();
     
     if (block.type === 'heading_1' || block.type === 'heading_2' || block.type === 'heading_3') {
+      const headingKey = blockText.toLowerCase();
+      const isKnown = isKnownSection(headingKey);
+
+      // If we're in overview and this heading isn't a known section, treat it as content under overview
+      if (!isKnown && currentSection.includes('overview')) {
+        currentText += (currentText ? '\n' : '') + blockText;
+        continue;
+      }
+
       // Save previous section
       if (currentSection && currentText) {
         saveContentToSection(content, currentSection, currentText.trim());
       }
       
-      // Start new section
-      currentSection = blockText.toLowerCase();
+      // Start new (known or unknown) section
+      currentSection = headingKey;
       currentText = '';
     } else if (
       block.type === 'paragraph' ||
@@ -66,7 +89,7 @@ export async function parseNotionBlocks(blocks, notionClient) {
         }
       }
 
-      currentText += text + ' ';
+      currentText += (currentText ? '\n' : '') + text;
     } else if (block.type === 'table') {
       // Handle tables (for instructor info and schedules)
       const tableData = await parseTableBlock(block, notionClient);
