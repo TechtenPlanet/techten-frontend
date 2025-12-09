@@ -215,6 +215,19 @@
   margin-right: 0.15rem;
 }
 
+.location {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #718096;
+  font-size: 0.875rem;
+}
+
+.locationIcon {
+  color: #4a5568;
+  flex-shrink: 0;
+}
+
 .full {
   display: inline-block;
   background-color: #e2e8f0;
@@ -255,7 +268,7 @@
 }
 
 .detailsButton {
-  background-color: #4A5568;
+  background-color: #ed8936;
   color: white;
   font-size: 0.85rem;
   font-weight: 600;
@@ -270,7 +283,7 @@
 }
 
 .detailsButton:hover {
-  background-color: #2D3748;
+  background-color: #dd6b20;
 }
 
 .featured {

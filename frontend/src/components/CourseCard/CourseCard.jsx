@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaCalendarAlt, FaClock, FaTag } from 'react-icons/fa';
+import { FaCalendarAlt, FaClock, FaTag, FaMapMarkerAlt } from 'react-icons/fa';
 import style from './CourseCard.module.css';
 
 const CourseCard = ({ course, featured = false, horizontal = false }) => {
@@ -63,7 +63,9 @@ const CourseCard = ({ course, featured = false, horizontal = false }) => {
                         <FaClock className={style.timeIcon} /> {session.time}
                       </span>
                       {session.location && (
-                        <span className={style.location}>{session.location}</span>
+                        <span className={style.location}>
+                          <FaMapMarkerAlt className={style.locationIcon} /> {session.location}
+                        </span>
                       )}
                     </div>
                   </div>
