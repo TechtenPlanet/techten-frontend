@@ -39,7 +39,14 @@ export async function parseNotionBlocks(blocks, notionClient) {
       // If we're in overview and this heading isn't a known section, treat it as content under overview
       if (!isKnown && currentSection.includes('overview')) {
         currentText += (currentText ? '\n' : '') + blockText;
-        content.overviewBlocks.push({ type: 'heading', level: block.type, text: blockText });
+
+        const richText = (block[block.type] && block[block.type].rich_text) || [];
+        content.overviewBlocks.push({
+          type: 'heading',
+          level: block.type,
+          text: blockText,
+          html: getRichText(richText)
+        });
         continue;
       }
 
@@ -81,7 +88,14 @@ export async function parseNotionBlocks(blocks, notionClient) {
       }
       if (loweredSection.includes('overview')) {
         content.courseOverview = `${content.courseOverview} ${text}`.trim();
-        content.overviewBlocks.push({ type: block.type.includes('list') ? 'list' : 'paragraph', text });
+
+        const blockData = block[block.type] || {};
+        const richText = blockData.rich_text || [];
+        content.overviewBlocks.push({
+          type: block.type.includes('list') ? 'list' : 'paragraph',
+          text,
+          html: getRichText(richText)
+        });
         continue;
       }
       if (loweredSection.includes('schedule') || loweredSection.includes('class schedule')) {

@@ -71,25 +71,46 @@ const CourseDetailPage = () => {
 
   const renderOverviewBlocks = (blocks) => {
     if (!blocks || blocks.length === 0) return null;
+  
     return blocks.map((block, idx) => {
+      // Render headings with correct level and rich HTML
       if (block.type === 'heading') {
+        const level = block.level || 'heading_2';
+        const HeadingTag =
+          level === 'heading_1'
+            ? 'h2'
+            : level === 'heading_2'
+            ? 'h3'
+            : 'h4';
+  
         return (
-          <p key={idx} className={style.overviewHeading}>
-            {block.text}
-          </p>
+          <HeadingTag
+            key={idx}
+            className={style.overviewHeading}
+            dangerouslySetInnerHTML={{ __html: block.html || block.text }}
+          />
         );
       }
+  
+      // Render list items as a simple single-item <ul> to preserve bullet styling
       if (block.type === 'list') {
         return (
-          <li key={idx} className={style.overviewListItem}>
-            {block.text}
-          </li>
+          <ul key={idx} className={style.overviewList}>
+            <li
+              className={style.overviewListItem}
+              dangerouslySetInnerHTML={{ __html: block.html || block.text }}
+            />
+          </ul>
         );
       }
+  
+      // Default: paragraph with rich HTML
       return (
-        <p key={idx} className={style.overviewParagraph}>
-          {block.text}
-        </p>
+        <p
+          key={idx}
+          className={style.overviewParagraph}
+          dangerouslySetInnerHTML={{ __html: block.html || block.text }}
+        />
       );
     });
   };

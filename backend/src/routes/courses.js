@@ -174,6 +174,9 @@ export const coursesRoutes = [
           // Merge parsed content with defaults
           parsedContent = {
             courseOverview: contentFromBlocks.courseOverview || parsedContent.courseOverview,
+            overviewBlocks: (contentFromBlocks.overviewBlocks && contentFromBlocks.overviewBlocks.length > 0)
+              ? contentFromBlocks.overviewBlocks
+              : parsedContent.overviewBlocks,
             instructors: contentFromBlocks.instructors.length > 0 ? contentFromBlocks.instructors : parsedContent.instructors,
             schedule: contentFromBlocks.schedule.length > 0 ? contentFromBlocks.schedule : parsedContent.schedule,
             learningOutcomes: contentFromBlocks.learningOutcomes.length > 0 ? contentFromBlocks.learningOutcomes : parsedContent.learningOutcomes,
