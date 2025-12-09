@@ -184,7 +184,7 @@ export const coursesRoutes = [
         
         const courseOverview = parsedContent.courseOverview || 'Course description will be available soon.';
         const courseDelivery = parsedContent.courseDelivery || 'Course delivery information will be available soon.';
-        const prerequisites = parsedContent.prerequisites.length > 0 ? parsedContent.prerequisites : ['Basic computer literacy'];
+        const prerequisites = parsedContent.prerequisites.length > 0 ? parsedContent.prerequisites : ['Basic computer knowledge'];
 
         const course = {
           id: foundPage.id,
