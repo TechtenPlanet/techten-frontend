@@ -73,12 +73,12 @@ const CourseCard = ({ course, featured = false, horizontal = false }) => {
                     <span className={style.full}>Full</span>
                   ) : (
                     <div className={style.actionButtons}>
-                      <Link to={`/course/${course.id}`} className={style.detailsButton}>
-                        View Details
-                      </Link>
-                      <Link to={`/enrollment?id=${course.id}&title=${encodeURIComponent(course.title)}`} className={style.enrollButton}>
-                        Enroll Now
-                      </Link>
+                    <Link to={`/course/${course.id}`} className={style.detailsButton} aria-label={`View details for ${course.title}`}>
+                      View Details
+                    </Link>
+                    <Link to={`/enrollment?id=${course.id}&title=${encodeURIComponent(course.title)}`} className={style.enrollButton} aria-label={`Enroll in ${course.title}`}>
+                      Enroll Now
+                    </Link>
                     </div>
                   )}
                 </div>

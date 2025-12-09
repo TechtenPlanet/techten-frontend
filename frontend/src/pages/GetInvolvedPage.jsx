@@ -114,7 +114,9 @@ const GetInvolvedPage = () => {
                             // Scroll to the forms section
                             const formsSection = document.getElementById('get-involved-forms');
                             if (formsSection) {
-                              formsSection.scrollIntoView({ behavior: 'smooth' });
+                              formsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                              formsSection.setAttribute('tabindex', '-1');
+                              formsSection.focus({ preventScroll: true });
                             }
                           }} 
                           className={style.outlineButton}
@@ -156,13 +158,15 @@ const GetInvolvedPage = () => {
                         setActiveFormTab('volunteer');
                         
                         // Scroll to the forms section
-                        const formsSection = document.getElementById('get-involved-forms');
-                        if (formsSection) {
-                          formsSection.scrollIntoView({ behavior: 'smooth' });
-                        }
-                      }} 
-                      className={`${style.primaryButton} ${style.largeButton}`}
-                    >
+                    const formsSection = document.getElementById('get-involved-forms');
+                    if (formsSection) {
+                      formsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      formsSection.setAttribute('tabindex', '-1');
+                      formsSection.focus({ preventScroll: true });
+                    }
+                  }} 
+                  className={`${style.primaryButton} ${style.largeButton}`}
+                >
                       {urgentNeeds.buttonText} <FaArrowRight className="ms-2" />
                     </button>
                   </div>
@@ -206,7 +210,9 @@ const GetInvolvedPage = () => {
                             // Scroll to the forms section
                             const formsSection = document.getElementById('get-involved-forms');
                             if (formsSection) {
-                              formsSection.scrollIntoView({ behavior: 'smooth' });
+                              formsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                              formsSection.setAttribute('tabindex', '-1');
+                              formsSection.focus({ preventScroll: true });
                             }
                           }} 
                           className={`${style.primaryButton} ${style.largeButton}`}
