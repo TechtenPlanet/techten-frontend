@@ -91,21 +91,25 @@ export const coursesRoutes = [
               { label: 'Course Overview', url: `/course/${page.id}` },
               { label: 'Enrollment', url: `/enrollment?id=${page.id}&title=${encodeURIComponent(properties.Name?.title[0]?.plain_text || 'Untitled Course')}` }
             ],
-            sessions: (parsedContent.schedule || []).filter(
-              (s) => (s.days || s.day) && s.time
-            ).map(sched => ({
-              date: sched.days || sched.day || 'Coming Soon',
-              time: sched.time || 'TBD',
-              location: sched.location || 'Online',
-              full: false
-            })) : [
-              {
-                date: 'Coming Soon',
-                time: 'TBD',
-                location: 'Online',
-                full: false
+            sessions: (() => {
+              const filtered = (parsedContent.schedule || []).filter(
+                (s) => (s.days || s.day) && s.time
+              );
+              if (filtered.length === 0) {
+                return [{
+                  date: 'Coming Soon',
+                  time: 'TBD',
+                  location: 'Online',
+                  full: false
+                }];
               }
-            ]
+              return filtered.map(sched => ({
+                date: sched.days || sched.day || 'Coming Soon',
+                time: sched.time || 'TBD',
+                location: sched.location || 'Online',
+                full: false
+              }));
+            })()
           };
         }));
         
