@@ -23,7 +23,7 @@ const CourseCard = ({ course, featured = false, horizontal = false }) => {
             <span className={style.grades}>Grades {course.grades}</span>
           </div>
           
-          <p className={style.description}>{course.description}</p>
+          <p className={style.description} title={course.description}>{course.description}</p>
           
           {/* Pricing Display */}
           {course.pricing && (
@@ -49,9 +49,10 @@ const CourseCard = ({ course, featured = false, horizontal = false }) => {
           </ul>
           
           <div className={style.sessions}>
-            <h3 className={style.sessionTitle}>Upcoming Sessions</h3>
+            <h3 className={style.sessionTitle}>Next Session</h3>
             {(course.sessions || [])
               .filter(session => session?.date && session?.time)
+              .slice(0, 1)
               .map((session, idx) => (
                 <div key={`${session.date}-${session.time}-${idx}`} className={style.session}>
                   <div className={style.sessionInfo}>
