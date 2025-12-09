@@ -52,7 +52,7 @@ export const eventsRoutes = [
   // Single Event Route
   {
     method: 'GET',
-    path: '/api/events/{id}',
+    path: '/events/{id}',
     handler: async (request, h) => {
       try {
         const { id } = request.params;
