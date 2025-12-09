@@ -15,6 +15,7 @@ export async function parseNotionBlocks(blocks, notionClient) {
   
   for (const block of blocks) {
     const blockText = extractTextFromBlock(block);
+    const loweredSection = currentSection.toLowerCase();
     
     if (block.type === 'heading_1' || block.type === 'heading_2' || block.type === 'heading_3') {
       // Save previous section
@@ -25,8 +26,40 @@ export async function parseNotionBlocks(blocks, notionClient) {
       // Start new section
       currentSection = blockText.toLowerCase();
       currentText = '';
-    } else if (block.type === 'paragraph' || block.type === 'bulleted_list_item') {
-      currentText += blockText + ' ';
+    } else if (block.type === 'paragraph' || block.type === 'bulleted_list_item' || block.type === 'numbered_list_item') {
+      const text = blockText.trim();
+      if (!text) continue;
+
+      // Route common syllabus sections to the right buckets
+      if (loweredSection.includes('learning outcome')) {
+        content.learningOutcomes.push(text);
+        continue;
+      }
+      if (loweredSection.includes('course content') || loweredSection.includes('course material')) {
+        content.courseContents.push(text);
+        continue;
+      }
+      if (loweredSection.includes('prereq')) {
+        content.prerequisites.push(text);
+        continue;
+      }
+      if (loweredSection.includes('course delivery') || loweredSection.includes('delivery')) {
+        content.courseDelivery = `${content.courseDelivery} ${text}`.trim();
+        continue;
+      }
+      if (loweredSection.includes('overview')) {
+        content.courseOverview = `${content.courseOverview} ${text}`.trim();
+        continue;
+      }
+      if (loweredSection.includes('schedule') || loweredSection.includes('class schedule')) {
+        const sched = parseScheduleFromText(text);
+        if (sched.length) {
+          content.schedule.push(...sched);
+          continue;
+        }
+      }
+
+      currentText += text + ' ';
     } else if (block.type === 'table') {
       // Handle tables (for instructor info and schedules)
       const tableData = await parseTableBlock(block, notionClient);
