@@ -5,33 +5,25 @@
     justify-content: center;
     align-items: center;
     margin-top: 32px;
-    padding: 50px 0;
+    padding: clamp(2rem, 4vw, 3rem) 0;
     box-sizing: border-box;
     margin-bottom: 50px;
 }
 
 .partnersSection .intro {
-    font-size: 2rem;
+    font-size: clamp(1.4rem, 2vw, 2rem);
     font-weight: bold;
     text-align: center;
     color: #0303AB;
-    letter-spacing: 1.3px;
+    letter-spacing: 1.1px;
     text-transform: uppercase;
     margin-top: 10px;
     margin-bottom: 20px;
-}
-
-.partnersSection .intro > span {
-    padding: 3px;
-    border: 3px solid #0303AB;
-    background-color: #0303AB;
-    border-radius: 50px;
-    margin: 0 8px;
+    padding: 0 1rem;
 }
 
 .partnersSection .partnersSectionWrapper {
     width: 100%;
-    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,31 +32,15 @@
 
 .partnersSection .partnersSectionWrapper .partnerCards {
     width: 100%;
-    height: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: clamp(1rem, 2vw, 1.5rem);
     align-items: center;
-    justify-content: space-between;
-}
-
-.partnersSection .partnersSectionWrapper .partnerCards .mySwiper {
-    height: 100%;
-    width: 100%;
-}
-
-.partnersSection .partnersSectionWrapper .partnerCards .mySwiper .swiper {
-    width: 20px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
+    justify-items: center;
 }
 
 .partnersSection .partnersSectionWrapper .partnerCards .partnerCard {
     width: 100%;
-    height: 100%;
-    border-radius: 8px;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -73,131 +49,22 @@
 }
 
 .partnersSection .partnersSectionWrapper .partnerCards .partnerCard > img {
-    width: 50%;
-    height: 50%;
+    width: 70%;
+    height: 70%;
     object-fit: contain;
     filter: grayscale(100%);
 }
 
-/* Desktop Styling for 1200px screens and up */
-@media screen and (min-width: 1200px) {
-    .partnersSection {
-        height: 200px;
-        padding: 20px 0;
-    }
-
-    .partnersSection .intro {
-        font-size: 2rem;
-        margin-left: 100px;
-    }
-
-    .partnersSection .partnersSectionWrapper {
-        width: 100%;
-        height: 90%;
-    }
-
-    .partnersSection .partnersSectionWrapper .partnerCards .mySwiper .swiper {
-        width: 20px;
-        height: 100%;
-    }
-}
-
-/* Styling for 1024px screens */
-@media screen and (max-width: 1024px) {
-    .partnersSection {
-        margin-left: 100px;
-        padding: 20px 0;
-    }
-
-    .partnersSection .intro {
-        font-size: 1.8rem;
-        margin-left: 50px;
-    }
-}
-
-/* Tablet Styling for 768px Screen */
-@media screen and (max-width: 768px) {
-    .partnersSection {
-        margin-left: 50px;
-        padding: 20px 0;
-    }
-
-    .partnersSection .intro {
-        font-size: 1.6rem;
-        margin-left: 25px;
-    }
-}
-
-/* Tablet Styling for 600px screen */
 @media screen and (max-width: 600px) {
     .partnersSection {
-        margin-left: 0;
         padding: 20px 10px;
+        margin-bottom: 30px;
     }
 
-    .partnersSection .intro {
-        font-size: 1.4rem;
-        margin-left: 10px;
-    }
-}
-
-/* Mobile Styling on 480px */
-@media screen and (max-width: 480px) {
-    .partnersSection {
-        width: 100%;
-        height: 200px;
-        margin-top: 16px;
-        padding: 20px;
-        box-sizing: border-box;
-    }
-
-    .partnersSection .intro {
-        font-size: 1.2rem;
-        font-weight: bold;
-        text-align: center;
-        color: #0303AB;
-        letter-spacing: 1.3px;
-        text-transform: capitalize;
-        margin-top: 10px;
-        margin-bottom: 20px;
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .partnersSection .partnersSectionWrapper {
-        width: 100%;
-        height: 100%;
-    }
-
-    .partnersSection .partnersSectionWrapper .partnerCards .mySwiper .swiper {
-        width: 10px;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-        margin: 0;
-    }
-
-    .partnersSection .partnersSectionWrapper .partnerCards .partnerCard {
-        width: 100%;
-        height: 100%;
-        border-radius: 8px;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .partnersSection .partnersSectionWrapper .partnerCards .partnerCard > img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
+    .partnersSection .partnersSectionWrapper .partnerCards {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     }
 }
-
-/* Mobile Styling on 320px */
 @media screen and (max-width: 320px) {
     .partnersSection {
         width: 100%;

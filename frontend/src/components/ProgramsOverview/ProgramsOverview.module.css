@@ -1,26 +1,25 @@
 .programsOverview {
     width: 100%;
-    padding: 60px 0;
+    padding: clamp(2.5rem, 5vw, 3.5rem) 0;
     background-color: #f8f9fa;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 clamp(1rem, 3vw, 1.5rem);
 }
 
 .content {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(1.5rem, 3vw, 2.5rem);
     align-items: center;
-    gap: 40px;
 }
 
 .imageContainer {
-    flex: 1;
-    max-width: 500px;
-    height: 350px;
+    width: 100%;
+    height: clamp(220px, 35vw, 360px);
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -39,49 +38,25 @@
 }
 
 .textContent {
-    flex: 1;
-    max-width: 600px;
+    width: 100%;
 }
 
 .title {
-    font-size: 2.2rem;
+    font-size: clamp(1.75rem, 2.5vw, 2.2rem);
     font-weight: 700;
     color: #0033a0;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
     display: flex;
     align-items: center;
+    gap: 0.5rem;
 }
 
 .icon {
-    margin-right: 10px;
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 .description {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
     line-height: 1.6;
     color: #333;
-}
-
-/* Mobile Styling */
-@media screen and (max-width: 768px) {
-    .programsOverview {
-        padding: 40px 0;
-    }
-    
-    .content {
-        flex-direction: column;
-    }
-    
-    .imageContainer, .textContent {
-        max-width: 100%;
-    }
-    
-    .title {
-        font-size: 1.8rem;
-    }
-    
-    .description {
-        font-size: 1rem;
-    }
 }
