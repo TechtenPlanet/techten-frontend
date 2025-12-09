@@ -73,7 +73,22 @@ export async function parseNotionBlocks(blocks, notionClient) {
       if (currentSection.includes('instructor')) {
         content.instructors.push(...tableData);
       } else if (currentSection.includes('schedule')) {
-        content.schedule.push(...tableData);
+        const filtered = tableData
+          .map((row) => {
+            const days = (row.days || row.day || '').trim();
+            const time = (row.time || '').trim();
+            const location = (row.location || row.venue || '').trim();
+            return { days, day: days, time, location };
+          })
+          .filter((row) => {
+            if (!row.days || !row.time) return false;
+            const lowerDay = row.days.toLowerCase();
+            const lowerTime = row.time.toLowerCase();
+            const isPlaceholder = ['tbd', 'n/a', '-', '--', ''].some((p) => lowerDay === p || lowerTime === p);
+            return !isPlaceholder;
+          });
+
+        content.schedule.push(...filtered);
       }
     }
   }
@@ -139,7 +154,7 @@ export async function parseTableBlock(block, notion) {
             // Create object from headers and cells
             const rowData = {};
             headers.forEach((header, index) => {
-              rowData[header.toLowerCase()] = cells[index] || '';
+              rowData[header.toLowerCase()] = (cells[index] || '').trim();
             });
             tableData.push(rowData);
           }
@@ -156,7 +171,7 @@ export async function parseTableBlock(block, notion) {
 // Helper function to parse schedule from text content
 export function parseScheduleFromText(text) {
   const scheduleItems = [];
-  
+
   // Look for schedule patterns in the text
   const lines = text.split('\n');
   let inScheduleSection = false;
