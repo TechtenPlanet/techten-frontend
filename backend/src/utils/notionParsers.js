@@ -269,7 +269,10 @@ export function saveContentToSection(content, section, text) {
   } else if (section.includes('course contents') || section.includes('contents')) {
     content.courseContents.push(text);
   } else if (section.includes('prerequisites')) {
-    content.prerequisites.push(text);
+    const sanitized = text.trim();
+    if (sanitized && sanitized.toLowerCase() !== 'untitled') {
+      content.prerequisites.push(sanitized);
+    }
   } else if (section.includes('course delivery') || section.includes('delivery')) {
     content.courseDelivery = text;
   } else if (section.includes('class schedule') || section.includes('schedule')) {
