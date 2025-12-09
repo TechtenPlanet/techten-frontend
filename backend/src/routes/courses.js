@@ -44,9 +44,12 @@ export const coursesRoutes = [
             if (parsedContent.instructors && parsedContent.instructors.length > 0) {
               instructor = parsedContent.instructors[0].name || 'TechTen Instructor';
             }
-            if (parsedContent.schedule && parsedContent.schedule.length > 0) {
-              const firstSchedule = parsedContent.schedule[0];
-              schedule = `${firstSchedule.days || 'TBD'} ${firstSchedule.time || ''}`.trim();
+            const sanitizedSchedule = (parsedContent.schedule || []).filter(
+              (s) => (s.days || s.day) && s.time
+            );
+            if (sanitizedSchedule.length > 0) {
+              const firstSchedule = sanitizedSchedule[0];
+              schedule = `${firstSchedule.days || firstSchedule.day || 'TBD'} ${firstSchedule.time || ''}`.trim();
             }
           } catch (contentErr) {
             console.log(`Could not fetch content for course ${page.id}:`, contentErr.message);
@@ -88,8 +91,10 @@ export const coursesRoutes = [
               { label: 'Course Overview', url: `/course/${page.id}` },
               { label: 'Enrollment', url: `/enrollment?id=${page.id}&title=${encodeURIComponent(properties.Name?.title[0]?.plain_text || 'Untitled Course')}` }
             ],
-            sessions: parsedContent.schedule.length > 0 ? parsedContent.schedule.map(sched => ({
-              date: sched.days || 'Coming Soon',
+            sessions: (parsedContent.schedule || []).filter(
+              (s) => (s.days || s.day) && s.time
+            ).map(sched => ({
+              date: sched.days || sched.day || 'Coming Soon',
               time: sched.time || 'TBD',
               location: sched.location || 'Online',
               full: false
@@ -185,6 +190,9 @@ export const coursesRoutes = [
         const courseOverview = parsedContent.courseOverview || 'Course description will be available soon.';
         const courseDelivery = parsedContent.courseDelivery || 'Course delivery information will be available soon.';
         const prerequisites = parsedContent.prerequisites.length > 0 ? parsedContent.prerequisites : ['Basic computer knowledge'];
+        const classSchedule = (parsedContent.schedule || []).filter(
+          (s) => (s.days || s.day) && s.time
+        );
 
         const course = {
           id: foundPage.id,
@@ -209,7 +217,7 @@ export const coursesRoutes = [
             image: '/images/Team/Techten team/Oscar_Asamoah_image.jpg',
             title: 'Course Instructor'
           })),
-          classSchedule: parsedContent.schedule,
+          classSchedule,
           prerequisites: prerequisites,
           materials: ['A laptop with internet access'],
           studentProjects: [
