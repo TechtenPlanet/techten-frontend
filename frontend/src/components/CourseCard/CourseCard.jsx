@@ -57,11 +57,14 @@ const CourseCard = ({ course, featured = false, horizontal = false }) => {
                 <div key={`${session.date}-${session.time}-${idx}`} className={style.session}>
                   <div className={style.sessionInfo}>
                     <FaCalendarAlt className={style.sessionIcon} />
-                    <div>
+                    <div className={style.sessionText}>
                       <span className={style.sessionDate}>{session.date}</span>
                       <span className={style.time}>
                         <FaClock className={style.timeIcon} /> {session.time}
                       </span>
+                      {session.location && (
+                        <span className={style.location}>{session.location}</span>
+                      )}
                     </div>
                   </div>
                   {session.full ? (
