@@ -95,18 +95,18 @@
 /* Hero Section */
 .heroSection {
   composes: section;
-  background-color: #0b1220;
+  background-color: #04070f;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   color: white;
   min-height: 70vh;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   align-items: center;
   gap: clamp(1.5rem, 3vw, 2.5rem);
   position: relative;
-  padding: clamp(2.5rem, 5vw, 3.5rem);
+  padding: clamp(3rem, 6vw, 4rem);
   overflow: hidden;
 }
 
@@ -114,7 +114,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, rgba(0,0,0,0.65), rgba(0,0,0,0.35));
+  background: linear-gradient(120deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
   z-index: 0;
 }
 
@@ -124,6 +124,8 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  text-align: center;
+  align-items: center;
 }
 
 .heroEyebrow {
@@ -140,7 +142,7 @@
 }
 
 .heroTitle {
-  font-size: clamp(2rem, 3vw, 3rem);
+  font-size: clamp(2.4rem, 3.5vw, 3.4rem);
   font-weight: 800;
   color: #fff;
   margin: 0;
@@ -149,7 +151,7 @@
 
 .heroSubtitle {
   color: #e6e9ef;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   line-height: 1.7;
   margin: 0;
   max-width: 640px;
@@ -159,6 +161,7 @@
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .heroButton {
@@ -185,7 +188,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  color: #e6e9ef;
+  color: #f2f4f8;
   text-decoration: none;
   font-weight: 600;
 }
@@ -197,7 +200,6 @@
 .heroMedia {
   position: relative;
   z-index: 1;
-  display: none;
 }
 
 .heroMedia img {
@@ -238,8 +240,9 @@
 }
 
 @media screen and (max-width: 768px) {
-  .heroMedia {
-    display: block;
+  .heroContent {
+    text-align: center;
+    align-items: center;
   }
 }
 

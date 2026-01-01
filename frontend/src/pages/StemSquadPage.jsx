@@ -70,22 +70,25 @@ const StemSquadPage = () => {
                   View Plans →
                 </Link>
               </div>
-              <div className={styles.heroCards}>
-                <div className={styles.heroCard}>
-                  <FaShieldAlt className={styles.heroCardIcon} />
-                  <span><strong>Curated Kits:</strong> Hands-on STEM experiences delivered per semester.</span>
-                </div>
-                <div className={styles.heroCard}>
-                  <FaClock className={styles.heroCardIcon} />
-                  <span><strong>Age-Appropriate Tracks:</strong> Starter, Intermediate, Advanced, and Group options.</span>
-                </div>
-              </div>
             </div>
             {section.media && section.media.length > 0 && (
               <div className={styles.heroMedia}>
                 <img src={section.media[0].url} alt={section.title} loading="lazy" />
               </div>
             )}
+          </section>
+        );
+      case 'Hero Highlights':
+        return (
+          <section key={section.id} className={styles.heroCards}>
+            <div className={styles.heroCard}>
+              <FaShieldAlt className={styles.heroCardIcon} aria-label="Curated Kits icon" />
+              <span><strong>Curated Kits:</strong> Hands-on STEM experiences delivered per semester.</span>
+            </div>
+            <div className={styles.heroCard}>
+              <FaClock className={styles.heroCardIcon} aria-label="Age-Appropriate Tracks icon" />
+              <span><strong>Age-Appropriate Tracks:</strong> Starter, Intermediate, Advanced, and Group options.</span>
+            </div>
           </section>
         );
       case 'How It Works':
