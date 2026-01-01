@@ -111,11 +111,7 @@
 }
 
 .heroSection::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
-  z-index: 0;
+  content: none;
 }
 
 .heroContent {
@@ -147,14 +143,16 @@
   color: #fff;
   margin: 0;
   line-height: 1.2;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
 }
 
 .heroSubtitle {
-  color: #e6e9ef;
+  color: #ffffff;
   font-size: 1.1rem;
   line-height: 1.7;
   margin: 0;
   max-width: 640px;
+  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.35);
 }
 
 .heroActions {

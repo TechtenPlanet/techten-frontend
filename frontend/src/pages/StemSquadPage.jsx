@@ -56,7 +56,7 @@ const StemSquadPage = () => {
                 <FaRocket /> STEM Squad
               </div>
               <h1 className={styles.heroTitle}>{section.title}</h1>
-              <p className={styles.heroSubtitle}>{section.content}</p>
+              <p className={styles.heroSubtitle} dangerouslySetInnerHTML={{ __html: section.content }} />
               <div className={styles.heroActions}>
                 {section.buttonLabel && (
                   <Link
