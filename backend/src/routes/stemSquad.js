@@ -1,6 +1,18 @@
 import { notion, STEM_SQUAD_LANDING_PAGE_DB_ID } from '../config/notion.js';
 import { getRichText, getPlainText, getSelect, getUrl, getFiles } from '../utils/notionParsers.js';
 
+const buildHowItWorksSteps = (properties) => {
+  const steps = [];
+  for (let i = 1; i <= 3; i += 1) {
+    const title = getPlainText(properties[`Step ${i} Title`]?.rich_text);
+    const description = getPlainText(properties[`Step ${i} Description`]?.rich_text);
+    if (title || description) {
+      steps.push({ title, description });
+    }
+  }
+  return steps;
+};
+
 export const stemSquadRoutes = [
   {
     method: 'GET',
@@ -37,9 +49,11 @@ export const stemSquadRoutes = [
             content: getRichText(properties.Content?.rich_text),
             order: properties.Order?.number,
             status: getSelect(properties.Status?.select),
+            subtitle: getPlainText(properties.Subtitle?.rich_text),
             buttonLabel: getPlainText(properties['Button Label']?.rich_text),
             buttonLink: getUrl(properties['Button Link']?.url),
             media: getFiles(properties.Media?.files),
+            steps: buildHowItWorksSteps(properties),
           };
         });
 

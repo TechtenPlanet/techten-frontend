@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaRocket, FaShieldAlt, FaClock } from 'react-icons/fa';
+import { MdAssignment, MdLocalShipping, MdScience } from 'react-icons/md';
 import { getStemSquadLandingContent } from '../notion/stemSquadService';
 import styles from './StemSquadPage.module.css'; // Assuming you'll create a CSS module for styling
 
@@ -41,6 +42,7 @@ const StemSquadPage = () => {
     if (type === 'Plan – Group Buy') return 'group';
     return '';
   };
+  const howItWorksIcons = [MdAssignment, MdLocalShipping, MdScience];
 
   const renderSection = (section) => {
     switch (section.type) {
@@ -86,42 +88,48 @@ const StemSquadPage = () => {
             </div>
           </section>
         );
-      case 'How It Works':
+      case 'How It Works': {
+        const fallbackSteps = [
+          {
+            title: 'Subscribe',
+            description: "Choose a plan that fits your child's age & learning level. Individual or Group Buy options available.",
+          },
+          {
+            title: 'Receive Your STEM Kit',
+            description: 'Delivered every semester with all the tools, materials & instructions needed for hands-on learning.',
+          },
+          {
+            title: 'Explore & Learn',
+            description: 'Monthly learning activities keep your child engaged and excited about STEM while building real-world skills.',
+          },
+        ];
+        const howItWorksSteps = section.steps && section.steps.length > 0 ? section.steps : fallbackSteps;
+        const howItWorksSubtitle =
+          section.subtitle || 'Get your child started with hands-on STEM learning in just three simple steps';
+
         return (
           <section key={section.id} className={styles.howItWorksSection}>
             <h2>{section.title}</h2>
-            <p className={styles.sectionDescription}>
-              Get your child started with hands-on STEM learning in just three simple steps
-            </p>
+            <p className={styles.sectionDescription}>{howItWorksSubtitle}</p>
             <div className={styles.stepsContainer}>
-              <div className={styles.stepCard}>
-                <div className={styles.stepNumber}>1</div>
-                <div className={styles.stepIcon}>📝</div>
-                <h4 className={styles.stepTitle}>Subscribe</h4>
-                <p className={styles.stepDescription}>
-                  Choose a plan that fits your child's age & learning level. Individual or Group Buy options available.
-                </p>
-              </div>
-              <div className={styles.stepCard}>
-                <div className={styles.stepNumber}>2</div>
-                <div className={styles.stepIcon}>📦</div>
-                <h4 className={styles.stepTitle}>Receive Your STEM Kit</h4>
-                <p className={styles.stepDescription}>
-                  Delivered every semester with all the tools, materials & instructions needed for hands-on learning.
-                </p>
-              </div>
-              <div className={styles.stepCard}>
-                <div className={styles.stepNumber}>3</div>
-                <div className={styles.stepIcon}>🔬</div>
-                <h4 className={styles.stepTitle}>Explore & Learn</h4>
-                <p className={styles.stepDescription}>
-                  Monthly learning activities keep your child engaged and excited about STEM while building real-world skills.
-                </p>
-              </div>
+              {howItWorksSteps.map((step, index) => {
+                const StepIcon = howItWorksIcons[index];
+                return (
+                  <div key={`${section.id}-step-${index}`} className={styles.stepCard}>
+                    <div className={styles.stepNumber}>{index + 1}</div>
+                    <div className={styles.stepIcon}>
+                      {StepIcon && <StepIcon aria-hidden="true" focusable="false" />}
+                    </div>
+                    <h4 className={styles.stepTitle}>{step.title}</h4>
+                    <p className={styles.stepDescription}>{step.description}</p>
+                  </div>
+                );
+              })}
             </div>
             <div className={styles.howItWorksContent} dangerouslySetInnerHTML={{ __html: section.content }} />
           </section>
         );
+      }
       case 'Plan – Individual':
       case 'Plan – Group Buy':
       case 'Plan – Intermediate':
