@@ -71,11 +71,6 @@ const StemSquadPage = () => {
                 </Link>
               </div>
             </div>
-            {section.media && section.media.length > 0 && (
-              <div className={styles.heroMedia}>
-                <img src={section.media[0].url} alt={section.title} loading="lazy" />
-              </div>
-            )}
           </section>
         );
       case 'Hero Highlights':
