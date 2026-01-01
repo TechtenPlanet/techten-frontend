@@ -13,6 +13,15 @@ const buildHowItWorksSteps = (properties) => {
   return steps;
 };
 
+const parseFeatureList = (richText) => {
+  const text = getPlainText(richText);
+  if (!text) return [];
+  return text
+    .split(/\n+/)
+    .map((line) => line.replace(/^[•\-–]\s*/, '').trim())
+    .filter(Boolean);
+};
+
 export const stemSquadRoutes = [
   {
     method: 'GET',
@@ -54,6 +63,14 @@ export const stemSquadRoutes = [
             buttonLink: getUrl(properties['Button Link']?.url),
             media: getFiles(properties.Media?.files),
             steps: buildHowItWorksSteps(properties),
+            tierName: getPlainText(properties['Tier Name']?.rich_text),
+            tierLabel: getPlainText(properties['Tier Label']?.rich_text),
+            ageRange: getPlainText(properties['Age Range']?.rich_text),
+            headline: getPlainText(properties.Headline?.rich_text),
+            features: parseFeatureList(properties.Features?.rich_text),
+            price: properties.Price?.number,
+            groupPrice: properties['Group Price']?.number,
+            badge: getPlainText(properties.Badge?.rich_text),
           };
         });
 

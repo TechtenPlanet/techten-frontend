@@ -542,6 +542,347 @@
   line-height: 1.6;
 }
 
+/* Membership Tiers */
+.tiersSection {
+  composes: section;
+  background: #f6f5f2;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+}
+
+.tiersHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.tiersEyebrow {
+  font-weight: 700;
+  color: #ff6620;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.tiersTitle {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  color: #1f2a37;
+  margin: 0 0 0.75rem 0;
+}
+
+.tiersIntro {
+  margin: 0;
+  color: #4b5563;
+  max-width: 520px;
+}
+
+.pricingToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.toggleLabel,
+.toggleLabelActive {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.toggleLabelActive {
+  color: #111827;
+}
+
+.toggleSwitch {
+  position: relative;
+  width: 52px;
+  height: 28px;
+}
+
+.toggleSwitch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggleSlider {
+  position: absolute;
+  inset: 0;
+  background: #e5e7eb;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.toggleSlider::before {
+  content: '';
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  top: 3px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.toggleSwitch input:checked + .toggleSlider {
+  background: #ff6620;
+}
+
+.toggleSwitch input:checked + .toggleSlider::before {
+  transform: translateX(24px);
+}
+
+.tiersGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.8rem;
+  max-width: 1100px;
+  margin: 2.5rem auto 0;
+}
+
+.tierCard {
+  border-radius: 22px;
+  padding: 2rem;
+  position: relative;
+  border: 1px solid var(--tier-border);
+  background: var(--tier-bg);
+  color: var(--tier-text);
+  box-shadow: var(--tier-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  min-height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tierCard:hover {
+  transform: translateY(-8px);
+}
+
+.tierExplorer {
+  --tier-bg: #e9fbf2;
+  --tier-text: #123b2b;
+  --tier-border: rgba(30, 179, 114, 0.35);
+  --tier-shadow: 0 18px 40px rgba(29, 191, 115, 0.18);
+  --tier-accent: #1dbf73;
+}
+
+.tierMaker {
+  --tier-bg: #0b1b3b;
+  --tier-text: #eef6ff;
+  --tier-border: rgba(41, 229, 255, 0.45);
+  --tier-shadow: 0 22px 50px rgba(6, 12, 32, 0.45);
+  --tier-accent: #29e5ff;
+  background: linear-gradient(140deg, #07142c 0%, #0d2c5a 100%);
+}
+
+.tierInnovator {
+  --tier-bg: #0b0b0f;
+  --tier-text: #f7f2df;
+  --tier-border: rgba(214, 178, 94, 0.5);
+  --tier-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+  --tier-accent: #d6b25e;
+  background: linear-gradient(150deg, #050505 0%, #15131a 100%);
+}
+
+.tierRibbon {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: var(--tier-accent);
+  color: #0b0b0f;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.tierHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.tierRank {
+  margin: 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--tier-accent);
+  font-weight: 700;
+}
+
+.tierName {
+  margin: 0.2rem 0;
+  font-size: 1.7rem;
+}
+
+.tierLabel {
+  margin: 0;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.tierExplorer .tierLabel,
+.tierExplorer .tierAges,
+.tierExplorer .tierNote {
+  color: #2b5c47;
+}
+
+.tierPrice {
+  text-align: right;
+  font-weight: 700;
+}
+
+.tierCurrency {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  margin-right: 4px;
+}
+
+.tierAmount {
+  font-size: 2.2rem;
+}
+
+.tierPeriod {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-left: 4px;
+}
+
+.tierHeadline {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.tierAges {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.tierHighlights {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.tierHighlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--tier-text);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.tierExplorer .tierHighlight {
+  background: rgba(29, 191, 115, 0.15);
+  color: #0f3c2d;
+}
+
+.tierFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.tierFeatures li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+}
+
+.tierFeatureIcon {
+  color: var(--tier-accent);
+  margin-top: 2px;
+}
+
+.hardwareIcons {
+  display: inline-flex;
+  gap: 0.35rem;
+  margin-left: auto;
+  opacity: 0.85;
+}
+
+.tierButton {
+  margin-top: auto;
+  align-self: flex-start;
+  background: var(--tier-accent);
+  color: #0b0b0f;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tierButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.tierNote {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .tiersHeader {
+    align-items: flex-start;
+  }
+
+  .tiersGrid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .tierHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tierPrice {
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .pricingToggle {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .tiersGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Why STEM Squad Section */
 .whySection {
   composes: section;

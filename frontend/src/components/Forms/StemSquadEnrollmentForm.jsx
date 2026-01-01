@@ -17,7 +17,12 @@ const StemSquadEnrollmentForm = () => {
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     const planParam = searchParams.get('plan');
+    const subscriptionParam = searchParams.get('subscription');
     
+    if (subscriptionParam === 'group') {
+      setSubscriptionType('group');
+    }
+
     if (planParam) {
       if (planParam === 'group') {
         setSubscriptionType('group');
