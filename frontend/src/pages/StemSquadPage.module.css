@@ -98,21 +98,30 @@
   composes: section;
   background-color: #04070f;
   background-size: cover;
-  background-position: left center;
+  background-position: center;
   background-repeat: no-repeat;
   color: white;
   min-height: 70vh;
-  display: grid;
-  grid-template-columns: minmax(240px, 1.2fr) minmax(300px, 1fr);
+  display: flex;
   align-items: center;
-  gap: clamp(1.5rem, 3vw, 2.5rem);
   position: relative;
   padding: clamp(3rem, 6vw, 4rem);
   overflow: hidden;
+  isolation: isolate;
 }
 
 .heroSection::before {
-  content: none;
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(4, 7, 15, 0.9) 0%,
+    rgba(4, 7, 15, 0.7) 45%,
+    rgba(4, 7, 15, 0.4) 70%,
+    rgba(4, 7, 15, 0.1) 100%
+  );
+  z-index: 0;
 }
 
 .heroContent {
@@ -123,11 +132,13 @@
   gap: 1rem;
   text-align: left;
   align-items: flex-start;
-  background: rgba(4, 7, 15, 0.6);
+  background: rgba(8, 10, 16, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
   padding: clamp(1.5rem, 3vw, 2rem);
-  max-width: 640px;
-  justify-self: end;
+  max-width: 620px;
+  width: min(100%, 620px);
+  box-shadow: 0 24px 60px rgba(3, 5, 10, 0.45);
 }
 
 .heroEyebrow {
@@ -233,11 +244,10 @@
   .heroContent {
     text-align: center;
     align-items: center;
-    justify-self: center;
+    width: 100%;
   }
 
   .heroSection {
-    grid-template-columns: 1fr;
     background-position: center;
   }
 }
