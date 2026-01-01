@@ -11,6 +11,7 @@ const StemSquadPage = () => {
   const [error, setError] = useState(null);
   const [pricingMode, setPricingMode] = useState('individual');
   const [activeTierInfo, setActiveTierInfo] = useState(null);
+  const [activeFaqIndex, setActiveFaqIndex] = useState(null);
 
   useEffect(() => {
     const fetchContent = async () => {
@@ -136,6 +137,10 @@ const StemSquadPage = () => {
 
   const toggleTierInfo = (tierKey) => {
     setActiveTierInfo((prev) => (prev === tierKey ? null : tierKey));
+  };
+
+  const toggleFaqItem = (index) => {
+    setActiveFaqIndex((prev) => (prev === index ? null : index));
   };
 
   const renderPlansSection = () => (
@@ -344,12 +349,43 @@ const StemSquadPage = () => {
           </section>
         );
       case 'FAQ':
-        return (
-          <section key={section.id} className={styles.faqSection}>
-            <h2>{section.title}</h2>
-            <p dangerouslySetInnerHTML={{ __html: section.content }} />
-          </section>
-        );
+        {
+          const faqItems = section.faqItems || [];
+          return (
+            <section key={section.id} className={styles.faqSection}>
+              <h2>{section.title}</h2>
+              {faqItems.length > 0 ? (
+                <div className={styles.faqAccordion}>
+                  {faqItems.map((item, index) => {
+                    const isOpen = activeFaqIndex === index;
+                    const contentId = `${section.id}-faq-${index}`;
+                    return (
+                      <div key={contentId} className={styles.faqItem}>
+                        <button
+                          type="button"
+                          className={`${styles.faqHeader} ${isOpen ? styles.faqHeaderActive : ''}`}
+                          onClick={() => toggleFaqItem(index)}
+                          aria-expanded={isOpen}
+                          aria-controls={contentId}
+                        >
+                          <span>{item.question}</span>
+                          <span className={styles.faqIcon}>{isOpen ? '-' : '+'}</span>
+                        </button>
+                        <div
+                          id={contentId}
+                          className={`${styles.faqContent} ${isOpen ? styles.faqContentOpen : ''}`}
+                          dangerouslySetInnerHTML={{ __html: item.answer }}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <p dangerouslySetInnerHTML={{ __html: section.content }} />
+              )}
+            </section>
+          );
+        }
       case 'CTA':
         return (
           <section key={section.id} className={styles.ctaSection}>

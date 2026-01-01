@@ -976,6 +976,73 @@
   max-width: 900px; /* Limit width */
 }
 
+.faqAccordion {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.faqItem {
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+}
+
+.faqHeader {
+  width: 100%;
+  border: none;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1f2a37;
+}
+
+.faqHeaderActive {
+  background: rgba(255, 102, 32, 0.08);
+}
+
+.faqHeader:focus-visible {
+  outline: 2px solid #ff6620;
+  outline-offset: 2px;
+}
+
+.faqIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid rgba(31, 42, 55, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ff6620;
+  flex-shrink: 0;
+}
+
+.faqContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 1.25rem;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.faqContentOpen {
+  max-height: 320px;
+  padding: 0 1.25rem 1.1rem;
+}
+
 /* CTA Section */
 .ctaSection {
   composes: section;

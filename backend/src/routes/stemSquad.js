@@ -22,6 +22,18 @@ const parseFeatureList = (richText) => {
     .filter(Boolean);
 };
 
+const buildFaqItems = (properties) => {
+  const items = [];
+  for (let i = 1; i <= 8; i += 1) {
+    const question = getPlainText(properties[`FAQ ${i} Question`]?.rich_text);
+    const answer = getRichText(properties[`FAQ ${i} Answer`]?.rich_text);
+    if (question || answer) {
+      items.push({ question, answer });
+    }
+  }
+  return items;
+};
+
 export const stemSquadRoutes = [
   {
     method: 'GET',
@@ -71,6 +83,7 @@ export const stemSquadRoutes = [
             price: properties.Price?.number,
             groupPrice: properties['Group Price']?.number,
             badge: getPlainText(properties.Badge?.rich_text),
+            faqItems: buildFaqItems(properties),
           };
         });
 
