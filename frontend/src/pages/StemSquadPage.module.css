@@ -117,10 +117,10 @@
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(4, 7, 15, 0.65) 0%,
-    rgba(4, 7, 15, 0.5) 45%,
-    rgba(4, 7, 15, 0.25) 70%,
-    rgba(4, 7, 15, 0.05) 100%
+    rgba(4, 7, 15, 0.32) 0%,
+    rgba(4, 7, 15, 0.22) 45%,
+    rgba(4, 7, 15, 0.12) 70%,
+    rgba(4, 7, 15, 0.02) 100%
   );
   z-index: 0;
 }
@@ -131,8 +131,8 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  text-align: right;
-  align-items: flex-end;
+  text-align: left;
+  align-items: flex-start;
   background: transparent;
   border: none;
   border-radius: 16px;
@@ -140,6 +140,7 @@
   max-width: 620px;
   width: min(100%, 620px);
   margin-left: auto;
+  margin-right: clamp(1.5rem, 6vw, 5rem);
   box-shadow: none;
 }
 
@@ -166,7 +167,7 @@
 }
 
 .heroSubtitle {
-  color: #f8f2ea;
+  color: #fff;
   font-size: 1.1rem;
   line-height: 1.7;
   margin: 0;
@@ -178,7 +179,7 @@
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .heroButton {
