@@ -52,6 +52,28 @@ const StemSquadPage = () => {
   const planSections = content.filter((section) => planTypes.has(section.type));
   const primaryPlanSectionId = planSections[0]?.id;
   const isGroupPricing = pricingMode === 'group';
+  const faqSections = content.filter((section) => section.type === 'FAQ');
+  const primaryFaqSectionId = faqSections[0]?.id;
+  const faqTitleFromSection = faqSections.find((section) => /faq|frequently/i.test(section.title || ''))?.title;
+  const faqTitle =
+    faqTitleFromSection ||
+    (faqSections.length === 1 && faqSections[0].title && !/\?/.test(faqSections[0].title)
+      ? faqSections[0].title
+      : 'Frequently Asked Questions');
+  const faqItems = faqSections.flatMap((section) => {
+    if (section.faqItems && section.faqItems.length > 0) {
+      return section.faqItems;
+    }
+    if (section.title || section.content) {
+      return [
+        {
+          question: section.title || 'Question',
+          answer: section.content || '',
+        },
+      ];
+    }
+    return [];
+  });
 
   const tierDefaults = [
     {
@@ -350,10 +372,12 @@ const StemSquadPage = () => {
         );
       case 'FAQ':
         {
-          const faqItems = section.faqItems || [];
+          if (section.id !== primaryFaqSectionId) {
+            return null;
+          }
           return (
             <section key={section.id} className={styles.faqSection}>
-              <h2>{section.title}</h2>
+              <h2>{faqTitle}</h2>
               {faqItems.length > 0 ? (
                 <div className={styles.faqAccordion}>
                   {faqItems.map((item, index) => {
