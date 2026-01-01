@@ -7,6 +7,7 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
   const [res, setRes] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
 
   const handleRes = () => {
     setRes(!res);
@@ -14,6 +15,11 @@ const Navbar = () => {
 
   const closeMobileMenu = () => {
     setRes(false);
+    setAboutOpen(false);
+  };
+
+  const toggleAboutMenu = () => {
+    setAboutOpen((prev) => !prev);
   };
 
   return (
@@ -32,24 +38,29 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/about" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
-                About Us
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/programs" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
-                Programs
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/impact" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
-                Impact
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/get-involved" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
-                Get Involved
-              </NavLink>
+              <div className={style.dropdown}>
+                <NavLink to="/about" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
+                  About Us
+                </NavLink>
+                <span className={style.dropdownCaret} aria-hidden="true" />
+                <ul className={style.dropdownMenu} aria-label="About Us">
+                  <li>
+                    <NavLink to="/programs" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
+                      Programs
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/impact" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
+                      Impact
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/get-involved" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
+                      Get Involved
+                    </NavLink>
+                  </li>
+                </ul>
+              </div>
             </li>
             <li>
               <NavLink to="/events" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
@@ -95,24 +106,39 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/about" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
-              About Us
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/programs" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
-              Programs
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/impact" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
-              Impact
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/get-involved" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
-              Get Involved
-            </NavLink>
+            <div className={style.mobileDropdown}>
+              <div className={style.mobileDropdownHeader}>
+                <NavLink to="/about" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
+                  About Us
+                </NavLink>
+                <button
+                  type="button"
+                  className={style.mobileDropdownToggle}
+                  onClick={toggleAboutMenu}
+                  aria-expanded={aboutOpen}
+                  aria-label="Toggle About Us menu"
+                >
+                  <span className={style.dropdownCaret} aria-hidden="true" />
+                </button>
+              </div>
+              <ul className={`${style.mobileSubmenu} ${aboutOpen ? style.mobileSubmenuOpen : ''}`}>
+                <li>
+                  <NavLink to="/programs" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
+                    Programs
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/impact" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
+                    Impact
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/get-involved" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
+                    Get Involved
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
           </li>
           <li>
             <NavLink to="/events" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
