@@ -163,7 +163,7 @@
   color: #fff;
   margin: 0;
   line-height: 1.2;
-  text-shadow: 0 6px 22px rgba(0, 0, 0, 0.55);
+  text-shadow: none;
 }
 
 .heroSubtitle {
@@ -172,7 +172,7 @@
   line-height: 1.7;
   margin: 0;
   max-width: 640px;
-  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  text-shadow: none;
 }
 
 .heroActions {
