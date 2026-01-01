@@ -685,33 +685,33 @@
 }
 
 .tierMaker.tierPopular {
-  box-shadow: 0 28px 70px rgba(41, 229, 255, 0.35), 0 0 0 1px rgba(41, 229, 255, 0.6);
+  box-shadow: 0 28px 70px rgba(255, 102, 32, 0.35), 0 0 0 1px rgba(255, 102, 32, 0.6);
 }
 
 .tierExplorer {
-  --tier-bg: #e8f7ff;
-  --tier-text: #0b1b2b;
-  --tier-border: rgba(43, 179, 255, 0.35);
-  --tier-shadow: 0 18px 40px rgba(43, 179, 255, 0.18);
-  --tier-accent: #2bb3ff;
+  --tier-bg: #eef2ff;
+  --tier-text: #0b1b3a;
+  --tier-border: rgba(3, 3, 171, 0.25);
+  --tier-shadow: 0 18px 40px rgba(3, 3, 171, 0.18);
+  --tier-accent: #0303ab;
 }
 
 .tierMaker {
-  --tier-bg: #0a1a38;
+  --tier-bg: #060f2e;
   --tier-text: #eef6ff;
-  --tier-border: rgba(78, 255, 209, 0.45);
-  --tier-shadow: 0 22px 50px rgba(8, 14, 38, 0.5);
-  --tier-accent: #4effd1;
-  background: linear-gradient(140deg, #06142b 0%, #0b2d55 100%);
+  --tier-border: rgba(255, 102, 32, 0.5);
+  --tier-shadow: 0 22px 50px rgba(3, 3, 171, 0.45);
+  --tier-accent: #ff6620;
+  background: linear-gradient(140deg, #03035a 0%, #0a133a 100%);
 }
 
 .tierInnovator {
-  --tier-bg: #0b0c10;
-  --tier-text: #fff6e5;
-  --tier-border: rgba(224, 180, 86, 0.55);
-  --tier-shadow: 0 25px 60px rgba(5, 5, 5, 0.55);
-  --tier-accent: #e0b456;
-  background: linear-gradient(150deg, #050506 0%, #17151d 100%);
+  --tier-bg: #0b0f24;
+  --tier-text: #f8f9ff;
+  --tier-border: rgba(3, 3, 171, 0.45);
+  --tier-shadow: 0 25px 60px rgba(3, 3, 171, 0.35);
+  --tier-accent: #ff6620;
+  background: linear-gradient(150deg, #0b0f24 0%, #141a3a 100%);
 }
 
 .tierRibbon {
@@ -719,7 +719,7 @@
   top: 18px;
   right: 18px;
   background: var(--tier-accent);
-  color: #0b0b0f;
+  color: #ffffff;
   padding: 0.35rem 0.85rem;
   border-radius: 999px;
   font-size: 0.75rem;
@@ -758,13 +758,13 @@
 .tierExplorer .tierLabel,
 .tierExplorer .tierAges,
 .tierExplorer .tierNote {
-  color: #0b0b0f;
+  color: #0b1b3a;
   opacity: 1;
 }
 
 .tierExplorer .tierFeatures li,
 .tierExplorer .tierFeatures li span {
-  color: #0b0b0f;
+  color: #0b1b3a;
   font-weight: 600;
 }
 
@@ -820,8 +820,8 @@
 }
 
 .tierExplorer .tierHighlight {
-  background: rgba(43, 179, 255, 0.18);
-  color: #0b1b2b;
+  background: rgba(3, 3, 171, 0.12);
+  color: #0b1b3a;
 }
 
 .tierFeatures {
@@ -855,7 +855,7 @@
   margin-top: auto;
   align-self: flex-start;
   background: var(--tier-accent);
-  color: #0b0b0f;
+  color: #ffffff;
   padding: 0.75rem 1.5rem;
   border-radius: 10px;
   font-weight: 700;
@@ -886,7 +886,7 @@
   margin-left: 6px;
   border: none;
   background: var(--tier-accent);
-  color: #0b0b0f;
+  color: #ffffff;
   width: 20px;
   height: 20px;
   border-radius: 50%;
