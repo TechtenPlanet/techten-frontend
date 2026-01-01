@@ -276,6 +276,34 @@
   max-width: 1000px;
   margin: 0 auto 3rem auto;
   padding: 0 20px;
+  position: relative;
+  padding-top: 12px;
+}
+
+.stepsContainer::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 6%;
+  right: 6%;
+  height: 3px;
+  background: rgba(255, 102, 32, 0.2);
+  border-radius: 999px;
+  z-index: 0;
+}
+
+.stepsContainer::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 6%;
+  right: 6%;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(255, 102, 32, 0), rgba(255, 102, 32, 0.6), rgba(255, 102, 32, 0));
+  background-size: 200% 100%;
+  animation: progressGlow 3.6s ease-in-out infinite;
+  border-radius: 999px;
+  z-index: 0;
 }
 
 .stepCard {
@@ -287,6 +315,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-top: 4px solid #FF6620;
+  z-index: 1;
 }
 
 .stepCard:hover {
@@ -310,12 +339,28 @@
   font-weight: 700;
   font-size: 1.1rem;
   box-shadow: 0 2px 8px rgba(255, 102, 32, 0.3);
+  z-index: 2;
 }
 
 .stepIcon {
   font-size: 3rem;
   margin: 1.5rem 0 1rem 0;
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #FF6620;
+}
+
+.stepIcon svg {
+  transition: transform 0.3s ease;
+}
+
+.stepCard:hover .stepIcon svg {
+  transform: translateY(-2px) scale(1.06);
+}
+
+.stepCard:first-child:hover .stepIcon svg {
+  animation: stepIconScribble 0.6s ease-in-out;
 }
 
 .stepTitle {
@@ -384,6 +429,39 @@
   font-weight: bold;
 }
 
+@keyframes progressGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes stepIconScribble {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  20% {
+    transform: translateY(-2px) rotate(-10deg);
+  }
+  40% {
+    transform: translateY(1px) rotate(8deg);
+  }
+  60% {
+    transform: translateY(-1px) rotate(-6deg);
+  }
+  80% {
+    transform: translateY(1px) rotate(4deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
 /* Responsive adjustments for How It Works */
 @media (max-width: 768px) {
   .stepsContainer {
@@ -397,6 +475,18 @@
   
   .howItWorksContent > * {
     flex: 1 1 calc(50% - 40px);
+  }
+}
+
+@media (max-width: 640px) {
+  .stepsContainer {
+    grid-template-columns: 1fr;
+    padding-top: 0;
+  }
+
+  .stepsContainer::before,
+  .stepsContainer::after {
+    display: none;
   }
 }
 
