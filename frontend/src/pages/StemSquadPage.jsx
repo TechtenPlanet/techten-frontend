@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaRocket, FaShieldAlt, FaClock } from 'react-icons/fa';
 import { getStemSquadLandingContent } from '../notion/stemSquadService';
 import styles from './StemSquadPage.module.css'; // Assuming you'll create a CSS module for styling
 
@@ -49,16 +50,41 @@ const StemSquadPage = () => {
             key={section.id} 
             className={styles.heroSection}
             style={section.media && section.media.length > 0 ? { backgroundImage: `url(${section.media[0].url})` } : {}}
-            >
-            <h1>{section.title}</h1>
-            <p>{section.content}</p>
-            {section.buttonLabel && section.buttonLink && (
-              <Link
-                to={section.buttonLink.startsWith('/') ? section.buttonLink : buildStemLink()}
-                className={styles.heroButton}
-              >
-                {section.buttonLabel}
-              </Link>
+          >
+            <div className={styles.heroContent}>
+              <div className={styles.heroEyebrow}>
+                <FaRocket /> STEM Squad
+              </div>
+              <h1 className={styles.heroTitle}>{section.title}</h1>
+              <p className={styles.heroSubtitle}>{section.content}</p>
+              <div className={styles.heroActions}>
+                {section.buttonLabel && (
+                  <Link
+                    to={section.buttonLink.startsWith('/') ? section.buttonLink : buildStemLink()}
+                    className={styles.heroButton}
+                  >
+                    {section.buttonLabel}
+                  </Link>
+                )}
+                <Link to="/get-involved?form=stem-squad" className={styles.heroSecondary}>
+                  View Plans →
+                </Link>
+              </div>
+              <div className={styles.heroCards}>
+                <div className={styles.heroCard}>
+                  <FaShieldAlt className={styles.heroCardIcon} />
+                  <span><strong>Curated Kits:</strong> Hands-on STEM experiences delivered per semester.</span>
+                </div>
+                <div className={styles.heroCard}>
+                  <FaClock className={styles.heroCardIcon} />
+                  <span><strong>Age-Appropriate Tracks:</strong> Starter, Intermediate, Advanced, and Group options.</span>
+                </div>
+              </div>
+            </div>
+            {section.media && section.media.length > 0 && (
+              <div className={styles.heroMedia}>
+                <img src={section.media[0].url} alt={section.title} loading="lazy" />
+              </div>
             )}
           </section>
         );
