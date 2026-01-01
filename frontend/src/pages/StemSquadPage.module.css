@@ -117,10 +117,10 @@
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(4, 7, 15, 0.9) 0%,
-    rgba(4, 7, 15, 0.7) 45%,
-    rgba(4, 7, 15, 0.4) 70%,
-    rgba(4, 7, 15, 0.1) 100%
+    rgba(4, 7, 15, 0.65) 0%,
+    rgba(4, 7, 15, 0.5) 45%,
+    rgba(4, 7, 15, 0.25) 70%,
+    rgba(4, 7, 15, 0.05) 100%
   );
   z-index: 0;
 }
@@ -133,14 +133,14 @@
   gap: 1rem;
   text-align: right;
   align-items: flex-end;
-  background: rgba(8, 10, 16, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  border: none;
   border-radius: 16px;
   padding: clamp(1.5rem, 3vw, 2rem);
   max-width: 620px;
   width: min(100%, 620px);
   margin-left: auto;
-  box-shadow: 0 24px 60px rgba(3, 5, 10, 0.45);
+  box-shadow: none;
 }
 
 .heroEyebrow {
@@ -162,16 +162,16 @@
   color: #fff;
   margin: 0;
   line-height: 1.2;
-  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 6px 22px rgba(0, 0, 0, 0.55);
 }
 
 .heroSubtitle {
-  color: #ffffff;
+  color: #f8f2ea;
   font-size: 1.1rem;
   line-height: 1.7;
   margin: 0;
   max-width: 640px;
-  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
 
 .heroActions {
