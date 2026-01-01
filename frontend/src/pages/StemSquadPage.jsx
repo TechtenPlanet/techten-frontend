@@ -10,6 +10,7 @@ const StemSquadPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [pricingMode, setPricingMode] = useState('individual');
+  const [activeTierInfo, setActiveTierInfo] = useState(null);
 
   useEffect(() => {
     const fetchContent = async () => {
@@ -133,6 +134,10 @@ const StemSquadPage = () => {
     };
   });
 
+  const toggleTierInfo = (tierKey) => {
+    setActiveTierInfo((prev) => (prev === tierKey ? null : tierKey));
+  };
+
   const renderPlansSection = () => (
     <section className={styles.tiersSection}>
       <div className={styles.tiersHeader}>
@@ -164,7 +169,10 @@ const StemSquadPage = () => {
           const showHardwareIcons = (feature) => /kit/i.test(feature);
           const badgeText = tier.badge || (tier.isPopular ? 'Most Popular' : '');
           return (
-            <article key={tier.key} className={`${styles.tierCard} ${styles[tier.theme]}`}>
+            <article
+              key={tier.key}
+              className={`${styles.tierCard} ${styles[tier.theme]} ${tier.isPopular ? styles.tierPopular : ''}`}
+            >
               {badgeText && <span className={styles.tierRibbon}>{badgeText}</span>}
               <div className={styles.tierHeader}>
                 <div>
@@ -207,7 +215,26 @@ const StemSquadPage = () => {
               <Link className={styles.tierButton} to={buildStemLink(tier.planKey, pricingMode)}>
                 {tier.buttonLabel}
               </Link>
-              <p className={styles.tierNote}>Pay monthly, kits ship every semester. Cancel anytime.</p>
+              <div className={styles.tierNoteRow}>
+                <p className={styles.tierNote}>
+                  Pay monthly, kits ship every semester
+                  <button
+                    type="button"
+                    className={styles.infoButton}
+                    onClick={() => toggleTierInfo(tier.key)}
+                    aria-expanded={activeTierInfo === tier.key}
+                    aria-label="Shipping and ownership details"
+                  >
+                    i
+                  </button>
+                  . Cancel anytime.
+                </p>
+                {activeTierInfo === tier.key && (
+                  <div className={styles.tierInfoPopup} role="status">
+                    Kits ship after 3 months. Ownership is earned after 6 months.
+                  </div>
+                )}
+              </div>
             </article>
           );
         })}
