@@ -63,13 +63,8 @@ const Navbar = () => {
               </div>
             </li>
             <li>
-              <NavLink to="/events" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
-                Events
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/blogs" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
-                Blog
+              <NavLink to="/stem-squad" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
+                STEM Squad
               </NavLink>
             </li>
             <li>
@@ -78,8 +73,13 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/stem-squad" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
-                STEM Squad
+              <NavLink to="/events" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
+                Events
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/blogs" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
+                Blog
               </NavLink>
             </li>
             <li>
@@ -141,13 +141,8 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            <NavLink to="/events" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
-              Events
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/blogs" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
-              Blog
+            <NavLink to="/stem-squad" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
+              STEM Squad
             </NavLink>
           </li>
           <li>
@@ -156,8 +151,13 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/stem-squad" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
-              STEM Squad
+            <NavLink to="/events" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
+              Events
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/blogs" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
+              Blog
             </NavLink>
           </li>
           <li>
