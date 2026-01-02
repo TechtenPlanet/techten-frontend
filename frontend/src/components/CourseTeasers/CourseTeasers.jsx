@@ -38,6 +38,8 @@ const CourseTeasers = ({ source = 'Home Page' }) => {
     name: '',
     whatsappNumber: '',
     childAge: '',
+    email: '',
+    participantType: '',
   });
   const [submitting, setSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState(null);
@@ -78,13 +80,21 @@ const CourseTeasers = ({ source = 'Home Page' }) => {
       const payload = {
         name: formValues.name.trim(),
         whatsappNumber: formValues.whatsappNumber.trim(),
-        childAge: Number(formValues.childAge),
+        childAge: formValues.childAge ? Number(formValues.childAge) : null,
+        email: formValues.email.trim(),
+        participantType: formValues.participantType,
         interestType: activeTeaser.title,
         source,
       };
       await submitCourseAlert(payload);
       setSubmitMessage('Thanks! We will send early access details via WhatsApp.');
-      setFormValues({ name: '', whatsappNumber: '', childAge: '' });
+      setFormValues({
+        name: '',
+        whatsappNumber: '',
+        childAge: '',
+        email: '',
+        participantType: '',
+      });
     } catch (error) {
       console.error('Course alert submission failed:', error);
       setSubmitError('Could not submit your request. Please try again.');
@@ -122,12 +132,18 @@ const CourseTeasers = ({ source = 'Home Page' }) => {
             <p className={style.modalEyebrow}>Don&apos;t Miss Out!</p>
             <h3>{activeTeaser.title}</h3>
             <p className={style.modalCopy}>
-              Our bootcamps usually sell out in 48 hours. Drop your WhatsApp number and we&apos;ll
-              send you the registration link before it goes public.
+              {activeTeaser.key === 'bootcamps' &&
+                'Our bootcamps usually sell out in 48 hours. Drop your WhatsApp number and we will send the registration link before it goes public.'}
+              {activeTeaser.key === 'masterclasses' &&
+                'Masterclasses have limited seats. Share your contact so we can send dates and early access links.'}
+              {activeTeaser.key === 'projects' &&
+                'Project cohorts open a few times a year. Join the list and we will notify you before applications open.'}
+              {activeTeaser.key === 'tech-labs' &&
+                'Tell us where you are and we will reach out with the nearest Tech Lab schedule.'}
             </p>
             <form onSubmit={handleSubmit} className={style.modalForm}>
               <label>
-                Parent Name
+                Your Name
                 <input
                   type="text"
                   name="name"
@@ -149,16 +165,42 @@ const CourseTeasers = ({ source = 'Home Page' }) => {
                 />
               </label>
               <label>
-                Child&apos;s Age
+                I am a
+                <select
+                  name="participantType"
+                  required
+                  value={formValues.participantType}
+                  onChange={handleInputChange}
+                >
+                  <option value="" disabled>
+                    Select one
+                  </option>
+                  <option value="Parent/Guardian">Parent/Guardian</option>
+                  <option value="Student">Student</option>
+                  <option value="Professional">Professional</option>
+                  <option value="Educator">Educator</option>
+                </select>
+              </label>
+              <label>
+                Learner&apos;s Age (optional)
                 <input
                   type="number"
                   name="childAge"
-                  required
                   min="4"
                   max="18"
                   value={formValues.childAge}
                   onChange={handleInputChange}
                   placeholder="Age"
+                />
+              </label>
+              <label>
+                Email (optional)
+                <input
+                  type="email"
+                  name="email"
+                  value={formValues.email}
+                  onChange={handleInputChange}
+                  placeholder="you@email.com"
                 />
               </label>
               <button type="submit" className={style.submitButton} disabled={submitting}>

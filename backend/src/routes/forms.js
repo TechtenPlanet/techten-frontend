@@ -552,6 +552,8 @@ export const formsRoutes = [
           name,
           whatsappNumber,
           childAge,
+          email,
+          participantType,
           interestType,
           source = 'Course Alerts'
         } = request.payload;
@@ -560,7 +562,7 @@ export const formsRoutes = [
           return h.response({ error: 'Course alerts database is not configured.' }).code(500);
         }
 
-        if (!name || !whatsappNumber || !childAge) {
+        if (!name || !whatsappNumber) {
           return h.response({ error: 'Missing required fields' }).code(400);
         }
 
@@ -573,9 +575,9 @@ export const formsRoutes = [
             'WhatsApp Number': {
               phone_number: whatsappNumber
             },
-            'Child Age': {
-              number: Number(childAge)
-            },
+            ...(email ? { 'Email': { email } } : {}),
+            ...(participantType ? { 'Participant Type': { select: { name: participantType } } } : {}),
+            ...(childAge ? { 'Child Age': { number: Number(childAge) } } : {}),
             'Interest Type': {
               select: { name: interestType || 'General' }
             },
@@ -598,7 +600,8 @@ export const formsRoutes = [
         };
       } catch (err) {
         console.error('Course Alert API Error:', err);
-        return h.response({ error: 'Failed to submit course alert' }).code(500);
+        const details = err?.body?.message || err?.message;
+        return h.response({ error: 'Failed to submit course alert', details }).code(500);
       }
     },
   }

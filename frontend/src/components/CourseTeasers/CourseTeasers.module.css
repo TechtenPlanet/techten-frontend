@@ -144,6 +144,14 @@
   font-size: 1rem;
 }
 
+.modalForm select {
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.2);
+  padding: 0.7rem 0.9rem;
+  font-size: 1rem;
+  background: #ffffff;
+}
+
 .submitButton {
   border: none;
   background: #0303ab;
