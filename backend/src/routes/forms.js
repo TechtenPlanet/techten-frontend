@@ -566,6 +566,12 @@ export const formsRoutes = [
           return h.response({ error: 'Missing required fields' }).code(400);
         }
 
+        const whatsappDigits = String(whatsappNumber).replace(/[^\d]/g, '');
+        const whatsappValue = Number(whatsappDigits);
+        if (!whatsappDigits || Number.isNaN(whatsappValue)) {
+          return h.response({ error: 'WhatsApp Number must be numeric' }).code(400);
+        }
+
         const response = await notion.pages.create({
           parent: { database_id: COURSE_ALERTS_DB_ID },
           properties: {
@@ -573,7 +579,7 @@ export const formsRoutes = [
               title: [{ text: { content: name } }]
             },
             'WhatsApp Number': {
-              phone_number: whatsappNumber
+              number: whatsappValue
             },
             ...(email ? { 'Email': { email } } : {}),
             ...(participantType ? { 'Participant Type': { select: { name: participantType } } } : {}),
