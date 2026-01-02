@@ -1,0 +1,189 @@
+.courseTeasers {
+  padding: 80px 40px;
+  background: #ffffff;
+  text-align: left;
+}
+
+.header {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+}
+
+.sectionTitle {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 800;
+  color: #1f2a37;
+  margin-bottom: 0.5rem;
+}
+
+.subtext {
+  color: #4b5563;
+  max-width: 640px;
+}
+
+.grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  border-radius: 18px;
+  padding: 1.8rem;
+  background: #f7f7fb;
+  border: 1px solid rgba(3, 3, 171, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 100%;
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.12);
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #0303ab;
+}
+
+.card p {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.cardButton {
+  margin-top: auto;
+  border: none;
+  background: #ff6620;
+  color: #ffffff;
+  padding: 0.75rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.cardButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(255, 102, 32, 0.25);
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 16, 42, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 2000;
+}
+
+.modal {
+  background: #ffffff;
+  border-radius: 20px;
+  max-width: 520px;
+  width: 100%;
+  padding: 2rem;
+  position: relative;
+  text-align: left;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+}
+
+.modalClose {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  background: transparent;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #1f2a37;
+}
+
+.modalEyebrow {
+  color: #ff6620;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.8rem;
+  margin: 0 0 0.5rem;
+}
+
+.modalCopy {
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.modalForm {
+  display: grid;
+  gap: 1rem;
+}
+
+.modalForm label {
+  display: grid;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: #1f2a37;
+}
+
+.modalForm input {
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.2);
+  padding: 0.7rem 0.9rem;
+  font-size: 1rem;
+}
+
+.submitButton {
+  border: none;
+  background: #0303ab;
+  color: #ffffff;
+  padding: 0.85rem 1.1rem;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 24px rgba(3, 3, 171, 0.25);
+}
+
+.successMessage {
+  color: #0f7a3b;
+  font-weight: 600;
+  margin: 0.5rem 0 0;
+}
+
+.errorMessage {
+  color: #b42318;
+  font-weight: 600;
+  margin: 0.5rem 0 0;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .courseTeasers {
+    padding: 60px 20px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

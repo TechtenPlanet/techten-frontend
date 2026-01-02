@@ -3,6 +3,7 @@ import { FaSearch, FaGraduationCap } from 'react-icons/fa';
 import CourseCard from '../components/CourseCard/CourseCard';
 import { getCourses } from '../notion/courseService';
 import OtherPagesHero from '../components/OtherPagesHero/OtherPagesHero';
+import CourseTeasers from '../components/CourseTeasers/CourseTeasers';
 import style from './CoursesPage.module.css';
 
 const CoursesPage = () => {
@@ -66,6 +67,7 @@ const CoursesPage = () => {
     return (
       <>
         <OtherPagesHero heading="Courses & Programs" />
+        <CourseTeasers source="Courses Page" />
         <div className={style.coursesSection}>
           <div className={style.loading}>
             <h2 className={style.sectionTitle}>Explore Our Educational Programs</h2>
@@ -80,6 +82,7 @@ const CoursesPage = () => {
     return (
       <>
         <OtherPagesHero heading="Courses & Programs" />
+        <CourseTeasers source="Courses Page" />
         <div className={style.coursesSection}>
           <div className={style.error}>
             <h2 className={style.sectionTitle}>Explore Our Educational Programs</h2>
@@ -97,6 +100,7 @@ const CoursesPage = () => {
   return (
     <>
       <OtherPagesHero heading="Courses & Programs" />
+      <CourseTeasers source="Courses Page" />
       
       <div className={style.coursesSection}>
         <div className={style.coursesSectionWrapper}>

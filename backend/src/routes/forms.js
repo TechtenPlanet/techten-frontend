@@ -6,7 +6,8 @@ import {
   VOLUNTEER_DB_ID,
   PARTNERSHIP_DB_ID,
   SPONSORSHIP_DB_ID,
-  MENTORSHIP_DB_ID
+  MENTORSHIP_DB_ID,
+  COURSE_ALERTS_DB_ID
 } from '../config/notion.js';
 
 export const formsRoutes = [
@@ -538,6 +539,66 @@ export const formsRoutes = [
       } catch (err) {
         console.error('Mentorship Form API Error:', err);
         return h.response({ error: 'Failed to submit mentorship form' }).code(500);
+      }
+    },
+  },
+  // Course Alerts Route
+  {
+    method: 'POST',
+    path: '/course-alerts',
+    handler: async (request, h) => {
+      try {
+        const {
+          name,
+          whatsappNumber,
+          childAge,
+          interestType,
+          source = 'Course Alerts'
+        } = request.payload;
+
+        if (!COURSE_ALERTS_DB_ID) {
+          return h.response({ error: 'Course alerts database is not configured.' }).code(500);
+        }
+
+        if (!name || !whatsappNumber || !childAge) {
+          return h.response({ error: 'Missing required fields' }).code(400);
+        }
+
+        const response = await notion.pages.create({
+          parent: { database_id: COURSE_ALERTS_DB_ID },
+          properties: {
+            'Name': {
+              title: [{ text: { content: name } }]
+            },
+            'WhatsApp Number': {
+              phone_number: whatsappNumber
+            },
+            'Child Age': {
+              number: Number(childAge)
+            },
+            'Interest Type': {
+              select: { name: interestType || 'General' }
+            },
+            'Submitted Date': {
+              date: { start: new Date().toISOString().split('T')[0] }
+            },
+            'Status': {
+              select: { name: 'New' }
+            },
+            'Source': {
+              select: { name: source }
+            }
+          }
+        });
+
+        return {
+          success: true,
+          message: 'Course alert submitted successfully',
+          id: response.id
+        };
+      } catch (err) {
+        console.error('Course Alert API Error:', err);
+        return h.response({ error: 'Failed to submit course alert' }).code(500);
       }
     },
   }

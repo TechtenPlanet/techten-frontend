@@ -16,6 +16,7 @@ export const VOLUNTEER_DB_ID = process.env.NOTION_VOLUNTEER_DB_ID;
 export const PARTNERSHIP_DB_ID = process.env.NOTION_PARTNERSHIP_DB_ID;
 export const SPONSORSHIP_DB_ID = process.env.NOTION_SPONSORSHIP_DB_ID;
 export const MENTORSHIP_DB_ID = process.env.NOTION_MENTORSHIP_DB_ID;
+export const COURSE_ALERTS_DB_ID = process.env.NOTION_COURSE_ALERTS_DB_ID;
 
 // Content Management Database IDs
 export const HOME_HERO_DB_ID = process.env.NOTION_HOME_HERO_DB_ID;
