@@ -187,7 +187,7 @@ const CourseTeasers = ({ source = 'Home Page' }) => {
                   type="number"
                   name="childAge"
                   min="4"
-                  max="18"
+                  max="99"
                   value={formValues.childAge}
                   onChange={handleInputChange}
                   placeholder="Age"
