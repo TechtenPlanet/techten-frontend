@@ -75,6 +75,7 @@ export const coursesRoutes = [
             id: page.id,
             title: properties.Name?.title[0]?.plain_text || 'Untitled Course',
             category: properties.Category?.select?.name || 'General',
+            type: properties.Type?.select?.name || 'None',
             description: excerpt,
             excerpt: excerpt,
             instructor: instructor,
@@ -113,7 +114,7 @@ export const coursesRoutes = [
           };
         }));
         
-        return courses.filter(course => course.active)
+        return courses.filter(course => course.active && course.type && course.type !== 'None')
       } catch (err) {
         console.error('Courses API Error:', err);
         return h.response({ error: 'Failed to fetch courses' }).code(500);
@@ -210,6 +211,7 @@ export const coursesRoutes = [
           title: properties.Name?.title[0]?.plain_text || 'Untitled Course',
           courseCode: properties.Code?.rich_text[0]?.plain_text || '',
           category: properties.Category?.select?.name || 'General',
+          type: properties.Type?.select?.name || 'None',
           description: createExcerpt(courseOverview, 50),
           fullOverview: courseOverview,
           overviewBlocks: parsedContent.overviewBlocks || [],

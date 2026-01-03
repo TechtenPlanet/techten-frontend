@@ -27,10 +27,10 @@ const InternshipBanner = () => {
         
         <div className={style.contentSection}>
           <div className={style.header}>
-            <h2 className={style.title}>Internship Opportunity</h2>
+            <h2 className={style.title}>Internship Opportunities</h2>
             <p className={style.subtitle}>
-              Are you ready to gain hands-on experience and grow professionally? 
-              Join our Internship Program 2025 and explore your potential in a dynamic work environment!
+              Ready to gain hands-on experience and grow professionally? We accept interns year-round,
+              so you can apply whenever you are ready to learn and contribute.
             </p>
           </div>
 
@@ -48,7 +48,7 @@ const InternshipBanner = () => {
 
           <div className={style.applicationPeriod}>
             <FaCalendarAlt className={style.calendarIcon} />
-            <span className={style.periodText}>Application Period: <strong>STARTS NOW</strong></span>
+            <span className={style.periodText}>Applications: <strong>Rolling acceptance all year</strong></span>
           </div>
 
           <div className={style.ctaSection}>
@@ -59,7 +59,7 @@ const InternshipBanner = () => {
               Apply Now <FaExternalLinkAlt className={style.linkIcon} />
             </button>
             <p className={style.ctaNote}>
-              Complete the application form and upload your resume to get started.
+              Complete the application form and upload your resume whenever you are ready.
             </p>
           </div>
         </div>

@@ -172,6 +172,71 @@
   color: white;
 }
 
+/* Type-grouped courses */
+.typeSection {
+  margin-bottom: 3rem;
+}
+
+.typeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.typeTitle {
+  font-size: clamp(1.6rem, 2.3vw, 2.1rem);
+  font-weight: 700;
+  color: #1f2a37;
+  margin: 0 0 0.35rem;
+}
+
+.typeDescription {
+  margin: 0;
+  color: #4b5563;
+  max-width: 520px;
+}
+
+.viewAllButton {
+  border: none;
+  background: #ff6620;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.viewAllButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 102, 32, 0.25);
+}
+
+.typeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.emptyState {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px dashed rgba(3, 3, 171, 0.2);
+  color: #4b5563;
+}
+
+.emptyIcon {
+  font-size: 1.6rem;
+  color: #0303ab;
+}
+
 /* Responsive breakpoints */
 @media (max-width: 640px) {
   .coursesSection {
@@ -193,5 +258,16 @@
 @media (min-width: 1024px) {
   .courseGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .typeHeader {
+    align-items: flex-start;
+  }
+
+  .viewAllButton {
+    width: 100%;
+    text-align: center;
   }
 }

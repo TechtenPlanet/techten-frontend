@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { FaSearch, FaGraduationCap } from 'react-icons/fa';
+import { FaGraduationCap } from 'react-icons/fa';
 import CourseCard from '../components/CourseCard/CourseCard';
 import { getCourses } from '../notion/courseService';
 import OtherPagesHero from '../components/OtherPagesHero/OtherPagesHero';
@@ -9,11 +9,8 @@ import style from './CoursesPage.module.css';
 const CoursesPage = () => {
   const [allCourses, setAllCourses] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [visibleCourses, setVisibleCourses] = useState(4);
-  const [activeCategory, setActiveCategory] = useState('All');
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filteredCourses, setFilteredCourses] = useState([]);
   const [error, setError] = useState(null); // Add error state
+  const [expandedTypes, setExpandedTypes] = useState({});
 
   // Fetch courses from Notion
   useEffect(() => {
@@ -22,7 +19,6 @@ const CoursesPage = () => {
         setLoading(true); // Ensure loading is set to true before fetch
         const coursesData = await getCourses();
         setAllCourses(coursesData);
-        setFilteredCourses(coursesData);
         setError(null); // Clear any previous errors
       } catch (error) {
         console.error("Error fetching courses:", error);
@@ -35,33 +31,45 @@ const CoursesPage = () => {
     fetchCourses();
   }, []);
 
-  // Get all unique categories from courses
-  const allCategories = useMemo(() => 
-    ['All', ...new Set(allCourses.map(course => course.category))],
-    [allCourses]
+  const typeOrder = useMemo(
+    () => [
+      {
+        type: 'Vacation Bootcamps',
+        description: 'Intensive 2-week sprints in Accra. From Robotics to Game Design.',
+      },
+      {
+        type: 'Masterclasses',
+        description: '1-Day deep dives for kids and parents. Learn AI, 3D Printing, or IoT.',
+      },
+      {
+        type: 'Special Projects',
+        description: 'Solve real-world Ghanaian problems. Competitive builds and exhibitions.',
+      },
+      {
+        type: 'Tech Labs (Mobile)',
+        description: 'We bring the lab to your school or neighborhood hub.',
+      },
+    ],
+    []
   );
 
-  // Filter courses based on category and search term
-  useEffect(() => {
-    let result = allCourses;
-    
-    // Filter by category
-    if (activeCategory !== 'All') {
-      result = result.filter(course => course.category === activeCategory);
-    }
-    
-    // Filter by search term
-    if (searchTerm.trim() !== '') {
-      const term = searchTerm.toLowerCase();
-      result = result.filter(course => 
-        course.title.toLowerCase().includes(term) || 
-        course.description.toLowerCase().includes(term) ||
-        course.category.toLowerCase().includes(term)
-      );
-    }
-    
-    setFilteredCourses(result);
-  }, [activeCategory, searchTerm, allCourses]);
+  const typedCourses = useMemo(() => {
+    const allowed = new Set(typeOrder.map((item) => item.type));
+    return allCourses.filter((course) => course.type && allowed.has(course.type));
+  }, [allCourses, typeOrder]);
+
+  const groupedCourses = useMemo(
+    () =>
+      typeOrder.map((item) => ({
+        ...item,
+        courses: typedCourses.filter((course) => course.type === item.type),
+      })),
+    [typedCourses, typeOrder]
+  );
+
+  const toggleExpanded = (type) => {
+    setExpandedTypes((prev) => ({ ...prev, [type]: !prev[type] }));
+  };
 
   if (loading) {
     return (
@@ -93,10 +101,6 @@ const CoursesPage = () => {
     );
   }
 
-  const loadMoreCourses = () => {
-    setVisibleCourses(prev => prev + 4);
-  };
-
   return (
     <>
       <OtherPagesHero heading="Courses & Programs" />
@@ -104,75 +108,42 @@ const CoursesPage = () => {
       
       <div className={style.coursesSection}>
         <div className={style.coursesSectionWrapper}>
-          <div className={style.courseFilters}>
-            <h2 className={style.sectionTitle}>Explore Our Educational Programs</h2>
-            <p className={style.sectionSubtitle}>
-              Discover hands-on, project-based learning experiences designed to inspire and equip the next generation of technology leaders and innovators.
-            </p>
-            
-            <div className={style.searchContainer}>
-              <FaSearch className={style.searchIcon} />
-              <input
-                type="text"
-                placeholder="Search courses..."
-                className={style.searchInput}
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
-            
-            <div className={style.tagFilters}>
-              {allCategories.map(category => (
-                <button 
-                  key={category} 
-                  className={`${style.tagButton} ${activeCategory === category ? style.activeTag : ''}`}
-                  onClick={() => setActiveCategory(category)}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-          </div>
+          {groupedCourses.map((group) => {
+            const isExpanded = expandedTypes[group.type];
+            const coursesToShow = isExpanded ? group.courses : group.courses.slice(0, 2);
+            return (
+              <section key={group.type} className={style.typeSection}>
+                <div className={style.typeHeader}>
+                  <div>
+                    <h2 className={style.typeTitle}>{group.type}</h2>
+                    <p className={style.typeDescription}>{group.description}</p>
+                  </div>
+                  {group.courses.length > 2 && (
+                    <button
+                      type="button"
+                      className={style.viewAllButton}
+                      onClick={() => toggleExpanded(group.type)}
+                    >
+                      {isExpanded ? 'Show Less' : 'View All'}
+                    </button>
+                  )}
+                </div>
 
-          {filteredCourses.length > 0 ? (
-            <>
-              <div className={style.courseGrid}>
-                {/* Conditionally render featured course or regular cards */}
-                {filteredCourses.length > 2 ? ( /* If more than 2 courses, show featured */
-                  <>
-                    <div className={style.featuredCourse}>
-                      <CourseCard 
-                        course={filteredCourses[0]} 
-                        featured={true} 
-                        horizontal={true} 
-                      />
-                    </div>
-                    {filteredCourses.slice(1, visibleCourses).map((course) => (
+                {group.courses.length > 0 ? (
+                  <div className={style.typeGrid}>
+                    {coursesToShow.map((course) => (
                       <CourseCard key={course.id} course={course} />
                     ))}
-                  </>
-                ) : ( /* If 2 or fewer courses, display all as regular cards */
-                  filteredCourses.slice(0, visibleCourses).map((course) => (
-                    <CourseCard key={course.id} course={course} />
-                  ))
+                  </div>
+                ) : (
+                  <div className={style.emptyState}>
+                    <FaGraduationCap className={style.emptyIcon} />
+                    <p>New cohorts announced soon.</p>
+                  </div>
                 )}
-              </div>
-              
-              {visibleCourses < filteredCourses.length && (
-                <div className={style.loadMoreContainer}>
-                  <button className={style.loadMoreButton} onClick={loadMoreCourses}>
-                    Load More Courses
-                  </button>
-                </div>
-              )}
-            </>
-          ) : (
-            <div style={{ textAlign: 'center', padding: '3rem 0' }}>
-              <FaGraduationCap style={{ fontSize: '3rem', color: '#a0aec0', marginBottom: '1rem' }} />
-              <h3>No courses found</h3>
-              <p>Try adjusting your search or filter criteria</p>
-            </div>
-          )}
+              </section>
+            );
+          })}
           
           <div className={style.ctaSection}>
             <h2 className={style.ctaTitle}>Ready to Start Your Learning Journey?</h2>

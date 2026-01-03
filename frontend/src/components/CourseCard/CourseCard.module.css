@@ -301,6 +301,38 @@
   margin-bottom: 0.5rem;
 }
 
+.typeBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  background-color: #e2e8f0;
+  color: #2d3748;
+}
+
+.typeBootcamps {
+  background-color: rgba(255, 102, 32, 0.15);
+  color: #ff6620;
+}
+
+.typeMasterclasses {
+  background-color: rgba(3, 3, 171, 0.12);
+  color: #0303ab;
+}
+
+.typeProjects {
+  background-color: rgba(16, 185, 129, 0.14);
+  color: #0f7a52;
+}
+
+.typeLabs {
+  background-color: rgba(59, 130, 246, 0.14);
+  color: #1d4ed8;
+}
+
 /* Responsive design */
 @media (max-width: 480px) {
   .content {

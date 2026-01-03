@@ -5,6 +5,13 @@ import style from './CourseCard.module.css';
 
 const CourseCard = ({ course, featured = false, horizontal = false }) => {
   const navigate = useNavigate();
+  const typeClassMap = {
+    'Vacation Bootcamps': style.typeBootcamps,
+    'Masterclasses': style.typeMasterclasses,
+    'Special Projects': style.typeProjects,
+    'Tech Labs (Mobile)': style.typeLabs,
+  };
+  const typeClassName = course.type ? typeClassMap[course.type] : '';
 
   const handleCardClick = () => {
     navigate(`/course/${course.id}`);
@@ -19,6 +26,11 @@ const CourseCard = ({ course, featured = false, horizontal = false }) => {
         <div className={style.content}>
           <div className={style.header}>
             {featured && <span className={style.featuredLabel}>Featured</span>}
+            {course.type && (
+              <span className={`${style.typeBadge} ${typeClassName || ''}`}>
+                {course.type}
+              </span>
+            )}
             <h2 className={style.title}>{course.title}</h2>
             <span className={style.grades}>Grades {course.grades}</span>
           </div>
