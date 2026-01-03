@@ -175,6 +175,11 @@
 /* Type-grouped courses */
 .typeSection {
   margin-bottom: 3rem;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid rgba(3, 3, 171, 0.12);
+  padding: 1.75rem;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
 }
 
 .typeHeader {
@@ -189,7 +194,7 @@
 .typeTitle {
   font-size: clamp(1.6rem, 2.3vw, 2.1rem);
   font-weight: 700;
-  color: #1f2a37;
+  color: #0303ab;
   margin: 0 0 0.35rem;
 }
 
@@ -213,6 +218,34 @@
 .viewAllButton:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(255, 102, 32, 0.25);
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.ongoingCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(3, 3, 171, 0.12);
+  color: #0303ab;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid rgba(3, 3, 171, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ongoingCta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(3, 3, 171, 0.2);
 }
 
 .typeGrid {
@@ -266,8 +299,17 @@
     align-items: flex-start;
   }
 
+  .headerActions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
   .viewAllButton {
     width: 100%;
     text-align: center;
+  }
+
+  .ongoingCta {
+    width: 100%;
   }
 }

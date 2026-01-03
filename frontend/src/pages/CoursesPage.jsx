@@ -118,15 +118,20 @@ const CoursesPage = () => {
                     <h2 className={style.typeTitle}>{group.type}</h2>
                     <p className={style.typeDescription}>{group.description}</p>
                   </div>
-                  {group.courses.length > 2 && (
-                    <button
-                      type="button"
-                      className={style.viewAllButton}
-                      onClick={() => toggleExpanded(group.type)}
-                    >
-                      {isExpanded ? 'Show Less' : 'View All'}
-                    </button>
-                  )}
+                  <div className={style.headerActions}>
+                    <a className={style.ongoingCta} href="/contact">
+                      Ongoing · Register Now
+                    </a>
+                    {group.courses.length > 2 && (
+                      <button
+                        type="button"
+                        className={style.viewAllButton}
+                        onClick={() => toggleExpanded(group.type)}
+                      >
+                        {isExpanded ? 'Show Less' : 'View All'}
+                      </button>
+                    )}
+                  </div>
                 </div>
 
                 {group.courses.length > 0 ? (
