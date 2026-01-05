@@ -1,6 +1,25 @@
 import { notion, COURSES_DB_ID } from '../config/notion.js';
 import { parseNotionBlocks, createExcerpt } from '../utils/notionParsers.js';
 
+const COURSE_TYPE_MAP = {
+  'vacation bootcamps': 'Vacation Bootcamps',
+  'masterclasses': 'Masterclasses',
+  'special projects': 'Special Projects',
+  'tech labs (mobile)': 'Tech Labs (Mobile)',
+  'tech labs mobile': 'Tech Labs (Mobile)',
+};
+
+const normalizeCourseType = (rawType) => {
+  if (!rawType) return 'None';
+  const cleaned = rawType.trim();
+  const mapped = COURSE_TYPE_MAP[cleaned.toLowerCase()];
+  return mapped || cleaned;
+};
+
+const isAllowedType = (type) => {
+  return Object.values(COURSE_TYPE_MAP).includes(type);
+};
+
 export const coursesRoutes = [
   // Courses Routes
   {
@@ -71,11 +90,14 @@ export const coursesRoutes = [
             displayPrice = pricing.regular;
           }
           
+          const rawType = properties.Type?.select?.name || properties.Type?.multi_select?.[0]?.name || 'None';
+          const normalizedType = normalizeCourseType(rawType);
+
           return {
             id: page.id,
             title: properties.Name?.title[0]?.plain_text || 'Untitled Course',
             category: properties.Category?.select?.name || 'General',
-            type: (properties.Type?.select?.name || properties.Type?.multi_select?.[0]?.name || 'None').trim(),
+            type: isAllowedType(normalizedType) ? normalizedType : 'None',
             description: excerpt,
             excerpt: excerpt,
             instructor: instructor,
@@ -206,12 +228,15 @@ export const coursesRoutes = [
           (s) => (s.days || s.day) && s.time
         );
 
+        const rawType = properties.Type?.select?.name || properties.Type?.multi_select?.[0]?.name || 'None';
+        const normalizedType = normalizeCourseType(rawType);
+
         const course = {
           id: foundPage.id,
           title: properties.Name?.title[0]?.plain_text || 'Untitled Course',
           courseCode: properties.Code?.rich_text[0]?.plain_text || '',
           category: properties.Category?.select?.name || 'General',
-          type: (properties.Type?.select?.name || properties.Type?.multi_select?.[0]?.name || 'None').trim(),
+          type: isAllowedType(normalizedType) ? normalizedType : 'None',
           description: createExcerpt(courseOverview, 50),
           fullOverview: courseOverview,
           overviewBlocks: parsedContent.overviewBlocks || [],
