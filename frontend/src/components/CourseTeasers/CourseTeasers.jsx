@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import style from './CourseTeasers.module.css';
 import { submitCourseAlert } from '../../notion/courseAlertService';
+import { getCourses } from '../../notion/courseService';
+import { Link } from 'react-router-dom';
 
 const CourseTeasers = ({ source = 'Home Page' }) => {
   const teasers = useMemo(
@@ -34,6 +36,7 @@ const CourseTeasers = ({ source = 'Home Page' }) => {
   );
 
   const [activeTeaser, setActiveTeaser] = useState(null);
+  const [activeCourses, setActiveCourses] = useState([]);
   const [formValues, setFormValues] = useState({
     name: '',
     whatsappNumber: '',
@@ -62,6 +65,32 @@ const CourseTeasers = ({ source = 'Home Page' }) => {
     }
     return () => window.removeEventListener('keydown', handleEscape);
   }, [activeTeaser]);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const courses = await getCourses();
+        setActiveCourses(courses || []);
+      } catch (error) {
+        console.error('Error fetching courses for teasers:', error);
+      }
+    };
+
+    fetchCourses();
+  }, []);
+
+  const courseByType = useMemo(() => {
+    return teasers.reduce((acc, teaser) => {
+      acc[teaser.title] = activeCourses.filter((course) => course.type === teaser.title);
+      return acc;
+    }, {});
+  }, [activeCourses, teasers]);
+
+  const summarizeText = (text, maxLength = 120) => {
+    if (!text) return 'AI summary: Course details coming soon.';
+    const trimmed = text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+    return `AI summary: ${trimmed}`;
+  };
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -116,6 +145,24 @@ const CourseTeasers = ({ source = 'Home Page' }) => {
           <article key={teaser.key} className={style.card}>
             <h3>{teaser.title}</h3>
             <p>{teaser.description}</p>
+            {courseByType[teaser.title] && courseByType[teaser.title].length > 0 && (
+              <div className={style.activeCourses}>
+                <p className={style.activeLabel}>Ongoing Now</p>
+                <ul className={style.activeList}>
+                  {courseByType[teaser.title].slice(0, 2).map((course) => (
+                    <li key={course.id} className={style.activeItem}>
+                      <div>
+                        <h4>{course.title}</h4>
+                        <p>{summarizeText(course.description)}</p>
+                      </div>
+                      <Link to={`/course/${course.id}`} className={style.viewCourseButton}>
+                        View Course
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             <button type="button" onClick={() => setActiveTeaser(teaser)} className={style.cardButton}>
               {teaser.cta}
             </button>
