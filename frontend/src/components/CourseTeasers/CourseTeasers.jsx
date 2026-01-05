@@ -86,7 +86,7 @@ const CourseTeasers = ({ source = 'Home Page' }) => {
     }, {});
   }, [activeCourses, teasers]);
 
-  const summarizeText = (text, maxLength = 120) => {
+  const summarizeText = (text, maxLength = 90) => {
     if (!text) return 'AI summary: Course details coming soon.';
     const trimmed = text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
     return `AI summary: ${trimmed}`;
@@ -152,8 +152,8 @@ const CourseTeasers = ({ source = 'Home Page' }) => {
                   {courseByType[teaser.title].slice(0, 2).map((course) => (
                     <li key={course.id} className={style.activeItem}>
                       <div>
-                        <h4>{course.title}</h4>
-                        <p>{summarizeText(course.description)}</p>
+                        <h4 className={style.activeTitle}>{course.title}</h4>
+                        <p className={style.activeSummary}>{summarizeText(course.description)}</p>
                       </div>
                       <Link to={`/course/${course.id}`} className={style.viewCourseButton}>
                         View Course
