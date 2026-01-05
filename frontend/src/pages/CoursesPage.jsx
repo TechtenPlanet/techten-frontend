@@ -4,6 +4,7 @@ import CourseCard from '../components/CourseCard/CourseCard';
 import { getCourses } from '../notion/courseService';
 import OtherPagesHero from '../components/OtherPagesHero/OtherPagesHero';
 import CourseTeasers from '../components/CourseTeasers/CourseTeasers';
+import WhatsAppChatButton from '../components/WhatsAppChatButton/WhatsAppChatButton';
 import style from './CoursesPage.module.css';
 
 const CoursesPage = () => {
@@ -119,9 +120,7 @@ const CoursesPage = () => {
                     <p className={style.typeDescription}>{group.description}</p>
                   </div>
                   <div className={style.headerActions}>
-                    <a className={style.ongoingCta} href="/contact">
-                      Ongoing · Register Now
-                    </a>
+                    <span className={style.ongoingCta}>Ongoing · Register Now</span>
                     {group.courses.length > 2 && (
                       <button
                         type="button"
@@ -161,6 +160,7 @@ const CoursesPage = () => {
           </div>
         </div>
       </div>
+      <WhatsAppChatButton />
     </>
   );
 };

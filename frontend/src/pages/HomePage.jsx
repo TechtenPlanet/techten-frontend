@@ -8,6 +8,7 @@ import ActionButtons from '../components/ActionButtons/ActionButtons';
 import ImpactStats from '../components/ImpactStats/ImpactStats';
 import PartnersCollaborators from '../components/PartnersCollaborators/PartnersCollaborators'; // Import the component
 import InternshipBanner from '../components/InternshipBanner/InternshipBanner';
+import WhatsAppChatButton from '../components/WhatsAppChatButton/WhatsAppChatButton';
 
 const HomePage = () => {
   return (
@@ -22,6 +23,7 @@ const HomePage = () => {
       <TestimonialSection />
       <PartnersCollaborators /> {/* Add the component here */}
       <ActionButtons />
+      <WhatsAppChatButton />
     </>
   );
 };

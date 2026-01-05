@@ -4,6 +4,7 @@ import { FaRocket, FaShieldAlt, FaClock } from 'react-icons/fa';
 import { MdAssignment, MdLocalShipping, MdScience, MdCheckCircle, MdMemory, MdBuild, MdLaptopChromebook } from 'react-icons/md';
 import { getStemSquadLandingContent } from '../notion/stemSquadService';
 import styles from './StemSquadPage.module.css'; // Assuming you'll create a CSS module for styling
+import WhatsAppChatButton from '../components/WhatsAppChatButton/WhatsAppChatButton';
 
 const StemSquadPage = () => {
   const [content, setContent] = useState([]);
@@ -461,6 +462,7 @@ const StemSquadPage = () => {
           </a>
         </div>
       </section>
+      <WhatsAppChatButton />
     </div>
   );
 };
