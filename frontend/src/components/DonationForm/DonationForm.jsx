@@ -1,23 +1,13 @@
 import React, { useState } from 'react';
-import { FaCreditCard, FaLock, FaPaypal, FaApplePay, FaGooglePay } from 'react-icons/fa';
+import { FaLock } from 'react-icons/fa';
 import style from './DonationForm.module.css';
 // import mollieService from '../../firebase/mollieService';
 
 /**
- * Donation Form Component with Mollie Integration
- * 
- * This component is designed to integrate with Mollie payment gateway through a backend API.
- * 
- * To set up Mollie for this donation form:
- * 1. Create an account at https://www.mollie.com/
- * 2. Get your API keys from the Mollie Dashboard
- * 3. Set up a backend API endpoint that will handle the Mollie API calls
- * 4. Update the form submission to call your backend API
- * 
- * Note: The current implementation is prepared for integration with a backend API
- * that will handle the actual Mollie API calls. The frontend will send the donation
- * data to the backend, which will then create a payment with Mollie and return
- * the checkout URL for redirection.
+ * Donation Form Component
+ *
+ * Online payment processing is disabled. Donors can use bank transfer
+ * or any money transfer system to the Ghana account below.
  */
 
 const DonationForm = () => {
@@ -27,11 +17,7 @@ const DonationForm = () => {
   const [amount, setAmount] = useState('');
   const [selectedAmount, setSelectedAmount] = useState(null);
   const [customAmount, setCustomAmount] = useState('');
-  const [paymentMethod, setPaymentMethod] = useState('creditcard');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [message, setMessage] = useState(null);
-  const [messageType, setMessageType] = useState('');
-  const [formErrors, setFormErrors] = useState({});
+  const [transferMethod, setTransferMethod] = useState('');
   
   // Predefined donation amounts
   const donationAmounts = [10, 25, 50, 100, 250];
@@ -42,11 +28,6 @@ const DonationForm = () => {
     setAmount(amount.toString());
     setCustomAmount('');
     
-    // Clear amount error if it exists
-    if (formErrors.amount) {
-      const { amount, ...rest } = formErrors;
-      setFormErrors(rest);
-    }
   };
   
   // Handle custom amount input
@@ -56,74 +37,6 @@ const DonationForm = () => {
     setAmount(value);
     setSelectedAmount(null);
     
-    // Clear amount error if it exists and value is valid
-    if (formErrors.amount && value) {
-      const { amount, ...rest } = formErrors;
-      setFormErrors(rest);
-    }
-  };
-  
-  // Handle payment method selection
-  const handlePaymentMethodSelect = (method) => {
-    setPaymentMethod(method);
-  };
-  
-  // Form validation
-  const validateForm = () => {
-    const errors = {};
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
-    if (!name) {
-      errors.name = "Name is required";
-    }
-    
-    if (!email) {
-      errors.email = "Email is required";
-    } else if (!emailRegex.test(email)) {
-      errors.email = "Invalid email format";
-    }
-    
-    if (!amount || parseFloat(amount) <= 0) {
-      errors.amount = "Please select or enter a valid donation amount";
-    }
-    
-    return errors;
-  };
-  
-  // Handle form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    // Validate form
-    const errors = validateForm();
-    setFormErrors(errors);
-    
-    // If there are errors, don't submit
-    if (Object.keys(errors).length > 0) {
-      return;
-    }
-    
-    setIsSubmitting(true);
-    setMessage(null);
-    
-    try {
-      // TODO: Implement payment processing with Mollie API via backend
-      // The paymentData object was removed as it was not being used.
-      setMessage("Payment processing is temporarily disabled. Please contact us directly.");
-      setMessageType('error');
-      
-    } catch (error) {
-      console.error("Donation Form Submission Error:", error);
-      setMessage("An error occurred while processing your donation. Please try again later.");
-      setMessageType('error');
-    } finally {
-      setIsSubmitting(false);
-      
-      // Clear message after 5 seconds
-      setTimeout(() => {
-        setMessage(null);
-      }, 5000);
-    }
   };
   
   return (
@@ -131,26 +44,19 @@ const DonationForm = () => {
       <h2 className={style.formTitle}>Make a Donation</h2>
       <p className={style.formDescription}>
         Your contribution helps us continue our mission to provide quality education and opportunities for young people.
+        Online card payments are currently unavailable. Please use bank transfer, mobile money, Remitly, or contact us directly.
       </p>
-      
-      {message && (
-        <div className={messageType === 'success' ? style.successMessage : style.errorMessage}>
-          {message}
-        </div>
-      )}
-      
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e) => e.preventDefault()}>
         <div className={style.formGroup}>
           <label htmlFor="name">Full Name</label>
           <input
             type="text"
             id="name"
-            className={`${style.formControl} ${formErrors.name ? style.inputError : ''}`}
+            className={style.formControl}
             placeholder="Your name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          {formErrors.name && <p className={style.errorText}>{formErrors.name}</p>}
         </div>
         
         <div className={style.formGroup}>
@@ -158,12 +64,11 @@ const DonationForm = () => {
           <input
             type="email"
             id="email"
-            className={`${style.formControl} ${formErrors.email ? style.inputError : ''}`}
+            className={style.formControl}
             placeholder="Your email address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          {formErrors.email && <p className={style.errorText}>{formErrors.email}</p>}
         </div>
         
         <div className={style.formGroup}>
@@ -185,52 +90,13 @@ const DonationForm = () => {
             <input
               type="number"
               id="customAmount"
-              className={`${style.formControl} ${formErrors.amount ? style.inputError : ''}`}
+              className={style.formControl}
               placeholder="Enter custom amount"
               min="1"
               step="0.01"
               value={customAmount}
               onChange={handleCustomAmountChange}
             />
-          </div>
-          
-          {formErrors.amount && <p className={style.errorText}>{formErrors.amount}</p>}
-        </div>
-        
-        <div className={style.paymentMethods}>
-          <h3 className={style.paymentMethodTitle}>Payment Method</h3>
-          <div className={style.paymentOptions}>
-            <div
-              className={`${style.paymentOption} ${paymentMethod === 'creditcard' ? style.paymentOptionSelected : ''}`}
-              onClick={() => handlePaymentMethodSelect('creditcard')}
-            >
-              <FaCreditCard className={style.paymentIcon} />
-              <div>Credit Card</div>
-            </div>
-            
-            <div
-              className={`${style.paymentOption} ${paymentMethod === 'paypal' ? style.paymentOptionSelected : ''}`}
-              onClick={() => handlePaymentMethodSelect('paypal')}
-            >
-              <FaPaypal className={style.paymentIcon} />
-              <div>PayPal</div>
-            </div>
-            
-            <div
-              className={`${style.paymentOption} ${paymentMethod === 'applepay' ? style.paymentOptionSelected : ''}`}
-              onClick={() => handlePaymentMethodSelect('applepay')}
-            >
-              <FaApplePay className={style.paymentIcon} />
-              <div>Apple Pay</div>
-            </div>
-            
-            <div
-              className={`${style.paymentOption} ${paymentMethod === 'googlepay' ? style.paymentOptionSelected : ''}`}
-              onClick={() => handlePaymentMethodSelect('googlepay')}
-            >
-              <FaGooglePay className={style.paymentIcon} />
-              <div>Google Pay</div>
-            </div>
           </div>
         </div>
         
@@ -247,18 +113,86 @@ const DonationForm = () => {
             </div>
           </div>
         )}
-        
-        <button
-          type="submit"
-          className={style.donateButton}
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? 'Processing...' : 'Complete Donation'}
-        </button>
+
+        <div className={style.donationSummary}>
+          <h3 className={style.summaryTitle}>Bank Transfer Details (Ghana)</h3>
+          <div className={style.summaryItem}>
+            <span>Account Number:</span>
+            <span>0061069461</span>
+          </div>
+          <div className={style.summaryItem}>
+            <span>Bank Name:</span>
+            <span>Absa</span>
+          </div>
+          <div className={style.summaryItem}>
+            <span>Reference:</span>
+            <span>Techten donation</span>
+          </div>
+          <div className={style.summaryItem}>
+            <span>Method:</span>
+            <span>Bank transfer or any money transfer system</span>
+          </div>
+        </div>
+
+        <div className={style.formGroup}>
+          <label htmlFor="transferMethod">Preferred Transfer Method</label>
+          <select
+            id="transferMethod"
+            className={style.formControl}
+            value={transferMethod}
+            onChange={(e) => setTransferMethod(e.target.value)}
+          >
+            <option value="">Select a method</option>
+            <option value="bank">Bank Transfer (Ghana)</option>
+            <option value="momo">Mobile Money (Ghana)</option>
+            <option value="remitly">Remitly (International)</option>
+            <option value="contact">Contact Us Directly</option>
+          </select>
+        </div>
+
+        {transferMethod === 'momo' && (
+          <div className={style.donationSummary}>
+            <h3 className={style.summaryTitle}>Mobile Money Details (Ghana)</h3>
+            <div className={style.summaryItem}>
+              <span>Number:</span>
+              <span>+233596905337</span>
+            </div>
+            <div className={style.summaryItem}>
+              <span>Reference:</span>
+              <span>Techten donation</span>
+            </div>
+          </div>
+        )}
+
+        {transferMethod === 'remitly' && (
+          <div className={style.donationSummary}>
+            <h3 className={style.summaryTitle}>Remitly (International)</h3>
+            <div className={style.summaryItem}>
+              <span>Destination:</span>
+              <span>Send to our bank or MoMo account</span>
+            </div>
+            <div className={style.summaryItem}>
+              <span>Reference:</span>
+              <span>Techten donation</span>
+            </div>
+          </div>
+        )}
+
+        {transferMethod === 'contact' && (
+          <div className={style.donationSummary}>
+            <h3 className={style.summaryTitle}>Contact Us</h3>
+            <div className={style.summaryItem}>
+              <span>Contact Form:</span>
+              <span>
+                <a href="/contact">Go to contact form</a>
+              </span>
+            </div>
+          </div>
+        )}
         
         <div className={style.securePaymentNote}>
           <FaLock className={style.secureIcon} />
-          <span>Your payment is secure and encrypted</span>
+          <span>Use the reference “Techten donation” so we can match your transfer.</span>
         </div>
       </form>
     </div>
