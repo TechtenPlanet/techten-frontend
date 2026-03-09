@@ -149,8 +149,9 @@ const StemSquadEnrollmentForm = () => {
       name: 'startDatePreference',
       label: 'Preferred Start Date',
       type: 'date',
+      placeholder: 'Select a start date',
       required: true,
-      helpText: 'First kit will be delivered after 3 months of subscription'
+      helpText: 'Select a date (YYYY-MM-DD). First kit will be delivered after 3 months of subscription.'
     },
 
     // Additional Information

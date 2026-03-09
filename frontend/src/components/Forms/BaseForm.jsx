@@ -171,6 +171,7 @@ const BaseForm = ({
       case 'email':
       case 'tel':
       case 'number':
+      case 'date':
         return (
           <input
             type={field.type}
@@ -181,6 +182,8 @@ const BaseForm = ({
             className={`form-control ${errors[field.name] ? style.inputError : ''}`}
             placeholder={field.placeholder || ''}
             required={field.required}
+            min={field.min}
+            max={field.max}
           />
         );
       
