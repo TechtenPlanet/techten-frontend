@@ -112,7 +112,7 @@ const getInvolvedData = {
   contact: {
     title: "Have Questions? Reach Out Directly",
     email: "admin@techtenplanet.org",
-    whatsapp: "+233 596 905 337",
+    whatsapp: "+233596905337",
     responseTime: "We typically respond within 24 hours"
   }
 };

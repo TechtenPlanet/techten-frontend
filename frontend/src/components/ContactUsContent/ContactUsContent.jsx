@@ -164,8 +164,10 @@ const ContactUsContent = ({ defaultSubject = '' }) => {
                         <div className={style.infoItem}>
                             <FaMapMarkerAlt className={style.infoIcon} />
                             <div>
-                                <h4>Call Us</h4>
-                                <p>+233 50 123 4567</p>
+                                <h4>Visit Us</h4>
+                                <p>Lashibi FM, Nungua Ashaiman Road</p>
+                                <p>Community 16</p>
+                                <p>Digital: GQ-362-8765</p>
                             </div>
                         </div>
                         
@@ -173,6 +175,7 @@ const ContactUsContent = ({ defaultSubject = '' }) => {
                             <FaEnvelope className={style.infoIcon} />
                             <div>
                                 <h4>Email Us</h4>
+                                <p>admin@techtenplanet.org</p>
                                 <p>techtenplanet@gmail.com</p>
                             </div>
                         </div>
@@ -181,7 +184,7 @@ const ContactUsContent = ({ defaultSubject = '' }) => {
                             <FaPhone className={style.infoIcon} />
                             <div>
                                 <h4>Call Us</h4>
-                                <p>+233 50 123 4567</p>
+                                <p>+233 596 905 337</p>
                             </div>
                         </div>
                         
@@ -248,7 +251,7 @@ const ContactUsContent = ({ defaultSubject = '' }) => {
                                     id="user_phone" 
                                     name="user_phone" 
                                     className={formErrors.phone ? style.inputError : ''}
-                                    placeholder="Your phone number (e.g. +233 50 123 4567)" 
+                                    placeholder="Your phone number (e.g. +233 596 905 337)" 
                                 />
                                 {formErrors.phone && <p className={style.errorText}>{formErrors.phone}</p>}
                             </div>

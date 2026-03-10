@@ -106,11 +106,19 @@ const Footer = () => {
             <ul className={style.footerContactInfo}>
               <li>
                 <FaMapMarkerAlt className={style.contactIcon} />
-                <span>Accra, Ghana</span>
+                <span>
+                  Lashibi FM, Nungua Ashaiman Road, Community 16
+                  <br />
+                  Digital: GQ-362-8765
+                </span>
               </li>
               <li>
                 <FaPhone className={style.contactIcon} />
-                <span>+233 50 123 4567</span>
+                <span>+233 596 905 337</span>
+              </li>
+              <li>
+                <FaEnvelope className={style.contactIcon} />
+                <span>admin@techtenplanet.org</span>
               </li>
               <li>
                 <FaEnvelope className={style.contactIcon} />

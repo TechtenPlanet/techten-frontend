@@ -3,7 +3,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 import styles from './WhatsAppChatButton.module.css';
 
 const WhatsAppChatButton = () => {
-  const phoneNumber = '233501234567';
+  const phoneNumber = '233596905337';
   const message = 'Hi, TechTen, I have a question';
   const chatLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
