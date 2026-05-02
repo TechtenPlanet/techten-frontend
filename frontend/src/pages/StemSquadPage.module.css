@@ -1184,6 +1184,68 @@
   }
 }
 
+/* Scout free-tier card */
+.tierScout {
+  --tier-bg: #f0faf4;
+  --tier-text: #0b2a1a;
+  --tier-border: #1a5c3a;
+  --tier-shadow: 0 12px 32px rgba(26, 92, 58, 0.12);
+  --tier-accent: #1a5c3a;
+  background: var(--tier-bg);
+  border-style: dashed;
+  border-width: 2px;
+  border-color: var(--tier-border);
+}
+
+.tierScout .tierRank,
+.tierScout .tierFeatureIcon {
+  color: var(--tier-accent);
+}
+
+.tierScout .tierLabel,
+.tierScout .tierAges,
+.tierScout .tierNote {
+  color: #2d6a4f;
+  opacity: 1;
+}
+
+.tierScout .tierFeatures li,
+.tierScout .tierFeatures li span {
+  color: #1b4332;
+}
+
+.tierRibbonFree {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: #1a5c3a;
+  color: #ffffff;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.tierButtonGhost {
+  margin-top: auto;
+  align-self: flex-start;
+  background: transparent;
+  color: #1a5c3a;
+  border: 2px solid #1a5c3a;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.tierButtonGhost:hover {
+  background: #1a5c3a;
+  color: #ffffff;
+}
+
 /* Trust Bar — Amendment 1b */
 .trustBar {
   display: flex;

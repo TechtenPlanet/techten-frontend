@@ -211,6 +211,44 @@ const StemSquadPage = () => {
         </div>
       </div>
       <div className={styles.tiersGrid}>
+        {/* ── Static Scout free-tier card — always rendered, no Notion dependency ── */}
+        <article className={`${styles.tierCard} ${styles.tierScout}`}>
+          <span className={styles.tierRibbonFree}>FREE</span>
+          <div className={styles.tierHeader}>
+            <div>
+              <p className={styles.tierRank}>Rank 0</p>
+              <h3 className={styles.tierName}>The Scout</h3>
+              <p className={styles.tierLabel}>Community</p>
+            </div>
+            <div className={styles.tierPrice}>
+              <span className={styles.tierCurrency}>GHS</span>
+              <span className={styles.tierAmount}>0</span>
+              <span className={styles.tierPeriod}>/ month</span>
+            </div>
+          </div>
+          <p className={styles.tierHeadline}>Start for free. No card needed.</p>
+          <p className={styles.tierAges}>Ages 8–18</p>
+          <ul className={styles.tierFeatures}>
+            {[
+              'Mission Zero — 6-week guided learning path',
+              'Intro to Scratch & Python (self-paced)',
+              'WhatsApp community access',
+              'Monthly live webinar',
+              'Peer project showcase at Week 6',
+              'Digital completion badge',
+            ].map((feature) => (
+              <li key={feature}>
+                <MdCheckCircle aria-hidden="true" className={styles.tierFeatureIcon} />
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+          <Link className={styles.tierButtonGhost} to="/get-involved?form=community">
+            Join Free →
+          </Link>
+        </article>
+        {/* ── End static Scout card ── */}
+
         {tiers.map((tier) => {
           const resolvedGroupPrice = typeof tier.groupPrice === 'number' ? tier.groupPrice : tier.price;
           const displayPrice = isGroupPricing ? resolvedGroupPrice : tier.price;
