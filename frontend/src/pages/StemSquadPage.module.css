@@ -93,106 +93,173 @@
 
 /* Specific Section Styles */
 
-/* Hero Section */
+/* Hero Section — split layout */
 .heroSection {
-  composes: section;
-  background-color: #04070f;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: white;
-  min-height: 70vh;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
+  gap: 3rem;
+  padding: clamp(3rem, 5vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+  background: #ffffff;
   position: relative;
-  padding: clamp(3rem, 6vw, 4rem);
   overflow: hidden;
-  isolation: isolate;
 }
 
-.heroSection::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(4, 7, 15, 0.32) 0%,
-    rgba(4, 7, 15, 0.22) 45%,
-    rgba(4, 7, 15, 0.12) 70%,
-    rgba(4, 7, 15, 0.02) 100%
-  );
-  z-index: 0;
-}
-
-.heroContent {
-  position: relative;
-  z-index: 1;
+/* Left column — 60% */
+.heroLeft {
+  flex: 0 0 60%;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
   text-align: left;
-  align-items: flex-start;
-  background: transparent;
-  border: none;
-  border-radius: 16px;
-  padding: clamp(1.5rem, 3vw, 2rem);
-  max-width: 620px;
-  width: min(100%, 620px);
-  margin-left: auto;
-  margin-right: clamp(1.5rem, 6vw, 5rem);
-  box-shadow: none;
+}
+
+/* Right column — 40% */
+.heroRight {
+  flex: 0 0 40%;
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image collage */
+.heroCollage {
+  position: relative;
+  width: 100%;
+  height: 420px;
+}
+
+.collageImg {
+  position: absolute;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 3px solid #ffffff;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+.collageImg1 {
+  width: 62%;
+  height: 52%;
+  top: 0;
+  left: 0;
+  transform: rotate(-2.5deg);
+  z-index: 1;
+}
+
+.collageImg2 {
+  width: 58%;
+  height: 48%;
+  top: 22%;
+  right: 0;
+  transform: rotate(3deg);
+  z-index: 2;
+}
+
+.collageImg3 {
+  width: 54%;
+  height: 44%;
+  bottom: 0;
+  left: 12%;
+  transform: rotate(-1.5deg);
+  z-index: 3;
+}
+
+.collageBadge {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  background: #1a5c3a;
+  color: #ffffff;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  z-index: 10;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(26, 92, 58, 0.3);
+}
+
+/* Trust bar inside hero */
+.heroTrustBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 1.25rem;
+  margin-top: 0.25rem;
+}
+
+.heroTrustItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.heroTrustNumber {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #ff6620;
+  line-height: 1.2;
+}
+
+.heroTrustLabel {
+  font-size: 0.72rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.15rem;
 }
 
 .heroEyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255, 102, 32, 0.15);
-  color: #ffb085;
+  background: rgba(255, 102, 32, 0.1);
+  color: #c94f10;
   padding: 0.35rem 0.75rem;
   border-radius: 999px;
   font-weight: 600;
   letter-spacing: 0.5px;
   width: fit-content;
+  font-size: 0.88rem;
 }
 
 .heroTitle {
-  font-size: clamp(2.4rem, 3.5vw, 3.4rem);
+  font-size: clamp(2.2rem, 3.5vw, 3.2rem);
   font-weight: 800;
-  color: #fff;
+  color: #111827;
   margin: 0;
-  line-height: 1.2;
-  text-shadow: none;
+  line-height: 1.15;
 }
 
 .heroSubtitle {
-  color: #fff;
-  font-size: 1.1rem;
+  color: #4b5563;
+  font-size: 1.05rem;
   line-height: 1.7;
   margin: 0;
-  max-width: 640px;
-  text-shadow: none;
+  max-width: 520px;
 }
 
 .heroActions {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  align-items: center;
 }
 
 .heroButton {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: #FF6620;
-  color: white;
+  background-color: #ff6620;
+  color: #ffffff;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 700;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   border: none;
 }
 
@@ -200,24 +267,24 @@
   background-color: #e55b1e;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(255, 102, 32, 0.25);
+  color: #ffffff;
 }
 
 .heroSecondary {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  color: #f2f4f8;
+  color: #374151;
   text-decoration: none;
   font-weight: 600;
+  font-size: 0.95rem;
 }
 
 .heroSecondary:hover {
-  color: #ffb085;
+  color: #ff6620;
 }
 
 .heroCards {
-  position: relative;
-  z-index: 1;
   display: grid;
   gap: 1rem;
 }
@@ -243,15 +310,36 @@
   color: #fff;
 }
 
+/* Hero mobile */
 @media screen and (max-width: 768px) {
-  .heroContent {
-    text-align: center;
-    align-items: center;
+  .heroSection {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .heroLeft {
+    flex: none;
     width: 100%;
   }
 
-  .heroSection {
-    background-position: center;
+  .heroRight {
+    flex: none;
+    width: 100%;
+    min-height: 280px;
+    order: 1; /* image below text */
+  }
+
+  .heroCollage {
+    height: 280px;
+  }
+
+  .collageImg {
+    transform: none !important;
+  }
+
+  .heroSubtitle {
+    max-width: 100%;
   }
 }
 
@@ -868,50 +956,12 @@
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
 }
 
-.tierNote {
-  margin: 0.5rem 0 0;
-  font-size: 0.85rem;
-  opacity: 0.8;
-}
-
 .tierNoteRow {
   position: relative;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   flex-wrap: wrap;
-}
-
-.infoButton {
-  margin-left: 6px;
-  border: none;
-  background: var(--tier-accent);
-  color: #ffffff;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  font-size: 0.75rem;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.tierInfoPopup {
-  position: absolute;
-  bottom: calc(100% + 10px);
-  right: 0;
-  max-width: 240px;
-  background: #111827;
-  color: #ffffff;
-  border: 1px solid var(--tier-accent);
-  padding: 0.75rem 0.85rem;
-  border-radius: 12px;
-  font-size: 0.85rem;
-  line-height: 1.4;
-  box-shadow: 0 18px 40px rgba(17, 24, 39, 0.35);
-  z-index: 3;
 }
 
 @media (max-width: 768px) {
@@ -1324,4 +1374,281 @@
   color: #FF6620;
   font-weight: 600;
   text-decoration: underline;
+}
+
+/* ── Pricing card redesign ── */
+
+/* Card container */
+.pricingCard {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1.5px solid #e5e7eb;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricingCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+.pricingCardPopular {
+  border: 2px solid #f5a623;
+  box-shadow: 0 8px 32px rgba(245, 166, 35, 0.22);
+  transform: translateY(-8px);
+}
+
+.pricingCardPopular:hover {
+  transform: translateY(-13px);
+  box-shadow: 0 20px 48px rgba(245, 166, 35, 0.28);
+}
+
+.pricingCardFree {
+  border: 2px dashed #1a5c3a;
+  background: #f0faf4;
+}
+
+.pricingCardSchool {
+  border: 1.5px solid #3b1f8c;
+}
+
+/* Badges */
+.cardBadge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.cardBadgeFree { background: #1a5c3a; }
+.cardBadgePopular { background: #f5a623; }
+.cardBadgeSchool { background: #3b1f8c; }
+
+/* Hierarchy */
+.cardRank {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.cardTitle {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #111827;
+  margin: 0.1rem 0 0;
+  line-height: 1.2;
+}
+
+.cardSubtitle {
+  font-size: 0.88rem;
+  color: #6b7280;
+  margin: 0;
+  font-weight: 500;
+}
+
+.cardTagline {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+.cardAge {
+  display: inline-block;
+  background: #f3f4f6;
+  color: #374151;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  width: fit-content;
+  margin: 0;
+}
+
+.pricingCardFree .cardTitle,
+.pricingCardFree .cardTagline {
+  color: #0b2a1a;
+}
+
+.pricingCardFree .cardRank {
+  color: #2d6a4f;
+}
+
+/* Price block */
+.priceBlock {
+  display: flex;
+  align-items: baseline;
+  gap: 0.2rem;
+  margin: 0.25rem 0;
+}
+
+.priceCurrency {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #6b7280;
+  align-self: flex-start;
+  margin-top: 0.55rem;
+}
+
+.priceAmount {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #111827;
+  line-height: 1;
+}
+
+.priceFreq {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+/* Includes pills */
+.cardIncludes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.includeTag {
+  display: inline-block;
+  border: 1.5px solid #16a34a;
+  color: #15803d;
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: transparent;
+}
+
+/* Feature list — checkmark via CSS */
+.cardFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.cardFeatures li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.cardFeatures li::before {
+  content: "✓";
+  color: #16a34a;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.pricingCardFree .cardFeatures li {
+  color: #1b4332;
+}
+
+/* CTA buttons */
+.cardCta {
+  margin-top: auto;
+  display: block;
+  text-align: center;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.cardCtaFilled {
+  background: #111827;
+  color: #ffffff;
+  border: none;
+}
+
+.cardCtaFilled:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+  color: #ffffff;
+}
+
+.cardCtaAmber {
+  background: #f5a623;
+  color: #ffffff;
+}
+
+.cardCtaAmber:hover {
+  background: #d48c1a;
+  box-shadow: 0 8px 20px rgba(245, 166, 35, 0.3);
+  color: #ffffff;
+}
+
+.cardCtaGhost {
+  background: transparent;
+  color: #1a5c3a;
+  border: 2px solid #1a5c3a;
+}
+
+.cardCtaGhost:hover {
+  background: #1a5c3a;
+  color: #ffffff;
+}
+
+/* Fix info button and popup now that tier CSS vars are gone */
+.infoButton {
+  margin-left: 6px;
+  border: none;
+  background: #ff6620;
+  color: #ffffff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.tierInfoPopup {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  right: 0;
+  max-width: 240px;
+  background: #111827;
+  color: #ffffff;
+  border: 1px solid #ff6620;
+  padding: 0.75rem 0.85rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  box-shadow: 0 18px 40px rgba(17, 24, 39, 0.35);
+  z-index: 3;
+}
+
+.tierNote {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  color: #6b7280;
 }

@@ -1,0 +1,80 @@
+.bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  z-index: 1001; /* above navbar (z-index: 1000) */
+  background: #f5a623;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 1rem 0 3rem; /* extra right padding for close btn */
+}
+
+.text {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  text-align: center;
+}
+
+.discount {
+  font-weight: 700;
+  color: #1a1f5e;
+}
+
+.cta {
+  flex-shrink: 0;
+  background: #1a1f5e;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+
+.cta:hover {
+  background: #0d1240;
+  color: #ffffff;
+}
+
+.close {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.55);
+  padding: 0.25rem 0.4rem;
+  line-height: 1;
+  border-radius: 4px;
+  transition: color 0.15s ease, background 0.15s ease;
+  position: absolute;
+  right: 0.75rem;
+}
+
+.close:hover {
+  color: #1a1a1a;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Collapse text on small screens — show shortened version */
+@media (max-width: 640px) {
+  .bar {
+    padding: 0 2.5rem 0 0.75rem;
+  }
+
+  .text {
+    font-size: 0.78rem;
+  }
+}

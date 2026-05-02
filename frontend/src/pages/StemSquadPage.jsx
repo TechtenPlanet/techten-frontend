@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaRocket, FaShieldAlt, FaClock } from 'react-icons/fa';
-import { MdAssignment, MdLocalShipping, MdScience, MdCheckCircle, MdMemory, MdBuild, MdLaptopChromebook } from 'react-icons/md';
+import { MdAssignment, MdLocalShipping, MdScience } from 'react-icons/md';
 import { getStemSquadLandingContent } from '../notion/stemSquadService';
 import styles from './StemSquadPage.module.css'; // Assuming you'll create a CSS module for styling
 import WhatsAppChatButton from '../components/WhatsAppChatButton/WhatsAppChatButton';
+import collageImg1 from '../assets/images/techten_girl_robotics.png';
+import collageImg2 from '../assets/images/LearnwithRaspberrypi-at-Techtenplanet.jpeg';
+import collageImg3 from '../assets/images/students_at_techten.jpeg';
 
 const StemSquadPage = () => {
   const [content, setContent] = useState([]);
@@ -95,7 +98,7 @@ const StemSquadPage = () => {
         'Official STEM Squad T-Shirt.',
       ],
       theme: 'tierExplorer',
-      buttonLabel: 'Join the Squad',
+      buttonLabel: 'Enroll Now — Explorer',
     },
     {
       key: 'maker',
@@ -115,7 +118,7 @@ const StemSquadPage = () => {
       ],
       theme: 'tierMaker',
       isPopular: true,
-      buttonLabel: 'Join the Squad',
+      buttonLabel: 'Enroll Now — Maker',
     },
     {
       key: 'innovator',
@@ -136,7 +139,7 @@ const StemSquadPage = () => {
       theme: 'tierInnovator',
       badge: 'School / Group Plan',
       isSchoolTier: true,
-      buttonLabel: 'Join the Squad',
+      buttonLabel: 'Enquire for Schools',
     },
   ];
   const planDataByType = planSections.reduce((acc, section) => {
@@ -170,24 +173,6 @@ const StemSquadPage = () => {
 
   const renderPlansSection = () => (
     <section className={styles.tiersSection}>
-      <div className={styles.trustBar}>
-        <div className={styles.trustItem}>
-          <span className={styles.trustNumber}>50+</span>
-          <span className={styles.trustLabel}>Active Squad Members</span>
-        </div>
-        <div className={styles.trustItem}>
-          <span className={styles.trustNumber}>4+</span>
-          <span className={styles.trustLabel}>Years Running</span>
-        </div>
-        <div className={styles.trustItem}>
-          <span className={styles.trustNumber}>2190+</span>
-          <span className={styles.trustLabel}>Hours of Hands-On Learning</span>
-        </div>
-        <div className={styles.trustItem}>
-          <span className={styles.trustNumber}>Arduino · Raspberry Pi · Cytron</span>
-          <span className={styles.trustLabel}>World-Class Hardware Partners</span>
-        </div>
-      </div>
       <div className={styles.tiersHeader}>
         <div>
           <p className={styles.tiersEyebrow}>Membership Tiers</p>
@@ -212,23 +197,23 @@ const StemSquadPage = () => {
       </div>
       <div className={styles.tiersGrid}>
         {/* ── Static Scout free-tier card — always rendered, no Notion dependency ── */}
-        <article className={`${styles.tierCard} ${styles.tierScout}`}>
-          <span className={styles.tierRibbonFree}>FREE</span>
-          <div className={styles.tierHeader}>
-            <div>
-              <p className={styles.tierRank}>Rank 0</p>
-              <h3 className={styles.tierName}>The Scout</h3>
-              <p className={styles.tierLabel}>Community</p>
-            </div>
-            <div className={styles.tierPrice}>
-              <span className={styles.tierCurrency}>GHS</span>
-              <span className={styles.tierAmount}>0</span>
-              <span className={styles.tierPeriod}>/ month</span>
-            </div>
+        <article className={`${styles.pricingCard} ${styles.pricingCardFree}`}>
+          <span className={`${styles.cardBadge} ${styles.cardBadgeFree}`}>FREE</span>
+          <p className={styles.cardRank}>Rank 0</p>
+          <h3 className={styles.cardTitle}>The Scout</h3>
+          <p className={styles.cardSubtitle}>Community</p>
+          <p className={styles.cardTagline}>Start for free. No card needed.</p>
+          <p className={styles.cardAge}>Ages 8–18</p>
+          <div className={styles.priceBlock}>
+            <span className={styles.priceCurrency}>GHS</span>
+            <span className={styles.priceAmount}>0</span>
+            <span className={styles.priceFreq}>/month</span>
           </div>
-          <p className={styles.tierHeadline}>Start for free. No card needed.</p>
-          <p className={styles.tierAges}>Ages 8–18</p>
-          <ul className={styles.tierFeatures}>
+          <div className={styles.cardIncludes}>
+            <span className={styles.includeTag}>Mission Zero</span>
+            <span className={styles.includeTag}>WhatsApp Community</span>
+          </div>
+          <ul className={styles.cardFeatures}>
             {[
               'Mission Zero — 6-week guided learning path',
               'Intro to Scratch & Python (self-paced)',
@@ -237,13 +222,10 @@ const StemSquadPage = () => {
               'Peer project showcase at Week 6',
               'Digital completion badge',
             ].map((feature) => (
-              <li key={feature}>
-                <MdCheckCircle aria-hidden="true" className={styles.tierFeatureIcon} />
-                <span>{feature}</span>
-              </li>
+              <li key={feature}><span>{feature}</span></li>
             ))}
           </ul>
-          <Link className={styles.tierButtonGhost} to="/get-involved?form=community">
+          <Link className={`${styles.cardCta} ${styles.cardCtaGhost}`} to="/get-involved?form=community">
             Join Free →
           </Link>
         </article>
@@ -252,59 +234,46 @@ const StemSquadPage = () => {
         {tiers.map((tier) => {
           const resolvedGroupPrice = typeof tier.groupPrice === 'number' ? tier.groupPrice : tier.price;
           const displayPrice = isGroupPricing ? resolvedGroupPrice : tier.price;
-          const showHardwareIcons = (feature) => /kit/i.test(feature);
           const badgeText = tier.badge || (tier.isPopular ? 'Most Popular' : '');
           return (
             <article
               key={tier.key}
-              className={`${styles.tierCard} ${styles[tier.theme]} ${tier.isPopular ? styles.tierPopular : ''}`}
+              className={`${styles.pricingCard} ${tier.isPopular ? styles.pricingCardPopular : ''} ${tier.isSchoolTier ? styles.pricingCardSchool : ''}`}
             >
-              {badgeText && <span className={styles.tierRibbon}>{badgeText}</span>}
-              <div className={styles.tierHeader}>
-                <div>
-                  <p className={styles.tierRank}>{tier.rank}</p>
-                  <h3 className={styles.tierName}>{tier.name}</h3>
-                  <p className={styles.tierLabel}>{tier.tierLabel}</p>
-                </div>
-                <div className={styles.tierPrice}>
-                  <span className={styles.tierCurrency}>GHS</span>
-                  <span className={styles.tierAmount}>{displayPrice}</span>
-                  <span className={styles.tierPeriod}>/month</span>
-                </div>
+              {badgeText && (
+                <span className={`${styles.cardBadge} ${tier.isPopular ? styles.cardBadgePopular : styles.cardBadgeSchool}`}>
+                  {badgeText}
+                </span>
+              )}
+              <p className={styles.cardRank}>{tier.rank}</p>
+              <h3 className={styles.cardTitle}>{tier.name}</h3>
+              <p className={styles.cardSubtitle}>{tier.tierLabel}</p>
+              <p className={styles.cardTagline}>{tier.headline}</p>
+              <p className={styles.cardAge}>{tier.ageRange}</p>
+              <div className={styles.priceBlock}>
+                <span className={styles.priceCurrency}>GHS</span>
+                <span className={styles.priceAmount}>{displayPrice}</span>
+                <span className={styles.priceFreq}>/month</span>
               </div>
-              <p className={styles.tierHeadline}>{tier.headline}</p>
-              <p className={styles.tierAges}>{tier.ageRange}</p>
               {tier.isSchoolTier && (
                 <div className={styles.tierSchoolMeta}>
                   <p className={styles.tierSchoolLabel}>Best for schools, aftercare centres &amp; group buys</p>
                   <p className={styles.tierSchoolNote}>Individual pricing available — <a href="/contact">contact us</a>.</p>
                 </div>
               )}
-              <div className={styles.tierHighlights}>
-                <span className={styles.tierHighlight}>
-                  <MdLaptopChromebook aria-hidden="true" />
-                  Mission Control LMS
-                </span>
-                <span className={styles.tierHighlight}>
-                  <MdMemory aria-hidden="true" />
-                  STEM Kits
-                </span>
+              <div className={styles.cardIncludes}>
+                <span className={styles.includeTag}>Mission Control LMS</span>
+                <span className={styles.includeTag}>STEM Kits</span>
               </div>
-              <ul className={styles.tierFeatures}>
+              <ul className={styles.cardFeatures}>
                 {tier.features.map((feature, index) => (
-                  <li key={`${tier.key}-feature-${index}`}>
-                    <MdCheckCircle aria-hidden="true" className={styles.tierFeatureIcon} />
-                    <span>{feature}</span>
-                    {showHardwareIcons(feature) && (
-                      <span className={styles.hardwareIcons} aria-hidden="true">
-                        <MdMemory />
-                        <MdBuild />
-                      </span>
-                    )}
-                  </li>
+                  <li key={`${tier.key}-feature-${index}`}><span>{feature}</span></li>
                 ))}
               </ul>
-              <Link className={styles.tierButton} to={buildStemLink(tier.planKey, pricingMode)}>
+              <Link
+                className={`${styles.cardCta} ${styles.cardCtaFilled} ${tier.isPopular ? styles.cardCtaAmber : ''}`}
+                to={buildStemLink(tier.planKey, pricingMode)}
+              >
                 {tier.buttonLabel}
               </Link>
               <div className={styles.tierNoteRow}>
@@ -348,12 +317,9 @@ const StemSquadPage = () => {
             ? "Join the STEM Squad — Ghana's hands-on STEM programme that ships real hardware to your door and builds the skills schools don't teach."
             : section.content;
         return (
-          <section
-            key={section.id}
-            className={styles.heroSection}
-            style={section.media && section.media.length > 0 ? { backgroundImage: `url(${section.media[0].url})` } : {}}
-          >
-            <div className={styles.heroContent}>
+          <section key={section.id} className={styles.heroSection}>
+            {/* Left — text + trust bar */}
+            <div className={styles.heroLeft}>
               <div className={styles.heroEyebrow}>
                 <FaRocket /> STEM Squad
               </div>
@@ -371,6 +337,45 @@ const StemSquadPage = () => {
                 <Link to="/get-involved?form=stem-squad" className={styles.heroSecondary}>
                   View Plans →
                 </Link>
+              </div>
+              <div className={styles.heroTrustBar}>
+                <div className={styles.heroTrustItem}>
+                  <span className={styles.heroTrustNumber}>50+</span>
+                  <span className={styles.heroTrustLabel}>Active Members</span>
+                </div>
+                <div className={styles.heroTrustItem}>
+                  <span className={styles.heroTrustNumber}>4+</span>
+                  <span className={styles.heroTrustLabel}>Years Running</span>
+                </div>
+                <div className={styles.heroTrustItem}>
+                  <span className={styles.heroTrustNumber}>2190+</span>
+                  <span className={styles.heroTrustLabel}>Learning Hours</span>
+                </div>
+                <div className={styles.heroTrustItem}>
+                  <span className={styles.heroTrustNumber}>Arduino · Pi · Cytron</span>
+                  <span className={styles.heroTrustLabel}>Hardware Partners</span>
+                </div>
+              </div>
+            </div>
+            {/* Right — image collage */}
+            <div className={styles.heroRight}>
+              <div className={styles.heroCollage}>
+                <img
+                  className={`${styles.collageImg} ${styles.collageImg1}`}
+                  src={collageImg1}
+                  alt="Techten student with robotics kit"
+                />
+                <img
+                  className={`${styles.collageImg} ${styles.collageImg2}`}
+                  src={collageImg2}
+                  alt="Learning with Raspberry Pi at Techten"
+                />
+                <img
+                  className={`${styles.collageImg} ${styles.collageImg3}`}
+                  src={collageImg3}
+                  alt="Students at Techten"
+                />
+                <span className={styles.collageBadge}>Real Hardware. Real Skills.</span>
               </div>
             </div>
           </section>

@@ -24,6 +24,7 @@ import GetInvolvedPage from './pages/GetInvolvedPage';
 import StemSquadPage from './pages/StemSquadPage'; // Import the new page
 import GetHiredPage from './pages/GetHiredPage';
 import Navbar from './components/Navbar/Navbar';
+import AnnouncementBar from './components/AnnouncementBar/AnnouncementBar';
 import Footer from './components/Footer/Footer';
 import BlogDetail from './components/BlogDetail/BlogDetail';
 import EventDetail from './components/EventDetail/EventDetail';
@@ -41,6 +42,7 @@ function App() {
 
   return (
     <>
+      {location.pathname === '/' && <AnnouncementBar />}
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
