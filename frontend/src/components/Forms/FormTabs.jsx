@@ -5,10 +5,11 @@ import MentorForm from './MentorForm';
 import PartnershipForm from './PartnershipForm';
 import SponsorshipForm from './SponsorshipForm';
 import StemSquadEnrollmentForm from './StemSquadEnrollmentForm';
+import CareerProgrammeForm from './CareerProgrammeForm';
 
 const FormTabs = ({ initialTab = 'volunteer' }) => {
   const [activeTab, setActiveTab] = useState(initialTab);
-  
+
   // Update active tab when initialTab prop changes
   useEffect(() => {
     setActiveTab(initialTab);
@@ -26,6 +27,8 @@ const FormTabs = ({ initialTab = 'volunteer' }) => {
         return <SponsorshipForm />;
       case 'stem-squad':
         return <StemSquadEnrollmentForm />;
+      case 'career-programme':
+        return <CareerProgrammeForm />;
       default:
         return <VolunteerForm />;
     }
@@ -34,38 +37,45 @@ const FormTabs = ({ initialTab = 'volunteer' }) => {
   return (
     <div>
       <div className={style.formTabs}>
-        <div 
+        <div
           className={`${style.formTab} ${activeTab === 'volunteer' ? style.formTabActive : ''}`}
           onClick={() => setActiveTab('volunteer')}
         >
           Volunteer Sign-Up
         </div>
-        <div 
+        <div
           className={`${style.formTab} ${activeTab === 'mentor' ? style.formTabActive : ''}`}
           onClick={() => setActiveTab('mentor')}
         >
           Mentor Registration
         </div>
-        <div 
+        <div
           className={`${style.formTab} ${activeTab === 'partnership' ? style.formTabActive : ''}`}
           onClick={() => setActiveTab('partnership')}
         >
           Partnership Inquiry
         </div>
-        <div 
+        <div
           className={`${style.formTab} ${activeTab === 'sponsorship' ? style.formTabActive : ''}`}
           onClick={() => setActiveTab('sponsorship')}
         >
           Sponsorship Interest
         </div>
-        <div 
+        <div
           className={`${style.formTab} ${activeTab === 'stem-squad' ? style.formTabActive : ''}`}
           onClick={() => setActiveTab('stem-squad')}
         >
           STEM Squad Enrollment
         </div>
+        <div
+          className={`${style.formTab} ${activeTab === 'career-programme' ? style.formTabActive : ''}`}
+          onClick={() => setActiveTab('career-programme')}
+        >
+          Career Programme
+          <span className={style.tabBadge}>New</span>
+        </div>
       </div>
-      
+
       {renderForm()}
     </div>
   );

@@ -6,4 +6,5 @@ export { default as SponsorshipForm } from './SponsorshipForm';
 export { default as EnrollmentForm } from './EnrollmentForm';
 export { default as StemSquadEnrollmentForm } from './StemSquadEnrollmentForm';
 export { default as EventRegistrationForm } from './EventRegistrationForm';
+export { default as CareerProgrammeForm } from './CareerProgrammeForm';
 export { default as FormTabs } from './FormTabs';

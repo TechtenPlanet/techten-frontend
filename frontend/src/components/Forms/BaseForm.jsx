@@ -75,18 +75,18 @@ const BaseForm = ({
     if (validateForm()) {
       try {
         // Determine the form type based on the title or a prop
-        const formType = title.toLowerCase().includes('volunteer') 
+        const formType = title.toLowerCase().includes('volunteer')
           ? 'volunteer'
-          : title.toLowerCase().includes('partner') 
+          : title.toLowerCase().includes('partner')
             ? 'partnership'
-            : title.toLowerCase().includes('contact') 
+            : title.toLowerCase().includes('contact')
               ? 'contact'
-              : title.toLowerCase().includes('enroll') 
+              : title.toLowerCase().includes('enroll')
                 ? 'enrollment'
-                : title.toLowerCase().includes('register') 
+                : title.toLowerCase().includes('register')
                   ? 'event-registration'
                   : 'general';
-        
+
         // Submit to Notion backend based on form type
         let result;
         if (formType === 'enrollment') {

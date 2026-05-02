@@ -27,7 +27,7 @@ const GetInvolvedPage = () => {
     
     if (formParam) {
       // Valid form types: volunteer, mentor, partnership, sponsorship, stem-squad
-      const validFormTypes = ['volunteer', 'mentor', 'partnership', 'sponsorship', 'stem-squad'];
+      const validFormTypes = ['volunteer', 'mentor', 'partnership', 'sponsorship', 'stem-squad', 'career-programme'];
       if (validFormTypes.includes(formParam)) {
         setActiveFormTab(formParam);
         

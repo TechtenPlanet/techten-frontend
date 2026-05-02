@@ -134,6 +134,8 @@ const StemSquadPage = () => {
         'Priority Support & Bonus project materials.',
       ],
       theme: 'tierInnovator',
+      badge: 'School / Group Plan',
+      isSchoolTier: true,
       buttonLabel: 'Join the Squad',
     },
   ];
@@ -168,6 +170,24 @@ const StemSquadPage = () => {
 
   const renderPlansSection = () => (
     <section className={styles.tiersSection}>
+      <div className={styles.trustBar}>
+        <div className={styles.trustItem}>
+          <span className={styles.trustNumber}>50+</span>
+          <span className={styles.trustLabel}>Active Squad Members</span>
+        </div>
+        <div className={styles.trustItem}>
+          <span className={styles.trustNumber}>4+</span>
+          <span className={styles.trustLabel}>Years Running</span>
+        </div>
+        <div className={styles.trustItem}>
+          <span className={styles.trustNumber}>2190+</span>
+          <span className={styles.trustLabel}>Hours of Hands-On Learning</span>
+        </div>
+        <div className={styles.trustItem}>
+          <span className={styles.trustNumber}>Arduino · Raspberry Pi · Cytron</span>
+          <span className={styles.trustLabel}>World-Class Hardware Partners</span>
+        </div>
+      </div>
       <div className={styles.tiersHeader}>
         <div>
           <p className={styles.tiersEyebrow}>Membership Tiers</p>
@@ -216,6 +236,12 @@ const StemSquadPage = () => {
               </div>
               <p className={styles.tierHeadline}>{tier.headline}</p>
               <p className={styles.tierAges}>{tier.ageRange}</p>
+              {tier.isSchoolTier && (
+                <div className={styles.tierSchoolMeta}>
+                  <p className={styles.tierSchoolLabel}>Best for schools, aftercare centres &amp; group buys</p>
+                  <p className={styles.tierSchoolNote}>Individual pricing available — <a href="/contact">contact us</a>.</p>
+                </div>
+              )}
               <div className={styles.tierHighlights}>
                 <span className={styles.tierHighlight}>
                   <MdLaptopChromebook aria-hidden="true" />
@@ -267,15 +293,25 @@ const StemSquadPage = () => {
           );
         })}
       </div>
+      <p className={styles.pricingNote}>
+        Need support? Ask about our{' '}
+        <a href="/get-involved?form=scholarship">scholarship spots</a> and{' '}
+        <a href="/get-involved?form=stem-squad">group buy discounts</a>.{' '}
+        We never want cost to be a barrier.
+      </p>
     </section>
   );
 
   const renderSection = (section) => {
     switch (section.type) {
-      case 'Hero':
+      case 'Hero': {
+        const heroSubtitleContent =
+          section.content && /premium monthly membership/i.test(section.content)
+            ? "Join the STEM Squad — Ghana's hands-on STEM programme that ships real hardware to your door and builds the skills schools don't teach."
+            : section.content;
         return (
-          <section 
-            key={section.id} 
+          <section
+            key={section.id}
             className={styles.heroSection}
             style={section.media && section.media.length > 0 ? { backgroundImage: `url(${section.media[0].url})` } : {}}
           >
@@ -284,7 +320,7 @@ const StemSquadPage = () => {
                 <FaRocket /> STEM Squad
               </div>
               <h1 className={styles.heroTitle}>{section.title}</h1>
-              <p className={styles.heroSubtitle} dangerouslySetInnerHTML={{ __html: section.content }} />
+              <p className={styles.heroSubtitle} dangerouslySetInnerHTML={{ __html: heroSubtitleContent }} />
               <div className={styles.heroActions}>
                 {section.buttonLabel && (
                   <Link
@@ -301,6 +337,7 @@ const StemSquadPage = () => {
             </div>
           </section>
         );
+      }
       case 'Hero Highlights':
         return (
           <section key={section.id} className={styles.heroCards}>

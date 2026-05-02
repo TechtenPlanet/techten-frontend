@@ -1,7 +1,7 @@
-import { 
-  notion, 
-  CONTACT_DB_ID, 
-  ENROLLMENTS_DB_ID, 
+import {
+  notion,
+  CONTACT_DB_ID,
+  ENROLLMENTS_DB_ID,
   EVENT_REGISTRATIONS_DB_ID,
   VOLUNTEER_DB_ID,
   PARTNERSHIP_DB_ID,

@@ -1,0 +1,323 @@
+.getHiredPage {
+  padding-top: 90px;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+/* Shared container */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.containerNarrow {
+  max-width: 680px;
+}
+
+/* Section titles */
+.sectionTitle {
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+  font-weight: 800;
+  color: #1f2a37;
+  margin-bottom: 0.75rem;
+}
+
+/* HERO */
+.pageHero {
+  background: #04070f;
+  color: white;
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #FF6620;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.heroTitle {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: white;
+  margin-bottom: 1.25rem;
+}
+
+.heroLead {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  max-width: 55ch;
+  margin: 0 auto 2rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+}
+
+/* HOW IT WORKS */
+.howItWorks {
+  padding: 5rem 1rem;
+  background: #f8f9fa;
+}
+
+.sectionIntro {
+  font-size: 1.05rem;
+  color: #6b7280;
+  margin-bottom: 2.5rem;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.timelineStep {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.stepNumber {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #FF6620;
+  opacity: 0.28;
+  line-height: 1;
+}
+
+.stepContent h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #1f2a37;
+}
+
+.stepContent p {
+  color: #4b5563;
+  max-width: 55ch;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.stepNote {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #6b7280;
+}
+
+/* WHO IT'S FOR */
+.whoItsFor {
+  padding: 5rem 1rem;
+  background: #ffffff;
+}
+
+.eligibilityList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.eligibilityList li::before {
+  content: "→ ";
+  color: #FF6620;
+  font-weight: 700;
+}
+
+.eligibilityList li {
+  font-size: 1rem;
+  color: #374151;
+  line-height: 1.6;
+}
+
+/* FOR EMPLOYERS */
+.forEmployers {
+  padding: 5rem 1rem;
+  background: #f4f9f6;
+}
+
+.employerCard {
+  background: white;
+  border-radius: 12px;
+  padding: 2.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.employerText p {
+  color: #4b5563;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  max-width: 55ch;
+}
+
+/* LAUNCH */
+.launchSection {
+  padding: 4rem 1rem;
+  background: #ffffff;
+  text-align: center;
+}
+
+.launchSection p {
+  color: #4b5563;
+  font-size: 1.05rem;
+  max-width: 55ch;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* APPLY SECTION */
+.applySection {
+  padding: 5rem 1rem;
+  background: #f8f9fa;
+}
+
+.applySection > .containerNarrow {
+  text-align: center;
+}
+
+.applySection p {
+  color: #4b5563;
+  margin-bottom: 2rem;
+}
+
+/* FORM */
+.careerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  text-align: left;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.formGroup label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1f2a37;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  padding: 0.65rem 0.9rem;
+  border: 1.5px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+  font-family: inherit;
+  transition: border-color 180ms ease;
+  box-sizing: border-box;
+  background: white;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #FF6620;
+  box-shadow: 0 0 0 3px rgba(255, 102, 32, 0.15);
+}
+
+.formSuccess {
+  background: #ecfdf5;
+  border: 1px solid #6ee7b7;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  color: #065f46;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.formError {
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  color: #991b1b;
+  font-size: 0.95rem;
+}
+
+.formError a {
+  color: inherit;
+  font-weight: 600;
+}
+
+/* BUTTONS */
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FF6620;
+  color: white;
+  padding: 0.75rem 1.75rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btnPrimary:hover {
+  background-color: #e55b1e;
+  transform: translateY(-2px);
+  color: white;
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  border: 2px solid #FF6620;
+  color: #FF6620;
+  padding: 0.65rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 180ms ease;
+}
+
+.btnSecondary:hover {
+  background: #FF6620;
+  color: white;
+}
+
+.btnFull {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .timelineStep {
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1rem;
+  }
+
+  .stepNumber {
+    font-size: 1.75rem;
+  }
+
+  .employerCard {
+    padding: 1.5rem;
+  }
+
+  .pageHero {
+    padding: 4rem 1rem;
+  }
+}

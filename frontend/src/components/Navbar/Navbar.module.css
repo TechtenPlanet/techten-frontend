@@ -208,6 +208,27 @@
     padding: 6px 0;
 }
 
+/* Get Hired nav badge */
+.navLinkHighlight {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+.navBadge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  background: #FF6620;
+  color: white;
+  padding: 1px 6px;
+  border-radius: 999px;
+  margin-left: 5px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+}
+
 /* Mobile Styling */
 
 @media screen and (max-width: 1024px) {

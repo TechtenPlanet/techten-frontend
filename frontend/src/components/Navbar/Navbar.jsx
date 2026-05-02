@@ -73,6 +73,12 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
+              <NavLink to="/get-hired" className={({ isActive }) => (isActive ? `${style.activeLink} ${style.navLinkHighlight}` : `${style.navLink} ${style.navLinkHighlight}`)} onClick={closeMobileMenu}>
+                Get Hired
+                <span className={style.navBadge}>New</span>
+              </NavLink>
+            </li>
+            <li>
               <NavLink to="/events" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
                 Events
               </NavLink>
@@ -148,6 +154,12 @@ const Navbar = () => {
           <li>
             <NavLink to="/courses" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
               Courses
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/get-hired" className={({ isActive }) => (isActive ? `${style.activeLink} ${style.navLinkHighlight}` : `${style.navLink} ${style.navLinkHighlight}`)} onClick={closeMobileMenu}>
+              Get Hired
+              <span className={style.navBadge}>New</span>
             </NavLink>
           </li>
           <li>

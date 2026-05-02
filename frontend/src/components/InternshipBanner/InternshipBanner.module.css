@@ -1,203 +1,89 @@
-.internshipBanner {
-  padding: 60px 20px;
-  background-color: #f8f9fa;
-  width: 100%;
+.careerBridge {
+  padding: 4rem 1rem;
+  background: #f4f9f6;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
+}
+
+.careerBridgeInner {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: 3rem;
   align-items: center;
 }
 
-.imageSection {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.internshipImage {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  border-radius: 15px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.internshipImage:hover {
-  transform: scale(1.02);
-}
-
-.contentSection {
-  padding: 20px 0;
-}
-
-.header {
-  margin-bottom: 30px;
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #FF6620;
+  margin-bottom: 0.5rem;
 }
 
 .title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #0303AB;
-  margin-bottom: 15px;
-  line-height: 1.2;
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 800;
+  color: #1f2a37;
+  margin-bottom: 1rem;
 }
 
-.subtitle {
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 0;
-}
-
-.benefits {
-  margin-bottom: 30px;
-}
-
-.benefitsTitle {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #FF6620;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-}
-
-.benefitsList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.benefitItem {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 12px;
+.description {
+  color: #4b5563;
+  line-height: 1.7;
   font-size: 1rem;
-  color: #333;
+  margin-bottom: 1.5rem;
+  max-width: 50ch;
 }
 
-.checkIcon {
-  color: #FF6620;
-  margin-right: 12px;
-  margin-top: 2px;
-  flex-shrink: 0;
-}
-
-.applicationPeriod {
-  display: flex;
-  align-items: center;
-  background-color: #e8f4fd;
-  padding: 15px 20px;
-  border-radius: 8px;
-  margin-bottom: 30px;
-  border-left: 4px solid #0303AB;
-}
-
-.calendarIcon {
-  color: #0303AB;
-  margin-right: 10px;
-  font-size: 1.1rem;
-}
-
-.periodText {
-  color: #0303AB;
-  font-size: 1rem;
-  font-weight: 500;
-}
-
-.ctaSection {
-  text-align: left;
-}
-
-.applyButton {
-  background-color: #FF6620;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 600;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.ctaButton {
   display: inline-flex;
   align-items: center;
+  background-color: #FF6620;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
   text-decoration: none;
-  margin-bottom: 10px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.applyButton:hover {
-  background-color: #e55a1c;
+.ctaButton:hover {
+  background-color: #e55b1e;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255, 102, 32, 0.3);
+  color: white;
 }
 
-.linkIcon {
-  margin-left: 8px;
-  font-size: 0.9rem;
+.careerBridgeStats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.ctaNote {
-  font-size: 0.9rem;
-  color: #666;
-  margin: 0;
-  font-style: italic;
+.stat {
+  border-left: 3px solid #FF6620;
+  padding-left: 1rem;
 }
 
-/* Responsive Design */
+.statN {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #FF6620;
+}
+
+.statLabel {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
 @media (max-width: 768px) {
-  .internshipBanner {
-    padding: 40px 20px;
-  }
-  
-  .container {
+  .careerBridgeInner {
     grid-template-columns: 1fr;
-    gap: 40px;
-    text-align: center;
-  }
-  
-  .title {
-    font-size: 2rem;
-  }
-  
-  .subtitle {
-    font-size: 1rem;
-  }
-  
-  .internshipImage {
-    max-width: 400px;
-  }
-  
-  .ctaSection {
-    text-align: center;
-  }
-  
-  .applicationPeriod {
-    justify-content: center;
-    text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .internshipBanner {
-    padding: 30px 15px;
-  }
-  
-  .title {
-    font-size: 1.8rem;
-  }
-  
-  .internshipImage {
-    max-width: 100%;
-  }
-  
-  .applyButton {
-    width: 100%;
-    justify-content: center;
+    gap: 2rem;
   }
 }

@@ -1,70 +1,41 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import style from './InternshipBanner.module.css';
-import { FaCheckCircle, FaExternalLinkAlt, FaCalendarAlt } from 'react-icons/fa';
-import internshipImage from '../../assets/images/courses_images/TechtenPlanet_internship.jpeg';
 
 const InternshipBanner = () => {
-  const benefits = [
-    "Gain hands-on experience with real STEM projects",
-    "Build skills in programming, hardware, and innovation", 
-    "Grow your career opportunities in STEM"
-  ];
-
-  const handleApplyClick = () => {
-    window.open('https://forms.gle/TyiCZ7XfELfeQneA8', '_blank', 'noopener,noreferrer');
-  };
-
   return (
-    <div className={style.internshipBanner}>
+    <section className={style.careerBridge}>
       <div className={style.container}>
-        <div className={style.imageSection}>
-          <img 
-            src={internshipImage} 
-            alt="TechTen Planet Internship Program" 
-            className={style.internshipImage}
-          />
-        </div>
-        
-        <div className={style.contentSection}>
-          <div className={style.header}>
-            <h2 className={style.title}>Internship Opportunities</h2>
-            <p className={style.subtitle}>
-              Ready to gain hands-on experience and grow professionally? We accept interns year-round,
-              so you can apply whenever you are ready to learn and contribute.
+        <div className={style.careerBridgeInner}>
+          <div className={style.careerBridgeText}>
+            <p className={style.eyebrow}>New in 2025</p>
+            <h2 className={style.title}>Techten Career Programme</h2>
+            <p className={style.description}>
+              Completed a course? Ready for a real role? We now match our best
+              graduates with paying internships — and help them convert to full-time
+              employment. No upfront cost. We only earn when you do.
             </p>
+            <Link to="/get-hired" className={style.ctaButton}>
+              Learn How It Works
+            </Link>
           </div>
-
-          <div className={style.benefits}>
-            <h3 className={style.benefitsTitle}>Why Choose Us</h3>
-            <ul className={style.benefitsList}>
-              {benefits.map((benefit, index) => (
-                <li key={index} className={style.benefitItem}>
-                  <FaCheckCircle className={style.checkIcon} />
-                  <span>{benefit}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className={style.applicationPeriod}>
-            <FaCalendarAlt className={style.calendarIcon} />
-            <span className={style.periodText}>Applications: <strong>Rolling acceptance all year</strong></span>
-          </div>
-
-          <div className={style.ctaSection}>
-            <button 
-              onClick={handleApplyClick}
-              className={style.applyButton}
-            >
-              Apply Now <FaExternalLinkAlt className={style.linkIcon} />
-            </button>
-            <p className={style.ctaNote}>
-              Complete the application form and upload your resume whenever you are ready.
-            </p>
+          <div className={style.careerBridgeStats}>
+            <div className={style.stat}>
+              <span className={style.statN}>3 months</span>
+              <span className={style.statLabel}>Supported internship duration</span>
+            </div>
+            <div className={style.stat}>
+              <span className={style.statN}>5 spots</span>
+              <span className={style.statLabel}>First cohort — limited intake</span>
+            </div>
+            <div className={style.stat}>
+              <span className={style.statN}>0 upfront</span>
+              <span className={style.statLabel}>You pay nothing until you're hired</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

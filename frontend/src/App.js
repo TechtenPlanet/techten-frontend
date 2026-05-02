@@ -22,6 +22,7 @@ import EnrollmentPage from './pages/EnrollmentPage';
 import EventRegistrationPage from './pages/EventRegistrationPage';
 import GetInvolvedPage from './pages/GetInvolvedPage';
 import StemSquadPage from './pages/StemSquadPage'; // Import the new page
+import GetHiredPage from './pages/GetHiredPage';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import BlogDetail from './components/BlogDetail/BlogDetail';
@@ -67,6 +68,7 @@ function App() {
         <Route path="/events/register/*" element={<EventRegistrationPage />} />
         <Route path="/get-involved" element={<GetInvolvedPage />} />
         <Route path="/stem-squad" element={<StemSquadPage />} /> {/* New STEM Squad route */}
+        <Route path="/get-hired" element={<GetHiredPage />} />
       </Routes>
       <Footer />
     </>

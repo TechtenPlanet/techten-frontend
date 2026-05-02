@@ -1,89 +1,51 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import style from './HomeHero.module.css';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/autoplay';
-
-import { useState, useEffect } from 'react';
 import { getHeroImages } from '../../notion/heroService';
 
 const HomeHero = () => {
-  const [slides, setSlides] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [bgImage, setBgImage] = useState(null);
 
   useEffect(() => {
-    const fetchHeroImages = async () => {
-      try {
-        const data = await getHeroImages();
-        setSlides(data);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchHeroImages();
+    getHeroImages()
+      .then((data) => {
+        if (data && data.length > 0) {
+          setBgImage(data[0].image);
+        }
+      })
+      .catch(() => {});
   }, []);
 
-  if (loading) {
-    return <div>Loading hero images...</div>;
-  }
-
-  if (error) {
-    return <div>Error loading hero images: {error.message}</div>;
-  }
-
   return (
-    <div id="HomeHero">
-      <div className={style.homeHero}>
-        <Swiper
-          spaceBetween={30}
-          centeredSlides={true}
-          autoplay={{
-            delay: 5000, // Increased delay to 5 seconds
-            disableOnInteraction: false,
-          }}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
-          modules={[Autoplay, Pagination, Navigation]}
-          className={style.swiperContainer}
-        >
-          {slides.map((slide) => (
-            <SwiperSlide key={slide.id}>
-              <img src={slide.image} alt={slide.alt} className={style.heroImage} />
-              <div className={style.homeHeroWrapper}>
-                <div className={style.heroContent}>
-                  <h1 className={style.heroTitle}>
-                    {slide.title}
-                  </h1>
-                  <p className={style.heroDescription}>
-                    {slide.description}
-                  </p>
-                  {slide.buttonLabel && slide.buttonLink && (
-                    <Link
-                      to={slide.buttonLink}
-                      className={style.ctaButton}
-                    >
-                      {slide.buttonLabel} <FaArrowRight className={style.arrowIcon} />
-                    </Link>
-                  )}
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+    <section
+      id="HomeHero"
+      className={style.homeHero}
+      style={bgImage ? { backgroundImage: `url(${bgImage})` } : {}}
+    >
+      <div className={style.heroOverlay} />
+      <div className={style.homeHeroWrapper}>
+        <div className={style.heroContent}>
+          <p className={style.heroEyebrow}>Ghana's STEM Education Programme</p>
+          <h1 className={style.heroTitle}>
+            From Curious Kids to<br />Ghana's Next Tech Builders
+          </h1>
+          <p className={style.heroDescription}>
+            We ship real hardware to your door, run hands-on missions online, and
+            help our graduates land their first tech roles.
+            For ages 6–22, across Ghana.
+          </p>
+          <div className={style.heroCTAGroup}>
+            <Link to="/stem-squad" className={style.ctaButton}>
+              Explore STEM Squad <FaArrowRight className={style.arrowIcon} />
+            </Link>
+            <Link to="/get-hired" className={style.ctaGhost}>
+              Career Programme →
+            </Link>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

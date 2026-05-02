@@ -131,6 +131,21 @@
   border-bottom-color: #FF6620;
 }
 
+.tabBadge {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  background: #FF6620;
+  color: white;
+  padding: 1px 6px;
+  border-radius: 999px;
+  margin-left: 6px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .formContainer {
