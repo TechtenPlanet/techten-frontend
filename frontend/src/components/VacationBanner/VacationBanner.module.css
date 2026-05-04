@@ -1,11 +1,10 @@
 .banner {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 2.5rem;
+  flex-direction: column;
+  gap: 2rem;
   background: #1a1f5e;
   border-radius: 18px;
-  padding: 2.5rem 2.5rem 2.5rem 2.75rem;
+  padding: 2.5rem 2.75rem;
   margin: 0 auto 2.5rem;
   max-width: 1200px;
   position: relative;
@@ -24,14 +23,18 @@
   pointer-events: none;
 }
 
-/* Left column */
+/* Top row */
+.bannerTop {
+  position: relative;
+  z-index: 1;
+}
+
+/* Left content */
 .bannerLeft {
-  flex: 1 1 0;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  position: relative;
-  z-index: 1;
+  max-width: 680px;
 }
 
 /* Orange date pill */
@@ -106,32 +109,31 @@
   color: #ffffff;
 }
 
-/* Right column — single image */
-.bannerRight {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Bottom image row */
+.bannerImageRow {
   position: relative;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
 }
 
 .flyer {
-  width: 260px;
-  max-width: 260px;
+  width: 100%;
+  max-width: 720px;
   border-radius: 14px;
-  object-fit: cover;
-  object-position: center top;
+  object-fit: contain;
   display: block;
   box-shadow:
     0 20px 48px rgba(0, 0, 0, 0.55),
     0 6px 16px rgba(0, 0, 0, 0.35);
-  filter: drop-shadow(0 8px 24px rgba(255, 102, 32, 0.25));
+  filter: drop-shadow(0 8px 24px rgba(255, 102, 32, 0.2));
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .flyer:hover {
-  transform: translateY(-4px) scale(1.02);
+  transform: translateY(-3px) scale(1.01);
   box-shadow:
     0 28px 56px rgba(0, 0, 0, 0.6),
     0 8px 20px rgba(0, 0, 0, 0.4);
@@ -140,28 +142,13 @@
 /* Mobile */
 @media (max-width: 768px) {
   .banner {
-    flex-direction: column;
     padding: 2rem 1.5rem;
-    gap: 1.75rem;
+    gap: 1.5rem;
     border-radius: 14px;
     margin-bottom: 2rem;
   }
 
-  .bannerLeft {
-    width: 100%;
-  }
-
   .sub {
     max-width: 100%;
-  }
-
-  .bannerRight {
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  .flyer {
-    width: 100%;
-    max-width: 320px;
   }
 }
