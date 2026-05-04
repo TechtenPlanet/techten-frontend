@@ -166,111 +166,151 @@
 
     /* === HERO === */
     .hero {
-      padding: clamp(var(--space-16), 8vw, var(--space-24)) 0 clamp(var(--space-12), 6vw, var(--space-20));
+      background: #04070f;
+      padding: clamp(4rem, 9vw, 7rem) 0 clamp(3rem, 7vw, 5.5rem);
       overflow: hidden; position: relative;
     }
     .hero::before {
       content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 70% 50%, oklch(from var(--color-primary) l c h / 0.06), transparent),
-                  radial-gradient(ellipse 60% 80% at 10% 20%, oklch(from var(--color-gold) l c h / 0.07), transparent);
+      background:
+        radial-gradient(ellipse 65% 80% at 85% 50%, rgba(26,122,60,0.18), transparent),
+        radial-gradient(ellipse 50% 60% at 5% 25%, rgba(255,102,32,0.08), transparent);
       pointer-events: none;
     }
-    .hero__inner { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: center; position: relative; }
+    .hero__inner {
+      display: grid; grid-template-columns: 55% 45%;
+      gap: var(--space-12); align-items: center; position: relative;
+    }
+
+    /* text column */
     .hero__badge {
       display: inline-flex; align-items: center; gap: var(--space-2);
-      background: var(--color-gold-highlight); color: var(--color-gold);
+      background: rgba(255,102,32,0.12); color: #FF6620;
+      border: 1px solid rgba(255,102,32,0.28);
       border-radius: var(--radius-full); padding: var(--space-1) var(--space-4);
       font-size: var(--text-xs); font-weight: 700; font-family: var(--font-display);
       letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: var(--space-5);
     }
     .hero__title {
       font-family: var(--font-display); font-size: var(--text-hero);
-      font-weight: 900; line-height: 1.08; margin-bottom: var(--space-6);
-      color: var(--color-text);
+      font-weight: 900; line-height: 1.08; margin-bottom: var(--space-5);
+      color: #ffffff;
     }
-    .hero__title .accent { color: var(--color-primary); }
-    .hero__title .accent-gold { color: var(--color-gold); }
+    .hero__title .accent { color: #4ade80; }
+    .hero__title .accent-gold { color: #fbbf24; }
     .hero__tagline {
-      font-size: var(--text-lg); color: var(--color-text-muted);
-      margin-bottom: var(--space-8); max-width: 50ch; font-weight: 500;
+      font-size: var(--text-lg); color: rgba(255,255,255,0.72);
+      margin-bottom: var(--space-6); max-width: 50ch; font-weight: 500; line-height: 1.7;
+    }
+    /* parent trust signals */
+    .hero__trust {
+      display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-5);
+      margin-bottom: var(--space-8);
+    }
+    .hero__trust-item {
+      display: flex; align-items: center; gap: var(--space-2);
+      font-size: var(--text-xs); color: rgba(255,255,255,0.55);
+      font-weight: 600; font-family: var(--font-display);
+    }
+    .hero__trust-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: #4ade80; flex-shrink: 0;
     }
     .hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
+
+    /* buttons */
     .btn {
       display: inline-flex; align-items: center; gap: var(--space-2);
       padding: var(--space-3) var(--space-6); border-radius: var(--radius-full);
       font-family: var(--font-display); font-weight: 700; font-size: var(--text-sm);
-      text-decoration: none; cursor: pointer;
+      text-decoration: none; cursor: pointer; transition: all var(--transition);
     }
-    .btn--primary { background: var(--color-primary); color: var(--color-text-inverse); }
-    .btn--primary:hover { background: var(--color-primary-hover); box-shadow: var(--shadow-md); }
+    .btn--primary { background: #FF6620; color: #fff; }
+    .btn--primary:hover { background: #e55b1e; box-shadow: 0 8px 24px rgba(255,102,32,0.4); transform: translateY(-1px); }
     .btn--outline {
-      background: transparent; color: var(--color-text);
-      border: 2px solid var(--color-border);
+      background: transparent; color: rgba(255,255,255,0.8);
+      border: 1.5px solid rgba(255,255,255,0.28);
     }
-    .btn--outline:hover { border-color: var(--color-primary); color: var(--color-primary); }
+    .btn--outline:hover { border-color: rgba(255,255,255,0.7); color: #fff; background: rgba(255,255,255,0.07); }
     .btn--gold { background: var(--color-gold); color: #fff; }
     .btn--gold:hover { background: var(--color-gold-hover); box-shadow: var(--shadow-md); }
-    .hero__image-col { position: relative; }
-    .hero__book-card {
-      background: var(--color-surface-2);
-      border-radius: var(--radius-2xl);
-      box-shadow: var(--shadow-lg);
-      overflow: hidden;
-      border: 1px solid var(--color-divider);
-      transform: rotate(2deg);
-      transition: transform 0.4s ease;
+    .btn--green { background: #1a7a3c; color: #fff; }
+    .btn--green:hover { background: #155e2e; box-shadow: var(--shadow-md); }
+
+    /* image column */
+    .hero__image-col {
+      position: relative;
+      display: flex; flex-direction: column; align-items: center;
     }
-    .hero__book-card:hover { transform: rotate(0deg) scale(1.02); }
-    .hero__book-cover {
-      background: linear-gradient(135deg, #1a7a3c 0%, #2d9e56 40%, #d4900a 100%);
-      padding: var(--space-8);
-      min-height: 320px;
-      display: flex; flex-direction: column; justify-content: space-between;
-      position: relative; overflow: hidden;
-    }
-    .hero__book-cover::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: repeating-linear-gradient(45deg, oklch(1 0 0 / 0.04) 0px, oklch(1 0 0 / 0.04) 2px, transparent 2px, transparent 12px);
-    }
-    .hero__book-cover-badge {
-      background: oklch(1 0 0 / 0.15); color: #fff;
+    .hero__cover-wrap { position: relative; display: inline-block; }
+    .hero__issue-badge {
+      position: absolute; top: 14px; left: 14px; z-index: 4;
+      background: rgba(255,255,255,0.15); color: #fff;
       border-radius: var(--radius-full); padding: var(--space-1) var(--space-3);
       font-size: var(--text-xs); font-weight: 700; font-family: var(--font-display);
-      display: inline-block; backdrop-filter: blur(4px);
+      backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2);
     }
-    .hero__book-title {
-      font-family: var(--font-display); color: #fff;
-      font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 900;
-      line-height: 1.1; position: relative;
+    .hero__meta-row {
+      display: flex; align-items: center; gap: var(--space-4);
+      margin-top: var(--space-5);
     }
-    .hero__book-sub { color: oklch(1 0 0 / 0.8); font-size: var(--text-sm); font-weight: 600; margin-top: var(--space-1); }
-    .hero__book-body { background: var(--color-surface-2); padding: var(--space-4) var(--space-5); }
-    .hero__book-sections { display: flex; flex-wrap: wrap; gap: var(--space-2); }
-    .pill {
-      padding: var(--space-1) var(--space-3); border-radius: var(--radius-full);
+    .hero__ghana-pill {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      background: rgba(74,222,128,0.12); color: #4ade80;
+      border: 1px solid rgba(74,222,128,0.28);
+      border-radius: var(--radius-full); padding: var(--space-2) var(--space-4);
       font-size: var(--text-xs); font-weight: 700; font-family: var(--font-display);
     }
-    .pill--green { background: var(--color-primary-highlight); color: var(--color-primary); }
-    .pill--gold { background: var(--color-gold-highlight); color: var(--color-gold); }
-    .pill--blue { background: var(--color-blue-highlight); color: var(--color-blue); }
-    .pill--red { background: var(--color-red-highlight); color: var(--color-red); }
-    .floating-badge {
-      position: absolute; background: var(--color-surface-2);
-      box-shadow: var(--shadow-md); border-radius: var(--radius-xl);
-      padding: var(--space-3) var(--space-4);
-      font-size: var(--text-xs); font-family: var(--font-display); font-weight: 700;
+    .hero__tagline-sub {
+      font-size: var(--text-xs); color: rgba(255,255,255,0.35);
+      font-style: italic; font-family: var(--font-display);
+    }
+
+    /* pill base (used in subjects strip and elsewhere) */
+    .pill {
+      padding: var(--space-2) var(--space-4); border-radius: var(--radius-full);
+      font-size: var(--text-xs); font-weight: 700; font-family: var(--font-display);
       white-space: nowrap;
     }
-    .floating-badge--tl { top: 0; left: 0; }
-    .floating-badge--br { bottom: -12px; right: -16px; }
+    .pill--green { background: rgba(74,222,128,0.15); color: #2e9e5a; }
+    .pill--gold  { background: rgba(251,191,36,0.15);  color: #b45309; }
+    .pill--blue  { background: rgba(56,189,248,0.15);  color: #0369a1; }
+    .pill--red   { background: rgba(239,68,68,0.15);   color: #c0392b; }
 
-    @media (max-width: 768px) {
-      .hero__inner { grid-template-columns: 1fr; }
+    /* === SUBJECTS STRIP === */
+    .subjects-strip {
+      background: #ffffff;
+      border-bottom: 1px solid #e8e8e8;
+      padding: var(--space-5) 0;
+    }
+    .subjects-strip__label {
+      font-size: var(--text-xs); font-weight: 700; color: #6b7280;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      text-align: center; margin-bottom: var(--space-3);
+      font-family: var(--font-display);
+    }
+    .subjects-strip__pills {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: var(--space-2); padding: 0 var(--space-6);
+    }
+
+    /* hero responsive */
+    @media (max-width: 860px) {
+      .hero__inner { grid-template-columns: 1fr; gap: var(--space-8); }
       .hero__image-col { order: -1; }
-      .hero__book-card { max-width: 340px; margin: 0 auto; transform: rotate(0deg); }
-      .floating-badge--tl { left: 0; top: 0; }
-      .floating-badge--br { right: 0; }
+      .hero__title { font-size: clamp(2.25rem, 8vw, 3.25rem); }
+      .hero__tagline { font-size: var(--text-base); }
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 3rem 0 2.5rem; }
+      .hero__actions { flex-direction: column; }
+      .hero__actions .btn { width: 100%; justify-content: center; }
+      .hero__trust { gap: var(--space-2) var(--space-4); }
+      .subjects-strip__pills {
+        flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start;
+        padding: 0 var(--space-4); scrollbar-width: none;
+      }
+      .subjects-strip__pills::-webkit-scrollbar { display: none; }
     }
 
     /* === SECTION BASE === */
@@ -570,34 +610,12 @@
   .nav__logo-text span         { color: var(--tt-green-bright) !important; }
   .nav__links a                { color: #cbd5e1 !important; }
   .nav__links a:hover          { color: var(--tt-green-bright) !important; }
-  .nav__cta                    { background: var(--tt-green) !important; color: #ffffff !important; }
-  .nav__cta:hover              { background: var(--tt-green-hover) !important; }
+  .nav__cta                    { background: #FF6620 !important; color: #ffffff !important; }
+  .nav__cta:hover              { background: #e55b1e !important; box-shadow: 0 6px 20px rgba(255,102,32,0.35) !important; }
   .theme-toggle                { background: rgba(255,255,255,0.08) !important; color: #94a3b8 !important; }
 
-  /* ── HERO ───────────────────────────────────────────────────── */
-  .hero {
-    background: linear-gradient(140deg, #0f172a 0%, #1a3050 55%, #0f2e1a 100%) !important;
-  }
+  /* ── HERO — dark bg set in base CSS; only theme overrides here ── */
   .hero h1                     { color: #ffffff !important; }
-  .hero__title .accent         { color: var(--tt-green-bright) !important; }
-  .hero__title .accent-gold    { color: var(--tt-amber) !important; }
-  .hero__tagline               { color: #cbd5e1 !important; line-height: 1.75 !important; }
-  .hero__badge {
-    background: rgba(251,191,36,0.12) !important;
-    color: var(--tt-amber) !important;
-    border: 1px solid rgba(251,191,36,0.3) !important;
-  }
-  .floating-badge {
-    background: var(--tt-navy-card) !important;
-    color: #e2e8f0 !important;
-    border: 1px solid var(--tt-border-dark) !important;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.3) !important;
-  }
-  .hero__book-body             { background: rgba(255,255,255,0.06) !important; }
-  .pill--green                 { background: rgba(74,222,128,0.15) !important; color: var(--tt-green-bright) !important; }
-  .pill--gold                  { background: rgba(251,191,36,0.15) !important; color: var(--tt-amber) !important; }
-  .pill--blue                  { background: rgba(56,189,248,0.15) !important; color: #38bdf8 !important; }
-  .pill--red                   { background: rgba(248,113,113,0.15) !important; color: #f87171 !important; }
 
   /* ── SECTION BASE ───────────────────────────────────────────── */
   section                      { padding-top: 96px !important; padding-bottom: 96px !important; }
@@ -733,8 +751,8 @@
   .step-num                    { background: var(--tt-green) !important; }
   .delivery-step h4            { color: var(--tt-tx-on-light) !important; }
   .delivery-step p             { color: #374151 !important; }
-  .form-submit                 { background: var(--tt-green) !important; }
-  .form-submit:hover           { background: var(--tt-green-hover) !important; }
+  .form-submit                 { background: #FF6620 !important; }
+  .form-submit:hover           { background: #e55b1e !important; box-shadow: 0 8px 20px rgba(255,102,32,0.35) !important; }
 
   /* ── FAQ ─────────────────────────────────────────────────────── */
   .faq-item {
@@ -843,73 +861,64 @@
   <section class="hero" aria-labelledby="hero-title">
     <div class="container--wide">
       <div class="hero__inner">
+
+        <!-- TEXT COLUMN -->
         <div class="hero__text">
-          <div class="hero__badge animate-in">📚 Monthly Activity Book · Ages 6–12</div>
+          <div class="hero__badge animate-in">Monthly Activity Book · Ages 6–12</div>
           <h1 class="hero__title animate-in animate-in--delay-1" id="hero-title">
-            The Book That <span class="accent">Builds</span> Young <span class="accent-gold">Explorers</span>
+            The Book That<br><span class="accent">Builds</span> Young <span class="accent-gold">Explorers</span>
           </h1>
           <p class="hero__tagline animate-in animate-in--delay-2">
             Every month, your child gets a new adventure — reading, writing, maths, puzzles, and a first taste of computer thinking. Built for Ghana. Inspired by the world.
           </p>
+          <!-- Parent trust signals -->
+          <div class="hero__trust animate-in animate-in--delay-2">
+            <span class="hero__trust-item"><span class="hero__trust-dot"></span>Fully offline · No screen needed</span>
+            <span class="hero__trust-item"><span class="hero__trust-dot"></span>Ages 6–12</span>
+            <span class="hero__trust-item"><span class="hero__trust-dot"></span>Made in Ghana</span>
+            <span class="hero__trust-item"><span class="hero__trust-dot"></span>Delivered monthly</span>
+          </div>
           <div class="hero__actions animate-in animate-in--delay-3">
-            <a href="#register" class="btn btn--primary">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-              Subscribe Now
-            </a>
+            <a href="#register" class="btn btn--primary">Subscribe Now</a>
             <a href="#inside" class="btn btn--outline">See What's Inside</a>
           </div>
         </div>
+
+        <!-- IMAGE COLUMN — single clean book mockup -->
         <div class="hero__image-col animate-in animate-in--delay-2">
-          <div style="display: flex; justify-content: flex-start; margin-bottom: var(--space-4);">
-            <div class="floating-badge" style="position: static; display: inline-block;">Made for Ghana</div>
-          </div>
-
-          <div style="position: relative; display: inline-block; width: 100%; padding-top: 3rem;">
-
-            <!-- Page peek: Think Like a Computer — behind the cover -->
-            <figure class="page-mockup" style="
-              position: absolute;
-              top: 0;
-              left: 50%;
-              transform: translateX(-48%) rotate(5deg);
-              width: 78%;
-              z-index: 1;
-            ">
+          <div class="hero__cover-wrap">
+            <div class="book-mockup">
               <img
-                src="./Think%20Like%20a%20Computer.png"
-                alt="Think Like a Computer — inside page preview"
-                style="width: 100%;"
+                src="./Cover%20Page.png"
+                alt="The Techten Book — Issue 1: Robots &amp; Machines, May 2026"
               >
-              <figcaption>Pages 10–11 · Think Like a Computer</figcaption>
-            </figure>
-
-            <!-- Front cover — 3D book mockup -->
-            <div style="position: relative; z-index: 2; text-align: center;">
-              <div class="book-mockup" style="display: inline-block;">
-                <img
-                  src="./Cover%20Page.png"
-                  alt="The Techten Book — Issue 1: Robots & Machines, May 2026"
-                >
-                <span class="hero__book-cover-badge" style="position: absolute; top: 12px; left: 12px; z-index: 3;">Issue 1 · May 2026</span>
-              </div>
-              <div class="hero__book-body" style="margin-top: 1.5rem; background: transparent;">
-                <div class="hero__book-sections" style="justify-content: center;">
-                  <span class="pill pill--green">Reading</span>
-                  <span class="pill pill--gold">Maths</span>
-                  <span class="pill pill--blue">Puzzles</span>
-                  <span class="pill pill--red">Computer Logic</span>
-                  <span class="pill pill--green">Drawing</span>
-                  <span class="pill pill--gold">Crafts</span>
-                </div>
-              </div>
             </div>
-
+            <span class="hero__issue-badge">Issue 1 · May 2026</span>
           </div>
-          <div class="floating-badge floating-badge--br">Read it. Think it. Build it.</div>
+          <div class="hero__meta-row">
+            <span class="hero__ghana-pill">Made for Ghana</span>
+            <span class="hero__tagline-sub">Read it. Think it. Build it.</span>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
+
+  <!-- SUBJECTS STRIP -->
+  <div class="subjects-strip" role="complementary" aria-label="What's inside every issue">
+    <p class="subjects-strip__label">What's inside every issue</p>
+    <div class="subjects-strip__pills">
+      <span class="pill pill--green">Reading</span>
+      <span class="pill pill--gold">Maths</span>
+      <span class="pill pill--blue">Puzzles</span>
+      <span class="pill pill--red">Computer Logic</span>
+      <span class="pill pill--green">Writing</span>
+      <span class="pill pill--gold">Drawing &amp; Crafts</span>
+      <span class="pill pill--blue">Robot Ananse Comic</span>
+      <span class="pill pill--red">Prize Challenge</span>
+    </div>
+  </div>
 
   <!-- THEMES STRIP -->
   <section class="themes section-cream" id="themes" aria-labelledby="themes-title">
@@ -1076,7 +1085,7 @@
       </div>
       <div style="display:flex; gap:12px; flex-wrap:wrap;">
         <a href="#register" style="
-          background: #f97316;
+          background: #FF6620;
           color: #fff;
           font-weight: 700;
           font-size: 0.95rem;
@@ -1084,7 +1093,7 @@
           border-radius: 50px;
           text-decoration: none;
           display: inline-block;
-        ">↓ Subscribe Now</a>
+        ">Subscribe Now</a>
         <a href="#whats-inside" style="
           border: 1.5px solid #ffffff30;
           color: #ffffff;
