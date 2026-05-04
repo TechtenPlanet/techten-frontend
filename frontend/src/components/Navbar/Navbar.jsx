@@ -89,6 +89,11 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
+              <a href="/activity-book.html" className={style.navLink}>
+                Techten Book
+              </a>
+            </li>
+            <li>
               <NavLink to="/contact" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
                 Contact Us
               </NavLink>
@@ -171,6 +176,11 @@ const Navbar = () => {
             <NavLink to="/blogs" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
               Blog
             </NavLink>
+          </li>
+          <li>
+            <a href="/activity-book.html" className={style.navLink} onClick={closeMobileMenu}>
+              Techten Book
+            </a>
           </li>
           <li>
             <NavLink to="/contact" className={({ isActive }) => (isActive ? style.activeLink : style.navLink)} onClick={closeMobileMenu}>
