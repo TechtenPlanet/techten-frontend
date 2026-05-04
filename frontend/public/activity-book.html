@@ -811,24 +811,59 @@
         </div>
         <div class="hero__image-col animate-in animate-in--delay-2">
           <div class="floating-badge floating-badge--tl">🇬🇭 Made for Ghana</div>
-          <div class="hero__book-card">
-            <div class="hero__book-cover">
-              <div>
-                <span class="hero__book-cover-badge">Issue 1 · May 2026</span>
-              </div>
-              <div>
-                <div class="hero__book-title">THE TECHTEN BOOK</div>
-                <div class="hero__book-sub">🤖 Robots & Machines</div>
-              </div>
+          <div style="position: relative; display: inline-block; width: 100%;">
+            <!-- Page peek: Think Like a Computer — offset behind the cover -->
+            <div style="
+              position: absolute;
+              top: 18px;
+              left: 50%;
+              transform: translateX(-44%) rotate(4deg);
+              width: 82%;
+              border-radius: 10px;
+              overflow: hidden;
+              box-shadow: 0 12px 36px rgba(0,0,0,0.35);
+              z-index: 1;
+            ">
+              <img
+                src="./Think%20Like%20a%20Computer.png"
+                alt="Think Like a Computer — inside page preview"
+                style="width: 100%; height: auto; display: block;"
+              >
+              <div style="
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                background: rgba(0,0,0,0.65);
+                color: #fff;
+                font-size: 0.7rem;
+                font-weight: 700;
+                padding: 4px 10px;
+                border-radius: 50px;
+                letter-spacing: 0.05em;
+              ">Inside peek →</div>
             </div>
-            <div class="hero__book-body">
-              <div class="hero__book-sections">
-                <span class="pill pill--green">Reading</span>
-                <span class="pill pill--gold">Maths</span>
-                <span class="pill pill--blue">Puzzles</span>
-                <span class="pill pill--red">Computer Logic</span>
-                <span class="pill pill--green">Drawing</span>
-                <span class="pill pill--gold">Crafts</span>
+
+            <!-- Front cover -->
+            <div style="position: relative; z-index: 2;">
+              <div class="hero__book-card" style="padding: 0; overflow: hidden; transform: rotate(-2deg);">
+                <div style="position: relative;">
+                  <img
+                    src="./Cover%20Page.png"
+                    alt="The Techten Book — Issue 1: Robots & Machines, May 2026"
+                    style="width: 100%; height: auto; display: block; border-radius: 12px 12px 0 0;"
+                  >
+                  <span class="hero__book-cover-badge" style="position: absolute; top: 12px; left: 12px;">Issue 1 · May 2026</span>
+                </div>
+                <div class="hero__book-body">
+                  <div class="hero__book-sections">
+                    <span class="pill pill--green">Reading</span>
+                    <span class="pill pill--gold">Maths</span>
+                    <span class="pill pill--blue">Puzzles</span>
+                    <span class="pill pill--red">Computer Logic</span>
+                    <span class="pill pill--green">Drawing</span>
+                    <span class="pill pill--gold">Crafts</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
