@@ -34,7 +34,7 @@ const AnnouncementBar = () => {
   return (
     <div className={style.bar} role="banner" aria-label="Announcement">
       <p className={style.text}>
-        🤖 Vacation STEM Programme — 18th May&nbsp;|&nbsp;Lashibi, Accra&nbsp;|&nbsp;GHC 450&nbsp;
+        🤖 Vacation STEM Programme — 18th May&nbsp;|&nbsp;Lashibi, Accra&nbsp;|&nbsp;GHC 250/w&nbsp;
         <span className={style.discount}>(10% off for first 10)</span>
       </p>
       <a

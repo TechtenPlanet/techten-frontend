@@ -14,8 +14,8 @@ const VacationBanner = () => (
         innovation. Limited spots.
       </p>
       <div className={style.priceRow}>
-        <span className={style.priceOriginal}>GHC 450</span>
-        <span className={style.priceDiscount}>GHC 405 for first 10</span>
+        <span className={style.priceOriginal}>GHC 250/w</span>
+        <span className={style.priceDiscount}>GHC 225/w — 10% off for first 10</span>
       </div>
       <a
         href="https://gqr.sh/Tzvn"
