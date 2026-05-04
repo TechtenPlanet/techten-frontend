@@ -1,8 +1,8 @@
 import React from 'react';
 import style from './VacationBanner.module.css';
 
-// Place the flyer image at: frontend/public/vacation-stem-flyer.jpg
 const FLYER_SRC = '/vacation-stem-flyer.png';
+const BECE_SRC  = '/BECE_Tech_immersion.png';
 
 const VacationBanner = () => (
   <div className={style.banner}>
@@ -28,13 +28,20 @@ const VacationBanner = () => (
       </a>
     </div>
 
-    {/* Right — flyer image */}
+    {/* Right — stacked images */}
     <div className={style.bannerRight}>
-      <img
-        src={FLYER_SRC}
-        alt="Vacation STEM Programme Flyer"
-        className={style.flyer}
-      />
+      <div className={style.imageStack}>
+        <img
+          src={BECE_SRC}
+          alt="BECE Tech Immersion Programme"
+          className={`${style.flyer} ${style.flyerBack}`}
+        />
+        <img
+          src={FLYER_SRC}
+          alt="Vacation STEM Programme Flyer"
+          className={`${style.flyer} ${style.flyerFront}`}
+        />
+      </div>
     </div>
   </div>
 );

@@ -8,6 +8,7 @@ import ActionButtons from '../components/ActionButtons/ActionButtons';
 import ImpactStats from '../components/ImpactStats/ImpactStats';
 import PartnersCollaborators from '../components/PartnersCollaborators/PartnersCollaborators'; // Import the component
 import InternshipBanner from '../components/InternshipBanner/InternshipBanner';
+import VacationBanner from '../components/VacationBanner/VacationBanner';
 import WhatsAppChatButton from '../components/WhatsAppChatButton/WhatsAppChatButton';
 
 const HomePage = () => {
@@ -17,6 +18,9 @@ const HomePage = () => {
    {/*    <PhotoCollage /> */}
       <ProgramHighlights />
       <StemSquadCta />
+      <div style={{ padding: '0 clamp(1rem, 3vw, 2rem)' }}>
+        <VacationBanner />
+      </div>
       <CourseTeasers />
       <InternshipBanner />
       <ImpactStats />

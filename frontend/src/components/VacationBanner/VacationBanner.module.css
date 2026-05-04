@@ -106,7 +106,7 @@
   color: #ffffff;
 }
 
-/* Right column — flyer image */
+/* Right column — stacked images */
 .bannerRight {
   flex: 0 0 auto;
   display: flex;
@@ -116,14 +116,42 @@
   z-index: 1;
 }
 
+.imageStack {
+  position: relative;
+  width: 220px;
+  height: 300px;
+}
+
 .flyer {
-  width: 280px;
-  max-width: 280px;
+  position: absolute;
+  width: 200px;
   border-radius: 12px;
   object-fit: cover;
   object-position: center top;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
   display: block;
+}
+
+/* BECE image — slightly rotated behind */
+.flyerBack {
+  top: 0;
+  left: 0;
+  transform: rotate(-4deg) translateX(-10px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+/* Flyer — on top, slight opposite tilt */
+.flyerFront {
+  top: 16px;
+  left: 24px;
+  transform: rotate(3deg);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.flyerFront:hover {
+  transform: rotate(0deg) scale(1.03);
 }
 
 /* Mobile */
@@ -149,8 +177,12 @@
     justify-content: flex-start;
   }
 
+  .imageStack {
+    width: 260px;
+    height: 280px;
+  }
+
   .flyer {
-    width: 100%;
-    max-width: 320px;
+    width: 220px;
   }
 }
