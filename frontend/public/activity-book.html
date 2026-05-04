@@ -530,396 +530,278 @@
   </style>
 
   <!-- ============================================================
-    TECHTEN BOOK — VIBRANT COLOUR SYSTEM UPGRADE
+    TECHTEN BOOK — CONSOLIDATED DESIGN SYSTEM
   ============================================================ -->
   <style>
-  /* ── 1. ROOT COLOUR TOKENS ─────────────────────────────────── */
+
+  /* ── COLOUR TOKENS ─────────────────────────────────────────── */
   :root {
-    --bg-hero:        #1B0B4E;
-    --bg-section-alt: #0C2A4A;
-    --bg-card:        #FFFFFF;
-    --bg-card-dark:   #1e2d5e;
+    --tt-navy:         #0f172a;
+    --tt-navy-card:    #1e293b;
+    --tt-green:        #1a7a3c;
+    --tt-green-hover:  #15803d;
+    --tt-green-bright: #4ade80;
+    --tt-gold:         #b45309;
+    --tt-amber:        #fbbf24;
+    --tt-purple:       #7c3aed;
+    --tt-cream:        #fdfaf5;
 
-    --green:   #22C55E;
-    --orange:  #F97316;
-    --yellow:  #FCD34D;
-    --pink:    #EC4899;
-    --purple:  #A855F7;
-    --sky:     #38BDF8;
+    --tt-tx-on-dark:       #e2e8f0;
+    --tt-tx-muted-on-dark: #94a3b8;
+    --tt-tx-on-light:      #1e293b;
+    --tt-tx-muted-on-light:#64748b;
 
-    --text-heading: #FFFFFF;
-    --text-body:    #CBD5E1;
-    --text-muted:   #94A3B8;
-
-    --border-subtle: rgba(255,255,255,0.10);
+    --tt-border-dark:  rgba(255,255,255,0.09);
+    --tt-border-light: #e2e8f0;
   }
 
-  /* ── 2. BODY & BASE ────────────────────────────────────────── */
+  /* ── BODY ───────────────────────────────────────────────────── */
   body {
-    background-color: var(--bg-hero);
-    color: var(--text-body);
+    background: #ffffff !important;
+    color: var(--tt-tx-on-light) !important;
   }
 
-  /* ── 3. NAVBAR ─────────────────────────────────────────────── */
-  header, nav {
-    background-color: #130838 !important;
-    border-bottom: 2px solid #2D1B69 !important;
+  /* ── NAV ────────────────────────────────────────────────────── */
+  .nav {
+    background: var(--tt-navy) !important;
+    border-bottom: 1px solid var(--tt-border-dark) !important;
+  }
+  .nav__logo-text              { color: #ffffff !important; }
+  .nav__logo-text span         { color: var(--tt-green-bright) !important; }
+  .nav__links a                { color: #cbd5e1 !important; }
+  .nav__links a:hover          { color: var(--tt-green-bright) !important; }
+  .nav__cta                    { background: var(--tt-green) !important; color: #ffffff !important; }
+  .nav__cta:hover              { background: var(--tt-green-hover) !important; }
+  .theme-toggle                { background: rgba(255,255,255,0.08) !important; color: #94a3b8 !important; }
+
+  /* ── HERO ───────────────────────────────────────────────────── */
+  .hero {
+    background: linear-gradient(140deg, #0f172a 0%, #1a3050 55%, #0f2e1a 100%) !important;
+  }
+  .hero h1                     { color: #ffffff !important; }
+  .hero__title .accent         { color: var(--tt-green-bright) !important; }
+  .hero__title .accent-gold    { color: var(--tt-amber) !important; }
+  .hero__tagline               { color: #cbd5e1 !important; line-height: 1.75 !important; }
+  .hero__badge {
+    background: rgba(251,191,36,0.12) !important;
+    color: var(--tt-amber) !important;
+    border: 1px solid rgba(251,191,36,0.3) !important;
+  }
+  .floating-badge {
+    background: var(--tt-navy-card) !important;
+    color: #e2e8f0 !important;
+    border: 1px solid var(--tt-border-dark) !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3) !important;
+  }
+  .hero__book-body             { background: rgba(255,255,255,0.06) !important; }
+  .pill--green                 { background: rgba(74,222,128,0.15) !important; color: var(--tt-green-bright) !important; }
+  .pill--gold                  { background: rgba(251,191,36,0.15) !important; color: var(--tt-amber) !important; }
+  .pill--blue                  { background: rgba(56,189,248,0.15) !important; color: #38bdf8 !important; }
+  .pill--red                   { background: rgba(248,113,113,0.15) !important; color: #f87171 !important; }
+
+  /* ── SECTION BASE ───────────────────────────────────────────── */
+  section                      { padding-top: 96px !important; padding-bottom: 96px !important; }
+  section.themes               { background: var(--tt-cream) !important; border-top: 3px solid var(--tt-amber) !important; }
+  section.inside               { background: #ffffff !important; }
+  section#robot-ananse         { background: var(--tt-navy) !important; }
+  section.thinking             { background: var(--tt-cream) !important; border-top: 3px solid var(--tt-amber) !important; }
+  section.pricing              { background: var(--tt-cream) !important; border-top: 3px solid var(--tt-amber) !important; }
+  section.register             { background: #f8fafc !important; border-top: 1px solid var(--tt-border-light) !important; }
+  section.faq                  { background: #ffffff !important; }
+
+  /* ── SECTION LABELS ─────────────────────────────────────────── */
+  .section-label {
+    color: var(--tt-green) !important;
+    background: rgba(26,122,60,0.08) !important;
+    border: 1px solid rgba(26,122,60,0.2) !important;
+  }
+  /* On cream sections: purple label */
+  section.themes    .section-label,
+  section.thinking  .section-label,
+  section.pricing   .section-label,
+  section.register  .section-label {
+    color: var(--tt-purple) !important;
+    background: rgba(124,58,237,0.07) !important;
+    border: 1px solid rgba(124,58,237,0.2) !important;
   }
 
-  .brand, header .logo-text {
-    color: var(--yellow) !important;
+  /* ── HEADINGS ───────────────────────────────────────────────── */
+  /* On dark sections */
+  .hero h2, .hero h3, .hero h4,
+  section#robot-ananse h2,
+  section#robot-ananse h3,
+  section#robot-ananse h4    { color: #ffffff !important; }
+  /* On light sections — override any leftover !important */
+  section.inside h2, section.inside h3, section.inside h4,
+  section.themes h2, section.themes h3, section.themes h4,
+  section.thinking h2, section.thinking h3, section.thinking h4,
+  section.pricing h2, section.pricing h3, section.pricing h4,
+  section.register h2, section.register h3, section.register h4,
+  section.faq h2, section.faq h3, section.faq h4 {
+    color: var(--tt-tx-on-light) !important;
   }
 
-  nav a {
-    color: #E2E8F0 !important;
+  /* ── BODY TEXT ──────────────────────────────────────────────── */
+  .hero p, .hero li,
+  section#robot-ananse p,
+  section#robot-ananse li {
+    color: var(--tt-tx-on-dark) !important;
+    line-height: 1.75 !important;
   }
-  nav a:hover {
-    color: var(--yellow) !important;
-  }
-
-  .btn-primary, a[href*="subscribe"], button[type="submit"] {
-    background: var(--green) !important;
-    color: #0f172a !important;
-    font-weight: 800 !important;
-    border: none !important;
-  }
-  .btn-primary:hover {
-    background: #16a34a !important;
-  }
-
-  /* ── 4. HERO SECTION ───────────────────────────────────────── */
-  section:first-of-type,
-  .hero,
-  [class*="hero"] {
-    background: linear-gradient(135deg, #1B0B4E 0%, #0C2A4A 60%, #0F3B2E 100%) !important;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: "";
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    background: radial-gradient(circle, #F97316 0%, transparent 70%);
-    opacity: 0.12;
-    top: -100px;
-    right: -100px;
-    pointer-events: none;
-  }
-
-  .section-label,
-  [class*="badge"],
-  [class*="label"] {
-    background: rgba(252, 211, 77, 0.15) !important;
-    border: 1px solid rgba(252, 211, 77, 0.4) !important;
-    color: var(--yellow) !important;
-  }
-
-  h1 {
-    color: var(--text-heading);
-  }
-  h1 span, h1 em, h1 strong {
-    color: var(--green) !important;
-  }
-  h1 .orange, h1 span:last-of-type {
-    color: var(--orange) !important;
-  }
-
-  /* ── 5. THEMES SECTION ─────────────────────────────────────── */
-  section:nth-of-type(even),
-  [class*="themes"],
-  [id*="themes"] {
-    background-color: #0C2A4A !important;
-  }
-
-  section:nth-of-type(odd) {
-    background-color: var(--bg-hero) !important;
-  }
-
-  .theme-card,
-  [class*="theme"] > div,
-  .month-card {
-    background: #1e2d5e !important;
-    border: 1px solid rgba(255,255,255,0.10) !important;
-    border-top: 3px solid var(--green) !important;
-    border-radius: 16px !important;
-    transition: transform 0.2s, box-shadow 0.2s !important;
-  }
-  .theme-card:hover {
-    transform: translateY(-4px) !important;
-    box-shadow: 0 12px 32px rgba(34, 197, 94, 0.2) !important;
-  }
-
-  .theme-card .month,
-  [class*="month-label"] {
-    color: var(--sky) !important;
-  }
-
-  /* ── 6. "EVERY ISSUE" CONTENTS SECTION ────────────────────── */
-  [id*="inside"], [class*="contents"], [class*="every-issue"] {
-    background: linear-gradient(180deg, #0F3B2E 0%, #1B0B4E 100%) !important;
-  }
-
-  .feature-card,
-  [class*="feature"] {
-    background: rgba(255,255,255,0.06) !important;
-    border: 1px solid rgba(255,255,255,0.12) !important;
-    border-radius: 16px !important;
-  }
-  .feature-card:hover {
-    background: rgba(255,255,255,0.10) !important;
-    border-color: var(--green) !important;
-  }
-
-  /* ── 7. SUBSCRIPTION PLANS ─────────────────────────────────── */
-  [class*="pricing"], [class*="plans"], [id*="subscribe"] {
-    background: #0C2A4A !important;
-  }
-
-  .plan-card,
-  [class*="plan"] {
-    background: #1e2d5e !important;
-    border: 2px solid rgba(255,255,255,0.08) !important;
-    border-radius: 20px !important;
-  }
-
-  .plan-card.popular,
-  [class*="popular"] {
-    border-color: var(--yellow) !important;
-    box-shadow: 0 0 0 4px rgba(252,211,77,0.15) !important;
-  }
-
-  .plan-price, [class*="price"] {
-    color: var(--yellow) !important;
-  }
-
-  /* ── 8. FAQ SECTION ────────────────────────────────────────── */
-  [id*="faq"], [class*="faq"] {
-    background: #1B0B4E !important;
-  }
-
-  .faq-item,
-  [class*="accordion"] {
-    background: #1e2d5e !important;
-    border: 1px solid rgba(255,255,255,0.08) !important;
-    border-radius: 12px !important;
-  }
-
-  /* ── 9. FOOTER ─────────────────────────────────────────────── */
-  footer {
-    background: #0a0520 !important;
-    border-top: 3px solid #2D1B69 !important;
-  }
-
-  footer a {
-    color: var(--sky) !important;
-  }
-  footer a:hover {
-    color: var(--yellow) !important;
-  }
-
-  /* ── 10. SECTION HEADINGS GLOBAL ───────────────────────────── */
-  h2 {
-    color: #FFFFFF !important;
-  }
-  h3 {
-    color: var(--sky) !important;
-  }
-  h4 {
-    color: var(--yellow) !important;
-  }
-
-  .section-eyebrow,
-  [class*="eyebrow"],
-  p[style*="letter-spacing"],
-  p[style*="uppercase"] {
-    color: var(--sky) !important;
-  }
-
-  /* ── 11. WAVY SECTION DIVIDERS ─────────────────────────────── */
-  section + section::before {
-    content: "";
-    display: block;
-    height: 48px;
-    background: inherit;
-  }
-
-  /* ── 12. SCROLLBAR ─────────────────────────────────────────── */
-  ::-webkit-scrollbar { width: 8px; }
-  ::-webkit-scrollbar-track { background: #1B0B4E; }
-  ::-webkit-scrollbar-thumb {
-    background: var(--green);
-    border-radius: 4px;
-  }
-  </style>
-
-  <!-- ============================================================
-    TECHTEN BOOK — LAYOUT & VISUAL POLISH (Tasks 1–6)
-  ============================================================ -->
-  <style>
-
-  /* ── TASK 1: CREAM SECTIONS ────────────────────────────────── */
-  .section-cream {
-    background: #FDF8F0 !important;
-    border-top: 4px solid #FCD34D;
-  }
-  .section-cream p,
-  .section-cream li,
-  .section-cream td {
+  section.inside p, section.inside li,
+  section.themes p, section.themes li,
+  section.thinking p, section.thinking li,
+  section.pricing p, section.pricing li,
+  section.register p, section.register li,
+  section.faq p, section.faq li,
+  section.pricing td, section.thinking td {
     color: #374151 !important;
     line-height: 1.75 !important;
   }
-  .section-cream h2 { color: #1a1a2e !important; }
-  .section-cream h3 { color: #1a1a2e !important; }
-  .section-cream h4 { color: #1a1a2e !important; }
-  .section-cream .section-label {
-    color: #7C3AED !important;
-    background: rgba(124, 58, 237, 0.08) !important;
-    border: 1px solid rgba(124, 58, 237, 0.3) !important;
-  }
-  /* Themes in cream */
-  .section-cream .themes__title { color: #6B7280 !important; }
-  .section-cream .theme-card {
-    background: #FFFFFF !important;
-    border: 1px solid #e5e7eb !important;
-    border-top: 3px solid #FCD34D !important;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
-  }
-  .section-cream .theme-card__name { color: #1a1a2e !important; }
-  .section-cream .theme-card__month { color: #6B7280 !important; }
-  /* Pricing cards in cream */
-  .section-cream .pricing-card {
-    background: #FFFFFF !important;
-    border: 1px solid #e5e7eb !important;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.07) !important;
-  }
-  .section-cream .pricing-card--featured {
-    border-color: #1a7a3c !important;
-    box-shadow: 0 0 0 2px #1a7a3c, 0 8px 24px rgba(0,0,0,0.1) !important;
-  }
-  .section-cream .pricing-card__tier   { color: #6B7280 !important; }
-  .section-cream .pricing-card__price  { color: #1a1a2e !important; }
-  .section-cream .pricing-card__price span { color: #6B7280 !important; }
-  .section-cream .pricing-card__desc   { color: #374151 !important; }
-  .section-cream .pricing-card__badge  { background: #1a7a3c !important; }
 
-  /* ── TASK 2: DARK SECTION TEXT CONTRAST ────────────────────── */
-  section:not(.section-cream) p,
-  section:not(.section-cream) li {
-    color: #E2E8F0 !important;
-    line-height: 1.75 !important;
+  /* ── THEME CARDS ─────────────────────────────────────────────── */
+  .themes__title               { color: var(--tt-tx-muted-on-light) !important; }
+  .theme-card {
+    background: #ffffff !important;
+    border: 1px solid var(--tt-border-light) !important;
+    border-top: 3px solid var(--tt-amber) !important;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
+  }
+  .theme-card__name            { color: var(--tt-tx-on-light) !important; }
+  .theme-card__month           { color: var(--tt-tx-muted-on-light) !important; }
+  .theme-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1) !important;
   }
 
-  /* ── TASK 3: GENEROUS SECTION PADDING ──────────────────────── */
-  section {
-    padding-top: 96px !important;
-    padding-bottom: 96px !important;
+  /* ── WHAT'S INSIDE ──────────────────────────────────────────── */
+  .section-row {
+    background: #ffffff !important;
+    border: 1px solid var(--tt-border-light) !important;
   }
-  /* Tighten nav padding */
-  .nav { padding-top: var(--space-4) !important; padding-bottom: var(--space-4) !important; }
+  .section-row__content h4     { color: var(--tt-tx-on-light) !important; }
+  .section-row__content p      { color: #374151 !important; }
+  .inside__preview {
+    background: linear-gradient(160deg, #1a7a3c 0%, #15803d 60%, #0f5132 100%) !important;
+  }
+  .inside__preview h3          { color: #ffffff !important; }
+  .inside__preview h4          { color: #ffffff !important; }
+  .inside__preview p           { color: rgba(255,255,255,0.88) !important; }
+  .preview-page                { background: rgba(255,255,255,0.12) !important; }
 
-  /* ── TASK 4: BOOK COVER 3D MOCKUP ──────────────────────────── */
-  .book-mockup {
-    position: relative;
-    display: inline-block;
-    perspective: 1200px;
+  /* ── COMPUTER THINKING ──────────────────────────────────────── */
+  .thinking__code-block {
+    background: #0f172a !important;
+    border-color: #1e293b !important;
   }
-  .book-mockup img {
-    width: 280px;
-    max-width: 100%;
-    border-radius: 6px 14px 14px 6px;
-    transform: rotateY(-18deg) rotateX(4deg);
-    box-shadow:
-      -8px 0 0 #1a0a00,
-      -16px 8px 0 #2a1000,
-      0 24px 60px rgba(0,0,0,0.6),
-      0 8px 20px rgba(0,0,0,0.4);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-  }
-  .book-mockup img:hover {
-    transform: rotateY(-8deg) rotateX(2deg) scale(1.04);
-  }
-  .book-mockup::after {
-    content: "";
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70%;
-    height: 30px;
-    background: radial-gradient(ellipse, rgba(249,115,22,0.5) 0%, transparent 70%);
-    filter: blur(12px);
-    pointer-events: none;
-  }
-
-  /* ── TASK 5: INSIDE PAGE SCREENSHOT MOCKUP ─────────────────── */
-  .page-mockup {
-    position: relative;
-    display: inline-block;
-    margin: 0;
-  }
-  .page-mockup img {
-    width: 100%;
-    max-width: 320px;
-    border-radius: 4px 12px 12px 4px;
-    border: 1px solid #e5e7eb;
-    transform: rotate(2deg);
-    box-shadow:
-      0 4px 6px rgba(0,0,0,0.07),
-      0 20px 40px rgba(0,0,0,0.25),
-      4px 4px 0 #f3f4f6,
-      8px 8px 0 #e9eaeb;
-    background: white;
-    transition: transform 0.3s ease;
-    display: block;
-  }
-  .page-mockup img:hover {
-    transform: rotate(0deg) scale(1.03);
-  }
-  .page-mockup figcaption {
-    text-align: center;
-    margin-top: 12px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #94A3B8;
-  }
-
-  /* ── TASK 6: THINK LIKE A COMPUTER on cream ────────────────── */
-  .section-cream .thinking__code-block {
-    background: #1e1b4b !important;
-    color: #a5f3fc !important;
-    border-color: #312e81 !important;
-  }
-  .section-cream .code-comment  { color: #6ee7b7 !important; }
-  .section-cream .code-keyword  { color: #fde68a !important; }
-  .section-cream .code-string   { color: #a5f3fc !important; }
-  .section-cream .code-step     { color: #e2e8f0 !important; }
-  .section-cream .thinking__table {
-    background: #FFFFFF !important;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid #e5e7eb;
-  }
-  .section-cream .thinking__table th {
-    background: #1e1b4b !important;
-    color: #FCD34D !important;
+  .code-comment                { color: #6ee7b7 !important; }
+  .code-keyword                { color: #fbbf24 !important; }
+  .code-string                 { color: #a5f3fc !important; }
+  .code-step                   { color: #e2e8f0 !important; }
+  .thinking__table             { background: #ffffff; border: 1px solid var(--tt-border-light); border-radius: 12px; overflow: hidden; }
+  .thinking__table th {
+    background: #0f172a !important;
+    color: var(--tt-amber) !important;
     border-bottom: none !important;
   }
-  .section-cream .thinking__table tbody tr:nth-child(even) td {
-    background: #F9F5FF !important;
+  .thinking__table tbody tr:nth-child(even) td { background: #f5f3ff !important; }
+  .thinking__table tbody tr:nth-child(odd) td  { background: #ffffff !important; }
+  .thinking__table td          { color: #374151 !important; border-bottom-color: var(--tt-border-light) !important; }
+  .thinking__table .month-num  { color: var(--tt-purple) !important; }
+
+  /* ── PRICING ─────────────────────────────────────────────────── */
+  .pricing-card {
+    background: #ffffff !important;
+    border: 1px solid var(--tt-border-light) !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
   }
-  .section-cream .thinking__table tbody tr:nth-child(odd) td {
-    background: #FFFFFF !important;
+  .pricing-card--featured {
+    border-color: var(--tt-green) !important;
+    box-shadow: 0 0 0 2px var(--tt-green), 0 8px 24px rgba(0,0,0,0.1) !important;
   }
-  .section-cream .thinking__table td {
-    color: #374151 !important;
-    border-bottom-color: #e5e7eb !important;
+  .pricing-card__badge         { background: var(--tt-green) !important; }
+  .pricing-card__tier          { color: var(--tt-tx-muted-on-light) !important; }
+  .pricing-card__price         { color: var(--tt-tx-on-light) !important; }
+  .pricing-card__price span    { color: var(--tt-tx-muted-on-light) !important; }
+  .pricing-card__features li::before { color: var(--tt-green) !important; }
+
+  /* ── REGISTER ────────────────────────────────────────────────── */
+  .register__form-card {
+    background: #ffffff !important;
+    border-color: var(--tt-border-light) !important;
   }
-  .section-cream .thinking__table .month-num { color: #7C3AED !important; }
+  .step-num                    { background: var(--tt-green) !important; }
+  .delivery-step h4            { color: var(--tt-tx-on-light) !important; }
+  .delivery-step p             { color: #374151 !important; }
+  .form-submit                 { background: var(--tt-green) !important; }
+  .form-submit:hover           { background: var(--tt-green-hover) !important; }
+
+  /* ── FAQ ─────────────────────────────────────────────────────── */
+  .faq-item {
+    background: #ffffff !important;
+    border: 1px solid var(--tt-border-light) !important;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04) !important;
+  }
+  .faq-item summary            { color: var(--tt-tx-on-light) !important; }
+  .faq-item summary::after     { color: var(--tt-green) !important; }
+  .faq-item p                  { color: #374151 !important; }
+
+  /* ── FOOTER ──────────────────────────────────────────────────── */
+  .footer {
+    background: var(--tt-navy) !important;
+    border-top: 1px solid var(--tt-border-dark) !important;
+  }
+  .footer__brand h3            { color: #ffffff !important; }
+  .footer__brand h3 span       { color: var(--tt-green-bright) !important; }
+  .footer__brand p             { color: #94a3b8 !important; }
+  .footer__col h4              { color: #f1f5f9 !important; }
+  .footer__col a               { color: #94a3b8 !important; }
+  .footer__col a:hover         { color: var(--tt-green-bright) !important; }
+  .footer__bottom p            { color: #475569 !important; }
+
+  /* ── BOOK COVER 3D MOCKUP ────────────────────────────────────── */
+  .book-mockup                 { position: relative; display: inline-block; perspective: 1200px; }
+  .book-mockup img {
+    width: 280px; max-width: 100%;
+    border-radius: 6px 14px 14px 6px;
+    transform: rotateY(-18deg) rotateX(4deg);
+    box-shadow: -8px 0 0 #1a0a00, -16px 8px 0 #2a1000,
+                0 24px 60px rgba(0,0,0,0.6), 0 8px 20px rgba(0,0,0,0.4);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .book-mockup img:hover       { transform: rotateY(-8deg) rotateX(2deg) scale(1.04); }
+  .book-mockup::after {
+    content: ""; position: absolute; bottom: -20px; left: 50%;
+    transform: translateX(-50%); width: 70%; height: 30px;
+    background: radial-gradient(ellipse, rgba(249,115,22,0.45) 0%, transparent 70%);
+    filter: blur(12px); pointer-events: none;
+  }
+
+  /* ── PAGE SCREENSHOT MOCKUP ──────────────────────────────────── */
+  .page-mockup                 { position: relative; display: inline-block; margin: 0; }
+  .page-mockup img {
+    width: 100%; max-width: 320px;
+    border-radius: 4px 12px 12px 4px;
+    border: 1px solid #e2e8f0;
+    transform: rotate(2deg);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.07), 0 20px 40px rgba(0,0,0,0.22),
+                4px 4px 0 #f3f4f6, 8px 8px 0 #e9eaeb;
+    background: white; transition: transform 0.3s ease; display: block;
+  }
+  .page-mockup img:hover       { transform: rotate(0deg) scale(1.03); }
+  .page-mockup figcaption {
+    text-align: center; margin-top: 12px; font-size: 0.8rem;
+    font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    color: #94a3b8;
+  }
+
+  /* ── TOAST ───────────────────────────────────────────────────── */
+  .toast                       { background: var(--tt-green) !important; }
+
+  /* ── SCROLLBAR ───────────────────────────────────────────────── */
+  ::-webkit-scrollbar          { width: 8px; }
+  ::-webkit-scrollbar-track    { background: #f1f5f9; }
+  ::-webkit-scrollbar-thumb    { background: var(--tt-green); border-radius: 4px; }
 
   </style>
 </head>
@@ -978,7 +860,7 @@
           </div>
         </div>
         <div class="hero__image-col animate-in animate-in--delay-2">
-          <div class="floating-badge floating-badge--tl">🇬🇭 Made for Ghana</div>
+          <div class="floating-badge floating-badge--tl">Made for Ghana</div>
 
           <div style="position: relative; display: inline-block; width: 100%; padding-top: 3rem;">
 
@@ -1021,7 +903,7 @@
             </div>
 
           </div>
-          <div class="floating-badge floating-badge--br">✨ Read it. Think it. Build it.</div>
+          <div class="floating-badge floating-badge--br">Read it. Think it. Build it.</div>
         </div>
       </div>
     </div>
@@ -1064,7 +946,7 @@
       text-transform: uppercase;
       color: #4ade80;
       margin: 0 0 12px 0;
-    ">🕷️ Meet the Mascot</p>
+    ">Meet the Mascot</p>
 
     <!-- Two-column layout: text left, character card right -->
     <div style="
@@ -1221,7 +1103,7 @@
   <!-- WHAT'S INSIDE -->
   <section class="inside" id="inside" aria-labelledby="inside-title">
     <div class="container--wide">
-      <div class="section-label">📖 Every Issue</div>
+      <div class="section-label">Every Issue</div>
       <h2 class="section-title" id="inside-title">16 Pages of Pure Exploration</h2>
       <p class="section-subtitle">Every section is connected to the month's theme — so reading, maths, puzzles, and coding all feel like one big adventure, not separate subjects.</p>
       <div class="inside__grid">
@@ -1306,7 +1188,7 @@
     <div class="container--wide">
       <div class="thinking__inner">
         <div>
-          <div class="section-label">💻 Signature Feature</div>
+          <div class="section-label">Signature Feature</div>
           <h2 class="section-title" id="thinking-title">Think Like a Computer</h2>
           <p class="section-subtitle">No screen needed. Every month, kids learn one idea from computing — through stories, puzzles, and hands-on challenges.</p>
           <table class="thinking__table" aria-label="Computer thinking concepts by month">
@@ -1348,7 +1230,7 @@
   <section class="pricing section-cream" id="pricing" aria-labelledby="pricing-title">
     <div class="container--wide">
       <div style="text-align:center;margin-bottom:var(--space-12)">
-        <div class="section-label" style="justify-content:center">💳 Subscription Plans</div>
+        <div class="section-label" style="justify-content:center">Subscription Plans</div>
         <h2 class="section-title" id="pricing-title">Choose Your Plan</h2>
         <p class="section-subtitle" style="margin-inline:auto;text-align:center">Delivered monthly to your child's school or your home address anywhere in Ghana.</p>
       </div>
@@ -1392,7 +1274,7 @@
     <div class="container--wide">
       <div class="register__inner">
         <div class="register__info">
-          <div class="section-label">📬 How It Works</div>
+          <div class="section-label">How It Works</div>
           <h2 id="register-title">Register Your Child in Minutes</h2>
           <div class="delivery-steps">
             <div class="delivery-step"><div class="step-num">1</div><div><h4>Fill in the form</h4><p>Your name, your child's details, school or home delivery address, and chosen plan.</p></div></div>
@@ -1470,7 +1352,7 @@
   <section class="faq" id="faq" aria-labelledby="faq-title">
     <div class="container--wide">
       <div style="text-align:center;margin-bottom:var(--space-10)">
-        <div class="section-label" style="justify-content:center">❓ FAQ</div>
+        <div class="section-label" style="justify-content:center">FAQ</div>
         <h2 class="section-title" id="faq-title">Common Questions</h2>
       </div>
       <div class="faq__grid">
