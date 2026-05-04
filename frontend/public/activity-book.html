@@ -7,7 +7,7 @@
   <meta name="description" content="A monthly activity book for curious children in Ghana and beyond. Reading, writing, maths, puzzles, and computer thinking — built around one exciting theme every month.">
   <meta property="og:title" content="The Techten Book | Techten Planet">
   <meta property="og:description" content="Read it. Think it. Build it. A monthly book for young explorers aged 6–12.">
-  <meta property="og:image" content="https://picsum.photos/seed/techten-kids/1200/630">
+  <meta property="og:image" content="https://techtenplanet.org/Cover%20Page.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -754,6 +754,174 @@
     border-radius: 4px;
   }
   </style>
+
+  <!-- ============================================================
+    TECHTEN BOOK — LAYOUT & VISUAL POLISH (Tasks 1–6)
+  ============================================================ -->
+  <style>
+
+  /* ── TASK 1: CREAM SECTIONS ────────────────────────────────── */
+  .section-cream {
+    background: #FDF8F0 !important;
+    border-top: 4px solid #FCD34D;
+  }
+  .section-cream p,
+  .section-cream li,
+  .section-cream td {
+    color: #374151 !important;
+    line-height: 1.75 !important;
+  }
+  .section-cream h2 { color: #1a1a2e !important; }
+  .section-cream h3 { color: #1a1a2e !important; }
+  .section-cream h4 { color: #1a1a2e !important; }
+  .section-cream .section-label {
+    color: #7C3AED !important;
+    background: rgba(124, 58, 237, 0.08) !important;
+    border: 1px solid rgba(124, 58, 237, 0.3) !important;
+  }
+  /* Themes in cream */
+  .section-cream .themes__title { color: #6B7280 !important; }
+  .section-cream .theme-card {
+    background: #FFFFFF !important;
+    border: 1px solid #e5e7eb !important;
+    border-top: 3px solid #FCD34D !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+  }
+  .section-cream .theme-card__name { color: #1a1a2e !important; }
+  .section-cream .theme-card__month { color: #6B7280 !important; }
+  /* Pricing cards in cream */
+  .section-cream .pricing-card {
+    background: #FFFFFF !important;
+    border: 1px solid #e5e7eb !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07) !important;
+  }
+  .section-cream .pricing-card--featured {
+    border-color: #1a7a3c !important;
+    box-shadow: 0 0 0 2px #1a7a3c, 0 8px 24px rgba(0,0,0,0.1) !important;
+  }
+  .section-cream .pricing-card__tier   { color: #6B7280 !important; }
+  .section-cream .pricing-card__price  { color: #1a1a2e !important; }
+  .section-cream .pricing-card__price span { color: #6B7280 !important; }
+  .section-cream .pricing-card__desc   { color: #374151 !important; }
+  .section-cream .pricing-card__badge  { background: #1a7a3c !important; }
+
+  /* ── TASK 2: DARK SECTION TEXT CONTRAST ────────────────────── */
+  section:not(.section-cream) p,
+  section:not(.section-cream) li {
+    color: #E2E8F0 !important;
+    line-height: 1.75 !important;
+  }
+
+  /* ── TASK 3: GENEROUS SECTION PADDING ──────────────────────── */
+  section {
+    padding-top: 96px !important;
+    padding-bottom: 96px !important;
+  }
+  /* Tighten nav padding */
+  .nav { padding-top: var(--space-4) !important; padding-bottom: var(--space-4) !important; }
+
+  /* ── TASK 4: BOOK COVER 3D MOCKUP ──────────────────────────── */
+  .book-mockup {
+    position: relative;
+    display: inline-block;
+    perspective: 1200px;
+  }
+  .book-mockup img {
+    width: 280px;
+    max-width: 100%;
+    border-radius: 6px 14px 14px 6px;
+    transform: rotateY(-18deg) rotateX(4deg);
+    box-shadow:
+      -8px 0 0 #1a0a00,
+      -16px 8px 0 #2a1000,
+      0 24px 60px rgba(0,0,0,0.6),
+      0 8px 20px rgba(0,0,0,0.4);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .book-mockup img:hover {
+    transform: rotateY(-8deg) rotateX(2deg) scale(1.04);
+  }
+  .book-mockup::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 30px;
+    background: radial-gradient(ellipse, rgba(249,115,22,0.5) 0%, transparent 70%);
+    filter: blur(12px);
+    pointer-events: none;
+  }
+
+  /* ── TASK 5: INSIDE PAGE SCREENSHOT MOCKUP ─────────────────── */
+  .page-mockup {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+  }
+  .page-mockup img {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 4px 12px 12px 4px;
+    border: 1px solid #e5e7eb;
+    transform: rotate(2deg);
+    box-shadow:
+      0 4px 6px rgba(0,0,0,0.07),
+      0 20px 40px rgba(0,0,0,0.25),
+      4px 4px 0 #f3f4f6,
+      8px 8px 0 #e9eaeb;
+    background: white;
+    transition: transform 0.3s ease;
+    display: block;
+  }
+  .page-mockup img:hover {
+    transform: rotate(0deg) scale(1.03);
+  }
+  .page-mockup figcaption {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #94A3B8;
+  }
+
+  /* ── TASK 6: THINK LIKE A COMPUTER on cream ────────────────── */
+  .section-cream .thinking__code-block {
+    background: #1e1b4b !important;
+    color: #a5f3fc !important;
+    border-color: #312e81 !important;
+  }
+  .section-cream .code-comment  { color: #6ee7b7 !important; }
+  .section-cream .code-keyword  { color: #fde68a !important; }
+  .section-cream .code-string   { color: #a5f3fc !important; }
+  .section-cream .code-step     { color: #e2e8f0 !important; }
+  .section-cream .thinking__table {
+    background: #FFFFFF !important;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+  }
+  .section-cream .thinking__table th {
+    background: #1e1b4b !important;
+    color: #FCD34D !important;
+    border-bottom: none !important;
+  }
+  .section-cream .thinking__table tbody tr:nth-child(even) td {
+    background: #F9F5FF !important;
+  }
+  .section-cream .thinking__table tbody tr:nth-child(odd) td {
+    background: #FFFFFF !important;
+  }
+  .section-cream .thinking__table td {
+    color: #374151 !important;
+    border-bottom-color: #e5e7eb !important;
+  }
+  .section-cream .thinking__table .month-num { color: #7C3AED !important; }
+
+  </style>
 </head>
 <body>
 
@@ -811,61 +979,47 @@
         </div>
         <div class="hero__image-col animate-in animate-in--delay-2">
           <div class="floating-badge floating-badge--tl">🇬🇭 Made for Ghana</div>
-          <div style="position: relative; display: inline-block; width: 100%;">
-            <!-- Page peek: Think Like a Computer — offset behind the cover -->
-            <div style="
+
+          <div style="position: relative; display: inline-block; width: 100%; padding-top: 3rem;">
+
+            <!-- Page peek: Think Like a Computer — behind the cover -->
+            <figure class="page-mockup" style="
               position: absolute;
-              top: 18px;
+              top: 0;
               left: 50%;
-              transform: translateX(-44%) rotate(4deg);
-              width: 82%;
-              border-radius: 10px;
-              overflow: hidden;
-              box-shadow: 0 12px 36px rgba(0,0,0,0.35);
+              transform: translateX(-48%) rotate(5deg);
+              width: 78%;
               z-index: 1;
             ">
               <img
                 src="./Think%20Like%20a%20Computer.png"
                 alt="Think Like a Computer — inside page preview"
-                style="width: 100%; height: auto; display: block;"
+                style="width: 100%;"
               >
-              <div style="
-                position: absolute;
-                bottom: 10px;
-                right: 10px;
-                background: rgba(0,0,0,0.65);
-                color: #fff;
-                font-size: 0.7rem;
-                font-weight: 700;
-                padding: 4px 10px;
-                border-radius: 50px;
-                letter-spacing: 0.05em;
-              ">Inside peek →</div>
-            </div>
+              <figcaption>Pages 10–11 · Think Like a Computer</figcaption>
+            </figure>
 
-            <!-- Front cover -->
-            <div style="position: relative; z-index: 2;">
-              <div class="hero__book-card" style="padding: 0; overflow: hidden; transform: rotate(-2deg);">
-                <div style="position: relative;">
-                  <img
-                    src="./Cover%20Page.png"
-                    alt="The Techten Book — Issue 1: Robots & Machines, May 2026"
-                    style="width: 100%; height: auto; display: block; border-radius: 12px 12px 0 0;"
-                  >
-                  <span class="hero__book-cover-badge" style="position: absolute; top: 12px; left: 12px;">Issue 1 · May 2026</span>
-                </div>
-                <div class="hero__book-body">
-                  <div class="hero__book-sections">
-                    <span class="pill pill--green">Reading</span>
-                    <span class="pill pill--gold">Maths</span>
-                    <span class="pill pill--blue">Puzzles</span>
-                    <span class="pill pill--red">Computer Logic</span>
-                    <span class="pill pill--green">Drawing</span>
-                    <span class="pill pill--gold">Crafts</span>
-                  </div>
+            <!-- Front cover — 3D book mockup -->
+            <div style="position: relative; z-index: 2; text-align: center;">
+              <div class="book-mockup" style="display: inline-block;">
+                <img
+                  src="./Cover%20Page.png"
+                  alt="The Techten Book — Issue 1: Robots & Machines, May 2026"
+                >
+                <span class="hero__book-cover-badge" style="position: absolute; top: 12px; left: 12px; z-index: 3;">Issue 1 · May 2026</span>
+              </div>
+              <div class="hero__book-body" style="margin-top: 1.5rem; background: transparent;">
+                <div class="hero__book-sections" style="justify-content: center;">
+                  <span class="pill pill--green">Reading</span>
+                  <span class="pill pill--gold">Maths</span>
+                  <span class="pill pill--blue">Puzzles</span>
+                  <span class="pill pill--red">Computer Logic</span>
+                  <span class="pill pill--green">Drawing</span>
+                  <span class="pill pill--gold">Crafts</span>
                 </div>
               </div>
             </div>
+
           </div>
           <div class="floating-badge floating-badge--br">✨ Read it. Think it. Build it.</div>
         </div>
@@ -874,7 +1028,7 @@
   </section>
 
   <!-- THEMES STRIP -->
-  <section class="themes" id="themes" aria-labelledby="themes-title">
+  <section class="themes section-cream" id="themes" aria-labelledby="themes-title">
     <div class="container--wide">
       <p class="themes__title" id="themes-title">Year 1 Monthly Themes</p>
       <div class="themes__grid">
@@ -1148,7 +1302,7 @@
   </section>
 
   <!-- COMPUTER THINKING SPOTLIGHT -->
-  <section class="thinking" id="thinking" aria-labelledby="thinking-title">
+  <section class="thinking section-cream" id="thinking" aria-labelledby="thinking-title">
     <div class="container--wide">
       <div class="thinking__inner">
         <div>
@@ -1191,7 +1345,7 @@
   </section>
 
   <!-- PRICING -->
-  <section class="pricing" id="pricing" aria-labelledby="pricing-title">
+  <section class="pricing section-cream" id="pricing" aria-labelledby="pricing-title">
     <div class="container--wide">
       <div style="text-align:center;margin-bottom:var(--space-12)">
         <div class="section-label" style="justify-content:center">💳 Subscription Plans</div>
