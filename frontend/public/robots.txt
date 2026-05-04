@@ -1,38 +1,94 @@
 # Techten Planet — robots.txt
 
-# Allow all search engines
+# ── Standard search engines (full access for SEO ranking) ──────────────────
 User-agent: *
 Allow: /
 Disallow: /api/
 
-# Allow Google
 User-agent: Googlebot
 Allow: /
 
-# Allow Bing
 User-agent: Bingbot
-Allow: /
-
-# Allow AI crawlers — enables appearance in ChatGPT, Perplexity, Claude, Copilot
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: cohere-ai
 Allow: /
 
 User-agent: Applebot
 Allow: /
+
+# ── AI crawlers — limited to brand discovery pages only ────────────────────
+# Allows Techten to appear in AI search results (ChatGPT, Perplexity, Copilot)
+# but prevents detailed course/programme content from being scraped wholesale.
+
+User-agent: GPTBot
+Allow: /
+Allow: /about
+Allow: /contact
+Allow: /get-involved
+Disallow: /courses
+Disallow: /stem-squad
+Disallow: /programs/
+Disallow: /activity-book.html
+
+User-agent: ChatGPT-User
+Allow: /
+Allow: /about
+Allow: /contact
+Allow: /get-involved
+Disallow: /courses
+Disallow: /stem-squad
+Disallow: /programs/
+Disallow: /activity-book.html
+
+User-agent: PerplexityBot
+Allow: /
+Allow: /about
+Allow: /contact
+Allow: /get-involved
+Disallow: /courses
+Disallow: /stem-squad
+Disallow: /programs/
+Disallow: /activity-book.html
+
+User-agent: ClaudeBot
+Allow: /
+Allow: /about
+Allow: /contact
+Allow: /get-involved
+Disallow: /courses
+Disallow: /stem-squad
+Disallow: /programs/
+Disallow: /activity-book.html
+
+User-agent: anthropic-ai
+Allow: /
+Allow: /about
+Allow: /contact
+Allow: /get-involved
+Disallow: /courses
+Disallow: /stem-squad
+Disallow: /programs/
+Disallow: /activity-book.html
+
+User-agent: cohere-ai
+Allow: /
+Allow: /about
+Allow: /contact
+Allow: /get-involved
+Disallow: /courses
+Disallow: /stem-squad
+Disallow: /programs/
+Disallow: /activity-book.html
+
+# ── Block known aggressive scrapers entirely ───────────────────────────────
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
 
 Sitemap: https://techtenplanet.org/sitemap.xml
