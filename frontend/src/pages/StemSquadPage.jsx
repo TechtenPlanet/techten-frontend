@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { FaRocket, FaShieldAlt, FaClock } from 'react-icons/fa';
 import { MdAssignment, MdLocalShipping, MdScience } from 'react-icons/md';
@@ -519,6 +520,14 @@ const StemSquadPage = () => {
 
   return (
     <div className={styles.stemSquadPage}>
+      <Helmet>
+        <title>STEM Squad — Monthly STEM Membership for Kids in Ghana | Techten Planet</title>
+        <meta name="description" content="STEM Squad is Ghana's hands-on STEM membership for children aged 8–18. Real hardware — Arduino, Raspberry Pi, Cytron — delivered to your door every semester. Join Explorer or Maker tier today." />
+        <link rel="canonical" href="https://techtenplanet.org/stem-squad" />
+        <meta property="og:url" content="https://techtenplanet.org/stem-squad" />
+        <meta property="og:title" content="STEM Squad — Monthly STEM Membership for Kids in Ghana" />
+        <meta property="og:description" content="Ghana's hands-on STEM membership. Real hardware — Arduino, Raspberry Pi, Cytron — delivered every semester. For children aged 8–18." />
+      </Helmet>
       {content.map(section => renderSection(section))}
       
       {/* Navigation Section */}

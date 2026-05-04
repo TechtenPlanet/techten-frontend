@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import HomeHero from '../components/HomeHero/HomeHero';
 import ProgramHighlights from '../components/ProgramHighlights/ProgramHighlights';
 import StemSquadCta from '../components/StemSquadCta/StemSquadCta';
@@ -14,6 +15,14 @@ import WhatsAppChatButton from '../components/WhatsAppChatButton/WhatsAppChatBut
 const HomePage = () => {
   return (
     <>
+      <Helmet>
+        <title>Techten Planet — STEM Education & Coding Classes for Kids in Ghana</title>
+        <meta name="description" content="Techten Planet delivers hands-on robotics, coding, and STEM education for children aged 6–18 across Ghana. Join STEM Squad, book a vacation bootcamp in Accra, or bring Tech Labs to your school." />
+        <link rel="canonical" href="https://techtenplanet.org" />
+        <meta property="og:url" content="https://techtenplanet.org" />
+        <meta property="og:title" content="Techten Planet — STEM & Coding for Kids in Ghana" />
+        <meta property="og:description" content="Hands-on robotics, coding, and engineering for Ghanaian children. Vacation bootcamps, STEM Squad membership, Tech Labs, and school programmes." />
+      </Helmet>
       <HomeHero />
    {/*    <PhotoCollage /> */}
       <ProgramHighlights />

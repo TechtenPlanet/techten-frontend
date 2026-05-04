@@ -139,7 +139,7 @@
     0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Mobile */
+/* ── Tablet (≤768px) ─────────────────────────────────────────── */
 @media (max-width: 768px) {
   .banner {
     padding: 2rem 1.5rem;
@@ -150,5 +150,76 @@
 
   .sub {
     max-width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .bannerLeft {
+    max-width: 100%;
+  }
+}
+
+/* ── Small mobile (≤480px) ───────────────────────────────────── */
+@media (max-width: 480px) {
+  .banner {
+    padding: 1.5rem 1.1rem;
+    gap: 1.25rem;
+    border-radius: 12px;
+    margin-bottom: 1.25rem;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+  }
+
+  .label {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.7rem;
+  }
+
+  .heading {
+    font-size: clamp(1.3rem, 5vw, 1.6rem);
+  }
+
+  .sub {
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .priceRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .priceOriginal {
+    font-size: 1rem;
+  }
+
+  .priceDiscount {
+    font-size: 1.1rem;
+  }
+
+  .cta {
+    width: 100%;
+    text-align: center;
+    font-size: 0.95rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+
+  .bannerImageRow {
+    padding-top: 1.25rem;
+  }
+}
+
+/* ── Very small (≤360px) ─────────────────────────────────────── */
+@media (max-width: 360px) {
+  .banner {
+    padding: 1.25rem 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .heading {
+    font-size: 1.25rem;
   }
 }

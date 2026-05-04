@@ -1,44 +1,157 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
-    <head>
-      <!-- ✅ Title (shown in tab and search engines) -->
-      <title>Techten Planet – Empowering Ghana’s Future Through STEM</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-      <!-- ✅ Description for search engines -->
-      <meta name="description" content="Techten Planet is a nonprofit equipping Ghanaian youth with technology and engineering skills to transition from education to employment." />
+    <!-- ── Primary SEO ──────────────────────────────────────────── -->
+    <title>Techten Planet — STEM Education & Coding Classes for Kids in Ghana</title>
+    <meta name="description" content="Techten Planet runs hands-on STEM, robotics, and coding programmes for children aged 6–18 across Ghana. Vacation bootcamps in Accra, STEM Squad membership, Tech Labs, and after-school coding clubs. Enrol today." />
+    <meta name="keywords" content="STEM Ghana, coding classes Ghana, robotics Ghana, kids coding Accra, STEM education Ghana, after-school STEM Ghana, vacation STEM programme Ghana, BECE tech programme, tech immersion Ghana, Techten Planet, STEM Squad Ghana, coding bootcamp Ghana, children technology Ghana, girls in tech Ghana, Arduino Ghana, Raspberry Pi Ghana, hackathon Ghana, STEM nonprofit Ghana" />
+    <meta name="author" content="Techten Planet" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="https://techtenplanet.org" />
 
-      <!-- ✅ Favicon (optional) -->
-      <link rel="icon" href="%PUBLIC_URL%/logo192.png" />
-      <link rel="canonical" href="https://techtenplanet.org" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="theme-color" content="#000000" />
+    <!-- ── Geo targeting — Ghana ─────────────────────────────────── -->
+    <meta name="geo.region" content="GH" />
+    <meta name="geo.placename" content="Accra, Ghana" />
+    <meta name="geo.position" content="5.6037;-0.1870" />
+    <meta name="ICBM" content="5.6037, -0.1870" />
 
-      <!-- ✅ Open Graph for social sharing -->
-      <meta property="og:title" content="Techten Planet" />
-      <meta property="og:description" content="Empowering Ghana’s youth through STEM education and innovation." />
-      <meta property="og:image" content="https://techtenplanet.org/og-image.jpg" />
-      <meta property="og:url" content="https://techtenplanet.org" />
-      <meta property="og:type" content="website" />
+    <!-- ── Language & locale ─────────────────────────────────────── -->
+    <link rel="alternate" hreflang="en-GH" href="https://techtenplanet.org" />
+    <link rel="alternate" hreflang="en" href="https://techtenplanet.org" />
 
-      <!-- ✅ Twitter Card -->
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Techten Planet" />
-      <meta name="twitter:description" content="Empowering Ghana’s youth through STEM education and innovation." />
-      <meta name="twitter:image" content="https://techtenplanet.org/og-image.jpg" />
+    <!-- ── Open Graph (Facebook / WhatsApp / LinkedIn) ──────────── -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Techten Planet" />
+    <meta property="og:locale" content="en_GH" />
+    <meta property="og:url" content="https://techtenplanet.org" />
+    <meta property="og:title" content="Techten Planet — STEM & Coding for Kids in Ghana" />
+    <meta property="og:description" content="Hands-on robotics, coding, and engineering for Ghanaian children aged 6–18. Vacation bootcamps, STEM Squad membership, Tech Labs, and school programmes in Accra and beyond." />
+    <meta property="og:image" content="https://techtenplanet.org/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Techten Planet — kids learning robotics and coding in Ghana" />
 
-      <!-- ✅ Keywords (optional, not very impactful anymore) -->
-      <meta name="keywords" content="STEM Ghana, nonprofit, youth empowerment, tech education, Techten" />
-      <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-SEZTZLH313"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+    <!-- ── Twitter / X Card ──────────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@TechtenPlanet" />
+    <meta name="twitter:title" content="Techten Planet — STEM & Coding for Kids in Ghana" />
+    <meta name="twitter:description" content="Hands-on robotics, coding, and engineering for Ghanaian children aged 6–18. Enrol in our Vacation STEM Bootcamp, STEM Squad, or Tech Labs." />
+    <meta name="twitter:image" content="https://techtenplanet.org/og-image.jpg" />
 
-          gtag('config', 'G-SEZTZLH313');
-        </script>
-    </head>
+    <!-- ── Structured Data — Educational Organisation (JSON-LD) ─── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "EducationalOrganization",
+          "@id": "https://techtenplanet.org/#organization",
+          "name": "Techten Planet",
+          "alternateName": "Techten",
+          "url": "https://techtenplanet.org",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://techtenplanet.org/logo192.png"
+          },
+          "image": "https://techtenplanet.org/og-image.jpg",
+          "description": "Techten Planet is a Ghana-based STEM education organisation delivering hands-on robotics, coding, and engineering programmes for children and youth aged 6–18.",
+          "foundingDate": "2019",
+          "areaServed": {
+            "@type": "Country",
+            "name": "Ghana"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lashibi",
+            "addressRegion": "Greater Accra",
+            "addressCountry": "GH"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+233596905337",
+            "contactType": "customer service",
+            "availableLanguage": "English"
+          },
+          "sameAs": [
+            "https://www.facebook.com/TechtenPlanet",
+            "https://www.instagram.com/TechtenPlanet"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Techten STEM Programmes",
+            "itemListElement": [
+              {
+                "@type": "Course",
+                "name": "Vacation STEM Bootcamp",
+                "description": "Intensive 2-week STEM programme for Ghanaian students finishing BECE. Covers robotics, coding, and engineering. Held in Lashibi, Accra.",
+                "provider": { "@id": "https://techtenplanet.org/#organization" },
+                "offers": {
+                  "@type": "Offer",
+                  "price": "250",
+                  "priceCurrency": "GHS",
+                  "priceSpecification": { "referenceQuantity": "per week" }
+                }
+              },
+              {
+                "@type": "Course",
+                "name": "STEM Squad",
+                "description": "Monthly STEM membership for Ghanaian children aged 8–18. Hardware kits — Arduino, Raspberry Pi, Cytron — delivered to your door every semester.",
+                "provider": { "@id": "https://techtenplanet.org/#organization" }
+              },
+              {
+                "@type": "Course",
+                "name": "Tech Labs",
+                "description": "Mobile STEM lab programme bringing coding and electronics directly to schools and community hubs across Ghana.",
+                "provider": { "@id": "https://techtenplanet.org/#organization" }
+              }
+            ]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://techtenplanet.org/#website",
+          "url": "https://techtenplanet.org",
+          "name": "Techten Planet",
+          "publisher": { "@id": "https://techtenplanet.org/#organization" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://techtenplanet.org/courses?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ── AI crawler hints (GPTBot, PerplexityBot, ClaudeBot) ──── -->
+    <!-- Allow all AI crawlers to index content for LLM training/retrieval -->
+    <meta name="ai-content" content="educational, non-commercial, Ghana, STEM, children, youth" />
+
+    <!-- ── Theme & PWA ────────────────────────────────────────────── -->
+    <meta name="theme-color" content="#0303AB" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Techten Planet" />
+
+    <!-- ── Favicon & app icons ───────────────────────────────────── -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- ── Google Analytics ──────────────────────────────────────── -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SEZTZLH313"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SEZTZLH313', { 'anonymize_ip': true });
+    </script>
+  </head>
 
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

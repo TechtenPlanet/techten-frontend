@@ -1,3 +1,38 @@
-# https://www.robotstxt.org/robotstxt.html
+# Techten Planet — robots.txt
+
+# Allow all search engines
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /api/
+
+# Allow Google
+User-agent: Googlebot
+Allow: /
+
+# Allow Bing
+User-agent: Bingbot
+Allow: /
+
+# Allow AI crawlers — enables appearance in ChatGPT, Perplexity, Claude, Copilot
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+Sitemap: https://techtenplanet.org/sitemap.xml

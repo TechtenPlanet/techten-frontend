@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { FaGraduationCap, FaRobot, FaFlask, FaLaptopCode, FaFire, FaProjectDiagram } from 'react-icons/fa';
 import CourseCard from '../components/CourseCard/CourseCard';
@@ -172,6 +173,14 @@ const CoursesPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Courses & Programmes — Techten Planet Ghana</title>
+        <meta name="description" content="Browse Techten Planet's STEM courses and programmes in Ghana — Vacation Bootcamps, Masterclasses, STEM Squad membership, Tech Labs, and special projects for children aged 6–18 in Accra and beyond." />
+        <link rel="canonical" href="https://techtenplanet.org/courses" />
+        <meta property="og:url" content="https://techtenplanet.org/courses" />
+        <meta property="og:title" content="STEM Courses & Programmes in Ghana — Techten Planet" />
+        <meta property="og:description" content="Vacation bootcamps, masterclasses, STEM Squad membership, Tech Labs, and more. Hands-on STEM for Ghanaian children aged 6–18." />
+      </Helmet>
       <OtherPagesHero heading="Courses & Programs" />
       <CourseTeasers source="Courses Page" />
 
