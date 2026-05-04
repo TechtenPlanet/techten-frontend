@@ -528,6 +528,232 @@
     .success-state p { color: var(--color-text-muted); }
     .success-icon { font-size: 3rem; margin-bottom: var(--space-4); }
   </style>
+
+  <!-- ============================================================
+    TECHTEN BOOK — VIBRANT COLOUR SYSTEM UPGRADE
+  ============================================================ -->
+  <style>
+  /* ── 1. ROOT COLOUR TOKENS ─────────────────────────────────── */
+  :root {
+    --bg-hero:        #1B0B4E;
+    --bg-section-alt: #0C2A4A;
+    --bg-card:        #FFFFFF;
+    --bg-card-dark:   #1e2d5e;
+
+    --green:   #22C55E;
+    --orange:  #F97316;
+    --yellow:  #FCD34D;
+    --pink:    #EC4899;
+    --purple:  #A855F7;
+    --sky:     #38BDF8;
+
+    --text-heading: #FFFFFF;
+    --text-body:    #CBD5E1;
+    --text-muted:   #94A3B8;
+
+    --border-subtle: rgba(255,255,255,0.10);
+  }
+
+  /* ── 2. BODY & BASE ────────────────────────────────────────── */
+  body {
+    background-color: var(--bg-hero);
+    color: var(--text-body);
+  }
+
+  /* ── 3. NAVBAR ─────────────────────────────────────────────── */
+  header, nav {
+    background-color: #130838 !important;
+    border-bottom: 2px solid #2D1B69 !important;
+  }
+
+  .brand, header .logo-text {
+    color: var(--yellow) !important;
+  }
+
+  nav a {
+    color: #E2E8F0 !important;
+  }
+  nav a:hover {
+    color: var(--yellow) !important;
+  }
+
+  .btn-primary, a[href*="subscribe"], button[type="submit"] {
+    background: var(--green) !important;
+    color: #0f172a !important;
+    font-weight: 800 !important;
+    border: none !important;
+  }
+  .btn-primary:hover {
+    background: #16a34a !important;
+  }
+
+  /* ── 4. HERO SECTION ───────────────────────────────────────── */
+  section:first-of-type,
+  .hero,
+  [class*="hero"] {
+    background: linear-gradient(135deg, #1B0B4E 0%, #0C2A4A 60%, #0F3B2E 100%) !important;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #F97316 0%, transparent 70%);
+    opacity: 0.12;
+    top: -100px;
+    right: -100px;
+    pointer-events: none;
+  }
+
+  .section-label,
+  [class*="badge"],
+  [class*="label"] {
+    background: rgba(252, 211, 77, 0.15) !important;
+    border: 1px solid rgba(252, 211, 77, 0.4) !important;
+    color: var(--yellow) !important;
+  }
+
+  h1 {
+    color: var(--text-heading);
+  }
+  h1 span, h1 em, h1 strong {
+    color: var(--green) !important;
+  }
+  h1 .orange, h1 span:last-of-type {
+    color: var(--orange) !important;
+  }
+
+  /* ── 5. THEMES SECTION ─────────────────────────────────────── */
+  section:nth-of-type(even),
+  [class*="themes"],
+  [id*="themes"] {
+    background-color: #0C2A4A !important;
+  }
+
+  section:nth-of-type(odd) {
+    background-color: var(--bg-hero) !important;
+  }
+
+  .theme-card,
+  [class*="theme"] > div,
+  .month-card {
+    background: #1e2d5e !important;
+    border: 1px solid rgba(255,255,255,0.10) !important;
+    border-top: 3px solid var(--green) !important;
+    border-radius: 16px !important;
+    transition: transform 0.2s, box-shadow 0.2s !important;
+  }
+  .theme-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 32px rgba(34, 197, 94, 0.2) !important;
+  }
+
+  .theme-card .month,
+  [class*="month-label"] {
+    color: var(--sky) !important;
+  }
+
+  /* ── 6. "EVERY ISSUE" CONTENTS SECTION ────────────────────── */
+  [id*="inside"], [class*="contents"], [class*="every-issue"] {
+    background: linear-gradient(180deg, #0F3B2E 0%, #1B0B4E 100%) !important;
+  }
+
+  .feature-card,
+  [class*="feature"] {
+    background: rgba(255,255,255,0.06) !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    border-radius: 16px !important;
+  }
+  .feature-card:hover {
+    background: rgba(255,255,255,0.10) !important;
+    border-color: var(--green) !important;
+  }
+
+  /* ── 7. SUBSCRIPTION PLANS ─────────────────────────────────── */
+  [class*="pricing"], [class*="plans"], [id*="subscribe"] {
+    background: #0C2A4A !important;
+  }
+
+  .plan-card,
+  [class*="plan"] {
+    background: #1e2d5e !important;
+    border: 2px solid rgba(255,255,255,0.08) !important;
+    border-radius: 20px !important;
+  }
+
+  .plan-card.popular,
+  [class*="popular"] {
+    border-color: var(--yellow) !important;
+    box-shadow: 0 0 0 4px rgba(252,211,77,0.15) !important;
+  }
+
+  .plan-price, [class*="price"] {
+    color: var(--yellow) !important;
+  }
+
+  /* ── 8. FAQ SECTION ────────────────────────────────────────── */
+  [id*="faq"], [class*="faq"] {
+    background: #1B0B4E !important;
+  }
+
+  .faq-item,
+  [class*="accordion"] {
+    background: #1e2d5e !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    border-radius: 12px !important;
+  }
+
+  /* ── 9. FOOTER ─────────────────────────────────────────────── */
+  footer {
+    background: #0a0520 !important;
+    border-top: 3px solid #2D1B69 !important;
+  }
+
+  footer a {
+    color: var(--sky) !important;
+  }
+  footer a:hover {
+    color: var(--yellow) !important;
+  }
+
+  /* ── 10. SECTION HEADINGS GLOBAL ───────────────────────────── */
+  h2 {
+    color: #FFFFFF !important;
+  }
+  h3 {
+    color: var(--sky) !important;
+  }
+  h4 {
+    color: var(--yellow) !important;
+  }
+
+  .section-eyebrow,
+  [class*="eyebrow"],
+  p[style*="letter-spacing"],
+  p[style*="uppercase"] {
+    color: var(--sky) !important;
+  }
+
+  /* ── 11. WAVY SECTION DIVIDERS ─────────────────────────────── */
+  section + section::before {
+    content: "";
+    display: block;
+    height: 48px;
+    background: inherit;
+  }
+
+  /* ── 12. SCROLLBAR ─────────────────────────────────────────── */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #1B0B4E; }
+  ::-webkit-scrollbar-thumb {
+    background: var(--green);
+    border-radius: 4px;
+  }
+  </style>
 </head>
 <body>
 
@@ -632,6 +858,176 @@
       </div>
     </div>
   </section>
+
+  <!-- ===== ROBOT ANANSE SECTION ===== -->
+<section id="robot-ananse" style="
+  background-color: #1c1c10;
+  padding: 80px 24px;
+  font-family: inherit;
+">
+  <div style="max-width: 1000px; margin: 0 auto;">
+
+    <!-- Section label -->
+    <p style="
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #4ade80;
+      margin: 0 0 12px 0;
+    ">🕷️ Meet the Mascot</p>
+
+    <!-- Two-column layout: text left, character card right -->
+    <div style="
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      align-items: center;
+    ">
+
+      <!-- LEFT: Text content -->
+      <div style="flex: 1 1 300px; min-width: 280px;">
+        <h2 style="
+          font-size: clamp(2rem, 5vw, 3rem);
+          font-weight: 800;
+          color: #ffffff;
+          line-height: 1.15;
+          margin: 0 0 20px 0;
+        ">
+          Robot Ananse —<br>
+          <span style="color: #4ade80;">Ghana's Cleverest Spider</span>
+        </h2>
+
+        <p style="
+          font-size: 1.05rem;
+          color: #a8a090;
+          line-height: 1.75;
+          margin: 0 0 24px 0;
+        ">
+          Inspired by the legendary Ghanaian trickster Kweku Ananse, Robot Ananse is a tiny spider-robot with a massive brain. He appears in every issue as your child's guide — cracking puzzles, starring in the comic strip, and teaching computer thinking through storytelling.
+        </p>
+
+        <p style="
+          font-size: 1.05rem;
+          color: #a8a090;
+          line-height: 1.75;
+          margin: 0 0 32px 0;
+        ">
+          He is mischievous, curious, and always three steps ahead — just like the best learners.
+        </p>
+
+        <!-- Trait pills -->
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px;">
+          <span style="background:#4ade8020; border:1px solid #4ade8055; color:#4ade80; padding:6px 16px; border-radius:50px; font-size:0.85rem; font-weight:600;">🧠 Problem Solver</span>
+          <span style="background:#f9731620; border:1px solid #f9731655; color:#f97316; padding:6px 16px; border-radius:50px; font-size:0.85rem; font-weight:600;">📖 Storyteller</span>
+          <span style="background:#a78bfa20; border:1px solid #a78bfa55; color:#a78bfa; padding:6px 16px; border-radius:50px; font-size:0.85rem; font-weight:600;">🤖 Robot Builder</span>
+          <span style="background:#fb923c20; border:1px solid #fb923c55; color:#fb923c; padding:6px 16px; border-radius:50px; font-size:0.85rem; font-weight:600;">🕷️ Ghanaian Legend</span>
+        </div>
+
+        <!-- Quote -->
+        <blockquote style="
+          border-left: 3px solid #4ade80;
+          margin: 0;
+          padding: 16px 20px;
+          background: #ffffff08;
+          border-radius: 0 12px 12px 0;
+        ">
+          <p style="font-style: italic; color: #d0c8b8; font-size: 1rem; margin: 0 0 8px 0;">
+            "By the spider's web, every problem has a path through it — you just have to think."
+          </p>
+          <cite style="font-size: 0.8rem; color: #4ade80; font-weight: 600; font-style: normal;">
+            — Robot Ananse, Issue 1: Robots &amp; Machines
+          </cite>
+        </blockquote>
+      </div>
+
+      <!-- RIGHT: Character image + Feature cards -->
+      <div style="flex: 1 1 280px; min-width: 260px; display: flex; flex-direction: column; gap: 16px;">
+
+        <div style="text-align: center; margin-bottom: 8px;">
+          <img
+            src="./Robot_Ananse_the_Explorer.svg"
+            alt="Robot Ananse the Explorer — Techten Planet mascot"
+            style="width: 100%; max-width: 320px; height: auto; filter: drop-shadow(0 12px 32px rgba(74,222,128,0.25));"
+          >
+        </div>
+
+        <div style="background:#ffffff0a; border:1px solid #ffffff15; border-radius:16px; padding:20px 22px; display:flex; gap:16px; align-items:flex-start;">
+          <div style="font-size:1.8rem; line-height:1;">🗞️</div>
+          <div>
+            <h4 style="color:#ffffff; font-size:0.95rem; font-weight:700; margin:0 0 6px 0;">Comic Strip — Every Issue</h4>
+            <p style="color:#a8a090; font-size:0.88rem; line-height:1.6; margin:0;">A brand-new Robot Ananse story in every issue. He explores a new theme, gets into trouble, and thinks his way out.</p>
+          </div>
+        </div>
+
+        <div style="background:#ffffff0a; border:1px solid #ffffff15; border-radius:16px; padding:20px 22px; display:flex; gap:16px; align-items:flex-start;">
+          <div style="font-size:1.8rem; line-height:1;">💻</div>
+          <div>
+            <h4 style="color:#ffffff; font-size:0.95rem; font-weight:700; margin:0 0 6px 0;">Computer Thinking Host</h4>
+            <p style="color:#a8a090; font-size:0.88rem; line-height:1.6; margin:0;">Ananse guides kids through algorithms, sequences, and logical thinking — making coding concepts feel like play.</p>
+          </div>
+        </div>
+
+        <div style="background:#ffffff0a; border:1px solid #ffffff15; border-radius:16px; padding:20px 22px; display:flex; gap:16px; align-items:flex-start;">
+          <div style="font-size:1.8rem; line-height:1;">🏆</div>
+          <div>
+            <h4 style="color:#ffffff; font-size:0.95rem; font-weight:700; margin:0 0 6px 0;">Monthly Prize Challenge</h4>
+            <p style="color:#a8a090; font-size:0.88rem; line-height:1.6; margin:0;">Each issue ends with Ananse's prize challenge — a grid puzzle or logic game kids can submit to win prizes.</p>
+          </div>
+        </div>
+
+        <div style="background: linear-gradient(135deg, #4ade8018, #f9731618); border:1px solid #4ade8033; border-radius:16px; padding:20px 22px; display:flex; gap:16px; align-items:flex-start;">
+          <div style="font-size:1.8rem; line-height:1;">🔒</div>
+          <div>
+            <h4 style="color:#4ade80; font-size:0.95rem; font-weight:700; margin:0 0 6px 0;">Trademarked Character</h4>
+            <p style="color:#a8a090; font-size:0.88rem; line-height:1.6; margin:0;">Robot Ananse™ is a Techten Ghana ULC original. His design and stories are protected — uniquely Ghanaian, uniquely ours.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div style="
+      margin-top: 52px;
+      padding-top: 40px;
+      border-top: 1px solid #ffffff12;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    ">
+      <div style="flex: 1 1 300px;">
+        <p style="color:#ffffff; font-size:1.1rem; font-weight:700; margin:0 0 4px 0;">Ready to meet Robot Ananse in person?</p>
+        <p style="color:#a8a090; font-size:0.9rem; margin:0;">He's waiting in Issue 1 — Robots &amp; Machines.</p>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="#register" style="
+          background: #f97316;
+          color: #fff;
+          font-weight: 700;
+          font-size: 0.95rem;
+          padding: 14px 28px;
+          border-radius: 50px;
+          text-decoration: none;
+          display: inline-block;
+        ">↓ Subscribe Now</a>
+        <a href="#whats-inside" style="
+          border: 1.5px solid #ffffff30;
+          color: #ffffff;
+          font-weight: 600;
+          font-size: 0.95rem;
+          padding: 13px 24px;
+          border-radius: 50px;
+          text-decoration: none;
+          display: inline-block;
+        ">See What's Inside</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+  <!-- ===== END ROBOT ANANSE SECTION ===== -->
 
   <!-- WHAT'S INSIDE -->
   <section class="inside" id="inside" aria-labelledby="inside-title">
