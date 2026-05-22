@@ -684,9 +684,6 @@ export const formsRoutes = [
             'Submitted Date': {
               date: { start: new Date().toISOString().split('T')[0] }
             },
-            'Status': {
-              select: { name: 'New' }
-            },
             'Source': {
               select: { name: 'Career Programme Form' }
             }
