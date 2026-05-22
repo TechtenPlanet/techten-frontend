@@ -51,3 +51,6 @@ services:
       - key: NOTION_VOLUNTEER_DATABASE_ID
         scope: RUN_TIME
         value: ${NOTION_VOLUNTEER_DATABASE_ID}
+      - key: NOTION_CAREER_PROGRAMME_DB_ID
+        scope: RUN_TIME
+        value: ${NOTION_CAREER_PROGRAMME_DB_ID}

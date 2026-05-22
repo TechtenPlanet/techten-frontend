@@ -7,7 +7,8 @@ import {
   PARTNERSHIP_DB_ID,
   SPONSORSHIP_DB_ID,
   MENTORSHIP_DB_ID,
-  COURSE_ALERTS_DB_ID
+  COURSE_ALERTS_DB_ID,
+  CAREER_PROGRAMME_DB_ID
 } from '../config/notion.js';
 
 export const formsRoutes = [
@@ -608,6 +609,99 @@ export const formsRoutes = [
         console.error('Course Alert API Error:', err);
         const details = err?.body?.message || err?.message;
         return h.response({ error: 'Failed to submit course alert', details }).code(500);
+      }
+    },
+  },
+
+  // Career Programme Expression of Interest Route
+  {
+    method: 'POST',
+    path: '/career-programme',
+    handler: async (request, h) => {
+      try {
+        const {
+          fullName,
+          email,
+          phone,
+          age,
+          location,
+          courseCompleted,
+          techSkills,
+          employmentStatus,
+          desiredRole,
+          aboutMe,
+          heardFrom,
+          agreeToMarketing = false,
+        } = request.payload;
+
+        if (!CAREER_PROGRAMME_DB_ID) {
+          return h.response({ error: 'Career programme database is not configured.' }).code(500);
+        }
+
+        if (!fullName || !email || !phone || !courseCompleted || !employmentStatus || !desiredRole || !heardFrom) {
+          return h.response({ error: 'Missing required fields' }).code(400);
+        }
+
+        const response = await notion.pages.create({
+          parent: { database_id: CAREER_PROGRAMME_DB_ID },
+          properties: {
+            'Name': {
+              title: [{ text: { content: fullName } }]
+            },
+            'Email': {
+              email: email
+            },
+            'Phone': {
+              phone_number: phone
+            },
+            'Age': {
+              number: age ? parseInt(age) : null
+            },
+            'Location': {
+              rich_text: [{ text: { content: location || '' } }]
+            },
+            'Course Completed': {
+              select: { name: courseCompleted }
+            },
+            'Tech Skills': {
+              rich_text: [{ text: { content: techSkills || '' } }]
+            },
+            'Employment Status': {
+              select: { name: employmentStatus }
+            },
+            'Desired Role': {
+              select: { name: desiredRole }
+            },
+            'About Me': {
+              rich_text: [{ text: { content: aboutMe || '' } }]
+            },
+            'How Heard About Us': {
+              select: { name: heardFrom }
+            },
+            'Marketing Consent': {
+              checkbox: agreeToMarketing
+            },
+            'Submitted Date': {
+              date: { start: new Date().toISOString().split('T')[0] }
+            },
+            'Status': {
+              select: { name: 'New' }
+            },
+            'Source': {
+              select: { name: 'Career Programme Form' }
+            }
+          }
+        });
+
+        return {
+          success: true,
+          message: 'Career programme application submitted successfully',
+          id: response.id
+        };
+      } catch (err) {
+        console.error('Career Programme API Error:', err);
+        const details = err?.body?.message || err?.message;
+        return h.response({ error: 'Failed to submit career programme application', details }).code(500);
       }
     },
   }

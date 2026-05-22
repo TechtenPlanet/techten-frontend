@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import style from './Forms.module.css';
 import { FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
-
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xgodvbnw';
+import { apiPost } from '../../utils/apiClient';
 
 const CareerProgrammeForm = () => {
   const [formData, setFormData] = useState({
@@ -66,16 +65,8 @@ const CareerProgrammeForm = () => {
     };
 
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload),
-      });
-      if (res.ok) {
-        setFormStatus('success');
-      } else {
-        setFormStatus('error');
-      }
+      await apiPost('/api/career-programme', payload);
+      setFormStatus('success');
     } catch {
       setFormStatus('error');
     }
